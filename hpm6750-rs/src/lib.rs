@@ -3033,7 +3033,7 @@ impl core::fmt::Debug for SYSCTL {
 }
 #[doc = "SYSCTL"]
 pub mod sysctl;
-#[doc = "IOC"]
+#[doc = "Input/Output Control"]
 pub struct IOC {
     _marker: PhantomData<*const ()>,
 }
@@ -3059,7 +3059,7 @@ impl core::fmt::Debug for IOC {
         f.debug_struct("IOC").finish()
     }
 }
-#[doc = "IOC"]
+#[doc = "Input/Output Control"]
 pub mod ioc;
 #[doc = "PIOC"]
 pub struct PIOC {

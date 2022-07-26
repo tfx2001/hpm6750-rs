@@ -9,13 +9,13 @@ use riscv_rt::entry;
 fn board_turn_off_rgb_led(dp: &Peripherals) {
     let ioc = &dp.IOC;
 
-    ioc.pad_pb18_func_ctl.write(|w| unsafe { w.alt_select().bits(0) });
-    ioc.pad_pb19_func_ctl.write(|w| unsafe { w.alt_select().bits(0) });
-    ioc.pad_pb20_func_ctl.write(|w| unsafe { w.alt_select().bits(0) });
+    ioc.pad_b[18].function.modify(|_, w| unsafe { w.alternate().bits(0) });
+    ioc.pad_b[19].function.modify(|_, w| unsafe { w.alternate().bits(0) });
+    ioc.pad_b[20].function.modify(|_, w| unsafe { w.alternate().bits(0) });
 
-    ioc.pad_pb18_pad_ctl.write(|w| w.ps().bit(true).pe().bit(true));
-    ioc.pad_pb19_pad_ctl.write(|w| w.ps().bit(true).pe().bit(true));
-    ioc.pad_pb20_pad_ctl.write(|w| w.ps().bit(true).pe().bit(true));
+    ioc.pad_b[18].pad.modify(|_, w| w.pull_enable().enable().pull_direction().down());
+    ioc.pad_b[19].pad.modify(|_, w| w.pull_enable().enable().pull_direction().down());
+    ioc.pad_b[20].pad.modify(|_, w| w.pull_enable().enable().pull_direction().down());
 }
 
 fn board_init_led_pins(dp: &Peripherals) {
