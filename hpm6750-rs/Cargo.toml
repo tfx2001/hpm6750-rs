@@ -1,0 +1,17 @@
+[package]
+authors = ["tfx2001 <tfx2001@outlook.com>"]
+edition = "2021"
+name = "hpm6750-rs"
+version = "0.1.0"
+
+[dependencies]
+bare-metal = "1"
+riscv = "0.8.0"
+vcell = "0.1.0"
+
+[dependencies.riscv-rt]
+optional = true
+version = "0.9.0"
+
+[features]
+rt = ["riscv-rt"]

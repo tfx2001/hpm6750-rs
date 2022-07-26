@@ -1,0 +1,80 @@
+#[doc = "Register `BATT_GPR7` reader"]
+pub struct R(crate::R<BATT_GPR7_SPEC>);
+impl core::ops::Deref for R {
+    type Target = crate::R<BATT_GPR7_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl From<crate::R<BATT_GPR7_SPEC>> for R {
+    #[inline(always)]
+    fn from(reader: crate::R<BATT_GPR7_SPEC>) -> Self {
+        R(reader)
+    }
+}
+#[doc = "Register `BATT_GPR7` writer"]
+pub struct W(crate::W<BATT_GPR7_SPEC>);
+impl core::ops::Deref for W {
+    type Target = crate::W<BATT_GPR7_SPEC>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+impl core::ops::DerefMut for W {
+    #[inline(always)]
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+impl From<crate::W<BATT_GPR7_SPEC>> for W {
+    #[inline(always)]
+    fn from(writer: crate::W<BATT_GPR7_SPEC>) -> Self {
+        W(writer)
+    }
+}
+#[doc = "Field `GPR` reader - Generic control"]
+pub type GPR_R = crate::FieldReader<u32, u32>;
+#[doc = "Field `GPR` writer - Generic control"]
+pub type GPR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BATT_GPR7_SPEC, u32, u32, 32, O>;
+impl R {
+    #[doc = "Bits 0:31 - Generic control"]
+    #[inline(always)]
+    pub fn gpr(&self) -> GPR_R {
+        GPR_R::new(self.bits)
+    }
+}
+impl W {
+    #[doc = "Bits 0:31 - Generic control"]
+    #[inline(always)]
+    pub fn gpr(&mut self) -> GPR_W<0> {
+        GPR_W::new(self)
+    }
+    #[doc = "Writes raw bits to the register."]
+    #[inline(always)]
+    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
+        self.0.bits(bits);
+        self
+    }
+}
+#[doc = "Generic control\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [batt_gpr7](index.html) module"]
+pub struct BATT_GPR7_SPEC;
+impl crate::RegisterSpec for BATT_GPR7_SPEC {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [batt_gpr7::R](R) reader structure"]
+impl crate::Readable for BATT_GPR7_SPEC {
+    type Reader = R;
+}
+#[doc = "`write(|w| ..)` method takes [batt_gpr7::W](W) writer structure"]
+impl crate::Writable for BATT_GPR7_SPEC {
+    type Writer = W;
+}
+#[doc = "`reset()` method sets BATT_GPR7 to value 0"]
+impl crate::Resettable for BATT_GPR7_SPEC {
+    #[inline(always)]
+    fn reset_value() -> Self::Ux {
+        0
+    }
+}

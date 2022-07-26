@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "hpm6750-rs",
+    "blink"
+]

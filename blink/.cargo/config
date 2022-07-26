@@ -1,0 +1,9 @@
+[target.riscv32imac-unknown-none-elf]
+rustflags = [
+  "-C", "link-arg=-Tdevice.x",
+  "-C", "link-arg=-Tlink.x",
+  "-C", "link-arg=-Map=blink.map",
+]
+
+[build]
+target = "riscv32imac-unknown-none-elf"
