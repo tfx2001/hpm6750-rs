@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - flag for glitch detected, write 1 to clear this flag 0: glitch not detected 1: glitch detected"]
     #[inline(always)]
+    #[must_use]
     pub fn flag(&mut self) -> FLAG_W<0> {
         FLAG_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for MONITOR_CLOCK1_STATUS_SPEC {
 #[doc = "`write(|w| ..)` method takes [monitor_clock1_status::W](W) writer structure"]
 impl crate::Writable for MONITOR_CLOCK1_STATUS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MONITOR_CLOCK1_STATUS to value 0"]
 impl crate::Resettable for MONITOR_CLOCK1_STATUS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

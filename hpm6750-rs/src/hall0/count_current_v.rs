@@ -19,7 +19,7 @@ impl R {
     #[doc = "Bits 0:27 - vcnt counter"]
     #[inline(always)]
     pub fn vcnt(&self) -> VCNT_R {
-        VCNT_R::new((self.bits & 0x0fff_ffff) as u32)
+        VCNT_R::new(self.bits & 0x0fff_ffff)
     }
 }
 #[doc = "V counter\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [count_current_v](index.html) module"]
@@ -33,8 +33,5 @@ impl crate::Readable for COUNT_CURRENT_V_SPEC {
 }
 #[doc = "`reset()` method sets COUNT_CURRENT_V to value 0"]
 impl crate::Resettable for COUNT_CURRENT_V_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

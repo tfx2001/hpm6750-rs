@@ -34,50 +34,53 @@ impl From<crate::W<BGND_CL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `R` reader - Red component of the default color displayed in the sectors where no layer is active."]
-pub type R_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `R` writer - Red component of the default color displayed in the sectors where no layer is active."]
-pub type R_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BGND_CL_SPEC, u8, u8, 8, O>;
-#[doc = "Field `G` reader - Green component of the default color displayed in the sectors where no layer is active."]
-pub type G_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `G` writer - Green component of the default color displayed in the sectors where no layer is active."]
-pub type G_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BGND_CL_SPEC, u8, u8, 8, O>;
 #[doc = "Field `B` reader - Blue component of the default color displayed in the sectors where no layer is active."]
 pub type B_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `B` writer - Blue component of the default color displayed in the sectors where no layer is active."]
 pub type B_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BGND_CL_SPEC, u8, u8, 8, O>;
+#[doc = "Field `G` reader - Green component of the default color displayed in the sectors where no layer is active."]
+pub type G_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `G` writer - Green component of the default color displayed in the sectors where no layer is active."]
+pub type G_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BGND_CL_SPEC, u8, u8, 8, O>;
+#[doc = "Field `R` reader - Red component of the default color displayed in the sectors where no layer is active."]
+pub type R_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `R` writer - Red component of the default color displayed in the sectors where no layer is active."]
+pub type R_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BGND_CL_SPEC, u8, u8, 8, O>;
 impl R {
-    #[doc = "Bits 16:23 - Red component of the default color displayed in the sectors where no layer is active."]
+    #[doc = "Bits 0:7 - Blue component of the default color displayed in the sectors where no layer is active."]
     #[inline(always)]
-    pub fn r(&self) -> R_R {
-        R_R::new(((self.bits >> 16) & 0xff) as u8)
+    pub fn b(&self) -> B_R {
+        B_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - Green component of the default color displayed in the sectors where no layer is active."]
     #[inline(always)]
     pub fn g(&self) -> G_R {
         G_R::new(((self.bits >> 8) & 0xff) as u8)
     }
-    #[doc = "Bits 0:7 - Blue component of the default color displayed in the sectors where no layer is active."]
+    #[doc = "Bits 16:23 - Red component of the default color displayed in the sectors where no layer is active."]
     #[inline(always)]
-    pub fn b(&self) -> B_R {
-        B_R::new((self.bits & 0xff) as u8)
+    pub fn r(&self) -> R_R {
+        R_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 16:23 - Red component of the default color displayed in the sectors where no layer is active."]
+    #[doc = "Bits 0:7 - Blue component of the default color displayed in the sectors where no layer is active."]
     #[inline(always)]
-    pub fn r(&mut self) -> R_W<16> {
-        R_W::new(self)
+    #[must_use]
+    pub fn b(&mut self) -> B_W<0> {
+        B_W::new(self)
     }
     #[doc = "Bits 8:15 - Green component of the default color displayed in the sectors where no layer is active."]
     #[inline(always)]
+    #[must_use]
     pub fn g(&mut self) -> G_W<8> {
         G_W::new(self)
     }
-    #[doc = "Bits 0:7 - Blue component of the default color displayed in the sectors where no layer is active."]
+    #[doc = "Bits 16:23 - Red component of the default color displayed in the sectors where no layer is active."]
     #[inline(always)]
-    pub fn b(&mut self) -> B_W<0> {
-        B_W::new(self)
+    #[must_use]
+    pub fn r(&mut self) -> R_W<16> {
+        R_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -98,11 +101,10 @@ impl crate::Readable for BGND_CL_SPEC {
 #[doc = "`write(|w| ..)` method takes [bgnd_cl::W](W) writer structure"]
 impl crate::Writable for BGND_CL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets BGND_CL to value 0"]
 impl crate::Resettable for BGND_CL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

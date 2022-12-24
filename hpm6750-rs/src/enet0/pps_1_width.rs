@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - PPS1 Output Signal Width These bits store the width between the rising edge and corresponding falling edge of the PPS1 signal output in terms of units of sub-second increment value. You need to program one value less than the required interval. For example, if PTP reference clock is 50 MHz (period of 20ns), and desired width between the rising and corresponding falling edges of PPS1 signal output is 80ns (that is, four units of sub-second increment value), then you should program value 3 (4 – 1) in this register."]
     #[inline(always)]
+    #[must_use]
     pub fn ppswidth(&mut self) -> PPSWIDTH_W<0> {
         PPSWIDTH_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for PPS_1_WIDTH_SPEC {
 #[doc = "`write(|w| ..)` method takes [pps_1_width::W](W) writer structure"]
 impl crate::Writable for PPS_1_WIDTH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PPS_1_WIDTH to value 0"]
 impl crate::Resettable for PPS_1_WIDTH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

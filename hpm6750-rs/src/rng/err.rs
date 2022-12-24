@@ -13,20 +13,20 @@ impl From<crate::R<ERR_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `FUFE` reader - FIFO access error(underflow)"]
-pub type FUFE_R = crate::BitReader<bool>;
 #[doc = "Field `SCKERR` reader - Self-test error Indicates that the RNG failed the most recent self test. This bit is sticky and can only be reset by a hardware reset or by writing 1 to the CMD\\[CE\\]"]
 pub type SCKERR_R = crate::BitReader<bool>;
+#[doc = "Field `FUFE` reader - FIFO access error(underflow)"]
+pub type FUFE_R = crate::BitReader<bool>;
 impl R {
-    #[doc = "Bit 5 - FIFO access error(underflow)"]
-    #[inline(always)]
-    pub fn fufe(&self) -> FUFE_R {
-        FUFE_R::new(((self.bits >> 5) & 1) != 0)
-    }
     #[doc = "Bit 3 - Self-test error Indicates that the RNG failed the most recent self test. This bit is sticky and can only be reset by a hardware reset or by writing 1 to the CMD\\[CE\\]"]
     #[inline(always)]
     pub fn sckerr(&self) -> SCKERR_R {
         SCKERR_R::new(((self.bits >> 3) & 1) != 0)
+    }
+    #[doc = "Bit 5 - FIFO access error(underflow)"]
+    #[inline(always)]
+    pub fn fufe(&self) -> FUFE_R {
+        FUFE_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
 #[doc = "Error Registers\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [err](index.html) module"]
@@ -40,8 +40,5 @@ impl crate::Readable for ERR_SPEC {
 }
 #[doc = "`reset()` method sets ERR to value 0"]
 impl crate::Resettable for ERR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

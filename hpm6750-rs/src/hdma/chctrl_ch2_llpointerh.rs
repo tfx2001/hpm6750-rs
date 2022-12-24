@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - High part of the pointer to the next descriptor. This register exists only when the address bus width is wider than 32 bits."]
     #[inline(always)]
+    #[must_use]
     pub fn llpointerh(&mut self) -> LLPOINTERH_W<0> {
         LLPOINTERH_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for CHCTRL_CH2_LLPOINTERH_SPEC {
 #[doc = "`write(|w| ..)` method takes [chctrl_ch2_llpointerh::W](W) writer structure"]
 impl crate::Writable for CHCTRL_CH2_LLPOINTERH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CHCTRL_CH2_LLPOINTERH to value 0"]
 impl crate::Resettable for CHCTRL_CH2_LLPOINTERH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

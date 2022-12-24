@@ -34,36 +34,38 @@ impl From<crate::W<READ_CONTROL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `BLOCK_PK_READ` reader - asymmetric key readout control, if this bit is written to 1, it will hold 1 until next reset 0: key can be read out 1: key cannot be read out"]
-pub type BLOCK_PK_READ_R = crate::BitReader<bool>;
-#[doc = "Field `BLOCK_PK_READ` writer - asymmetric key readout control, if this bit is written to 1, it will hold 1 until next reset 0: key can be read out 1: key cannot be read out"]
-pub type BLOCK_PK_READ_W<'a, const O: u8> = crate::BitWriter<'a, u32, READ_CONTROL_SPEC, bool, O>;
 #[doc = "Field `BLOCK_SMK_READ` reader - symmetric key readout control, if this bit is written to 1, it will hold 1 until next reset 0: key can be read out 1: key cannot be read out"]
 pub type BLOCK_SMK_READ_R = crate::BitReader<bool>;
 #[doc = "Field `BLOCK_SMK_READ` writer - symmetric key readout control, if this bit is written to 1, it will hold 1 until next reset 0: key can be read out 1: key cannot be read out"]
 pub type BLOCK_SMK_READ_W<'a, const O: u8> = crate::BitWriter<'a, u32, READ_CONTROL_SPEC, bool, O>;
+#[doc = "Field `BLOCK_PK_READ` reader - asymmetric key readout control, if this bit is written to 1, it will hold 1 until next reset 0: key can be read out 1: key cannot be read out"]
+pub type BLOCK_PK_READ_R = crate::BitReader<bool>;
+#[doc = "Field `BLOCK_PK_READ` writer - asymmetric key readout control, if this bit is written to 1, it will hold 1 until next reset 0: key can be read out 1: key cannot be read out"]
+pub type BLOCK_PK_READ_W<'a, const O: u8> = crate::BitWriter<'a, u32, READ_CONTROL_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 16 - asymmetric key readout control, if this bit is written to 1, it will hold 1 until next reset 0: key can be read out 1: key cannot be read out"]
-    #[inline(always)]
-    pub fn block_pk_read(&self) -> BLOCK_PK_READ_R {
-        BLOCK_PK_READ_R::new(((self.bits >> 16) & 1) != 0)
-    }
     #[doc = "Bit 0 - symmetric key readout control, if this bit is written to 1, it will hold 1 until next reset 0: key can be read out 1: key cannot be read out"]
     #[inline(always)]
     pub fn block_smk_read(&self) -> BLOCK_SMK_READ_R {
         BLOCK_SMK_READ_R::new((self.bits & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bit 16 - asymmetric key readout control, if this bit is written to 1, it will hold 1 until next reset 0: key can be read out 1: key cannot be read out"]
     #[inline(always)]
-    pub fn block_pk_read(&mut self) -> BLOCK_PK_READ_W<16> {
-        BLOCK_PK_READ_W::new(self)
+    pub fn block_pk_read(&self) -> BLOCK_PK_READ_R {
+        BLOCK_PK_READ_R::new(((self.bits >> 16) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bit 0 - symmetric key readout control, if this bit is written to 1, it will hold 1 until next reset 0: key can be read out 1: key cannot be read out"]
     #[inline(always)]
+    #[must_use]
     pub fn block_smk_read(&mut self) -> BLOCK_SMK_READ_W<0> {
         BLOCK_SMK_READ_W::new(self)
+    }
+    #[doc = "Bit 16 - asymmetric key readout control, if this bit is written to 1, it will hold 1 until next reset 0: key can be read out 1: key cannot be read out"]
+    #[inline(always)]
+    #[must_use]
+    pub fn block_pk_read(&mut self) -> BLOCK_PK_READ_W<16> {
+        BLOCK_PK_READ_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for READ_CONTROL_SPEC {
 #[doc = "`write(|w| ..)` method takes [read_control::W](W) writer structure"]
 impl crate::Writable for READ_CONTROL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets READ_CONTROL to value 0"]
 impl crate::Resettable for READ_CONTROL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

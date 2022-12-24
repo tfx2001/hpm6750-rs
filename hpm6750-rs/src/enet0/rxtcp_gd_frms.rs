@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Number of good IP datagrams with a good TCP payload"]
     #[inline(always)]
+    #[must_use]
     pub fn frmcnt(&mut self) -> FRMCNT_W<0> {
         FRMCNT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for RXTCP_GD_FRMS_SPEC {
 #[doc = "`write(|w| ..)` method takes [rxtcp_gd_frms::W](W) writer structure"]
 impl crate::Writable for RXTCP_GD_FRMS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RXTCP_GD_FRMS to value 0"]
 impl crate::Resettable for RXTCP_GD_FRMS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

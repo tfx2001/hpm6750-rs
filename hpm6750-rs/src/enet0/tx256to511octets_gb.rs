@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Number of good and bad frames transmitted with length between 256 and 511 (inclusive) bytes, exclusive of preamble and retried frames."]
     #[inline(always)]
+    #[must_use]
     pub fn frmcnt(&mut self) -> FRMCNT_W<0> {
         FRMCNT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for TX256TO511OCTETS_GB_SPEC {
 #[doc = "`write(|w| ..)` method takes [tx256to511octets_gb::W](W) writer structure"]
 impl crate::Writable for TX256TO511OCTETS_GB_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TX256TO511OCTETS_GB to value 0"]
 impl crate::Resettable for TX256TO511OCTETS_GB_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

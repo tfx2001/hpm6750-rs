@@ -34,36 +34,38 @@ impl From<crate::W<CHANNEL_CHN2_SR_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `FEDGF` reader - Output falling edge flag. Write 1 to clear this flag."]
-pub type FEDGF_R = crate::BitReader<bool>;
-#[doc = "Field `FEDGF` writer - Output falling edge flag. Write 1 to clear this flag."]
-pub type FEDGF_W<'a, const O: u8> = crate::BitWriter<'a, u32, CHANNEL_CHN2_SR_SPEC, bool, O>;
 #[doc = "Field `REDGF` reader - Output rising edge flag. Write 1 to clear this flag."]
 pub type REDGF_R = crate::BitReader<bool>;
 #[doc = "Field `REDGF` writer - Output rising edge flag. Write 1 to clear this flag."]
 pub type REDGF_W<'a, const O: u8> = crate::BitWriter<'a, u32, CHANNEL_CHN2_SR_SPEC, bool, O>;
+#[doc = "Field `FEDGF` reader - Output falling edge flag. Write 1 to clear this flag."]
+pub type FEDGF_R = crate::BitReader<bool>;
+#[doc = "Field `FEDGF` writer - Output falling edge flag. Write 1 to clear this flag."]
+pub type FEDGF_W<'a, const O: u8> = crate::BitWriter<'a, u32, CHANNEL_CHN2_SR_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 1 - Output falling edge flag. Write 1 to clear this flag."]
-    #[inline(always)]
-    pub fn fedgf(&self) -> FEDGF_R {
-        FEDGF_R::new(((self.bits >> 1) & 1) != 0)
-    }
     #[doc = "Bit 0 - Output rising edge flag. Write 1 to clear this flag."]
     #[inline(always)]
     pub fn redgf(&self) -> REDGF_R {
         REDGF_R::new((self.bits & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bit 1 - Output falling edge flag. Write 1 to clear this flag."]
     #[inline(always)]
-    pub fn fedgf(&mut self) -> FEDGF_W<1> {
-        FEDGF_W::new(self)
+    pub fn fedgf(&self) -> FEDGF_R {
+        FEDGF_R::new(((self.bits >> 1) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bit 0 - Output rising edge flag. Write 1 to clear this flag."]
     #[inline(always)]
+    #[must_use]
     pub fn redgf(&mut self) -> REDGF_W<0> {
         REDGF_W::new(self)
+    }
+    #[doc = "Bit 1 - Output falling edge flag. Write 1 to clear this flag."]
+    #[inline(always)]
+    #[must_use]
+    pub fn fedgf(&mut self) -> FEDGF_W<1> {
+        FEDGF_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for CHANNEL_CHN2_SR_SPEC {
 #[doc = "`write(|w| ..)` method takes [channel_chn2_sr::W](W) writer structure"]
 impl crate::Writable for CHANNEL_CHN2_SR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CHANNEL_CHN2_SR to value 0"]
 impl crate::Resettable for CHANNEL_CHN2_SR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,36 +34,38 @@ impl From<crate::W<CMD_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `SFTRST` reader - Self-clear"]
-pub type SFTRST_R = crate::BitReader<bool>;
-#[doc = "Field `SFTRST` writer - Self-clear"]
-pub type SFTRST_W<'a, const O: u8> = crate::BitWriter<'a, u32, CMD_SPEC, bool, O>;
 #[doc = "Field `RUN` reader - Enable this module to run."]
 pub type RUN_R = crate::BitReader<bool>;
 #[doc = "Field `RUN` writer - Enable this module to run."]
 pub type RUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CMD_SPEC, bool, O>;
+#[doc = "Field `SFTRST` reader - Self-clear"]
+pub type SFTRST_R = crate::BitReader<bool>;
+#[doc = "Field `SFTRST` writer - Self-clear"]
+pub type SFTRST_W<'a, const O: u8> = crate::BitWriter<'a, u32, CMD_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 1 - Self-clear"]
-    #[inline(always)]
-    pub fn sftrst(&self) -> SFTRST_R {
-        SFTRST_R::new(((self.bits >> 1) & 1) != 0)
-    }
     #[doc = "Bit 0 - Enable this module to run."]
     #[inline(always)]
     pub fn run(&self) -> RUN_R {
         RUN_R::new((self.bits & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bit 1 - Self-clear"]
     #[inline(always)]
-    pub fn sftrst(&mut self) -> SFTRST_W<1> {
-        SFTRST_W::new(self)
+    pub fn sftrst(&self) -> SFTRST_R {
+        SFTRST_R::new(((self.bits >> 1) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bit 0 - Enable this module to run."]
     #[inline(always)]
+    #[must_use]
     pub fn run(&mut self) -> RUN_W<0> {
         RUN_W::new(self)
+    }
+    #[doc = "Bit 1 - Self-clear"]
+    #[inline(always)]
+    #[must_use]
+    pub fn sftrst(&mut self) -> SFTRST_W<1> {
+        SFTRST_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for CMD_SPEC {
 #[doc = "`write(|w| ..)` method takes [cmd::W](W) writer structure"]
 impl crate::Writable for CMD_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CMD to value 0"]
 impl crate::Resettable for CMD_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

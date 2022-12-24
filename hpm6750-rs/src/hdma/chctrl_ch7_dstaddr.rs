@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Low part of the destination starting address. When the transfer completes, the value of {DstAddrH,DstAddrL} is updated to the ending address. This address must be aligned to the destination transfer size; otherwise the error event will be triggered."]
     #[inline(always)]
+    #[must_use]
     pub fn dstaddrl(&mut self) -> DSTADDRL_W<0> {
         DSTADDRL_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for CHCTRL_CH7_DSTADDR_SPEC {
 #[doc = "`write(|w| ..)` method takes [chctrl_ch7_dstaddr::W](W) writer structure"]
 impl crate::Writable for CHCTRL_CH7_DSTADDR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CHCTRL_CH7_DSTADDR to value 0x01"]
 impl crate::Resettable for CHCTRL_CH7_DSTADDR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x01
-    }
+    const RESET_VALUE: Self::Ux = 0x01;
 }

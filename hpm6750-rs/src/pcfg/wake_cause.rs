@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - wake up cause, each bit represents one wake up source, write 1 to clear the register bit 0: wake up source is not active during last wakeup 1: wake up source is active furing last wakeup bit 0: pmic_enable bit 1: debug wakeup bit 4: fuse interrupt bit 7: UART interrupt bit 8: TMR interrupt bit 9: WDG interrupt bit10: GPIO in PMIC interrupt bit11: Security monitor interrupt bit12: Security in PMIC event bit16: Security violation in BATT bit17: GPIO in BATT interrupt bit18: BATT Button interrupt bit19: RTC alarm interrupt"]
     #[inline(always)]
+    #[must_use]
     pub fn cause(&mut self) -> CAUSE_W<0> {
         CAUSE_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for WAKE_CAUSE_SPEC {
 #[doc = "`write(|w| ..)` method takes [wake_cause::W](W) writer structure"]
 impl crate::Writable for WAKE_CAUSE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets WAKE_CAUSE to value 0"]
 impl crate::Resettable for WAKE_CAUSE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

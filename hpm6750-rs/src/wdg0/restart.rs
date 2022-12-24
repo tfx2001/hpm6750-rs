@@ -24,6 +24,7 @@ pub type RESTART_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RESTART_SPEC, 
 impl W {
     #[doc = "Bits 0:15 - Write the magic number ATCWDT200_RESTART_NUM to restart the watchdog timer."]
     #[inline(always)]
+    #[must_use]
     pub fn restart(&mut self) -> RESTART_W<0> {
         RESTART_W::new(self)
     }
@@ -42,11 +43,10 @@ impl crate::RegisterSpec for RESTART_SPEC {
 #[doc = "`write(|w| ..)` method takes [restart::W](W) writer structure"]
 impl crate::Writable for RESTART_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RESTART to value 0"]
 impl crate::Resettable for RESTART_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,36 +34,38 @@ impl From<crate::W<CPU_CPU1_LOCK_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `GPR` reader - Lock bit for CPU_DATA0 to CPU_DATA13, once set, this bit will not clear untile next reset"]
-pub type GPR_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `GPR` writer - Lock bit for CPU_DATA0 to CPU_DATA13, once set, this bit will not clear untile next reset"]
-pub type GPR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CPU_CPU1_LOCK_SPEC, u16, u16, 14, O>;
 #[doc = "Field `LOCK` reader - Lock bit for CPU_LOCK"]
 pub type LOCK_R = crate::BitReader<bool>;
 #[doc = "Field `LOCK` writer - Lock bit for CPU_LOCK"]
 pub type LOCK_W<'a, const O: u8> = crate::BitWriter<'a, u32, CPU_CPU1_LOCK_SPEC, bool, O>;
+#[doc = "Field `GPR` reader - Lock bit for CPU_DATA0 to CPU_DATA13, once set, this bit will not clear untile next reset"]
+pub type GPR_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `GPR` writer - Lock bit for CPU_DATA0 to CPU_DATA13, once set, this bit will not clear untile next reset"]
+pub type GPR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CPU_CPU1_LOCK_SPEC, u16, u16, 14, O>;
 impl R {
-    #[doc = "Bits 2:15 - Lock bit for CPU_DATA0 to CPU_DATA13, once set, this bit will not clear untile next reset"]
-    #[inline(always)]
-    pub fn gpr(&self) -> GPR_R {
-        GPR_R::new(((self.bits >> 2) & 0x3fff) as u16)
-    }
     #[doc = "Bit 1 - Lock bit for CPU_LOCK"]
     #[inline(always)]
     pub fn lock(&self) -> LOCK_R {
         LOCK_R::new(((self.bits >> 1) & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bits 2:15 - Lock bit for CPU_DATA0 to CPU_DATA13, once set, this bit will not clear untile next reset"]
     #[inline(always)]
-    pub fn gpr(&mut self) -> GPR_W<2> {
-        GPR_W::new(self)
+    pub fn gpr(&self) -> GPR_R {
+        GPR_R::new(((self.bits >> 2) & 0x3fff) as u16)
     }
+}
+impl W {
     #[doc = "Bit 1 - Lock bit for CPU_LOCK"]
     #[inline(always)]
+    #[must_use]
     pub fn lock(&mut self) -> LOCK_W<1> {
         LOCK_W::new(self)
+    }
+    #[doc = "Bits 2:15 - Lock bit for CPU_DATA0 to CPU_DATA13, once set, this bit will not clear untile next reset"]
+    #[inline(always)]
+    #[must_use]
+    pub fn gpr(&mut self) -> GPR_W<2> {
+        GPR_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for CPU_CPU1_LOCK_SPEC {
 #[doc = "`write(|w| ..)` method takes [cpu_cpu1_lock::W](W) writer structure"]
 impl crate::Writable for CPU_CPU1_LOCK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CPU_CPU1_LOCK to value 0x02"]
 impl crate::Resettable for CPU_CPU1_LOCK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x02
-    }
+    const RESET_VALUE: Self::Ux = 0x02;
 }

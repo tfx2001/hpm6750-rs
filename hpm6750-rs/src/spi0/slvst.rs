@@ -34,64 +34,68 @@ impl From<crate::W<SLVST_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `UNDERRUN` reader - Data underrun occurs in the last transaction"]
-pub type UNDERRUN_R = crate::BitReader<bool>;
-#[doc = "Field `UNDERRUN` writer - Data underrun occurs in the last transaction"]
-pub type UNDERRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, SLVST_SPEC, bool, O>;
-#[doc = "Field `OVERRUN` reader - Data overrun occurs in the last transaction"]
-pub type OVERRUN_R = crate::BitReader<bool>;
-#[doc = "Field `OVERRUN` writer - Data overrun occurs in the last transaction"]
-pub type OVERRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, SLVST_SPEC, bool, O>;
-#[doc = "Field `READY` reader - Set this bit to indicate that the ATCSPI200 is ready for data transaction. When an SPI transaction other than slave status-reading command ends, this bit will be cleared to 0."]
-pub type READY_R = crate::BitReader<bool>;
-#[doc = "Field `READY` writer - Set this bit to indicate that the ATCSPI200 is ready for data transaction. When an SPI transaction other than slave status-reading command ends, this bit will be cleared to 0."]
-pub type READY_W<'a, const O: u8> = crate::BitWriter<'a, u32, SLVST_SPEC, bool, O>;
 #[doc = "Field `USR_STATUS` reader - User defined status flags"]
 pub type USR_STATUS_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `USR_STATUS` writer - User defined status flags"]
 pub type USR_STATUS_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SLVST_SPEC, u16, u16, 16, O>;
+#[doc = "Field `READY` reader - Set this bit to indicate that the ATCSPI200 is ready for data transaction. When an SPI transaction other than slave status-reading command ends, this bit will be cleared to 0."]
+pub type READY_R = crate::BitReader<bool>;
+#[doc = "Field `READY` writer - Set this bit to indicate that the ATCSPI200 is ready for data transaction. When an SPI transaction other than slave status-reading command ends, this bit will be cleared to 0."]
+pub type READY_W<'a, const O: u8> = crate::BitWriter<'a, u32, SLVST_SPEC, bool, O>;
+#[doc = "Field `OVERRUN` reader - Data overrun occurs in the last transaction"]
+pub type OVERRUN_R = crate::BitReader<bool>;
+#[doc = "Field `OVERRUN` writer - Data overrun occurs in the last transaction"]
+pub type OVERRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, SLVST_SPEC, bool, O>;
+#[doc = "Field `UNDERRUN` reader - Data underrun occurs in the last transaction"]
+pub type UNDERRUN_R = crate::BitReader<bool>;
+#[doc = "Field `UNDERRUN` writer - Data underrun occurs in the last transaction"]
+pub type UNDERRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, SLVST_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 18 - Data underrun occurs in the last transaction"]
+    #[doc = "Bits 0:15 - User defined status flags"]
     #[inline(always)]
-    pub fn underrun(&self) -> UNDERRUN_R {
-        UNDERRUN_R::new(((self.bits >> 18) & 1) != 0)
-    }
-    #[doc = "Bit 17 - Data overrun occurs in the last transaction"]
-    #[inline(always)]
-    pub fn overrun(&self) -> OVERRUN_R {
-        OVERRUN_R::new(((self.bits >> 17) & 1) != 0)
+    pub fn usr_status(&self) -> USR_STATUS_R {
+        USR_STATUS_R::new((self.bits & 0xffff) as u16)
     }
     #[doc = "Bit 16 - Set this bit to indicate that the ATCSPI200 is ready for data transaction. When an SPI transaction other than slave status-reading command ends, this bit will be cleared to 0."]
     #[inline(always)]
     pub fn ready(&self) -> READY_R {
         READY_R::new(((self.bits >> 16) & 1) != 0)
     }
-    #[doc = "Bits 0:15 - User defined status flags"]
+    #[doc = "Bit 17 - Data overrun occurs in the last transaction"]
     #[inline(always)]
-    pub fn usr_status(&self) -> USR_STATUS_R {
-        USR_STATUS_R::new((self.bits & 0xffff) as u16)
+    pub fn overrun(&self) -> OVERRUN_R {
+        OVERRUN_R::new(((self.bits >> 17) & 1) != 0)
+    }
+    #[doc = "Bit 18 - Data underrun occurs in the last transaction"]
+    #[inline(always)]
+    pub fn underrun(&self) -> UNDERRUN_R {
+        UNDERRUN_R::new(((self.bits >> 18) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 18 - Data underrun occurs in the last transaction"]
+    #[doc = "Bits 0:15 - User defined status flags"]
     #[inline(always)]
-    pub fn underrun(&mut self) -> UNDERRUN_W<18> {
-        UNDERRUN_W::new(self)
-    }
-    #[doc = "Bit 17 - Data overrun occurs in the last transaction"]
-    #[inline(always)]
-    pub fn overrun(&mut self) -> OVERRUN_W<17> {
-        OVERRUN_W::new(self)
+    #[must_use]
+    pub fn usr_status(&mut self) -> USR_STATUS_W<0> {
+        USR_STATUS_W::new(self)
     }
     #[doc = "Bit 16 - Set this bit to indicate that the ATCSPI200 is ready for data transaction. When an SPI transaction other than slave status-reading command ends, this bit will be cleared to 0."]
     #[inline(always)]
+    #[must_use]
     pub fn ready(&mut self) -> READY_W<16> {
         READY_W::new(self)
     }
-    #[doc = "Bits 0:15 - User defined status flags"]
+    #[doc = "Bit 17 - Data overrun occurs in the last transaction"]
     #[inline(always)]
-    pub fn usr_status(&mut self) -> USR_STATUS_W<0> {
-        USR_STATUS_W::new(self)
+    #[must_use]
+    pub fn overrun(&mut self) -> OVERRUN_W<17> {
+        OVERRUN_W::new(self)
+    }
+    #[doc = "Bit 18 - Data underrun occurs in the last transaction"]
+    #[inline(always)]
+    #[must_use]
+    pub fn underrun(&mut self) -> UNDERRUN_W<18> {
+        UNDERRUN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -112,11 +116,10 @@ impl crate::Readable for SLVST_SPEC {
 #[doc = "`write(|w| ..)` method takes [slvst::W](W) writer structure"]
 impl crate::Writable for SLVST_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SLVST to value 0"]
 impl crate::Resettable for SLVST_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

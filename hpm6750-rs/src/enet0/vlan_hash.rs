@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - VLAN Hash Table This field contains the 16-bit VLAN Hash Table."]
     #[inline(always)]
+    #[must_use]
     pub fn vlht(&mut self) -> VLHT_W<0> {
         VLHT_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for VLAN_HASH_SPEC {
 #[doc = "`write(|w| ..)` method takes [vlan_hash::W](W) writer structure"]
 impl crate::Writable for VLAN_HASH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets VLAN_HASH to value 0"]
 impl crate::Resettable for VLAN_HASH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

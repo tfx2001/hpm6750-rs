@@ -34,50 +34,53 @@ impl From<crate::W<RC24M_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `RC_TRIMMED` reader - RC24M trim happened, this bit set by hardware after trim value loaded, and stop load, write 0 will clear this bit and reload trim value 0: RC is not trimmed 1: RC is trimmed"]
-pub type RC_TRIMMED_R = crate::BitReader<bool>;
-#[doc = "Field `RC_TRIMMED` writer - RC24M trim happened, this bit set by hardware after trim value loaded, and stop load, write 0 will clear this bit and reload trim value 0: RC is not trimmed 1: RC is trimmed"]
-pub type RC_TRIMMED_W<'a, const O: u8> = crate::BitWriter<'a, u32, RC24M_SPEC, bool, O>;
-#[doc = "Field `TRIM_C` reader - Coarse trim for RC24M, bigger value means faster"]
-pub type TRIM_C_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `TRIM_C` writer - Coarse trim for RC24M, bigger value means faster"]
-pub type TRIM_C_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RC24M_SPEC, u8, u8, 3, O>;
 #[doc = "Field `TRIM_F` reader - Fine trim for RC24M, bigger value means faster"]
 pub type TRIM_F_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `TRIM_F` writer - Fine trim for RC24M, bigger value means faster"]
 pub type TRIM_F_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RC24M_SPEC, u8, u8, 5, O>;
+#[doc = "Field `TRIM_C` reader - Coarse trim for RC24M, bigger value means faster"]
+pub type TRIM_C_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `TRIM_C` writer - Coarse trim for RC24M, bigger value means faster"]
+pub type TRIM_C_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RC24M_SPEC, u8, u8, 3, O>;
+#[doc = "Field `RC_TRIMMED` reader - RC24M trim happened, this bit set by hardware after trim value loaded, and stop load, write 0 will clear this bit and reload trim value 0: RC is not trimmed 1: RC is trimmed"]
+pub type RC_TRIMMED_R = crate::BitReader<bool>;
+#[doc = "Field `RC_TRIMMED` writer - RC24M trim happened, this bit set by hardware after trim value loaded, and stop load, write 0 will clear this bit and reload trim value 0: RC is not trimmed 1: RC is trimmed"]
+pub type RC_TRIMMED_W<'a, const O: u8> = crate::BitWriter<'a, u32, RC24M_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 31 - RC24M trim happened, this bit set by hardware after trim value loaded, and stop load, write 0 will clear this bit and reload trim value 0: RC is not trimmed 1: RC is trimmed"]
+    #[doc = "Bits 0:4 - Fine trim for RC24M, bigger value means faster"]
     #[inline(always)]
-    pub fn rc_trimmed(&self) -> RC_TRIMMED_R {
-        RC_TRIMMED_R::new(((self.bits >> 31) & 1) != 0)
+    pub fn trim_f(&self) -> TRIM_F_R {
+        TRIM_F_R::new((self.bits & 0x1f) as u8)
     }
     #[doc = "Bits 8:10 - Coarse trim for RC24M, bigger value means faster"]
     #[inline(always)]
     pub fn trim_c(&self) -> TRIM_C_R {
         TRIM_C_R::new(((self.bits >> 8) & 7) as u8)
     }
-    #[doc = "Bits 0:4 - Fine trim for RC24M, bigger value means faster"]
+    #[doc = "Bit 31 - RC24M trim happened, this bit set by hardware after trim value loaded, and stop load, write 0 will clear this bit and reload trim value 0: RC is not trimmed 1: RC is trimmed"]
     #[inline(always)]
-    pub fn trim_f(&self) -> TRIM_F_R {
-        TRIM_F_R::new((self.bits & 0x1f) as u8)
+    pub fn rc_trimmed(&self) -> RC_TRIMMED_R {
+        RC_TRIMMED_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 31 - RC24M trim happened, this bit set by hardware after trim value loaded, and stop load, write 0 will clear this bit and reload trim value 0: RC is not trimmed 1: RC is trimmed"]
+    #[doc = "Bits 0:4 - Fine trim for RC24M, bigger value means faster"]
     #[inline(always)]
-    pub fn rc_trimmed(&mut self) -> RC_TRIMMED_W<31> {
-        RC_TRIMMED_W::new(self)
+    #[must_use]
+    pub fn trim_f(&mut self) -> TRIM_F_W<0> {
+        TRIM_F_W::new(self)
     }
     #[doc = "Bits 8:10 - Coarse trim for RC24M, bigger value means faster"]
     #[inline(always)]
+    #[must_use]
     pub fn trim_c(&mut self) -> TRIM_C_W<8> {
         TRIM_C_W::new(self)
     }
-    #[doc = "Bits 0:4 - Fine trim for RC24M, bigger value means faster"]
+    #[doc = "Bit 31 - RC24M trim happened, this bit set by hardware after trim value loaded, and stop load, write 0 will clear this bit and reload trim value 0: RC is not trimmed 1: RC is trimmed"]
     #[inline(always)]
-    pub fn trim_f(&mut self) -> TRIM_F_W<0> {
-        TRIM_F_W::new(self)
+    #[must_use]
+    pub fn rc_trimmed(&mut self) -> RC_TRIMMED_W<31> {
+        RC_TRIMMED_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -98,11 +101,10 @@ impl crate::Readable for RC24M_SPEC {
 #[doc = "`write(|w| ..)` method takes [rc24m::W](W) writer structure"]
 impl crate::Writable for RC24M_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RC24M to value 0x0316"]
 impl crate::Resettable for RC24M_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0316
-    }
+    const RESET_VALUE: Self::Ux = 0x0316;
 }

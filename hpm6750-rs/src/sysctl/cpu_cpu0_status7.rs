@@ -33,8 +33,5 @@ impl crate::Readable for CPU_CPU0_STATUS7_SPEC {
 }
 #[doc = "`reset()` method sets CPU_CPU0_STATUS7 to value 0"]
 impl crate::Resettable for CPU_CPU0_STATUS7_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

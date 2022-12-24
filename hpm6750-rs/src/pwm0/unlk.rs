@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - write 0xB0382607 to unlock the shadow registers of register offset from 0x04 to 0x78, otherwise the shadow registers can not be written."]
     #[inline(always)]
+    #[must_use]
     pub fn shunlk(&mut self) -> SHUNLK_W<0> {
         SHUNLK_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for UNLK_SPEC {
 #[doc = "`write(|w| ..)` method takes [unlk::W](W) writer structure"]
 impl crate::Writable for UNLK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets UNLK to value 0"]
 impl crate::Resettable for UNLK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

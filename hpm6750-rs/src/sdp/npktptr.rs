@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Next Packet Address Pointer"]
     #[inline(always)]
+    #[must_use]
     pub fn npktptr(&mut self) -> NPKTPTR_W<0> {
         NPKTPTR_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for NPKTPTR_SPEC {
 #[doc = "`write(|w| ..)` method takes [npktptr::W](W) writer structure"]
 impl crate::Writable for NPKTPTR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets NPKTPTR to value 0"]
 impl crate::Resettable for NPKTPTR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

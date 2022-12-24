@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - constant value used to add ns counter; such as for 50MHz timer clock, set it to 8'd20"]
     #[inline(always)]
+    #[must_use]
     pub fn ss_incr(&mut self) -> SS_INCR_W<0> {
         SS_INCR_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for PTPC_0_CTRL1_SPEC {
 #[doc = "`write(|w| ..)` method takes [ptpc_0_ctrl1::W](W) writer structure"]
 impl crate::Writable for PTPC_0_CTRL1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PTPC_0_CTRL1 to value 0"]
 impl crate::Resettable for PTPC_0_CTRL1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

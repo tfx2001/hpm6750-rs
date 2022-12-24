@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Interrupt source priority. The valid range of this field is 0-7. 0: Never interrupt 1-7: Interrupt source priority. The larger the value, the higher the priority."]
     #[inline(always)]
+    #[must_use]
     pub fn priority(&mut self) -> PRIORITY_W<0> {
         PRIORITY_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for PRIORITY_PRIORITY24_SPEC {
 #[doc = "`write(|w| ..)` method takes [priority_priority24::W](W) writer structure"]
 impl crate::Writable for PRIORITY_PRIORITY24_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PRIORITY_PRIORITY24 to value 0x01"]
 impl crate::Resettable for PRIORITY_PRIORITY24_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x01
-    }
+    const RESET_VALUE: Self::Ux = 0x01;
 }

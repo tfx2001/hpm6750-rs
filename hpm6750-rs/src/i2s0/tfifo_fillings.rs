@@ -13,34 +13,34 @@ impl From<crate::R<TFIFO_FILLINGS_SPEC>> for R {
         R(reader)
     }
 }
-#[doc = "Field `TX3` reader - TX3 fifo fillings"]
-pub type TX3_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `TX2` reader - TX2 fifo fillings"]
-pub type TX2_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `TX1` reader - TX1 fifo fillings"]
-pub type TX1_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `TX0` reader - TX0 fifo fillings"]
 pub type TX0_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `TX1` reader - TX1 fifo fillings"]
+pub type TX1_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `TX2` reader - TX2 fifo fillings"]
+pub type TX2_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `TX3` reader - TX3 fifo fillings"]
+pub type TX3_R = crate::FieldReader<u8, u8>;
 impl R {
-    #[doc = "Bits 24:31 - TX3 fifo fillings"]
+    #[doc = "Bits 0:7 - TX0 fifo fillings"]
     #[inline(always)]
-    pub fn tx3(&self) -> TX3_R {
-        TX3_R::new(((self.bits >> 24) & 0xff) as u8)
-    }
-    #[doc = "Bits 16:23 - TX2 fifo fillings"]
-    #[inline(always)]
-    pub fn tx2(&self) -> TX2_R {
-        TX2_R::new(((self.bits >> 16) & 0xff) as u8)
+    pub fn tx0(&self) -> TX0_R {
+        TX0_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - TX1 fifo fillings"]
     #[inline(always)]
     pub fn tx1(&self) -> TX1_R {
         TX1_R::new(((self.bits >> 8) & 0xff) as u8)
     }
-    #[doc = "Bits 0:7 - TX0 fifo fillings"]
+    #[doc = "Bits 16:23 - TX2 fifo fillings"]
     #[inline(always)]
-    pub fn tx0(&self) -> TX0_R {
-        TX0_R::new((self.bits & 0xff) as u8)
+    pub fn tx2(&self) -> TX2_R {
+        TX2_R::new(((self.bits >> 16) & 0xff) as u8)
+    }
+    #[doc = "Bits 24:31 - TX3 fifo fillings"]
+    #[inline(always)]
+    pub fn tx3(&self) -> TX3_R {
+        TX3_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 #[doc = "Tx FIFO Filling Level\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tfifo_fillings](index.html) module"]
@@ -54,8 +54,5 @@ impl crate::Readable for TFIFO_FILLINGS_SPEC {
 }
 #[doc = "`reset()` method sets TFIFO_FILLINGS to value 0"]
 impl crate::Resettable for TFIFO_FILLINGS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

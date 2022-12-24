@@ -42,12 +42,13 @@ impl R {
     #[doc = "Bits 0:23 - GPTLD General Purpose Timer Load Value These bit fields are loaded to GPTCNT bits when GPTRST bit is set '1b'. This value represents the time in microseconds minus 1 for the timer duration. Example: for a one millisecond timer, load 1000-1=999 or 0x0003E7. NOTE: Max value is 0xFFFFFF or 16.777215 seconds."]
     #[inline(always)]
     pub fn gptld(&self) -> GPTLD_R {
-        GPTLD_R::new((self.bits & 0x00ff_ffff) as u32)
+        GPTLD_R::new(self.bits & 0x00ff_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:23 - GPTLD General Purpose Timer Load Value These bit fields are loaded to GPTCNT bits when GPTRST bit is set '1b'. This value represents the time in microseconds minus 1 for the timer duration. Example: for a one millisecond timer, load 1000-1=999 or 0x0003E7. NOTE: Max value is 0xFFFFFF or 16.777215 seconds."]
     #[inline(always)]
+    #[must_use]
     pub fn gptld(&mut self) -> GPTLD_W<0> {
         GPTLD_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for GPTIMER1LD_SPEC {
 #[doc = "`write(|w| ..)` method takes [gptimer1ld::W](W) writer structure"]
 impl crate::Writable for GPTIMER1LD_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets GPTIMER1LD to value 0"]
 impl crate::Resettable for GPTIMER1LD_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

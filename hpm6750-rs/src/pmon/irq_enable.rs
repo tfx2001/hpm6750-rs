@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - interrupt enable, each bit represents for one monitor 0: monitor interrupt disabled 1: monitor interrupt enabled"]
     #[inline(always)]
+    #[must_use]
     pub fn enable(&mut self) -> ENABLE_W<0> {
         ENABLE_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for IRQ_ENABLE_SPEC {
 #[doc = "`write(|w| ..)` method takes [irq_enable::W](W) writer structure"]
 impl crate::Writable for IRQ_ENABLE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IRQ_ENABLE to value 0"]
 impl crate::Resettable for IRQ_ENABLE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

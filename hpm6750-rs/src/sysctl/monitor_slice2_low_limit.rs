@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - lower frequency"]
     #[inline(always)]
+    #[must_use]
     pub fn frequency(&mut self) -> FREQUENCY_W<0> {
         FREQUENCY_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for MONITOR_SLICE2_LOW_LIMIT_SPEC {
 #[doc = "`write(|w| ..)` method takes [monitor_slice2_low_limit::W](W) writer structure"]
 impl crate::Writable for MONITOR_SLICE2_LOW_LIMIT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MONITOR_SLICE2_LOW_LIMIT to value 0xffff_ffff"]
 impl crate::Resettable for MONITOR_SLICE2_LOW_LIMIT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0xffff_ffff
-    }
+    const RESET_VALUE: Self::Ux = 0xffff_ffff;
 }

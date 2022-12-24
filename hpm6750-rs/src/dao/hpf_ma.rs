@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Composite value of coef A of the Order-1 HPF"]
     #[inline(always)]
+    #[must_use]
     pub fn coef(&mut self) -> COEF_W<0> {
         COEF_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for HPF_MA_SPEC {
 #[doc = "`write(|w| ..)` method takes [hpf_ma::W](W) writer structure"]
 impl crate::Writable for HPF_MA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets HPF_MA to value 0"]
 impl crate::Resettable for HPF_MA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

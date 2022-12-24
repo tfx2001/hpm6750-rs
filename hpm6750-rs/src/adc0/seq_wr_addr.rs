@@ -33,8 +33,5 @@ impl crate::Readable for SEQ_WR_ADDR_SPEC {
 }
 #[doc = "`reset()` method sets SEQ_WR_ADDR to value 0"]
 impl crate::Resettable for SEQ_WR_ADDR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

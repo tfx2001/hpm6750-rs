@@ -42,12 +42,13 @@ impl R {
     #[doc = "Bits 2:31 - DMA Start Address in Frame Buffer2. Indicates the start address to write data. The embedded DMA controller will read data from RxFIFO and write it from this address through AHB bus. The address should be double words aligned. In Two-Plane Mode, Y buffer2"]
     #[inline(always)]
     pub fn ptr(&self) -> PTR_R {
-        PTR_R::new(((self.bits >> 2) & 0x3fff_ffff) as u32)
+        PTR_R::new((self.bits >> 2) & 0x3fff_ffff)
     }
 }
 impl W {
     #[doc = "Bits 2:31 - DMA Start Address in Frame Buffer2. Indicates the start address to write data. The embedded DMA controller will read data from RxFIFO and write it from this address through AHB bus. The address should be double words aligned. In Two-Plane Mode, Y buffer2"]
     #[inline(always)]
+    #[must_use]
     pub fn ptr(&mut self) -> PTR_W<2> {
         PTR_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for DMASA_FB2_SPEC {
 #[doc = "`write(|w| ..)` method takes [dmasa_fb2::W](W) writer structure"]
 impl crate::Writable for DMASA_FB2_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DMASA_FB2 to value 0"]
 impl crate::Resettable for DMASA_FB2_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

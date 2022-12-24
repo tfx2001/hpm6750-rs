@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - GPIO interrupt enable, each bit represents a bus bit 0: irq is disabled 1: irq is enable"]
     #[inline(always)]
+    #[must_use]
     pub fn irq_en(&mut self) -> IRQ_EN_W<0> {
         IRQ_EN_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for IE_GPIOX_SET_SPEC {
 #[doc = "`write(|w| ..)` method takes [ie_gpiox_set::W](W) writer structure"]
 impl crate::Writable for IE_GPIOX_SET_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IE_GPIOX_SET to value 0"]
 impl crate::Resettable for IE_GPIOX_SET_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

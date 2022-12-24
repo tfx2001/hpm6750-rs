@@ -34,64 +34,68 @@ impl From<crate::W<INTR_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `AXIBUSERR` reader - AXI bus error interrupt AXI Bus error interrupt is generated in following cases: • AXI address is invalid • AXI 8-bit or 16-bit WRAP write/read"]
-pub type AXIBUSERR_R = crate::BitReader<bool>;
-#[doc = "Field `AXIBUSERR` writer - AXI bus error interrupt AXI Bus error interrupt is generated in following cases: • AXI address is invalid • AXI 8-bit or 16-bit WRAP write/read"]
-pub type AXIBUSERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_SPEC, bool, O>;
-#[doc = "Field `AXICMDERR` reader - AXI command error interrupt AXI command error interrupt is generated when AXI command execution timeout."]
-pub type AXICMDERR_R = crate::BitReader<bool>;
-#[doc = "Field `AXICMDERR` writer - AXI command error interrupt AXI command error interrupt is generated when AXI command execution timeout."]
-pub type AXICMDERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_SPEC, bool, O>;
-#[doc = "Field `IPCMDERR` reader - IP command error done interrupt IP command error interrupt is generated in following case: • IP Command Address target invalid device space • IP Command Code unsupported • IP Command triggered when previous command"]
-pub type IPCMDERR_R = crate::BitReader<bool>;
-#[doc = "Field `IPCMDERR` writer - IP command error done interrupt IP command error interrupt is generated in following case: • IP Command Address target invalid device space • IP Command Code unsupported • IP Command triggered when previous command"]
-pub type IPCMDERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_SPEC, bool, O>;
 #[doc = "Field `IPCMDDONE` reader - IP command normal done interrupt"]
 pub type IPCMDDONE_R = crate::BitReader<bool>;
 #[doc = "Field `IPCMDDONE` writer - IP command normal done interrupt"]
 pub type IPCMDDONE_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_SPEC, bool, O>;
+#[doc = "Field `IPCMDERR` reader - IP command error done interrupt IP command error interrupt is generated in following case: • IP Command Address target invalid device space • IP Command Code unsupported • IP Command triggered when previous command"]
+pub type IPCMDERR_R = crate::BitReader<bool>;
+#[doc = "Field `IPCMDERR` writer - IP command error done interrupt IP command error interrupt is generated in following case: • IP Command Address target invalid device space • IP Command Code unsupported • IP Command triggered when previous command"]
+pub type IPCMDERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_SPEC, bool, O>;
+#[doc = "Field `AXICMDERR` reader - AXI command error interrupt AXI command error interrupt is generated when AXI command execution timeout."]
+pub type AXICMDERR_R = crate::BitReader<bool>;
+#[doc = "Field `AXICMDERR` writer - AXI command error interrupt AXI command error interrupt is generated when AXI command execution timeout."]
+pub type AXICMDERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_SPEC, bool, O>;
+#[doc = "Field `AXIBUSERR` reader - AXI bus error interrupt AXI Bus error interrupt is generated in following cases: • AXI address is invalid • AXI 8-bit or 16-bit WRAP write/read"]
+pub type AXIBUSERR_R = crate::BitReader<bool>;
+#[doc = "Field `AXIBUSERR` writer - AXI bus error interrupt AXI Bus error interrupt is generated in following cases: • AXI address is invalid • AXI 8-bit or 16-bit WRAP write/read"]
+pub type AXIBUSERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 3 - AXI bus error interrupt AXI Bus error interrupt is generated in following cases: • AXI address is invalid • AXI 8-bit or 16-bit WRAP write/read"]
+    #[doc = "Bit 0 - IP command normal done interrupt"]
     #[inline(always)]
-    pub fn axibuserr(&self) -> AXIBUSERR_R {
-        AXIBUSERR_R::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bit 2 - AXI command error interrupt AXI command error interrupt is generated when AXI command execution timeout."]
-    #[inline(always)]
-    pub fn axicmderr(&self) -> AXICMDERR_R {
-        AXICMDERR_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn ipcmddone(&self) -> IPCMDDONE_R {
+        IPCMDDONE_R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - IP command error done interrupt IP command error interrupt is generated in following case: • IP Command Address target invalid device space • IP Command Code unsupported • IP Command triggered when previous command"]
     #[inline(always)]
     pub fn ipcmderr(&self) -> IPCMDERR_R {
         IPCMDERR_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 0 - IP command normal done interrupt"]
+    #[doc = "Bit 2 - AXI command error interrupt AXI command error interrupt is generated when AXI command execution timeout."]
     #[inline(always)]
-    pub fn ipcmddone(&self) -> IPCMDDONE_R {
-        IPCMDDONE_R::new((self.bits & 1) != 0)
+    pub fn axicmderr(&self) -> AXICMDERR_R {
+        AXICMDERR_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 3 - AXI bus error interrupt AXI Bus error interrupt is generated in following cases: • AXI address is invalid • AXI 8-bit or 16-bit WRAP write/read"]
+    #[inline(always)]
+    pub fn axibuserr(&self) -> AXIBUSERR_R {
+        AXIBUSERR_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 3 - AXI bus error interrupt AXI Bus error interrupt is generated in following cases: • AXI address is invalid • AXI 8-bit or 16-bit WRAP write/read"]
+    #[doc = "Bit 0 - IP command normal done interrupt"]
     #[inline(always)]
-    pub fn axibuserr(&mut self) -> AXIBUSERR_W<3> {
-        AXIBUSERR_W::new(self)
-    }
-    #[doc = "Bit 2 - AXI command error interrupt AXI command error interrupt is generated when AXI command execution timeout."]
-    #[inline(always)]
-    pub fn axicmderr(&mut self) -> AXICMDERR_W<2> {
-        AXICMDERR_W::new(self)
+    #[must_use]
+    pub fn ipcmddone(&mut self) -> IPCMDDONE_W<0> {
+        IPCMDDONE_W::new(self)
     }
     #[doc = "Bit 1 - IP command error done interrupt IP command error interrupt is generated in following case: • IP Command Address target invalid device space • IP Command Code unsupported • IP Command triggered when previous command"]
     #[inline(always)]
+    #[must_use]
     pub fn ipcmderr(&mut self) -> IPCMDERR_W<1> {
         IPCMDERR_W::new(self)
     }
-    #[doc = "Bit 0 - IP command normal done interrupt"]
+    #[doc = "Bit 2 - AXI command error interrupt AXI command error interrupt is generated when AXI command execution timeout."]
     #[inline(always)]
-    pub fn ipcmddone(&mut self) -> IPCMDDONE_W<0> {
-        IPCMDDONE_W::new(self)
+    #[must_use]
+    pub fn axicmderr(&mut self) -> AXICMDERR_W<2> {
+        AXICMDERR_W::new(self)
+    }
+    #[doc = "Bit 3 - AXI bus error interrupt AXI Bus error interrupt is generated in following cases: • AXI address is invalid • AXI 8-bit or 16-bit WRAP write/read"]
+    #[inline(always)]
+    #[must_use]
+    pub fn axibuserr(&mut self) -> AXIBUSERR_W<3> {
+        AXIBUSERR_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -112,11 +116,10 @@ impl crate::Readable for INTR_SPEC {
 #[doc = "`write(|w| ..)` method takes [intr::W](W) writer structure"]
 impl crate::Writable for INTR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets INTR to value 0"]
 impl crate::Resettable for INTR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

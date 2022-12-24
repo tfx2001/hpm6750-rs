@@ -33,8 +33,5 @@ impl crate::Readable for PTPC_1_CAPT_SNAPH_SPEC {
 }
 #[doc = "`reset()` method sets PTPC_1_CAPT_SNAPH to value 0"]
 impl crate::Resettable for PTPC_1_CAPT_SNAPH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

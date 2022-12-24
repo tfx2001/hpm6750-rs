@@ -34,36 +34,38 @@ impl From<crate::W<KEYADDR_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `INDEX` reader - To write a key to the SDP KEY RAM, the software must first write the desired key index/subword to this register. Key index pointer. The valid indices are 0-\\[number_keys\\]. In the SDP, there is a 16x128 key ram can store 16 AES128 keys or 8 AES 256 Keys; this index is for addressing the 16 128-bit key addresses."]
-pub type INDEX_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `INDEX` writer - To write a key to the SDP KEY RAM, the software must first write the desired key index/subword to this register. Key index pointer. The valid indices are 0-\\[number_keys\\]. In the SDP, there is a 16x128 key ram can store 16 AES128 keys or 8 AES 256 Keys; this index is for addressing the 16 128-bit key addresses."]
-pub type INDEX_W<'a, const O: u8> = crate::FieldWriter<'a, u32, KEYADDR_SPEC, u8, u8, 8, O>;
 #[doc = "Field `SUBWRD` reader - Key subword pointer. The valid indices are 0-3. After each write to the key data register, this field increments; To write a key, the software must first write the desired key index/subword to this register."]
 pub type SUBWRD_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `SUBWRD` writer - Key subword pointer. The valid indices are 0-3. After each write to the key data register, this field increments; To write a key, the software must first write the desired key index/subword to this register."]
 pub type SUBWRD_W<'a, const O: u8> = crate::FieldWriter<'a, u32, KEYADDR_SPEC, u8, u8, 2, O>;
+#[doc = "Field `INDEX` reader - To write a key to the SDP KEY RAM, the software must first write the desired key index/subword to this register. Key index pointer. The valid indices are 0-\\[number_keys\\]. In the SDP, there is a 16x128 key ram can store 16 AES128 keys or 8 AES 256 Keys; this index is for addressing the 16 128-bit key addresses."]
+pub type INDEX_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `INDEX` writer - To write a key to the SDP KEY RAM, the software must first write the desired key index/subword to this register. Key index pointer. The valid indices are 0-\\[number_keys\\]. In the SDP, there is a 16x128 key ram can store 16 AES128 keys or 8 AES 256 Keys; this index is for addressing the 16 128-bit key addresses."]
+pub type INDEX_W<'a, const O: u8> = crate::FieldWriter<'a, u32, KEYADDR_SPEC, u8, u8, 8, O>;
 impl R {
-    #[doc = "Bits 16:23 - To write a key to the SDP KEY RAM, the software must first write the desired key index/subword to this register. Key index pointer. The valid indices are 0-\\[number_keys\\]. In the SDP, there is a 16x128 key ram can store 16 AES128 keys or 8 AES 256 Keys; this index is for addressing the 16 128-bit key addresses."]
-    #[inline(always)]
-    pub fn index(&self) -> INDEX_R {
-        INDEX_R::new(((self.bits >> 16) & 0xff) as u8)
-    }
     #[doc = "Bits 0:1 - Key subword pointer. The valid indices are 0-3. After each write to the key data register, this field increments; To write a key, the software must first write the desired key index/subword to this register."]
     #[inline(always)]
     pub fn subwrd(&self) -> SUBWRD_R {
         SUBWRD_R::new((self.bits & 3) as u8)
     }
-}
-impl W {
     #[doc = "Bits 16:23 - To write a key to the SDP KEY RAM, the software must first write the desired key index/subword to this register. Key index pointer. The valid indices are 0-\\[number_keys\\]. In the SDP, there is a 16x128 key ram can store 16 AES128 keys or 8 AES 256 Keys; this index is for addressing the 16 128-bit key addresses."]
     #[inline(always)]
-    pub fn index(&mut self) -> INDEX_W<16> {
-        INDEX_W::new(self)
+    pub fn index(&self) -> INDEX_R {
+        INDEX_R::new(((self.bits >> 16) & 0xff) as u8)
     }
+}
+impl W {
     #[doc = "Bits 0:1 - Key subword pointer. The valid indices are 0-3. After each write to the key data register, this field increments; To write a key, the software must first write the desired key index/subword to this register."]
     #[inline(always)]
+    #[must_use]
     pub fn subwrd(&mut self) -> SUBWRD_W<0> {
         SUBWRD_W::new(self)
+    }
+    #[doc = "Bits 16:23 - To write a key to the SDP KEY RAM, the software must first write the desired key index/subword to this register. Key index pointer. The valid indices are 0-\\[number_keys\\]. In the SDP, there is a 16x128 key ram can store 16 AES128 keys or 8 AES 256 Keys; this index is for addressing the 16 128-bit key addresses."]
+    #[inline(always)]
+    #[must_use]
+    pub fn index(&mut self) -> INDEX_W<16> {
+        INDEX_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for KEYADDR_SPEC {
 #[doc = "`write(|w| ..)` method takes [keyaddr::W](W) writer structure"]
 impl crate::Writable for KEYADDR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets KEYADDR to value 0x40"]
 impl crate::Resettable for KEYADDR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x40
-    }
+    const RESET_VALUE: Self::Ux = 0x40;
 }

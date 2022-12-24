@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - ADMA Integrated Descriptor Address These bits indicate the lower 32-bit of the ADMA Integrated Descriptor address. The start address of Integrated Descriptor is set to these register bits. The ADMA3 fetches one Descriptor Address and increments these bits to indicate the next Descriptor address."]
     #[inline(always)]
+    #[must_use]
     pub fn adma_id_addr(&mut self) -> ADMA_ID_ADDR_W<0> {
         ADMA_ID_ADDR_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for ADMA_ID_ADDR_SPEC {
 #[doc = "`write(|w| ..)` method takes [adma_id_addr::W](W) writer structure"]
 impl crate::Writable for ADMA_ID_ADDR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ADMA_ID_ADDR to value 0"]
 impl crate::Resettable for ADMA_ID_ADDR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,38 +34,40 @@ impl From<crate::W<MONITOR_CLOCK0_CONTROL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `ACTIVE` reader - select glitch works in active mode or passve mode. 0: passive mode, depends on power glitch destory DFF value 1: active mode, check glitch by DFF chain"]
-pub type ACTIVE_R = crate::BitReader<bool>;
-#[doc = "Field `ACTIVE` writer - select glitch works in active mode or passve mode. 0: passive mode, depends on power glitch destory DFF value 1: active mode, check glitch by DFF chain"]
-pub type ACTIVE_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, MONITOR_CLOCK0_CONTROL_SPEC, bool, O>;
 #[doc = "Field `ENABLE` reader - enable glitch detector 0: detector disabled 1: detector enabled"]
 pub type ENABLE_R = crate::BitReader<bool>;
 #[doc = "Field `ENABLE` writer - enable glitch detector 0: detector disabled 1: detector enabled"]
 pub type ENABLE_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, MONITOR_CLOCK0_CONTROL_SPEC, bool, O>;
+#[doc = "Field `ACTIVE` reader - select glitch works in active mode or passve mode. 0: passive mode, depends on power glitch destory DFF value 1: active mode, check glitch by DFF chain"]
+pub type ACTIVE_R = crate::BitReader<bool>;
+#[doc = "Field `ACTIVE` writer - select glitch works in active mode or passve mode. 0: passive mode, depends on power glitch destory DFF value 1: active mode, check glitch by DFF chain"]
+pub type ACTIVE_W<'a, const O: u8> =
+    crate::BitWriter<'a, u32, MONITOR_CLOCK0_CONTROL_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 4 - select glitch works in active mode or passve mode. 0: passive mode, depends on power glitch destory DFF value 1: active mode, check glitch by DFF chain"]
-    #[inline(always)]
-    pub fn active(&self) -> ACTIVE_R {
-        ACTIVE_R::new(((self.bits >> 4) & 1) != 0)
-    }
     #[doc = "Bit 0 - enable glitch detector 0: detector disabled 1: detector enabled"]
     #[inline(always)]
     pub fn enable(&self) -> ENABLE_R {
         ENABLE_R::new((self.bits & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bit 4 - select glitch works in active mode or passve mode. 0: passive mode, depends on power glitch destory DFF value 1: active mode, check glitch by DFF chain"]
     #[inline(always)]
-    pub fn active(&mut self) -> ACTIVE_W<4> {
-        ACTIVE_W::new(self)
+    pub fn active(&self) -> ACTIVE_R {
+        ACTIVE_R::new(((self.bits >> 4) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bit 0 - enable glitch detector 0: detector disabled 1: detector enabled"]
     #[inline(always)]
+    #[must_use]
     pub fn enable(&mut self) -> ENABLE_W<0> {
         ENABLE_W::new(self)
+    }
+    #[doc = "Bit 4 - select glitch works in active mode or passve mode. 0: passive mode, depends on power glitch destory DFF value 1: active mode, check glitch by DFF chain"]
+    #[inline(always)]
+    #[must_use]
+    pub fn active(&mut self) -> ACTIVE_W<4> {
+        ACTIVE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -86,11 +88,10 @@ impl crate::Readable for MONITOR_CLOCK0_CONTROL_SPEC {
 #[doc = "`write(|w| ..)` method takes [monitor_clock0_control::W](W) writer structure"]
 impl crate::Writable for MONITOR_CLOCK0_CONTROL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MONITOR_CLOCK0_CONTROL to value 0"]
 impl crate::Resettable for MONITOR_CLOCK0_CONTROL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

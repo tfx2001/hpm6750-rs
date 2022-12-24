@@ -34,34 +34,35 @@ impl From<crate::W<XTAL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `RESPONSE` reader - Crystal oscillator status 0: Oscillator is not stable 1: Oscillator is stable for use"]
-pub type RESPONSE_R = crate::BitReader<bool>;
-#[doc = "Field `ENABLE` reader - Crystal oscillator enable status 0: Oscillator is off 1: Oscillator is on"]
-pub type ENABLE_R = crate::BitReader<bool>;
 #[doc = "Field `RAMP_TIME` reader - Rampup time of XTAL oscillator in cycles of IRC24M clock 0: 0 cycle 1: 1 cycle 2: 2 cycle 1048575: 1048575 cycles"]
 pub type RAMP_TIME_R = crate::FieldReader<u32, u32>;
 #[doc = "Field `RAMP_TIME` writer - Rampup time of XTAL oscillator in cycles of IRC24M clock 0: 0 cycle 1: 1 cycle 2: 2 cycle 1048575: 1048575 cycles"]
 pub type RAMP_TIME_W<'a, const O: u8> = crate::FieldWriter<'a, u32, XTAL_SPEC, u32, u32, 20, O>;
+#[doc = "Field `ENABLE` reader - Crystal oscillator enable status 0: Oscillator is off 1: Oscillator is on"]
+pub type ENABLE_R = crate::BitReader<bool>;
+#[doc = "Field `RESPONSE` reader - Crystal oscillator status 0: Oscillator is not stable 1: Oscillator is stable for use"]
+pub type RESPONSE_R = crate::BitReader<bool>;
 impl R {
-    #[doc = "Bit 29 - Crystal oscillator status 0: Oscillator is not stable 1: Oscillator is stable for use"]
+    #[doc = "Bits 0:19 - Rampup time of XTAL oscillator in cycles of IRC24M clock 0: 0 cycle 1: 1 cycle 2: 2 cycle 1048575: 1048575 cycles"]
     #[inline(always)]
-    pub fn response(&self) -> RESPONSE_R {
-        RESPONSE_R::new(((self.bits >> 29) & 1) != 0)
+    pub fn ramp_time(&self) -> RAMP_TIME_R {
+        RAMP_TIME_R::new(self.bits & 0x000f_ffff)
     }
     #[doc = "Bit 28 - Crystal oscillator enable status 0: Oscillator is off 1: Oscillator is on"]
     #[inline(always)]
     pub fn enable(&self) -> ENABLE_R {
         ENABLE_R::new(((self.bits >> 28) & 1) != 0)
     }
-    #[doc = "Bits 0:19 - Rampup time of XTAL oscillator in cycles of IRC24M clock 0: 0 cycle 1: 1 cycle 2: 2 cycle 1048575: 1048575 cycles"]
+    #[doc = "Bit 29 - Crystal oscillator status 0: Oscillator is not stable 1: Oscillator is stable for use"]
     #[inline(always)]
-    pub fn ramp_time(&self) -> RAMP_TIME_R {
-        RAMP_TIME_R::new((self.bits & 0x000f_ffff) as u32)
+    pub fn response(&self) -> RESPONSE_R {
+        RESPONSE_R::new(((self.bits >> 29) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bits 0:19 - Rampup time of XTAL oscillator in cycles of IRC24M clock 0: 0 cycle 1: 1 cycle 2: 2 cycle 1048575: 1048575 cycles"]
     #[inline(always)]
+    #[must_use]
     pub fn ramp_time(&mut self) -> RAMP_TIME_W<0> {
         RAMP_TIME_W::new(self)
     }
@@ -84,11 +85,10 @@ impl crate::Readable for XTAL_SPEC {
 #[doc = "`write(|w| ..)` method takes [xtal::W](W) writer structure"]
 impl crate::Writable for XTAL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets XTAL to value 0"]
 impl crate::Resettable for XTAL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

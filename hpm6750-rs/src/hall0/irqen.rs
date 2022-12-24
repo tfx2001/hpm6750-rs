@@ -34,106 +34,113 @@ impl From<crate::W<IRQEN_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `WDGIE` reader - 1- generate interrupt request when wdg flag set"]
-pub type WDGIE_R = crate::BitReader<bool>;
-#[doc = "Field `WDGIE` writer - 1- generate interrupt request when wdg flag set"]
-pub type WDGIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
-#[doc = "Field `PHUPTIE` reader - 1- generate interrupt request when phupt flag set"]
-pub type PHUPTIE_R = crate::BitReader<bool>;
-#[doc = "Field `PHUPTIE` writer - 1- generate interrupt request when phupt flag set"]
-pub type PHUPTIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
-#[doc = "Field `PHPREIE` reader - 1- generate interrupt request when phpre flag set"]
-pub type PHPREIE_R = crate::BitReader<bool>;
-#[doc = "Field `PHPREIE` writer - 1- generate interrupt request when phpre flag set"]
-pub type PHPREIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
-#[doc = "Field `PHDLYIE` reader - 1- generate interrupt request when phdly flag set"]
-pub type PHDLYIE_R = crate::BitReader<bool>;
-#[doc = "Field `PHDLYIE` writer - 1- generate interrupt request when phdly flag set"]
-pub type PHDLYIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
-#[doc = "Field `UFIE` reader - 1- generate interrupt request when u flag set"]
-pub type UFIE_R = crate::BitReader<bool>;
-#[doc = "Field `UFIE` writer - 1- generate interrupt request when u flag set"]
-pub type UFIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
-#[doc = "Field `VFIE` reader - 1- generate interrupt request when v flag set"]
-pub type VFIE_R = crate::BitReader<bool>;
-#[doc = "Field `VFIE` writer - 1- generate interrupt request when v flag set"]
-pub type VFIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
 #[doc = "Field `WFIE` reader - 1- generate interrupt request when w flag set"]
 pub type WFIE_R = crate::BitReader<bool>;
 #[doc = "Field `WFIE` writer - 1- generate interrupt request when w flag set"]
 pub type WFIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
+#[doc = "Field `VFIE` reader - 1- generate interrupt request when v flag set"]
+pub type VFIE_R = crate::BitReader<bool>;
+#[doc = "Field `VFIE` writer - 1- generate interrupt request when v flag set"]
+pub type VFIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
+#[doc = "Field `UFIE` reader - 1- generate interrupt request when u flag set"]
+pub type UFIE_R = crate::BitReader<bool>;
+#[doc = "Field `UFIE` writer - 1- generate interrupt request when u flag set"]
+pub type UFIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
+#[doc = "Field `PHDLYIE` reader - 1- generate interrupt request when phdly flag set"]
+pub type PHDLYIE_R = crate::BitReader<bool>;
+#[doc = "Field `PHDLYIE` writer - 1- generate interrupt request when phdly flag set"]
+pub type PHDLYIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
+#[doc = "Field `PHPREIE` reader - 1- generate interrupt request when phpre flag set"]
+pub type PHPREIE_R = crate::BitReader<bool>;
+#[doc = "Field `PHPREIE` writer - 1- generate interrupt request when phpre flag set"]
+pub type PHPREIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
+#[doc = "Field `PHUPTIE` reader - 1- generate interrupt request when phupt flag set"]
+pub type PHUPTIE_R = crate::BitReader<bool>;
+#[doc = "Field `PHUPTIE` writer - 1- generate interrupt request when phupt flag set"]
+pub type PHUPTIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
+#[doc = "Field `WDGIE` reader - 1- generate interrupt request when wdg flag set"]
+pub type WDGIE_R = crate::BitReader<bool>;
+#[doc = "Field `WDGIE` writer - 1- generate interrupt request when wdg flag set"]
+pub type WDGIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 31 - 1- generate interrupt request when wdg flag set"]
+    #[doc = "Bit 21 - 1- generate interrupt request when w flag set"]
     #[inline(always)]
-    pub fn wdgie(&self) -> WDGIE_R {
-        WDGIE_R::new(((self.bits >> 31) & 1) != 0)
-    }
-    #[doc = "Bit 30 - 1- generate interrupt request when phupt flag set"]
-    #[inline(always)]
-    pub fn phuptie(&self) -> PHUPTIE_R {
-        PHUPTIE_R::new(((self.bits >> 30) & 1) != 0)
-    }
-    #[doc = "Bit 29 - 1- generate interrupt request when phpre flag set"]
-    #[inline(always)]
-    pub fn phpreie(&self) -> PHPREIE_R {
-        PHPREIE_R::new(((self.bits >> 29) & 1) != 0)
-    }
-    #[doc = "Bit 28 - 1- generate interrupt request when phdly flag set"]
-    #[inline(always)]
-    pub fn phdlyie(&self) -> PHDLYIE_R {
-        PHDLYIE_R::new(((self.bits >> 28) & 1) != 0)
-    }
-    #[doc = "Bit 23 - 1- generate interrupt request when u flag set"]
-    #[inline(always)]
-    pub fn ufie(&self) -> UFIE_R {
-        UFIE_R::new(((self.bits >> 23) & 1) != 0)
+    pub fn wfie(&self) -> WFIE_R {
+        WFIE_R::new(((self.bits >> 21) & 1) != 0)
     }
     #[doc = "Bit 22 - 1- generate interrupt request when v flag set"]
     #[inline(always)]
     pub fn vfie(&self) -> VFIE_R {
         VFIE_R::new(((self.bits >> 22) & 1) != 0)
     }
-    #[doc = "Bit 21 - 1- generate interrupt request when w flag set"]
+    #[doc = "Bit 23 - 1- generate interrupt request when u flag set"]
     #[inline(always)]
-    pub fn wfie(&self) -> WFIE_R {
-        WFIE_R::new(((self.bits >> 21) & 1) != 0)
-    }
-}
-impl W {
-    #[doc = "Bit 31 - 1- generate interrupt request when wdg flag set"]
-    #[inline(always)]
-    pub fn wdgie(&mut self) -> WDGIE_W<31> {
-        WDGIE_W::new(self)
-    }
-    #[doc = "Bit 30 - 1- generate interrupt request when phupt flag set"]
-    #[inline(always)]
-    pub fn phuptie(&mut self) -> PHUPTIE_W<30> {
-        PHUPTIE_W::new(self)
-    }
-    #[doc = "Bit 29 - 1- generate interrupt request when phpre flag set"]
-    #[inline(always)]
-    pub fn phpreie(&mut self) -> PHPREIE_W<29> {
-        PHPREIE_W::new(self)
+    pub fn ufie(&self) -> UFIE_R {
+        UFIE_R::new(((self.bits >> 23) & 1) != 0)
     }
     #[doc = "Bit 28 - 1- generate interrupt request when phdly flag set"]
     #[inline(always)]
-    pub fn phdlyie(&mut self) -> PHDLYIE_W<28> {
-        PHDLYIE_W::new(self)
+    pub fn phdlyie(&self) -> PHDLYIE_R {
+        PHDLYIE_R::new(((self.bits >> 28) & 1) != 0)
     }
-    #[doc = "Bit 23 - 1- generate interrupt request when u flag set"]
+    #[doc = "Bit 29 - 1- generate interrupt request when phpre flag set"]
     #[inline(always)]
-    pub fn ufie(&mut self) -> UFIE_W<23> {
-        UFIE_W::new(self)
+    pub fn phpreie(&self) -> PHPREIE_R {
+        PHPREIE_R::new(((self.bits >> 29) & 1) != 0)
+    }
+    #[doc = "Bit 30 - 1- generate interrupt request when phupt flag set"]
+    #[inline(always)]
+    pub fn phuptie(&self) -> PHUPTIE_R {
+        PHUPTIE_R::new(((self.bits >> 30) & 1) != 0)
+    }
+    #[doc = "Bit 31 - 1- generate interrupt request when wdg flag set"]
+    #[inline(always)]
+    pub fn wdgie(&self) -> WDGIE_R {
+        WDGIE_R::new(((self.bits >> 31) & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bit 21 - 1- generate interrupt request when w flag set"]
+    #[inline(always)]
+    #[must_use]
+    pub fn wfie(&mut self) -> WFIE_W<21> {
+        WFIE_W::new(self)
     }
     #[doc = "Bit 22 - 1- generate interrupt request when v flag set"]
     #[inline(always)]
+    #[must_use]
     pub fn vfie(&mut self) -> VFIE_W<22> {
         VFIE_W::new(self)
     }
-    #[doc = "Bit 21 - 1- generate interrupt request when w flag set"]
+    #[doc = "Bit 23 - 1- generate interrupt request when u flag set"]
     #[inline(always)]
-    pub fn wfie(&mut self) -> WFIE_W<21> {
-        WFIE_W::new(self)
+    #[must_use]
+    pub fn ufie(&mut self) -> UFIE_W<23> {
+        UFIE_W::new(self)
+    }
+    #[doc = "Bit 28 - 1- generate interrupt request when phdly flag set"]
+    #[inline(always)]
+    #[must_use]
+    pub fn phdlyie(&mut self) -> PHDLYIE_W<28> {
+        PHDLYIE_W::new(self)
+    }
+    #[doc = "Bit 29 - 1- generate interrupt request when phpre flag set"]
+    #[inline(always)]
+    #[must_use]
+    pub fn phpreie(&mut self) -> PHPREIE_W<29> {
+        PHPREIE_W::new(self)
+    }
+    #[doc = "Bit 30 - 1- generate interrupt request when phupt flag set"]
+    #[inline(always)]
+    #[must_use]
+    pub fn phuptie(&mut self) -> PHUPTIE_W<30> {
+        PHUPTIE_W::new(self)
+    }
+    #[doc = "Bit 31 - 1- generate interrupt request when wdg flag set"]
+    #[inline(always)]
+    #[must_use]
+    pub fn wdgie(&mut self) -> WDGIE_W<31> {
+        WDGIE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -154,11 +161,10 @@ impl crate::Readable for IRQEN_SPEC {
 #[doc = "`write(|w| ..)` method takes [irqen::W](W) writer structure"]
 impl crate::Writable for IRQEN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IRQEN to value 0"]
 impl crate::Resettable for IRQEN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

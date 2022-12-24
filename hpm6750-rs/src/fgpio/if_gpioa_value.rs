@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - GPIO interrupt flag, write 1 to clear this flag 0: no irq 1: irq pending"]
     #[inline(always)]
+    #[must_use]
     pub fn irq_flag(&mut self) -> IRQ_FLAG_W<0> {
         IRQ_FLAG_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for IF_GPIOA_VALUE_SPEC {
 #[doc = "`write(|w| ..)` method takes [if_gpioa_value::W](W) writer structure"]
 impl crate::Writable for IF_GPIOA_VALUE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IF_GPIOA_VALUE to value 0"]
 impl crate::Resettable for IF_GPIOA_VALUE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

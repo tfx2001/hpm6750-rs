@@ -34,36 +34,38 @@ impl From<crate::W<ACFCTRL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `SELMASK` reader - SELect acceptance MASK 0 - Registers ACF_x point to acceptance code 1 - Registers ACF_x point to acceptance mask. ACFADR selects one specific acceptance filter."]
-pub type SELMASK_R = crate::BitReader<bool>;
-#[doc = "Field `SELMASK` writer - SELect acceptance MASK 0 - Registers ACF_x point to acceptance code 1 - Registers ACF_x point to acceptance mask. ACFADR selects one specific acceptance filter."]
-pub type SELMASK_W<'a, const O: u8> = crate::BitWriter<'a, u8, ACFCTRL_SPEC, bool, O>;
 #[doc = "Field `ACFADR` reader - acceptance filter address ACFADR points to a specific acceptance filter. The selected filter is accessible using theregisters ACF_x. Bit SELMASK selects between acceptance code and mask for theselected acceptance filter. A value of ACFADR>ACF_NUMBER-1 is meaningless and automatically treated as value ACF_NUMBER-1. ACF_NUMBER = 16."]
 pub type ACFADR_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `ACFADR` writer - acceptance filter address ACFADR points to a specific acceptance filter. The selected filter is accessible using theregisters ACF_x. Bit SELMASK selects between acceptance code and mask for theselected acceptance filter. A value of ACFADR>ACF_NUMBER-1 is meaningless and automatically treated as value ACF_NUMBER-1. ACF_NUMBER = 16."]
 pub type ACFADR_W<'a, const O: u8> = crate::FieldWriter<'a, u8, ACFCTRL_SPEC, u8, u8, 4, O>;
+#[doc = "Field `SELMASK` reader - SELect acceptance MASK 0 - Registers ACF_x point to acceptance code 1 - Registers ACF_x point to acceptance mask. ACFADR selects one specific acceptance filter."]
+pub type SELMASK_R = crate::BitReader<bool>;
+#[doc = "Field `SELMASK` writer - SELect acceptance MASK 0 - Registers ACF_x point to acceptance code 1 - Registers ACF_x point to acceptance mask. ACFADR selects one specific acceptance filter."]
+pub type SELMASK_W<'a, const O: u8> = crate::BitWriter<'a, u8, ACFCTRL_SPEC, bool, O>;
 impl R {
+    #[doc = "Bits 0:3 - acceptance filter address ACFADR points to a specific acceptance filter. The selected filter is accessible using theregisters ACF_x. Bit SELMASK selects between acceptance code and mask for theselected acceptance filter. A value of ACFADR>ACF_NUMBER-1 is meaningless and automatically treated as value ACF_NUMBER-1. ACF_NUMBER = 16."]
+    #[inline(always)]
+    pub fn acfadr(&self) -> ACFADR_R {
+        ACFADR_R::new(self.bits & 0x0f)
+    }
     #[doc = "Bit 5 - SELect acceptance MASK 0 - Registers ACF_x point to acceptance code 1 - Registers ACF_x point to acceptance mask. ACFADR selects one specific acceptance filter."]
     #[inline(always)]
     pub fn selmask(&self) -> SELMASK_R {
         SELMASK_R::new(((self.bits >> 5) & 1) != 0)
     }
-    #[doc = "Bits 0:3 - acceptance filter address ACFADR points to a specific acceptance filter. The selected filter is accessible using theregisters ACF_x. Bit SELMASK selects between acceptance code and mask for theselected acceptance filter. A value of ACFADR>ACF_NUMBER-1 is meaningless and automatically treated as value ACF_NUMBER-1. ACF_NUMBER = 16."]
-    #[inline(always)]
-    pub fn acfadr(&self) -> ACFADR_R {
-        ACFADR_R::new((self.bits & 0x0f) as u8)
-    }
 }
 impl W {
-    #[doc = "Bit 5 - SELect acceptance MASK 0 - Registers ACF_x point to acceptance code 1 - Registers ACF_x point to acceptance mask. ACFADR selects one specific acceptance filter."]
-    #[inline(always)]
-    pub fn selmask(&mut self) -> SELMASK_W<5> {
-        SELMASK_W::new(self)
-    }
     #[doc = "Bits 0:3 - acceptance filter address ACFADR points to a specific acceptance filter. The selected filter is accessible using theregisters ACF_x. Bit SELMASK selects between acceptance code and mask for theselected acceptance filter. A value of ACFADR>ACF_NUMBER-1 is meaningless and automatically treated as value ACF_NUMBER-1. ACF_NUMBER = 16."]
     #[inline(always)]
+    #[must_use]
     pub fn acfadr(&mut self) -> ACFADR_W<0> {
         ACFADR_W::new(self)
+    }
+    #[doc = "Bit 5 - SELect acceptance MASK 0 - Registers ACF_x point to acceptance code 1 - Registers ACF_x point to acceptance mask. ACFADR selects one specific acceptance filter."]
+    #[inline(always)]
+    #[must_use]
+    pub fn selmask(&mut self) -> SELMASK_W<5> {
+        SELMASK_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for ACFCTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [acfctrl::W](W) writer structure"]
 impl crate::Writable for ACFCTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ACFCTRL to value 0"]
 impl crate::Resettable for ACFCTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

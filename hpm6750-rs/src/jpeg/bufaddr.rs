@@ -56,6 +56,7 @@ impl W {
 denotes the buffer type: 0x2: Qmem 0x3: HuffEnc 0x4: HuffMin 0x5: HuffBase 0x6: HuffSymb ADDR\\[27:0\\]
 is the address inside the buffer"]
     #[inline(always)]
+    #[must_use]
     pub fn addr(&mut self) -> ADDR_W<0> {
         ADDR_W::new(self)
     }
@@ -78,11 +79,10 @@ impl crate::Readable for BUFADDR_SPEC {
 #[doc = "`write(|w| ..)` method takes [bufaddr::W](W) writer structure"]
 impl crate::Writable for BUFADDR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets BUFADDR to value 0"]
 impl crate::Resettable for BUFADDR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - Most significant byte of the Divisor Latch"]
     #[inline(always)]
+    #[must_use]
     pub fn dlm(&mut self) -> DLM_W<0> {
         DLM_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for DLM_SPEC {
 #[doc = "`write(|w| ..)` method takes [dlm::W](W) writer structure"]
 impl crate::Writable for DLM_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DLM to value 0"]
 impl crate::Resettable for DLM_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,43 +34,45 @@ impl From<crate::W<CLK_CFG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `XTAL_SEL` reader - crystal selected"]
-pub type XTAL_SEL_R = crate::BitReader<bool>;
-#[doc = "Field `KEEP_IRC` reader - force irc32k run"]
-pub type KEEP_IRC_R = crate::BitReader<bool>;
-#[doc = "Field `KEEP_IRC` writer - force irc32k run"]
-pub type KEEP_IRC_W<'a, const O: u8> = crate::BitWriter<'a, u32, CLK_CFG_SPEC, bool, O>;
 #[doc = "Field `FORCE_XTAL` reader - force switch to crystal"]
 pub type FORCE_XTAL_R = crate::BitReader<bool>;
 #[doc = "Field `FORCE_XTAL` writer - force switch to crystal"]
 pub type FORCE_XTAL_W<'a, const O: u8> = crate::BitWriter<'a, u32, CLK_CFG_SPEC, bool, O>;
+#[doc = "Field `KEEP_IRC` reader - force irc32k run"]
+pub type KEEP_IRC_R = crate::BitReader<bool>;
+#[doc = "Field `KEEP_IRC` writer - force irc32k run"]
+pub type KEEP_IRC_W<'a, const O: u8> = crate::BitWriter<'a, u32, CLK_CFG_SPEC, bool, O>;
+#[doc = "Field `XTAL_SEL` reader - crystal selected"]
+pub type XTAL_SEL_R = crate::BitReader<bool>;
 impl R {
-    #[doc = "Bit 28 - crystal selected"]
+    #[doc = "Bit 4 - force switch to crystal"]
     #[inline(always)]
-    pub fn xtal_sel(&self) -> XTAL_SEL_R {
-        XTAL_SEL_R::new(((self.bits >> 28) & 1) != 0)
+    pub fn force_xtal(&self) -> FORCE_XTAL_R {
+        FORCE_XTAL_R::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 16 - force irc32k run"]
     #[inline(always)]
     pub fn keep_irc(&self) -> KEEP_IRC_R {
         KEEP_IRC_R::new(((self.bits >> 16) & 1) != 0)
     }
-    #[doc = "Bit 4 - force switch to crystal"]
+    #[doc = "Bit 28 - crystal selected"]
     #[inline(always)]
-    pub fn force_xtal(&self) -> FORCE_XTAL_R {
-        FORCE_XTAL_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn xtal_sel(&self) -> XTAL_SEL_R {
+        XTAL_SEL_R::new(((self.bits >> 28) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 16 - force irc32k run"]
-    #[inline(always)]
-    pub fn keep_irc(&mut self) -> KEEP_IRC_W<16> {
-        KEEP_IRC_W::new(self)
-    }
     #[doc = "Bit 4 - force switch to crystal"]
     #[inline(always)]
+    #[must_use]
     pub fn force_xtal(&mut self) -> FORCE_XTAL_W<4> {
         FORCE_XTAL_W::new(self)
+    }
+    #[doc = "Bit 16 - force irc32k run"]
+    #[inline(always)]
+    #[must_use]
+    pub fn keep_irc(&mut self) -> KEEP_IRC_W<16> {
+        KEEP_IRC_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -91,11 +93,10 @@ impl crate::Readable for CLK_CFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [clk_cfg::W](W) writer structure"]
 impl crate::Writable for CLK_CFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CLK_CFG to value 0"]
 impl crate::Resettable for CLK_CFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

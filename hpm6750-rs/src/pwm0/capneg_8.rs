@@ -33,8 +33,5 @@ impl crate::Readable for CAPNEG_8_SPEC {
 }
 #[doc = "`reset()` method sets CAPNEG_8 to value 0"]
 impl crate::Resettable for CAPNEG_8_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

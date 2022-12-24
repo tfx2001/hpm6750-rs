@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bit 7 - Indicates if the ADC is in calibration mode (Active H)."]
     #[inline(always)]
+    #[must_use]
     pub fn calon(&mut self) -> CALON_W<7> {
         CALON_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for ANA_STATUS_SPEC {
 #[doc = "`write(|w| ..)` method takes [ana_status::W](W) writer structure"]
 impl crate::Writable for ANA_STATUS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ANA_STATUS to value 0"]
 impl crate::Resettable for ANA_STATUS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

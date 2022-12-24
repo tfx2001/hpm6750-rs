@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Packet Memory Destination Address"]
     #[inline(always)]
+    #[must_use]
     pub fn pktdst(&mut self) -> PKTDST_W<0> {
         PKTDST_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for PKTDST_SPEC {
 #[doc = "`write(|w| ..)` method takes [pktdst::W](W) writer structure"]
 impl crate::Writable for PKTDST_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PKTDST to value 0"]
 impl crate::Resettable for PKTDST_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

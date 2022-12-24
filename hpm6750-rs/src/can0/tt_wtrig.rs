@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Watch Trigger Time TT_WTRIG(15:0) defines the cycle time for a watch trigger. The initial watch trigger isthe maximum cycle time 0xffff."]
     #[inline(always)]
+    #[must_use]
     pub fn tt_wtrig(&mut self) -> TT_WTRIG_W<0> {
         TT_WTRIG_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for TT_WTRIG_SPEC {
 #[doc = "`write(|w| ..)` method takes [tt_wtrig::W](W) writer structure"]
 impl crate::Writable for TT_WTRIG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TT_WTRIG to value 0"]
 impl crate::Resettable for TT_WTRIG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

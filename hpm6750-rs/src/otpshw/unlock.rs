@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - unlock word for fuse array operation write \"OPEN\" to unlock fuse array, write any other value will lock write to fuse. Please make sure 24M crystal is running and 2.5V LDO working properly"]
     #[inline(always)]
+    #[must_use]
     pub fn unlock(&mut self) -> UNLOCK_W<0> {
         UNLOCK_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for UNLOCK_SPEC {
 #[doc = "`write(|w| ..)` method takes [unlock::W](W) writer structure"]
 impl crate::Writable for UNLOCK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets UNLOCK to value 0"]
 impl crate::Resettable for UNLOCK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

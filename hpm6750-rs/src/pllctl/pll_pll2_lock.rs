@@ -34,78 +34,83 @@ impl From<crate::W<PLL_PLL2_LOCK_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `LOCK_SS_RSTPTR` reader - lock bit of field ss_rstptr 0: field is open foe software to change 1: field is locked, not changeable"]
-pub type LOCK_SS_RSTPTR_R = crate::BitReader<bool>;
-#[doc = "Field `LOCK_SS_RSTPTR` writer - lock bit of field ss_rstptr 0: field is open foe software to change 1: field is locked, not changeable"]
-pub type LOCK_SS_RSTPTR_W<'a, const O: u8> = crate::BitWriter<'a, u32, PLL_PLL2_LOCK_SPEC, bool, O>;
-#[doc = "Field `LOCK_REFDIV` reader - lock bit of field refdiv 0: field is open foe software to change 1: field is locked, not changeable"]
-pub type LOCK_REFDIV_R = crate::BitReader<bool>;
-#[doc = "Field `LOCK_REFDIV` writer - lock bit of field refdiv 0: field is open foe software to change 1: field is locked, not changeable"]
-pub type LOCK_REFDIV_W<'a, const O: u8> = crate::BitWriter<'a, u32, PLL_PLL2_LOCK_SPEC, bool, O>;
-#[doc = "Field `LOCK_POSTDIV1` reader - lock bit of field postdiv1 0: field is open foe software to change 1: field is locked, not changeable"]
-pub type LOCK_POSTDIV1_R = crate::BitReader<bool>;
-#[doc = "Field `LOCK_POSTDIV1` writer - lock bit of field postdiv1 0: field is open foe software to change 1: field is locked, not changeable"]
-pub type LOCK_POSTDIV1_W<'a, const O: u8> = crate::BitWriter<'a, u32, PLL_PLL2_LOCK_SPEC, bool, O>;
-#[doc = "Field `LOCK_SS_SPEAD` reader - lock bit of field ss_spead 0: field is open foe software to change 1: field is locked, not changeable"]
-pub type LOCK_SS_SPEAD_R = crate::BitReader<bool>;
-#[doc = "Field `LOCK_SS_SPEAD` writer - lock bit of field ss_spead 0: field is open foe software to change 1: field is locked, not changeable"]
-pub type LOCK_SS_SPEAD_W<'a, const O: u8> = crate::BitWriter<'a, u32, PLL_PLL2_LOCK_SPEC, bool, O>;
 #[doc = "Field `LOCK_SS_DIVVAL` reader - lock bit of field ss_divval 0: field is open foe software to change 1: field is locked, not changeable"]
 pub type LOCK_SS_DIVVAL_R = crate::BitReader<bool>;
 #[doc = "Field `LOCK_SS_DIVVAL` writer - lock bit of field ss_divval 0: field is open foe software to change 1: field is locked, not changeable"]
 pub type LOCK_SS_DIVVAL_W<'a, const O: u8> = crate::BitWriter<'a, u32, PLL_PLL2_LOCK_SPEC, bool, O>;
+#[doc = "Field `LOCK_SS_SPEAD` reader - lock bit of field ss_spead 0: field is open foe software to change 1: field is locked, not changeable"]
+pub type LOCK_SS_SPEAD_R = crate::BitReader<bool>;
+#[doc = "Field `LOCK_SS_SPEAD` writer - lock bit of field ss_spead 0: field is open foe software to change 1: field is locked, not changeable"]
+pub type LOCK_SS_SPEAD_W<'a, const O: u8> = crate::BitWriter<'a, u32, PLL_PLL2_LOCK_SPEC, bool, O>;
+#[doc = "Field `LOCK_POSTDIV1` reader - lock bit of field postdiv1 0: field is open foe software to change 1: field is locked, not changeable"]
+pub type LOCK_POSTDIV1_R = crate::BitReader<bool>;
+#[doc = "Field `LOCK_POSTDIV1` writer - lock bit of field postdiv1 0: field is open foe software to change 1: field is locked, not changeable"]
+pub type LOCK_POSTDIV1_W<'a, const O: u8> = crate::BitWriter<'a, u32, PLL_PLL2_LOCK_SPEC, bool, O>;
+#[doc = "Field `LOCK_REFDIV` reader - lock bit of field refdiv 0: field is open foe software to change 1: field is locked, not changeable"]
+pub type LOCK_REFDIV_R = crate::BitReader<bool>;
+#[doc = "Field `LOCK_REFDIV` writer - lock bit of field refdiv 0: field is open foe software to change 1: field is locked, not changeable"]
+pub type LOCK_REFDIV_W<'a, const O: u8> = crate::BitWriter<'a, u32, PLL_PLL2_LOCK_SPEC, bool, O>;
+#[doc = "Field `LOCK_SS_RSTPTR` reader - lock bit of field ss_rstptr 0: field is open foe software to change 1: field is locked, not changeable"]
+pub type LOCK_SS_RSTPTR_R = crate::BitReader<bool>;
+#[doc = "Field `LOCK_SS_RSTPTR` writer - lock bit of field ss_rstptr 0: field is open foe software to change 1: field is locked, not changeable"]
+pub type LOCK_SS_RSTPTR_W<'a, const O: u8> = crate::BitWriter<'a, u32, PLL_PLL2_LOCK_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 31 - lock bit of field ss_rstptr 0: field is open foe software to change 1: field is locked, not changeable"]
+    #[doc = "Bit 8 - lock bit of field ss_divval 0: field is open foe software to change 1: field is locked, not changeable"]
     #[inline(always)]
-    pub fn lock_ss_rstptr(&self) -> LOCK_SS_RSTPTR_R {
-        LOCK_SS_RSTPTR_R::new(((self.bits >> 31) & 1) != 0)
-    }
-    #[doc = "Bit 24 - lock bit of field refdiv 0: field is open foe software to change 1: field is locked, not changeable"]
-    #[inline(always)]
-    pub fn lock_refdiv(&self) -> LOCK_REFDIV_R {
-        LOCK_REFDIV_R::new(((self.bits >> 24) & 1) != 0)
-    }
-    #[doc = "Bit 20 - lock bit of field postdiv1 0: field is open foe software to change 1: field is locked, not changeable"]
-    #[inline(always)]
-    pub fn lock_postdiv1(&self) -> LOCK_POSTDIV1_R {
-        LOCK_POSTDIV1_R::new(((self.bits >> 20) & 1) != 0)
+    pub fn lock_ss_divval(&self) -> LOCK_SS_DIVVAL_R {
+        LOCK_SS_DIVVAL_R::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 14 - lock bit of field ss_spead 0: field is open foe software to change 1: field is locked, not changeable"]
     #[inline(always)]
     pub fn lock_ss_spead(&self) -> LOCK_SS_SPEAD_R {
         LOCK_SS_SPEAD_R::new(((self.bits >> 14) & 1) != 0)
     }
-    #[doc = "Bit 8 - lock bit of field ss_divval 0: field is open foe software to change 1: field is locked, not changeable"]
+    #[doc = "Bit 20 - lock bit of field postdiv1 0: field is open foe software to change 1: field is locked, not changeable"]
     #[inline(always)]
-    pub fn lock_ss_divval(&self) -> LOCK_SS_DIVVAL_R {
-        LOCK_SS_DIVVAL_R::new(((self.bits >> 8) & 1) != 0)
-    }
-}
-impl W {
-    #[doc = "Bit 31 - lock bit of field ss_rstptr 0: field is open foe software to change 1: field is locked, not changeable"]
-    #[inline(always)]
-    pub fn lock_ss_rstptr(&mut self) -> LOCK_SS_RSTPTR_W<31> {
-        LOCK_SS_RSTPTR_W::new(self)
+    pub fn lock_postdiv1(&self) -> LOCK_POSTDIV1_R {
+        LOCK_POSTDIV1_R::new(((self.bits >> 20) & 1) != 0)
     }
     #[doc = "Bit 24 - lock bit of field refdiv 0: field is open foe software to change 1: field is locked, not changeable"]
     #[inline(always)]
-    pub fn lock_refdiv(&mut self) -> LOCK_REFDIV_W<24> {
-        LOCK_REFDIV_W::new(self)
+    pub fn lock_refdiv(&self) -> LOCK_REFDIV_R {
+        LOCK_REFDIV_R::new(((self.bits >> 24) & 1) != 0)
     }
-    #[doc = "Bit 20 - lock bit of field postdiv1 0: field is open foe software to change 1: field is locked, not changeable"]
+    #[doc = "Bit 31 - lock bit of field ss_rstptr 0: field is open foe software to change 1: field is locked, not changeable"]
     #[inline(always)]
-    pub fn lock_postdiv1(&mut self) -> LOCK_POSTDIV1_W<20> {
-        LOCK_POSTDIV1_W::new(self)
+    pub fn lock_ss_rstptr(&self) -> LOCK_SS_RSTPTR_R {
+        LOCK_SS_RSTPTR_R::new(((self.bits >> 31) & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bit 8 - lock bit of field ss_divval 0: field is open foe software to change 1: field is locked, not changeable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn lock_ss_divval(&mut self) -> LOCK_SS_DIVVAL_W<8> {
+        LOCK_SS_DIVVAL_W::new(self)
     }
     #[doc = "Bit 14 - lock bit of field ss_spead 0: field is open foe software to change 1: field is locked, not changeable"]
     #[inline(always)]
+    #[must_use]
     pub fn lock_ss_spead(&mut self) -> LOCK_SS_SPEAD_W<14> {
         LOCK_SS_SPEAD_W::new(self)
     }
-    #[doc = "Bit 8 - lock bit of field ss_divval 0: field is open foe software to change 1: field is locked, not changeable"]
+    #[doc = "Bit 20 - lock bit of field postdiv1 0: field is open foe software to change 1: field is locked, not changeable"]
     #[inline(always)]
-    pub fn lock_ss_divval(&mut self) -> LOCK_SS_DIVVAL_W<8> {
-        LOCK_SS_DIVVAL_W::new(self)
+    #[must_use]
+    pub fn lock_postdiv1(&mut self) -> LOCK_POSTDIV1_W<20> {
+        LOCK_POSTDIV1_W::new(self)
+    }
+    #[doc = "Bit 24 - lock bit of field refdiv 0: field is open foe software to change 1: field is locked, not changeable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn lock_refdiv(&mut self) -> LOCK_REFDIV_W<24> {
+        LOCK_REFDIV_W::new(self)
+    }
+    #[doc = "Bit 31 - lock bit of field ss_rstptr 0: field is open foe software to change 1: field is locked, not changeable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn lock_ss_rstptr(&mut self) -> LOCK_SS_RSTPTR_W<31> {
+        LOCK_SS_RSTPTR_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -126,11 +131,10 @@ impl crate::Readable for PLL_PLL2_LOCK_SPEC {
 #[doc = "`write(|w| ..)` method takes [pll_pll2_lock::W](W) writer structure"]
 impl crate::Writable for PLL_PLL2_LOCK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PLL_PLL2_LOCK to value 0"]
 impl crate::Resettable for PLL_PLL2_LOCK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

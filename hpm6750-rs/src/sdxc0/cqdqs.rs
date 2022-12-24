@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Device Queue Status Each of the 32 bits are bit mapped to the 32 tasks. Bit-N(1): Device has marked task N as ready for execution Bit-N(0): Task-N is not ready for execution. This task could be pending in device or not submitted. Host controller updates this register with response of the Device Queue Status command."]
     #[inline(always)]
+    #[must_use]
     pub fn dqs(&mut self) -> DQS_W<0> {
         DQS_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for CQDQS_SPEC {
 #[doc = "`write(|w| ..)` method takes [cqdqs::W](W) writer structure"]
 impl crate::Writable for CQDQS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CQDQS to value 0"]
 impl crate::Resettable for CQDQS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

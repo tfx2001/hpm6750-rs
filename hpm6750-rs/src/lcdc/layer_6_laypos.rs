@@ -34,36 +34,38 @@ impl From<crate::W<LAYER_6_LAYPOS_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `Y` reader - The vertical position of top row of the layer, where 0 is the top row of the panel, positive values are below the top row of the panel."]
-pub type Y_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `Y` writer - The vertical position of top row of the layer, where 0 is the top row of the panel, positive values are below the top row of the panel."]
-pub type Y_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LAYER_6_LAYPOS_SPEC, u16, u16, 16, O>;
 #[doc = "Field `X` reader - The horizontal position of left-hand column of the layer, where 0 is the left-hand column of the panel, positive values are to the right the left-hand column of the panel."]
 pub type X_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `X` writer - The horizontal position of left-hand column of the layer, where 0 is the left-hand column of the panel, positive values are to the right the left-hand column of the panel."]
 pub type X_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LAYER_6_LAYPOS_SPEC, u16, u16, 16, O>;
+#[doc = "Field `Y` reader - The vertical position of top row of the layer, where 0 is the top row of the panel, positive values are below the top row of the panel."]
+pub type Y_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `Y` writer - The vertical position of top row of the layer, where 0 is the top row of the panel, positive values are below the top row of the panel."]
+pub type Y_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LAYER_6_LAYPOS_SPEC, u16, u16, 16, O>;
 impl R {
-    #[doc = "Bits 16:31 - The vertical position of top row of the layer, where 0 is the top row of the panel, positive values are below the top row of the panel."]
-    #[inline(always)]
-    pub fn y(&self) -> Y_R {
-        Y_R::new(((self.bits >> 16) & 0xffff) as u16)
-    }
     #[doc = "Bits 0:15 - The horizontal position of left-hand column of the layer, where 0 is the left-hand column of the panel, positive values are to the right the left-hand column of the panel."]
     #[inline(always)]
     pub fn x(&self) -> X_R {
         X_R::new((self.bits & 0xffff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:31 - The vertical position of top row of the layer, where 0 is the top row of the panel, positive values are below the top row of the panel."]
     #[inline(always)]
-    pub fn y(&mut self) -> Y_W<16> {
-        Y_W::new(self)
+    pub fn y(&self) -> Y_R {
+        Y_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:15 - The horizontal position of left-hand column of the layer, where 0 is the left-hand column of the panel, positive values are to the right the left-hand column of the panel."]
     #[inline(always)]
+    #[must_use]
     pub fn x(&mut self) -> X_W<0> {
         X_W::new(self)
+    }
+    #[doc = "Bits 16:31 - The vertical position of top row of the layer, where 0 is the top row of the panel, positive values are below the top row of the panel."]
+    #[inline(always)]
+    #[must_use]
+    pub fn y(&mut self) -> Y_W<16> {
+        Y_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for LAYER_6_LAYPOS_SPEC {
 #[doc = "`write(|w| ..)` method takes [layer_6_laypos::W](W) writer structure"]
 impl crate::Writable for LAYER_6_LAYPOS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LAYER_6_LAYPOS to value 0"]
 impl crate::Resettable for LAYER_6_LAYPOS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

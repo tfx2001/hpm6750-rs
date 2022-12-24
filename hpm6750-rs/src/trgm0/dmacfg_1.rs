@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:4 - This field selects one of the DMA requests as the DMA request output."]
     #[inline(always)]
+    #[must_use]
     pub fn dmasrcsel(&mut self) -> DMASRCSEL_W<0> {
         DMASRCSEL_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for DMACFG_1_SPEC {
 #[doc = "`write(|w| ..)` method takes [dmacfg_1::W](W) writer structure"]
 impl crate::Writable for DMACFG_1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DMACFG_1 to value 0"]
 impl crate::Resettable for DMACFG_1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

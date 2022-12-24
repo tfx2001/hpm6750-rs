@@ -34,37 +34,39 @@ impl From<crate::W<SEQ_QUE_CFG2_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `SEQ_INT_EN` reader - interrupt enable for current conversion"]
-pub type SEQ_INT_EN_R = crate::BitReader<bool>;
-#[doc = "Field `SEQ_INT_EN` writer - interrupt enable for current conversion"]
-pub type SEQ_INT_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, SEQ_QUE_CFG2_SPEC, bool, O>;
 #[doc = "Field `CHAN_NUM_4_0` reader - channel number for current conversion"]
 pub type CHAN_NUM_4_0_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `CHAN_NUM_4_0` writer - channel number for current conversion"]
 pub type CHAN_NUM_4_0_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, SEQ_QUE_CFG2_SPEC, u8, u8, 5, O>;
+#[doc = "Field `SEQ_INT_EN` reader - interrupt enable for current conversion"]
+pub type SEQ_INT_EN_R = crate::BitReader<bool>;
+#[doc = "Field `SEQ_INT_EN` writer - interrupt enable for current conversion"]
+pub type SEQ_INT_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, SEQ_QUE_CFG2_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 5 - interrupt enable for current conversion"]
-    #[inline(always)]
-    pub fn seq_int_en(&self) -> SEQ_INT_EN_R {
-        SEQ_INT_EN_R::new(((self.bits >> 5) & 1) != 0)
-    }
     #[doc = "Bits 0:4 - channel number for current conversion"]
     #[inline(always)]
     pub fn chan_num_4_0(&self) -> CHAN_NUM_4_0_R {
         CHAN_NUM_4_0_R::new((self.bits & 0x1f) as u8)
     }
-}
-impl W {
     #[doc = "Bit 5 - interrupt enable for current conversion"]
     #[inline(always)]
-    pub fn seq_int_en(&mut self) -> SEQ_INT_EN_W<5> {
-        SEQ_INT_EN_W::new(self)
+    pub fn seq_int_en(&self) -> SEQ_INT_EN_R {
+        SEQ_INT_EN_R::new(((self.bits >> 5) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bits 0:4 - channel number for current conversion"]
     #[inline(always)]
+    #[must_use]
     pub fn chan_num_4_0(&mut self) -> CHAN_NUM_4_0_W<0> {
         CHAN_NUM_4_0_W::new(self)
+    }
+    #[doc = "Bit 5 - interrupt enable for current conversion"]
+    #[inline(always)]
+    #[must_use]
+    pub fn seq_int_en(&mut self) -> SEQ_INT_EN_W<5> {
+        SEQ_INT_EN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -85,11 +87,10 @@ impl crate::Readable for SEQ_QUE_CFG2_SPEC {
 #[doc = "`write(|w| ..)` method takes [seq_que_cfg2::W](W) writer structure"]
 impl crate::Writable for SEQ_QUE_CFG2_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SEQ_QUE_CFG2 to value 0"]
 impl crate::Resettable for SEQ_QUE_CFG2_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

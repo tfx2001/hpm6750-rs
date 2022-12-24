@@ -34,35 +34,36 @@ impl From<crate::W<AUTO_TUNING_STAT_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `L_EDGE_PH_CODE` reader - Left Edge Phase code. Reading this field returns the phase code value used by Auto-tuning engine to sample data on Left edge of sampling window."]
-pub type L_EDGE_PH_CODE_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `R_EDGE_PH_CODE` reader - Right Edge Phase code. Reading this field returns the phase code value used by Auto-tuning engine to sample data on Right edge of sampling window."]
-pub type R_EDGE_PH_CODE_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `CENTER_PH_CODE` reader - Centered Phase code. Reading this field returns the current value on tuning_cclk_sel output. Setting AT_CTRL_R.SW_TUNE_EN enables software to write to this field and its contents are reflected on tuning_cclk_sel"]
 pub type CENTER_PH_CODE_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `CENTER_PH_CODE` writer - Centered Phase code. Reading this field returns the current value on tuning_cclk_sel output. Setting AT_CTRL_R.SW_TUNE_EN enables software to write to this field and its contents are reflected on tuning_cclk_sel"]
 pub type CENTER_PH_CODE_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, AUTO_TUNING_STAT_SPEC, u8, u8, 8, O>;
+#[doc = "Field `R_EDGE_PH_CODE` reader - Right Edge Phase code. Reading this field returns the phase code value used by Auto-tuning engine to sample data on Right edge of sampling window."]
+pub type R_EDGE_PH_CODE_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `L_EDGE_PH_CODE` reader - Left Edge Phase code. Reading this field returns the phase code value used by Auto-tuning engine to sample data on Left edge of sampling window."]
+pub type L_EDGE_PH_CODE_R = crate::FieldReader<u8, u8>;
 impl R {
-    #[doc = "Bits 16:23 - Left Edge Phase code. Reading this field returns the phase code value used by Auto-tuning engine to sample data on Left edge of sampling window."]
+    #[doc = "Bits 0:7 - Centered Phase code. Reading this field returns the current value on tuning_cclk_sel output. Setting AT_CTRL_R.SW_TUNE_EN enables software to write to this field and its contents are reflected on tuning_cclk_sel"]
     #[inline(always)]
-    pub fn l_edge_ph_code(&self) -> L_EDGE_PH_CODE_R {
-        L_EDGE_PH_CODE_R::new(((self.bits >> 16) & 0xff) as u8)
+    pub fn center_ph_code(&self) -> CENTER_PH_CODE_R {
+        CENTER_PH_CODE_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - Right Edge Phase code. Reading this field returns the phase code value used by Auto-tuning engine to sample data on Right edge of sampling window."]
     #[inline(always)]
     pub fn r_edge_ph_code(&self) -> R_EDGE_PH_CODE_R {
         R_EDGE_PH_CODE_R::new(((self.bits >> 8) & 0xff) as u8)
     }
-    #[doc = "Bits 0:7 - Centered Phase code. Reading this field returns the current value on tuning_cclk_sel output. Setting AT_CTRL_R.SW_TUNE_EN enables software to write to this field and its contents are reflected on tuning_cclk_sel"]
+    #[doc = "Bits 16:23 - Left Edge Phase code. Reading this field returns the phase code value used by Auto-tuning engine to sample data on Left edge of sampling window."]
     #[inline(always)]
-    pub fn center_ph_code(&self) -> CENTER_PH_CODE_R {
-        CENTER_PH_CODE_R::new((self.bits & 0xff) as u8)
+    pub fn l_edge_ph_code(&self) -> L_EDGE_PH_CODE_R {
+        L_EDGE_PH_CODE_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
 impl W {
     #[doc = "Bits 0:7 - Centered Phase code. Reading this field returns the current value on tuning_cclk_sel output. Setting AT_CTRL_R.SW_TUNE_EN enables software to write to this field and its contents are reflected on tuning_cclk_sel"]
     #[inline(always)]
+    #[must_use]
     pub fn center_ph_code(&mut self) -> CENTER_PH_CODE_W<0> {
         CENTER_PH_CODE_W::new(self)
     }
@@ -85,11 +86,10 @@ impl crate::Readable for AUTO_TUNING_STAT_SPEC {
 #[doc = "`write(|w| ..)` method takes [auto_tuning_stat::W](W) writer structure"]
 impl crate::Writable for AUTO_TUNING_STAT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets AUTO_TUNING_STAT to value 0"]
 impl crate::Resettable for AUTO_TUNING_STAT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

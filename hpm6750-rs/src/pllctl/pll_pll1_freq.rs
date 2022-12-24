@@ -34,37 +34,39 @@ impl From<crate::W<PLL_PLL1_FREQ_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `FRAC` reader - PLL output frequency is : Fout = Fref/refdiv*(fbdiv + frac/2^24)/postdiv1 for default refdiv=1 and postdiv1=1, 24MHz refclk Fout is 24*fbdiv in int mode if frac is set to 0x800000, Fout is 24*(fbdiv+0.5) Fout is 24*fbdiv in int mode if frac is set to 0x200000, Fout is 24*(fbdiv+0.125)"]
-pub type FRAC_R = crate::FieldReader<u32, u32>;
-#[doc = "Field `FRAC` writer - PLL output frequency is : Fout = Fref/refdiv*(fbdiv + frac/2^24)/postdiv1 for default refdiv=1 and postdiv1=1, 24MHz refclk Fout is 24*fbdiv in int mode if frac is set to 0x800000, Fout is 24*(fbdiv+0.5) Fout is 24*fbdiv in int mode if frac is set to 0x200000, Fout is 24*(fbdiv+0.125)"]
-pub type FRAC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PLL_PLL1_FREQ_SPEC, u32, u32, 24, O>;
 #[doc = "Field `FBDIV_FRAC` reader - fbdiv used in frac mode"]
 pub type FBDIV_FRAC_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `FBDIV_FRAC` writer - fbdiv used in frac mode"]
 pub type FBDIV_FRAC_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, PLL_PLL1_FREQ_SPEC, u8, u8, 8, O>;
+#[doc = "Field `FRAC` reader - PLL output frequency is : Fout = Fref/refdiv*(fbdiv + frac/2^24)/postdiv1 for default refdiv=1 and postdiv1=1, 24MHz refclk Fout is 24*fbdiv in int mode if frac is set to 0x800000, Fout is 24*(fbdiv+0.5) Fout is 24*fbdiv in int mode if frac is set to 0x200000, Fout is 24*(fbdiv+0.125)"]
+pub type FRAC_R = crate::FieldReader<u32, u32>;
+#[doc = "Field `FRAC` writer - PLL output frequency is : Fout = Fref/refdiv*(fbdiv + frac/2^24)/postdiv1 for default refdiv=1 and postdiv1=1, 24MHz refclk Fout is 24*fbdiv in int mode if frac is set to 0x800000, Fout is 24*(fbdiv+0.5) Fout is 24*fbdiv in int mode if frac is set to 0x200000, Fout is 24*(fbdiv+0.125)"]
+pub type FRAC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PLL_PLL1_FREQ_SPEC, u32, u32, 24, O>;
 impl R {
-    #[doc = "Bits 8:31 - PLL output frequency is : Fout = Fref/refdiv*(fbdiv + frac/2^24)/postdiv1 for default refdiv=1 and postdiv1=1, 24MHz refclk Fout is 24*fbdiv in int mode if frac is set to 0x800000, Fout is 24*(fbdiv+0.5) Fout is 24*fbdiv in int mode if frac is set to 0x200000, Fout is 24*(fbdiv+0.125)"]
-    #[inline(always)]
-    pub fn frac(&self) -> FRAC_R {
-        FRAC_R::new(((self.bits >> 8) & 0x00ff_ffff) as u32)
-    }
     #[doc = "Bits 0:7 - fbdiv used in frac mode"]
     #[inline(always)]
     pub fn fbdiv_frac(&self) -> FBDIV_FRAC_R {
         FBDIV_FRAC_R::new((self.bits & 0xff) as u8)
     }
-}
-impl W {
     #[doc = "Bits 8:31 - PLL output frequency is : Fout = Fref/refdiv*(fbdiv + frac/2^24)/postdiv1 for default refdiv=1 and postdiv1=1, 24MHz refclk Fout is 24*fbdiv in int mode if frac is set to 0x800000, Fout is 24*(fbdiv+0.5) Fout is 24*fbdiv in int mode if frac is set to 0x200000, Fout is 24*(fbdiv+0.125)"]
     #[inline(always)]
-    pub fn frac(&mut self) -> FRAC_W<8> {
-        FRAC_W::new(self)
+    pub fn frac(&self) -> FRAC_R {
+        FRAC_R::new((self.bits >> 8) & 0x00ff_ffff)
     }
+}
+impl W {
     #[doc = "Bits 0:7 - fbdiv used in frac mode"]
     #[inline(always)]
+    #[must_use]
     pub fn fbdiv_frac(&mut self) -> FBDIV_FRAC_W<0> {
         FBDIV_FRAC_W::new(self)
+    }
+    #[doc = "Bits 8:31 - PLL output frequency is : Fout = Fref/refdiv*(fbdiv + frac/2^24)/postdiv1 for default refdiv=1 and postdiv1=1, 24MHz refclk Fout is 24*fbdiv in int mode if frac is set to 0x800000, Fout is 24*(fbdiv+0.5) Fout is 24*fbdiv in int mode if frac is set to 0x200000, Fout is 24*(fbdiv+0.125)"]
+    #[inline(always)]
+    #[must_use]
+    pub fn frac(&mut self) -> FRAC_W<8> {
+        FRAC_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -85,11 +87,10 @@ impl crate::Readable for PLL_PLL1_FREQ_SPEC {
 #[doc = "`write(|w| ..)` method takes [pll_pll1_freq::W](W) writer structure"]
 impl crate::Writable for PLL_PLL1_FREQ_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PLL_PLL1_FREQ to value 0"]
 impl crate::Resettable for PLL_PLL1_FREQ_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Background color (in 32bpp format) for any pixels not within the scaled range of the picture, but within the buffer range specified by the PS ULC/LRC. The top 8-bit is the alpha channel."]
     #[inline(always)]
+    #[must_use]
     pub fn color(&mut self) -> COLOR_W<0> {
         COLOR_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for PS_0_BKGD_SPEC {
 #[doc = "`write(|w| ..)` method takes [ps_0_bkgd::W](W) writer structure"]
 impl crate::Writable for PS_0_BKGD_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PS_0_BKGD to value 0"]
 impl crate::Resettable for PS_0_BKGD_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

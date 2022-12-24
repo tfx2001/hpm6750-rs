@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:4 - Over-sample control The value must be an even number; any odd value writes to this field will be converted to an even value. OSC=0: The over-sample ratio is 32 OSC<=8: The over-sample ratio is 8 8 < OSC< 32: The over sample ratio is OSC"]
     #[inline(always)]
+    #[must_use]
     pub fn osc(&mut self) -> OSC_W<0> {
         OSC_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for OSCR_SPEC {
 #[doc = "`write(|w| ..)` method takes [oscr::W](W) writer structure"]
 impl crate::Writable for OSCR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets OSCR to value 0x10"]
 impl crate::Resettable for OSCR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x10
-    }
+    const RESET_VALUE: Self::Ux = 0x10;
 }

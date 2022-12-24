@@ -43,12 +43,13 @@ impl R {
     #[doc = "Bits 0:19 - DCDC voltage change time in 24M clock cycles, default value is 1mS"]
     #[inline(always)]
     pub fn update_time(&self) -> UPDATE_TIME_R {
-        UPDATE_TIME_R::new((self.bits & 0x000f_ffff) as u32)
+        UPDATE_TIME_R::new(self.bits & 0x000f_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:19 - DCDC voltage change time in 24M clock cycles, default value is 1mS"]
     #[inline(always)]
+    #[must_use]
     pub fn update_time(&mut self) -> UPDATE_TIME_W<0> {
         UPDATE_TIME_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for DCDC_DEBUG_SPEC {
 #[doc = "`write(|w| ..)` method takes [dcdc_debug::W](W) writer structure"]
 impl crate::Writable for DCDC_DEBUG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DCDC_DEBUG to value 0x5dbf"]
 impl crate::Resettable for DCDC_DEBUG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x5dbf
-    }
+    const RESET_VALUE: Self::Ux = 0x5dbf;
 }

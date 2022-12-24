@@ -34,36 +34,38 @@ impl From<crate::W<MAX_WN_CYCLE_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `ROW` reader - Max Width-1"]
-pub type ROW_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `ROW` writer - Max Width-1"]
-pub type ROW_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MAX_WN_CYCLE_SPEC, u16, u16, 16, O>;
 #[doc = "Field `COL` reader - Max Height-1"]
 pub type COL_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `COL` writer - Max Height-1"]
 pub type COL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MAX_WN_CYCLE_SPEC, u16, u16, 16, O>;
+#[doc = "Field `ROW` reader - Max Width-1"]
+pub type ROW_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `ROW` writer - Max Width-1"]
+pub type ROW_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MAX_WN_CYCLE_SPEC, u16, u16, 16, O>;
 impl R {
-    #[doc = "Bits 16:31 - Max Width-1"]
-    #[inline(always)]
-    pub fn row(&self) -> ROW_R {
-        ROW_R::new(((self.bits >> 16) & 0xffff) as u16)
-    }
     #[doc = "Bits 0:15 - Max Height-1"]
     #[inline(always)]
     pub fn col(&self) -> COL_R {
         COL_R::new((self.bits & 0xffff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:31 - Max Width-1"]
     #[inline(always)]
-    pub fn row(&mut self) -> ROW_W<16> {
-        ROW_W::new(self)
+    pub fn row(&self) -> ROW_R {
+        ROW_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:15 - Max Height-1"]
     #[inline(always)]
+    #[must_use]
     pub fn col(&mut self) -> COL_W<0> {
         COL_W::new(self)
+    }
+    #[doc = "Bits 16:31 - Max Width-1"]
+    #[inline(always)]
+    #[must_use]
+    pub fn row(&mut self) -> ROW_W<16> {
+        ROW_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for MAX_WN_CYCLE_SPEC {
 #[doc = "`write(|w| ..)` method takes [max_wn_cycle::W](W) writer structure"]
 impl crate::Writable for MAX_WN_CYCLE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MAX_WN_CYCLE to value 0"]
 impl crate::Resettable for MAX_WN_CYCLE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

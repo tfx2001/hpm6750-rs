@@ -34,43 +34,46 @@ impl From<crate::W<CR_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `READ` writer - 1- load ucnt, vcnt, wcnt and tmrcnt into their read registers. Hardware auto-clear; read as 0"]
-pub type READ_W<'a, const O: u8> = crate::BitWriter<'a, u32, CR_SPEC, bool, O>;
-#[doc = "Field `SNAPEN` reader - 1- load ucnt, vcnt, wcnt and tmrcnt into their snap registers when snapi input assert"]
-pub type SNAPEN_R = crate::BitReader<bool>;
-#[doc = "Field `SNAPEN` writer - 1- load ucnt, vcnt, wcnt and tmrcnt into their snap registers when snapi input assert"]
-pub type SNAPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CR_SPEC, bool, O>;
 #[doc = "Field `RSTCNT` reader - set to reset all counter and related snapshots"]
 pub type RSTCNT_R = crate::BitReader<bool>;
 #[doc = "Field `RSTCNT` writer - set to reset all counter and related snapshots"]
 pub type RSTCNT_W<'a, const O: u8> = crate::BitWriter<'a, u32, CR_SPEC, bool, O>;
+#[doc = "Field `SNAPEN` reader - 1- load ucnt, vcnt, wcnt and tmrcnt into their snap registers when snapi input assert"]
+pub type SNAPEN_R = crate::BitReader<bool>;
+#[doc = "Field `SNAPEN` writer - 1- load ucnt, vcnt, wcnt and tmrcnt into their snap registers when snapi input assert"]
+pub type SNAPEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CR_SPEC, bool, O>;
+#[doc = "Field `READ` writer - 1- load ucnt, vcnt, wcnt and tmrcnt into their read registers. Hardware auto-clear; read as 0"]
+pub type READ_W<'a, const O: u8> = crate::BitWriter<'a, u32, CR_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 11 - 1- load ucnt, vcnt, wcnt and tmrcnt into their snap registers when snapi input assert"]
-    #[inline(always)]
-    pub fn snapen(&self) -> SNAPEN_R {
-        SNAPEN_R::new(((self.bits >> 11) & 1) != 0)
-    }
     #[doc = "Bit 4 - set to reset all counter and related snapshots"]
     #[inline(always)]
     pub fn rstcnt(&self) -> RSTCNT_R {
         RSTCNT_R::new(((self.bits >> 4) & 1) != 0)
     }
+    #[doc = "Bit 11 - 1- load ucnt, vcnt, wcnt and tmrcnt into their snap registers when snapi input assert"]
+    #[inline(always)]
+    pub fn snapen(&self) -> SNAPEN_R {
+        SNAPEN_R::new(((self.bits >> 11) & 1) != 0)
+    }
 }
 impl W {
-    #[doc = "Bit 31 - 1- load ucnt, vcnt, wcnt and tmrcnt into their read registers. Hardware auto-clear; read as 0"]
+    #[doc = "Bit 4 - set to reset all counter and related snapshots"]
     #[inline(always)]
-    pub fn read(&mut self) -> READ_W<31> {
-        READ_W::new(self)
+    #[must_use]
+    pub fn rstcnt(&mut self) -> RSTCNT_W<4> {
+        RSTCNT_W::new(self)
     }
     #[doc = "Bit 11 - 1- load ucnt, vcnt, wcnt and tmrcnt into their snap registers when snapi input assert"]
     #[inline(always)]
+    #[must_use]
     pub fn snapen(&mut self) -> SNAPEN_W<11> {
         SNAPEN_W::new(self)
     }
-    #[doc = "Bit 4 - set to reset all counter and related snapshots"]
+    #[doc = "Bit 31 - 1- load ucnt, vcnt, wcnt and tmrcnt into their read registers. Hardware auto-clear; read as 0"]
     #[inline(always)]
-    pub fn rstcnt(&mut self) -> RSTCNT_W<4> {
-        RSTCNT_W::new(self)
+    #[must_use]
+    pub fn read(&mut self) -> READ_W<31> {
+        READ_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -91,11 +94,10 @@ impl crate::Readable for CR_SPEC {
 #[doc = "`write(|w| ..)` method takes [cr::W](W) writer structure"]
 impl crate::Writable for CR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CR to value 0"]
 impl crate::Resettable for CR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

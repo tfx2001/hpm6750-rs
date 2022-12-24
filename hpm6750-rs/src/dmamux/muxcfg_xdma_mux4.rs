@@ -34,37 +34,39 @@ impl From<crate::W<MUXCFG_XDMA_MUX4_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `ENABLE` reader - DMA Mux Channel Enable Enables the channel for DMA Mux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel. 0b - DMA Mux channel is disabled 1b - DMA Mux channel is enabled"]
-pub type ENABLE_R = crate::BitReader<bool>;
-#[doc = "Field `ENABLE` writer - DMA Mux Channel Enable Enables the channel for DMA Mux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel. 0b - DMA Mux channel is disabled 1b - DMA Mux channel is enabled"]
-pub type ENABLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, MUXCFG_XDMA_MUX4_SPEC, bool, O>;
 #[doc = "Field `SOURCE` reader - DMA Channel Source Specifies which DMA source, if any, is routed to a particular DMA channel. See the \"DMA MUX Mapping\""]
 pub type SOURCE_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `SOURCE` writer - DMA Channel Source Specifies which DMA source, if any, is routed to a particular DMA channel. See the \"DMA MUX Mapping\""]
 pub type SOURCE_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, MUXCFG_XDMA_MUX4_SPEC, u8, u8, 7, O>;
+#[doc = "Field `ENABLE` reader - DMA Mux Channel Enable Enables the channel for DMA Mux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel. 0b - DMA Mux channel is disabled 1b - DMA Mux channel is enabled"]
+pub type ENABLE_R = crate::BitReader<bool>;
+#[doc = "Field `ENABLE` writer - DMA Mux Channel Enable Enables the channel for DMA Mux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel. 0b - DMA Mux channel is disabled 1b - DMA Mux channel is enabled"]
+pub type ENABLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, MUXCFG_XDMA_MUX4_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 31 - DMA Mux Channel Enable Enables the channel for DMA Mux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel. 0b - DMA Mux channel is disabled 1b - DMA Mux channel is enabled"]
-    #[inline(always)]
-    pub fn enable(&self) -> ENABLE_R {
-        ENABLE_R::new(((self.bits >> 31) & 1) != 0)
-    }
     #[doc = "Bits 0:6 - DMA Channel Source Specifies which DMA source, if any, is routed to a particular DMA channel. See the \"DMA MUX Mapping\""]
     #[inline(always)]
     pub fn source(&self) -> SOURCE_R {
         SOURCE_R::new((self.bits & 0x7f) as u8)
     }
-}
-impl W {
     #[doc = "Bit 31 - DMA Mux Channel Enable Enables the channel for DMA Mux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel. 0b - DMA Mux channel is disabled 1b - DMA Mux channel is enabled"]
     #[inline(always)]
-    pub fn enable(&mut self) -> ENABLE_W<31> {
-        ENABLE_W::new(self)
+    pub fn enable(&self) -> ENABLE_R {
+        ENABLE_R::new(((self.bits >> 31) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bits 0:6 - DMA Channel Source Specifies which DMA source, if any, is routed to a particular DMA channel. See the \"DMA MUX Mapping\""]
     #[inline(always)]
+    #[must_use]
     pub fn source(&mut self) -> SOURCE_W<0> {
         SOURCE_W::new(self)
+    }
+    #[doc = "Bit 31 - DMA Mux Channel Enable Enables the channel for DMA Mux. The DMA has separate channel enables/disables, which should be used to disable or reconfigure a DMA channel. 0b - DMA Mux channel is disabled 1b - DMA Mux channel is enabled"]
+    #[inline(always)]
+    #[must_use]
+    pub fn enable(&mut self) -> ENABLE_W<31> {
+        ENABLE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -85,11 +87,10 @@ impl crate::Readable for MUXCFG_XDMA_MUX4_SPEC {
 #[doc = "`write(|w| ..)` method takes [muxcfg_xdma_mux4::W](W) writer structure"]
 impl crate::Writable for MUXCFG_XDMA_MUX4_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MUXCFG_XDMA_MUX4 to value 0"]
 impl crate::Resettable for MUXCFG_XDMA_MUX4_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

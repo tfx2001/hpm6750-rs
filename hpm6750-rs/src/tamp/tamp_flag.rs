@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:11 - tamper flag, each bit represents one tamper pin, write 1 to clear the flag Note, clear can only be cleared when tamper disapeared"]
     #[inline(always)]
+    #[must_use]
     pub fn flag(&mut self) -> FLAG_W<0> {
         FLAG_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for TAMP_FLAG_SPEC {
 #[doc = "`write(|w| ..)` method takes [tamp_flag::W](W) writer structure"]
 impl crate::Writable for TAMP_FLAG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TAMP_FLAG to value 0"]
 impl crate::Resettable for TAMP_FLAG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

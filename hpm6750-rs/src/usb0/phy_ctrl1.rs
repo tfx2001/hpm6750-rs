@@ -34,36 +34,38 @@ impl From<crate::W<PHY_CTRL1_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `UTMI_CFG_RST_N` reader - No description avaiable"]
-pub type UTMI_CFG_RST_N_R = crate::BitReader<bool>;
-#[doc = "Field `UTMI_CFG_RST_N` writer - No description avaiable"]
-pub type UTMI_CFG_RST_N_W<'a, const O: u8> = crate::BitWriter<'a, u32, PHY_CTRL1_SPEC, bool, O>;
 #[doc = "Field `UTMI_OTG_SUSPENDM` reader - OTG suspend, not utmi_suspendm"]
 pub type UTMI_OTG_SUSPENDM_R = crate::BitReader<bool>;
 #[doc = "Field `UTMI_OTG_SUSPENDM` writer - OTG suspend, not utmi_suspendm"]
 pub type UTMI_OTG_SUSPENDM_W<'a, const O: u8> = crate::BitWriter<'a, u32, PHY_CTRL1_SPEC, bool, O>;
+#[doc = "Field `UTMI_CFG_RST_N` reader - No description avaiable"]
+pub type UTMI_CFG_RST_N_R = crate::BitReader<bool>;
+#[doc = "Field `UTMI_CFG_RST_N` writer - No description avaiable"]
+pub type UTMI_CFG_RST_N_W<'a, const O: u8> = crate::BitWriter<'a, u32, PHY_CTRL1_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 20 - No description avaiable"]
-    #[inline(always)]
-    pub fn utmi_cfg_rst_n(&self) -> UTMI_CFG_RST_N_R {
-        UTMI_CFG_RST_N_R::new(((self.bits >> 20) & 1) != 0)
-    }
     #[doc = "Bit 1 - OTG suspend, not utmi_suspendm"]
     #[inline(always)]
     pub fn utmi_otg_suspendm(&self) -> UTMI_OTG_SUSPENDM_R {
         UTMI_OTG_SUSPENDM_R::new(((self.bits >> 1) & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bit 20 - No description avaiable"]
     #[inline(always)]
-    pub fn utmi_cfg_rst_n(&mut self) -> UTMI_CFG_RST_N_W<20> {
-        UTMI_CFG_RST_N_W::new(self)
+    pub fn utmi_cfg_rst_n(&self) -> UTMI_CFG_RST_N_R {
+        UTMI_CFG_RST_N_R::new(((self.bits >> 20) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bit 1 - OTG suspend, not utmi_suspendm"]
     #[inline(always)]
+    #[must_use]
     pub fn utmi_otg_suspendm(&mut self) -> UTMI_OTG_SUSPENDM_W<1> {
         UTMI_OTG_SUSPENDM_W::new(self)
+    }
+    #[doc = "Bit 20 - No description avaiable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn utmi_cfg_rst_n(&mut self) -> UTMI_CFG_RST_N_W<20> {
+        UTMI_CFG_RST_N_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for PHY_CTRL1_SPEC {
 #[doc = "`write(|w| ..)` method takes [phy_ctrl1::W](W) writer structure"]
 impl crate::Writable for PHY_CTRL1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PHY_CTRL1 to value 0"]
 impl crate::Resettable for PHY_CTRL1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

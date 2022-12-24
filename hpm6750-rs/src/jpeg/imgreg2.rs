@@ -42,12 +42,13 @@ impl R {
     #[doc = "Bits 0:25 - Encoder Use only. The number of NMCU to be generated in encoder mode"]
     #[inline(always)]
     pub fn nmcu(&self) -> NMCU_R {
-        NMCU_R::new((self.bits & 0x03ff_ffff) as u32)
+        NMCU_R::new(self.bits & 0x03ff_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:25 - Encoder Use only. The number of NMCU to be generated in encoder mode"]
     #[inline(always)]
+    #[must_use]
     pub fn nmcu(&mut self) -> NMCU_W<0> {
         NMCU_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for IMGREG2_SPEC {
 #[doc = "`write(|w| ..)` method takes [imgreg2::W](W) writer structure"]
 impl crate::Writable for IMGREG2_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IMGREG2 to value 0"]
 impl crate::Resettable for IMGREG2_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

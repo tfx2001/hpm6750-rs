@@ -34,50 +34,53 @@ impl From<crate::W<BR_BASE1_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `BASE` reader - Base Address This field determines high position 20 bits of SoC level Base Address. SoC level Base Address low position 12 bits are all zero."]
-pub type BASE_R = crate::FieldReader<u32, u32>;
-#[doc = "Field `BASE` writer - Base Address This field determines high position 20 bits of SoC level Base Address. SoC level Base Address low position 12 bits are all zero."]
-pub type BASE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BR_BASE1_SPEC, u32, u32, 20, O>;
-#[doc = "Field `SIZE` reader - Memory size 00000b - 4KB 00001b - 8KB 00010b - 16KB 00011b - 32KB 00100b - 64KB 00101b - 128KB 00110b - 256KB 00111b - 512KB 01000b - 1MB 01001b - 2MB 01010b - 4MB 01011b - 8MB 01100b - 16MB 01101b - 32MB 01110b - 64MB 01111b - 128MB 10000b - 256MB 10001b - 512MB 10010b - 1GB 10011b - 2GB 10100-11111b - 4GB"]
-pub type SIZE_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `SIZE` writer - Memory size 00000b - 4KB 00001b - 8KB 00010b - 16KB 00011b - 32KB 00100b - 64KB 00101b - 128KB 00110b - 256KB 00111b - 512KB 01000b - 1MB 01001b - 2MB 01010b - 4MB 01011b - 8MB 01100b - 16MB 01101b - 32MB 01110b - 64MB 01111b - 128MB 10000b - 256MB 10001b - 512MB 10010b - 1GB 10011b - 2GB 10100-11111b - 4GB"]
-pub type SIZE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BR_BASE1_SPEC, u8, u8, 5, O>;
 #[doc = "Field `VLD` reader - Valid"]
 pub type VLD_R = crate::BitReader<bool>;
 #[doc = "Field `VLD` writer - Valid"]
 pub type VLD_W<'a, const O: u8> = crate::BitWriter<'a, u32, BR_BASE1_SPEC, bool, O>;
+#[doc = "Field `SIZE` reader - Memory size 00000b - 4KB 00001b - 8KB 00010b - 16KB 00011b - 32KB 00100b - 64KB 00101b - 128KB 00110b - 256KB 00111b - 512KB 01000b - 1MB 01001b - 2MB 01010b - 4MB 01011b - 8MB 01100b - 16MB 01101b - 32MB 01110b - 64MB 01111b - 128MB 10000b - 256MB 10001b - 512MB 10010b - 1GB 10011b - 2GB 10100-11111b - 4GB"]
+pub type SIZE_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `SIZE` writer - Memory size 00000b - 4KB 00001b - 8KB 00010b - 16KB 00011b - 32KB 00100b - 64KB 00101b - 128KB 00110b - 256KB 00111b - 512KB 01000b - 1MB 01001b - 2MB 01010b - 4MB 01011b - 8MB 01100b - 16MB 01101b - 32MB 01110b - 64MB 01111b - 128MB 10000b - 256MB 10001b - 512MB 10010b - 1GB 10011b - 2GB 10100-11111b - 4GB"]
+pub type SIZE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BR_BASE1_SPEC, u8, u8, 5, O>;
+#[doc = "Field `BASE` reader - Base Address This field determines high position 20 bits of SoC level Base Address. SoC level Base Address low position 12 bits are all zero."]
+pub type BASE_R = crate::FieldReader<u32, u32>;
+#[doc = "Field `BASE` writer - Base Address This field determines high position 20 bits of SoC level Base Address. SoC level Base Address low position 12 bits are all zero."]
+pub type BASE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BR_BASE1_SPEC, u32, u32, 20, O>;
 impl R {
-    #[doc = "Bits 12:31 - Base Address This field determines high position 20 bits of SoC level Base Address. SoC level Base Address low position 12 bits are all zero."]
+    #[doc = "Bit 0 - Valid"]
     #[inline(always)]
-    pub fn base(&self) -> BASE_R {
-        BASE_R::new(((self.bits >> 12) & 0x000f_ffff) as u32)
+    pub fn vld(&self) -> VLD_R {
+        VLD_R::new((self.bits & 1) != 0)
     }
     #[doc = "Bits 1:5 - Memory size 00000b - 4KB 00001b - 8KB 00010b - 16KB 00011b - 32KB 00100b - 64KB 00101b - 128KB 00110b - 256KB 00111b - 512KB 01000b - 1MB 01001b - 2MB 01010b - 4MB 01011b - 8MB 01100b - 16MB 01101b - 32MB 01110b - 64MB 01111b - 128MB 10000b - 256MB 10001b - 512MB 10010b - 1GB 10011b - 2GB 10100-11111b - 4GB"]
     #[inline(always)]
     pub fn size(&self) -> SIZE_R {
         SIZE_R::new(((self.bits >> 1) & 0x1f) as u8)
     }
-    #[doc = "Bit 0 - Valid"]
+    #[doc = "Bits 12:31 - Base Address This field determines high position 20 bits of SoC level Base Address. SoC level Base Address low position 12 bits are all zero."]
     #[inline(always)]
-    pub fn vld(&self) -> VLD_R {
-        VLD_R::new((self.bits & 1) != 0)
+    pub fn base(&self) -> BASE_R {
+        BASE_R::new((self.bits >> 12) & 0x000f_ffff)
     }
 }
 impl W {
-    #[doc = "Bits 12:31 - Base Address This field determines high position 20 bits of SoC level Base Address. SoC level Base Address low position 12 bits are all zero."]
+    #[doc = "Bit 0 - Valid"]
     #[inline(always)]
-    pub fn base(&mut self) -> BASE_W<12> {
-        BASE_W::new(self)
+    #[must_use]
+    pub fn vld(&mut self) -> VLD_W<0> {
+        VLD_W::new(self)
     }
     #[doc = "Bits 1:5 - Memory size 00000b - 4KB 00001b - 8KB 00010b - 16KB 00011b - 32KB 00100b - 64KB 00101b - 128KB 00110b - 256KB 00111b - 512KB 01000b - 1MB 01001b - 2MB 01010b - 4MB 01011b - 8MB 01100b - 16MB 01101b - 32MB 01110b - 64MB 01111b - 128MB 10000b - 256MB 10001b - 512MB 10010b - 1GB 10011b - 2GB 10100-11111b - 4GB"]
     #[inline(always)]
+    #[must_use]
     pub fn size(&mut self) -> SIZE_W<1> {
         SIZE_W::new(self)
     }
-    #[doc = "Bit 0 - Valid"]
+    #[doc = "Bits 12:31 - Base Address This field determines high position 20 bits of SoC level Base Address. SoC level Base Address low position 12 bits are all zero."]
     #[inline(always)]
-    pub fn vld(&mut self) -> VLD_W<0> {
-        VLD_W::new(self)
+    #[must_use]
+    pub fn base(&mut self) -> BASE_W<12> {
+        BASE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -98,11 +101,10 @@ impl crate::Readable for BR_BASE1_SPEC {
 #[doc = "`write(|w| ..)` method takes [br_base1::W](W) writer structure"]
 impl crate::Writable for BR_BASE1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets BR_BASE1 to value 0"]
 impl crate::Resettable for BR_BASE1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

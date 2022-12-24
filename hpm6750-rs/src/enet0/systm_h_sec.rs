@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Timestamp Higher Word Register This field contains the most significant 16-bits of the timestamp seconds value. This register is optional and can be selected using the Enable IEEE 1588 Higher Word Register option during core configuration. The register is directly written to initialize the value. This register is incremented when there is an overflow from the 32-bits of the System Time - Seconds register."]
     #[inline(always)]
+    #[must_use]
     pub fn tshwr(&mut self) -> TSHWR_W<0> {
         TSHWR_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for SYSTM_H_SEC_SPEC {
 #[doc = "`write(|w| ..)` method takes [systm_h_sec::W](W) writer structure"]
 impl crate::Writable for SYSTM_H_SEC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SYSTM_H_SEC to value 0"]
 impl crate::Resettable for SYSTM_H_SEC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

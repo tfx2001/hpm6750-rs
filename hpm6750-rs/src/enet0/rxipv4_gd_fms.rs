@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Number of good IPv4 datagrams received with the TCP, UDP, or ICMP payload"]
     #[inline(always)]
+    #[must_use]
     pub fn frmcnt(&mut self) -> FRMCNT_W<0> {
         FRMCNT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for RXIPV4_GD_FMS_SPEC {
 #[doc = "`write(|w| ..)` method takes [rxipv4_gd_fms::W](W) writer structure"]
 impl crate::Writable for RXIPV4_GD_FMS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RXIPV4_GD_FMS to value 0"]
 impl crate::Resettable for RXIPV4_GD_FMS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

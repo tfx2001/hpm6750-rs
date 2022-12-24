@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - global clock override request bit0: override to preset0 bit1: override to preset1 bit2: override to preset2 bit3: override to preset3"]
     #[inline(always)]
+    #[must_use]
     pub fn preset(&mut self) -> PRESET_W<0> {
         PRESET_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for GLOBAL00_SPEC {
 #[doc = "`write(|w| ..)` method takes [global00::W](W) writer structure"]
 impl crate::Writable for GLOBAL00_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets GLOBAL00 to value 0"]
 impl crate::Resettable for GLOBAL00_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

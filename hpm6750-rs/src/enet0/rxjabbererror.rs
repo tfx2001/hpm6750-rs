@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Number of giant frames received with length (including CRC) greater than 1,518 bytes (1,522 bytes for VLAN tagged) and with CRC error. If Jumbo Frame mode is enabled, then frames of length greater than 9,018 bytes (9,022 for VLAN tagged) are considered as giant frames."]
     #[inline(always)]
+    #[must_use]
     pub fn frmcnt(&mut self) -> FRMCNT_W<0> {
         FRMCNT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for RXJABBERERROR_SPEC {
 #[doc = "`write(|w| ..)` method takes [rxjabbererror::W](W) writer structure"]
 impl crate::Writable for RXJABBERERROR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RXJABBERERROR to value 0"]
 impl crate::Resettable for RXJABBERERROR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

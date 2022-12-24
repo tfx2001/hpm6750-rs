@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - The bits of this field are bit mapped to the device response. This bit is used as an interrupt mask on the device status filed that is received in R1/R1b responses. 1: When a R1/R1b response is received, with a bit i in the device status set, a RED interrupt is generated. 0: When a R1/R1b response is received, bit i in the device status is ignored. The reset value of this register is set to trigger an interrupt on all \"Error\" type bits in the device status. Note: Responses to CMD13 (SQS) encode the QSR so that they are ignored by this logic."]
     #[inline(always)]
+    #[must_use]
     pub fn resp_err_mask(&mut self) -> RESP_ERR_MASK_W<0> {
         RESP_ERR_MASK_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for CQRMEM_SPEC {
 #[doc = "`write(|w| ..)` method takes [cqrmem::W](W) writer structure"]
 impl crate::Writable for CQRMEM_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CQRMEM to value 0"]
 impl crate::Resettable for CQRMEM_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

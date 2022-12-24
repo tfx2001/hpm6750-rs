@@ -34,64 +34,68 @@ impl From<crate::W<ST_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `URGENT_UNDERRUN` reader - Asserted when the output buffer urgent underrun condition encountered"]
-pub type URGENT_UNDERRUN_R = crate::BitReader<bool>;
-#[doc = "Field `URGENT_UNDERRUN` writer - Asserted when the output buffer urgent underrun condition encountered"]
-pub type URGENT_UNDERRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ST_SPEC, bool, O>;
-#[doc = "Field `VS_BLANK` reader - Asserted when in vertical blanking period. At the start of VSYNC"]
-pub type VS_BLANK_R = crate::BitReader<bool>;
-#[doc = "Field `VS_BLANK` writer - Asserted when in vertical blanking period. At the start of VSYNC"]
-pub type VS_BLANK_W<'a, const O: u8> = crate::BitWriter<'a, u32, ST_SPEC, bool, O>;
-#[doc = "Field `UNDERRUN` reader - Asserted when the output buffer underrun condition encountered"]
-pub type UNDERRUN_R = crate::BitReader<bool>;
-#[doc = "Field `UNDERRUN` writer - Asserted when the output buffer underrun condition encountered"]
-pub type UNDERRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ST_SPEC, bool, O>;
 #[doc = "Field `VSYNC` reader - Asserted when in vertical blanking period. At the end of VSYNC"]
 pub type VSYNC_R = crate::BitReader<bool>;
 #[doc = "Field `VSYNC` writer - Asserted when in vertical blanking period. At the end of VSYNC"]
 pub type VSYNC_W<'a, const O: u8> = crate::BitWriter<'a, u32, ST_SPEC, bool, O>;
+#[doc = "Field `UNDERRUN` reader - Asserted when the output buffer underrun condition encountered"]
+pub type UNDERRUN_R = crate::BitReader<bool>;
+#[doc = "Field `UNDERRUN` writer - Asserted when the output buffer underrun condition encountered"]
+pub type UNDERRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ST_SPEC, bool, O>;
+#[doc = "Field `VS_BLANK` reader - Asserted when in vertical blanking period. At the start of VSYNC"]
+pub type VS_BLANK_R = crate::BitReader<bool>;
+#[doc = "Field `VS_BLANK` writer - Asserted when in vertical blanking period. At the start of VSYNC"]
+pub type VS_BLANK_W<'a, const O: u8> = crate::BitWriter<'a, u32, ST_SPEC, bool, O>;
+#[doc = "Field `URGENT_UNDERRUN` reader - Asserted when the output buffer urgent underrun condition encountered"]
+pub type URGENT_UNDERRUN_R = crate::BitReader<bool>;
+#[doc = "Field `URGENT_UNDERRUN` writer - Asserted when the output buffer urgent underrun condition encountered"]
+pub type URGENT_UNDERRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ST_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 3 - Asserted when the output buffer urgent underrun condition encountered"]
+    #[doc = "Bit 0 - Asserted when in vertical blanking period. At the end of VSYNC"]
     #[inline(always)]
-    pub fn urgent_underrun(&self) -> URGENT_UNDERRUN_R {
-        URGENT_UNDERRUN_R::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bit 2 - Asserted when in vertical blanking period. At the start of VSYNC"]
-    #[inline(always)]
-    pub fn vs_blank(&self) -> VS_BLANK_R {
-        VS_BLANK_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn vsync(&self) -> VSYNC_R {
+        VSYNC_R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Asserted when the output buffer underrun condition encountered"]
     #[inline(always)]
     pub fn underrun(&self) -> UNDERRUN_R {
         UNDERRUN_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 0 - Asserted when in vertical blanking period. At the end of VSYNC"]
+    #[doc = "Bit 2 - Asserted when in vertical blanking period. At the start of VSYNC"]
     #[inline(always)]
-    pub fn vsync(&self) -> VSYNC_R {
-        VSYNC_R::new((self.bits & 1) != 0)
+    pub fn vs_blank(&self) -> VS_BLANK_R {
+        VS_BLANK_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 3 - Asserted when the output buffer urgent underrun condition encountered"]
+    #[inline(always)]
+    pub fn urgent_underrun(&self) -> URGENT_UNDERRUN_R {
+        URGENT_UNDERRUN_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 3 - Asserted when the output buffer urgent underrun condition encountered"]
+    #[doc = "Bit 0 - Asserted when in vertical blanking period. At the end of VSYNC"]
     #[inline(always)]
-    pub fn urgent_underrun(&mut self) -> URGENT_UNDERRUN_W<3> {
-        URGENT_UNDERRUN_W::new(self)
-    }
-    #[doc = "Bit 2 - Asserted when in vertical blanking period. At the start of VSYNC"]
-    #[inline(always)]
-    pub fn vs_blank(&mut self) -> VS_BLANK_W<2> {
-        VS_BLANK_W::new(self)
+    #[must_use]
+    pub fn vsync(&mut self) -> VSYNC_W<0> {
+        VSYNC_W::new(self)
     }
     #[doc = "Bit 1 - Asserted when the output buffer underrun condition encountered"]
     #[inline(always)]
+    #[must_use]
     pub fn underrun(&mut self) -> UNDERRUN_W<1> {
         UNDERRUN_W::new(self)
     }
-    #[doc = "Bit 0 - Asserted when in vertical blanking period. At the end of VSYNC"]
+    #[doc = "Bit 2 - Asserted when in vertical blanking period. At the start of VSYNC"]
     #[inline(always)]
-    pub fn vsync(&mut self) -> VSYNC_W<0> {
-        VSYNC_W::new(self)
+    #[must_use]
+    pub fn vs_blank(&mut self) -> VS_BLANK_W<2> {
+        VS_BLANK_W::new(self)
+    }
+    #[doc = "Bit 3 - Asserted when the output buffer urgent underrun condition encountered"]
+    #[inline(always)]
+    #[must_use]
+    pub fn urgent_underrun(&mut self) -> URGENT_UNDERRUN_W<3> {
+        URGENT_UNDERRUN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -112,11 +116,10 @@ impl crate::Readable for ST_SPEC {
 #[doc = "`write(|w| ..)` method takes [st::W](W) writer structure"]
 impl crate::Writable for ST_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ST to value 0"]
 impl crate::Resettable for ST_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

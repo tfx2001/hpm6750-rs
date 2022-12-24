@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - retention battery domain setting 0: battery reset on reset pin reset happen 1: battery domain retention when reset pin reset happen"]
     #[inline(always)]
+    #[must_use]
     pub fn retention(&mut self) -> RETENTION_W<0> {
         RETENTION_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for POR_CONFIG_SPEC {
 #[doc = "`write(|w| ..)` method takes [por_config::W](W) writer structure"]
 impl crate::Writable for POR_CONFIG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets POR_CONFIG to value 0"]
 impl crate::Resettable for POR_CONFIG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

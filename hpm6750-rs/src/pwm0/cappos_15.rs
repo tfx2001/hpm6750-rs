@@ -19,7 +19,7 @@ impl R {
     #[doc = "Bits 4:31 - counter value captured at input posedge"]
     #[inline(always)]
     pub fn cappos(&self) -> CAPPOS_R {
-        CAPPOS_R::new(((self.bits >> 4) & 0x0fff_ffff) as u32)
+        CAPPOS_R::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
 #[doc = "Capture rising edge register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cappos_15](index.html) module"]
@@ -33,8 +33,5 @@ impl crate::Readable for CAPPOS_15_SPEC {
 }
 #[doc = "`reset()` method sets CAPPOS_15 to value 0"]
 impl crate::Resettable for CAPPOS_15_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

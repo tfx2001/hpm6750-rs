@@ -42,12 +42,13 @@ impl R {
     #[doc = "Bits 0:23 - the clock cycle number which the pre flag will set before the next uvw transition"]
     #[inline(always)]
     pub fn precnt(&self) -> PRECNT_R {
-        PRECNT_R::new((self.bits & 0x00ff_ffff) as u32)
+        PRECNT_R::new(self.bits & 0x00ff_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:23 - the clock cycle number which the pre flag will set before the next uvw transition"]
     #[inline(always)]
+    #[must_use]
     pub fn precnt(&mut self) -> PRECNT_W<0> {
         PRECNT_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for UVWCFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [uvwcfg::W](W) writer structure"]
 impl crate::Writable for UVWCFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets UVWCFG to value 0"]
 impl crate::Resettable for UVWCFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

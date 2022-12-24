@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - set to disable read waiting, get result immediately but maybe not current conversion result."]
     #[inline(always)]
+    #[must_use]
     pub fn wait_dis(&mut self) -> WAIT_DIS_W<0> {
         WAIT_DIS_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for BUF_CFG0_SPEC {
 #[doc = "`write(|w| ..)` method takes [buf_cfg0::W](W) writer structure"]
 impl crate::Writable for BUF_CFG0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets BUF_CFG0 to value 0"]
 impl crate::Resettable for BUF_CFG0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

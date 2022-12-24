@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 8:12 - used for faster conversion, user can change it to get higher convert speed(but less accuracy). should set to (21-convert_clock_number)."]
     #[inline(always)]
+    #[must_use]
     pub fn cov_end_cnt(&mut self) -> COV_END_CNT_W<8> {
         COV_END_CNT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for ADC16_CONFIG1_SPEC {
 #[doc = "`write(|w| ..)` method takes [adc16_config1::W](W) writer structure"]
 impl crate::Writable for ADC16_CONFIG1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ADC16_CONFIG1 to value 0"]
 impl crate::Resettable for ADC16_CONFIG1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

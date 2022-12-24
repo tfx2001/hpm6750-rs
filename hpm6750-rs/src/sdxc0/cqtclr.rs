@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Writing 1 to bit n of this register orders CQE to clear a task that the software has previously issued. This bit can only be written when CQE is in Halt state as indicated in CQCFG register Halt bit. When software writes 1 to a bit in this register, CQE updates the value to 1, and starts clearing the data structures related to the task. CQE clears the bit fields (sets a value of 0) in CQTCLR and in CQTDBR once the clear operation is complete. Software must poll on the CQTCLR until it is leared to verify that a clear operation was done."]
     #[inline(always)]
+    #[must_use]
     pub fn tclr(&mut self) -> TCLR_W<0> {
         TCLR_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for CQTCLR_SPEC {
 #[doc = "`write(|w| ..)` method takes [cqtclr::W](W) writer structure"]
 impl crate::Writable for CQTCLR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CQTCLR to value 0"]
 impl crate::Resettable for CQTCLR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

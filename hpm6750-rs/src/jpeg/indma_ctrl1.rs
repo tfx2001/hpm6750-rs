@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Total length (High 16 bits) in Bytes -1 for transfer. See reference in InDMA_Ctrl0\\[TTLEN\\]"]
     #[inline(always)]
+    #[must_use]
     pub fn rowlen(&mut self) -> ROWLEN_W<0> {
         ROWLEN_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for INDMA_CTRL1_SPEC {
 #[doc = "`write(|w| ..)` method takes [indma_ctrl1::W](W) writer structure"]
 impl crate::Writable for INDMA_CTRL1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets INDMA_CTRL1 to value 0"]
 impl crate::Resettable for INDMA_CTRL1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

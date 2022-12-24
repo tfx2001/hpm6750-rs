@@ -34,36 +34,38 @@ impl From<crate::W<TDC_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `TDCEN` reader - Transmitter Delay Compensation ENable TDC will be activated during the data phase of a CAN FD frame if BRS is active if TDCEN=1."]
-pub type TDCEN_R = crate::BitReader<bool>;
-#[doc = "Field `TDCEN` writer - Transmitter Delay Compensation ENable TDC will be activated during the data phase of a CAN FD frame if BRS is active if TDCEN=1."]
-pub type TDCEN_W<'a, const O: u8> = crate::BitWriter<'a, u8, TDC_SPEC, bool, O>;
 #[doc = "Field `SSPOFF` reader - Secondary Sample Point OFFset The transmitter delay plus SSPOFF defines the time of the secondary sample point for TDC. SSPOFF is given as a number of TQ."]
 pub type SSPOFF_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `SSPOFF` writer - Secondary Sample Point OFFset The transmitter delay plus SSPOFF defines the time of the secondary sample point for TDC. SSPOFF is given as a number of TQ."]
 pub type SSPOFF_W<'a, const O: u8> = crate::FieldWriter<'a, u8, TDC_SPEC, u8, u8, 7, O>;
+#[doc = "Field `TDCEN` reader - Transmitter Delay Compensation ENable TDC will be activated during the data phase of a CAN FD frame if BRS is active if TDCEN=1."]
+pub type TDCEN_R = crate::BitReader<bool>;
+#[doc = "Field `TDCEN` writer - Transmitter Delay Compensation ENable TDC will be activated during the data phase of a CAN FD frame if BRS is active if TDCEN=1."]
+pub type TDCEN_W<'a, const O: u8> = crate::BitWriter<'a, u8, TDC_SPEC, bool, O>;
 impl R {
+    #[doc = "Bits 0:6 - Secondary Sample Point OFFset The transmitter delay plus SSPOFF defines the time of the secondary sample point for TDC. SSPOFF is given as a number of TQ."]
+    #[inline(always)]
+    pub fn sspoff(&self) -> SSPOFF_R {
+        SSPOFF_R::new(self.bits & 0x7f)
+    }
     #[doc = "Bit 7 - Transmitter Delay Compensation ENable TDC will be activated during the data phase of a CAN FD frame if BRS is active if TDCEN=1."]
     #[inline(always)]
     pub fn tdcen(&self) -> TDCEN_R {
         TDCEN_R::new(((self.bits >> 7) & 1) != 0)
     }
-    #[doc = "Bits 0:6 - Secondary Sample Point OFFset The transmitter delay plus SSPOFF defines the time of the secondary sample point for TDC. SSPOFF is given as a number of TQ."]
-    #[inline(always)]
-    pub fn sspoff(&self) -> SSPOFF_R {
-        SSPOFF_R::new((self.bits & 0x7f) as u8)
-    }
 }
 impl W {
-    #[doc = "Bit 7 - Transmitter Delay Compensation ENable TDC will be activated during the data phase of a CAN FD frame if BRS is active if TDCEN=1."]
-    #[inline(always)]
-    pub fn tdcen(&mut self) -> TDCEN_W<7> {
-        TDCEN_W::new(self)
-    }
     #[doc = "Bits 0:6 - Secondary Sample Point OFFset The transmitter delay plus SSPOFF defines the time of the secondary sample point for TDC. SSPOFF is given as a number of TQ."]
     #[inline(always)]
+    #[must_use]
     pub fn sspoff(&mut self) -> SSPOFF_W<0> {
         SSPOFF_W::new(self)
+    }
+    #[doc = "Bit 7 - Transmitter Delay Compensation ENable TDC will be activated during the data phase of a CAN FD frame if BRS is active if TDCEN=1."]
+    #[inline(always)]
+    #[must_use]
+    pub fn tdcen(&mut self) -> TDCEN_W<7> {
+        TDCEN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for TDC_SPEC {
 #[doc = "`write(|w| ..)` method takes [tdc::W](W) writer structure"]
 impl crate::Writable for TDC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TDC to value 0"]
 impl crate::Resettable for TDC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

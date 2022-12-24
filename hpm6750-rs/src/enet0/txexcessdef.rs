@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Number of frames aborted because of excessive deferral error (deferred for more than two max-sized frame times)."]
     #[inline(always)]
+    #[must_use]
     pub fn frmcnt(&mut self) -> FRMCNT_W<0> {
         FRMCNT_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for TXEXCESSDEF_SPEC {
 #[doc = "`write(|w| ..)` method takes [txexcessdef::W](W) writer structure"]
 impl crate::Writable for TXEXCESSDEF_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TXEXCESSDEF to value 0"]
 impl crate::Resettable for TXEXCESSDEF_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

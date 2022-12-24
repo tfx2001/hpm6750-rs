@@ -34,36 +34,38 @@ impl From<crate::W<LDO1P1_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `ENABLE` reader - LDO enable 0: turn off LDO 1: turn on LDO"]
-pub type ENABLE_R = crate::BitReader<bool>;
-#[doc = "Field `ENABLE` writer - LDO enable 0: turn off LDO 1: turn on LDO"]
-pub type ENABLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, LDO1P1_SPEC, bool, O>;
 #[doc = "Field `VOLT` reader - LDO output voltage in mV, value valid through 700-1320, , step 20mV. Hardware select voltage no less than target if not on valid steps, with maximum 1320mV. 700: 700mV 720: 720mV . . . 1320:1320mV"]
 pub type VOLT_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `VOLT` writer - LDO output voltage in mV, value valid through 700-1320, , step 20mV. Hardware select voltage no less than target if not on valid steps, with maximum 1320mV. 700: 700mV 720: 720mV . . . 1320:1320mV"]
 pub type VOLT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LDO1P1_SPEC, u16, u16, 12, O>;
+#[doc = "Field `ENABLE` reader - LDO enable 0: turn off LDO 1: turn on LDO"]
+pub type ENABLE_R = crate::BitReader<bool>;
+#[doc = "Field `ENABLE` writer - LDO enable 0: turn off LDO 1: turn on LDO"]
+pub type ENABLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, LDO1P1_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 16 - LDO enable 0: turn off LDO 1: turn on LDO"]
-    #[inline(always)]
-    pub fn enable(&self) -> ENABLE_R {
-        ENABLE_R::new(((self.bits >> 16) & 1) != 0)
-    }
     #[doc = "Bits 0:11 - LDO output voltage in mV, value valid through 700-1320, , step 20mV. Hardware select voltage no less than target if not on valid steps, with maximum 1320mV. 700: 700mV 720: 720mV . . . 1320:1320mV"]
     #[inline(always)]
     pub fn volt(&self) -> VOLT_R {
         VOLT_R::new((self.bits & 0x0fff) as u16)
     }
-}
-impl W {
     #[doc = "Bit 16 - LDO enable 0: turn off LDO 1: turn on LDO"]
     #[inline(always)]
-    pub fn enable(&mut self) -> ENABLE_W<16> {
-        ENABLE_W::new(self)
+    pub fn enable(&self) -> ENABLE_R {
+        ENABLE_R::new(((self.bits >> 16) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bits 0:11 - LDO output voltage in mV, value valid through 700-1320, , step 20mV. Hardware select voltage no less than target if not on valid steps, with maximum 1320mV. 700: 700mV 720: 720mV . . . 1320:1320mV"]
     #[inline(always)]
+    #[must_use]
     pub fn volt(&mut self) -> VOLT_W<0> {
         VOLT_W::new(self)
+    }
+    #[doc = "Bit 16 - LDO enable 0: turn off LDO 1: turn on LDO"]
+    #[inline(always)]
+    #[must_use]
+    pub fn enable(&mut self) -> ENABLE_W<16> {
+        ENABLE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for LDO1P1_SPEC {
 #[doc = "`write(|w| ..)` method takes [ldo1p1::W](W) writer structure"]
 impl crate::Writable for LDO1P1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LDO1P1 to value 0x0001_044c"]
 impl crate::Resettable for LDO1P1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0001_044c
-    }
+    const RESET_VALUE: Self::Ux = 0x0001_044c;
 }

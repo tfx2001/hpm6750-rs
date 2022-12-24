@@ -33,8 +33,5 @@ impl crate::Readable for HIS_V_HIS1_SPEC {
 }
 #[doc = "`reset()` method sets HIS_V_HIS1 to value 0"]
 impl crate::Resettable for HIS_V_HIS1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

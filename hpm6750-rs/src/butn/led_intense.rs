@@ -34,36 +34,38 @@ impl From<crate::W<LED_INTENSE_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `RLED` reader - Rbutton brightness 0"]
-pub type RLED_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `RLED` writer - Rbutton brightness 0"]
-pub type RLED_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LED_INTENSE_SPEC, u8, u8, 4, O>;
 #[doc = "Field `PLED` reader - Pbutton brightness 0"]
 pub type PLED_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `PLED` writer - Pbutton brightness 0"]
 pub type PLED_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LED_INTENSE_SPEC, u8, u8, 4, O>;
+#[doc = "Field `RLED` reader - Rbutton brightness 0"]
+pub type RLED_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `RLED` writer - Rbutton brightness 0"]
+pub type RLED_W<'a, const O: u8> = crate::FieldWriter<'a, u32, LED_INTENSE_SPEC, u8, u8, 4, O>;
 impl R {
-    #[doc = "Bits 16:19 - Rbutton brightness 0"]
-    #[inline(always)]
-    pub fn rled(&self) -> RLED_R {
-        RLED_R::new(((self.bits >> 16) & 0x0f) as u8)
-    }
     #[doc = "Bits 0:3 - Pbutton brightness 0"]
     #[inline(always)]
     pub fn pled(&self) -> PLED_R {
         PLED_R::new((self.bits & 0x0f) as u8)
     }
-}
-impl W {
     #[doc = "Bits 16:19 - Rbutton brightness 0"]
     #[inline(always)]
-    pub fn rled(&mut self) -> RLED_W<16> {
-        RLED_W::new(self)
+    pub fn rled(&self) -> RLED_R {
+        RLED_R::new(((self.bits >> 16) & 0x0f) as u8)
     }
+}
+impl W {
     #[doc = "Bits 0:3 - Pbutton brightness 0"]
     #[inline(always)]
+    #[must_use]
     pub fn pled(&mut self) -> PLED_W<0> {
         PLED_W::new(self)
+    }
+    #[doc = "Bits 16:19 - Rbutton brightness 0"]
+    #[inline(always)]
+    #[must_use]
+    pub fn rled(&mut self) -> RLED_W<16> {
+        RLED_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for LED_INTENSE_SPEC {
 #[doc = "`write(|w| ..)` method takes [led_intense::W](W) writer structure"]
 impl crate::Writable for LED_INTENSE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LED_INTENSE to value 0"]
 impl crate::Resettable for LED_INTENSE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - This is the address through which the application writes or reads the remote wake-up frame filter registers (wkupfmfilter_reg). The wkupfmfilter_reg register is a pointer to eight wkupfmfilter_reg registers. The wkupfmfilter_reg register is loaded by sequentially loading the eight register values. Eight sequential writes to this address (0x0028) write all wkupfmfilter_reg registers. Similarly, eight sequential reads from this address (0x0028) read all wkupfmfilter_reg registers"]
     #[inline(always)]
+    #[must_use]
     pub fn wkupfrmfilt(&mut self) -> WKUPFRMFILT_W<0> {
         WKUPFRMFILT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for RWKFRMFILT_SPEC {
 #[doc = "`write(|w| ..)` method takes [rwkfrmfilt::W](W) writer structure"]
 impl crate::Writable for RWKFRMFILT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RWKFRMFILT to value 0"]
 impl crate::Resettable for RWKFRMFILT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

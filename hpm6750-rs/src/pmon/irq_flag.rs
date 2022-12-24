@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - interrupt flag, each bit represents for one monitor, write 1 to clear interrupt flag 0: no monitor interrupt 1: monitor interrupt happened"]
     #[inline(always)]
+    #[must_use]
     pub fn flag(&mut self) -> FLAG_W<0> {
         FLAG_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for IRQ_FLAG_SPEC {
 #[doc = "`write(|w| ..)` method takes [irq_flag::W](W) writer structure"]
 impl crate::Writable for IRQ_FLAG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IRQ_FLAG to value 0"]
 impl crate::Resettable for IRQ_FLAG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

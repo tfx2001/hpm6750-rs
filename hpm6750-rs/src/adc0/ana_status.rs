@@ -34,36 +34,38 @@ impl From<crate::W<ANA_STATUS_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `CALON` reader - Indicates if the ADC is in calibration mode (Active H)."]
-pub type CALON_R = crate::BitReader<bool>;
-#[doc = "Field `CALON` writer - Indicates if the ADC is in calibration mode (Active H)."]
-pub type CALON_W<'a, const O: u8> = crate::BitWriter<'a, u32, ANA_STATUS_SPEC, bool, O>;
 #[doc = "Field `CAL_OUT` reader - No description avaiable"]
 pub type CAL_OUT_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `CAL_OUT` writer - No description avaiable"]
 pub type CAL_OUT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ANA_STATUS_SPEC, u8, u8, 7, O>;
+#[doc = "Field `CALON` reader - Indicates if the ADC is in calibration mode (Active H)."]
+pub type CALON_R = crate::BitReader<bool>;
+#[doc = "Field `CALON` writer - Indicates if the ADC is in calibration mode (Active H)."]
+pub type CALON_W<'a, const O: u8> = crate::BitWriter<'a, u32, ANA_STATUS_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 7 - Indicates if the ADC is in calibration mode (Active H)."]
-    #[inline(always)]
-    pub fn calon(&self) -> CALON_R {
-        CALON_R::new(((self.bits >> 7) & 1) != 0)
-    }
     #[doc = "Bits 0:6 - No description avaiable"]
     #[inline(always)]
     pub fn cal_out(&self) -> CAL_OUT_R {
         CAL_OUT_R::new((self.bits & 0x7f) as u8)
     }
-}
-impl W {
     #[doc = "Bit 7 - Indicates if the ADC is in calibration mode (Active H)."]
     #[inline(always)]
-    pub fn calon(&mut self) -> CALON_W<7> {
-        CALON_W::new(self)
+    pub fn calon(&self) -> CALON_R {
+        CALON_R::new(((self.bits >> 7) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bits 0:6 - No description avaiable"]
     #[inline(always)]
+    #[must_use]
     pub fn cal_out(&mut self) -> CAL_OUT_W<0> {
         CAL_OUT_W::new(self)
+    }
+    #[doc = "Bit 7 - Indicates if the ADC is in calibration mode (Active H)."]
+    #[inline(always)]
+    #[must_use]
+    pub fn calon(&mut self) -> CALON_W<7> {
+        CALON_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for ANA_STATUS_SPEC {
 #[doc = "`write(|w| ..)` method takes [ana_status::W](W) writer structure"]
 impl crate::Writable for ANA_STATUS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ANA_STATUS to value 0"]
 impl crate::Resettable for ANA_STATUS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

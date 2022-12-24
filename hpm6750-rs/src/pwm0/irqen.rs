@@ -34,78 +34,83 @@ impl From<crate::W<IRQEN_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `FAULTIRQE` reader - fault condition interrupt enable"]
-pub type FAULTIRQE_R = crate::BitReader<bool>;
-#[doc = "Field `FAULTIRQE` writer - fault condition interrupt enable"]
-pub type FAULTIRQE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
-#[doc = "Field `XRLDIRQE` reader - extended reload flag interrupt enable"]
-pub type XRLDIRQE_R = crate::BitReader<bool>;
-#[doc = "Field `XRLDIRQE` writer - extended reload flag interrupt enable"]
-pub type XRLDIRQE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
-#[doc = "Field `HALFRLDIRQE` reader - half reload flag interrupt enable"]
-pub type HALFRLDIRQE_R = crate::BitReader<bool>;
-#[doc = "Field `HALFRLDIRQE` writer - half reload flag interrupt enable"]
-pub type HALFRLDIRQE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
-#[doc = "Field `RLDIRQE` reader - reload flag interrupt enable"]
-pub type RLDIRQE_R = crate::BitReader<bool>;
-#[doc = "Field `RLDIRQE` writer - reload flag interrupt enable"]
-pub type RLDIRQE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
 #[doc = "Field `CMPIRQEX` reader - comparator output compare or input capture flag interrupt enable"]
 pub type CMPIRQEX_R = crate::FieldReader<u32, u32>;
 #[doc = "Field `CMPIRQEX` writer - comparator output compare or input capture flag interrupt enable"]
 pub type CMPIRQEX_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IRQEN_SPEC, u32, u32, 24, O>;
+#[doc = "Field `RLDIRQE` reader - reload flag interrupt enable"]
+pub type RLDIRQE_R = crate::BitReader<bool>;
+#[doc = "Field `RLDIRQE` writer - reload flag interrupt enable"]
+pub type RLDIRQE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
+#[doc = "Field `HALFRLDIRQE` reader - half reload flag interrupt enable"]
+pub type HALFRLDIRQE_R = crate::BitReader<bool>;
+#[doc = "Field `HALFRLDIRQE` writer - half reload flag interrupt enable"]
+pub type HALFRLDIRQE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
+#[doc = "Field `XRLDIRQE` reader - extended reload flag interrupt enable"]
+pub type XRLDIRQE_R = crate::BitReader<bool>;
+#[doc = "Field `XRLDIRQE` writer - extended reload flag interrupt enable"]
+pub type XRLDIRQE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
+#[doc = "Field `FAULTIRQE` reader - fault condition interrupt enable"]
+pub type FAULTIRQE_R = crate::BitReader<bool>;
+#[doc = "Field `FAULTIRQE` writer - fault condition interrupt enable"]
+pub type FAULTIRQE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IRQEN_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 27 - fault condition interrupt enable"]
+    #[doc = "Bits 0:23 - comparator output compare or input capture flag interrupt enable"]
     #[inline(always)]
-    pub fn faultirqe(&self) -> FAULTIRQE_R {
-        FAULTIRQE_R::new(((self.bits >> 27) & 1) != 0)
-    }
-    #[doc = "Bit 26 - extended reload flag interrupt enable"]
-    #[inline(always)]
-    pub fn xrldirqe(&self) -> XRLDIRQE_R {
-        XRLDIRQE_R::new(((self.bits >> 26) & 1) != 0)
-    }
-    #[doc = "Bit 25 - half reload flag interrupt enable"]
-    #[inline(always)]
-    pub fn halfrldirqe(&self) -> HALFRLDIRQE_R {
-        HALFRLDIRQE_R::new(((self.bits >> 25) & 1) != 0)
+    pub fn cmpirqex(&self) -> CMPIRQEX_R {
+        CMPIRQEX_R::new(self.bits & 0x00ff_ffff)
     }
     #[doc = "Bit 24 - reload flag interrupt enable"]
     #[inline(always)]
     pub fn rldirqe(&self) -> RLDIRQE_R {
         RLDIRQE_R::new(((self.bits >> 24) & 1) != 0)
     }
-    #[doc = "Bits 0:23 - comparator output compare or input capture flag interrupt enable"]
+    #[doc = "Bit 25 - half reload flag interrupt enable"]
     #[inline(always)]
-    pub fn cmpirqex(&self) -> CMPIRQEX_R {
-        CMPIRQEX_R::new((self.bits & 0x00ff_ffff) as u32)
-    }
-}
-impl W {
-    #[doc = "Bit 27 - fault condition interrupt enable"]
-    #[inline(always)]
-    pub fn faultirqe(&mut self) -> FAULTIRQE_W<27> {
-        FAULTIRQE_W::new(self)
+    pub fn halfrldirqe(&self) -> HALFRLDIRQE_R {
+        HALFRLDIRQE_R::new(((self.bits >> 25) & 1) != 0)
     }
     #[doc = "Bit 26 - extended reload flag interrupt enable"]
     #[inline(always)]
-    pub fn xrldirqe(&mut self) -> XRLDIRQE_W<26> {
-        XRLDIRQE_W::new(self)
+    pub fn xrldirqe(&self) -> XRLDIRQE_R {
+        XRLDIRQE_R::new(((self.bits >> 26) & 1) != 0)
     }
-    #[doc = "Bit 25 - half reload flag interrupt enable"]
+    #[doc = "Bit 27 - fault condition interrupt enable"]
     #[inline(always)]
-    pub fn halfrldirqe(&mut self) -> HALFRLDIRQE_W<25> {
-        HALFRLDIRQE_W::new(self)
+    pub fn faultirqe(&self) -> FAULTIRQE_R {
+        FAULTIRQE_R::new(((self.bits >> 27) & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bits 0:23 - comparator output compare or input capture flag interrupt enable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn cmpirqex(&mut self) -> CMPIRQEX_W<0> {
+        CMPIRQEX_W::new(self)
     }
     #[doc = "Bit 24 - reload flag interrupt enable"]
     #[inline(always)]
+    #[must_use]
     pub fn rldirqe(&mut self) -> RLDIRQE_W<24> {
         RLDIRQE_W::new(self)
     }
-    #[doc = "Bits 0:23 - comparator output compare or input capture flag interrupt enable"]
+    #[doc = "Bit 25 - half reload flag interrupt enable"]
     #[inline(always)]
-    pub fn cmpirqex(&mut self) -> CMPIRQEX_W<0> {
-        CMPIRQEX_W::new(self)
+    #[must_use]
+    pub fn halfrldirqe(&mut self) -> HALFRLDIRQE_W<25> {
+        HALFRLDIRQE_W::new(self)
+    }
+    #[doc = "Bit 26 - extended reload flag interrupt enable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn xrldirqe(&mut self) -> XRLDIRQE_W<26> {
+        XRLDIRQE_W::new(self)
+    }
+    #[doc = "Bit 27 - fault condition interrupt enable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn faultirqe(&mut self) -> FAULTIRQE_W<27> {
+        FAULTIRQE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -126,11 +131,10 @@ impl crate::Readable for IRQEN_SPEC {
 #[doc = "`write(|w| ..)` method takes [irqen::W](W) writer structure"]
 impl crate::Writable for IRQEN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IRQEN to value 0"]
 impl crate::Resettable for IRQEN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

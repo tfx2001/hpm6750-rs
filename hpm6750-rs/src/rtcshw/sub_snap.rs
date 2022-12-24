@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - sub second snap shot, write to take snap shot"]
     #[inline(always)]
+    #[must_use]
     pub fn sub_snap(&mut self) -> SUB_SNAP_W<0> {
         SUB_SNAP_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for SUB_SNAP_SPEC {
 #[doc = "`write(|w| ..)` method takes [sub_snap::W](W) writer structure"]
 impl crate::Writable for SUB_SNAP_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SUB_SNAP to value 0"]
 impl crate::Resettable for SUB_SNAP_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

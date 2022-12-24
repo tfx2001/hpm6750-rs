@@ -34,36 +34,38 @@ impl From<crate::W<PS_0_ORG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `HIGHT` reader - The number of vertical pixels of the original frame (not -1)"]
-pub type HIGHT_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `HIGHT` writer - The number of vertical pixels of the original frame (not -1)"]
-pub type HIGHT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PS_0_ORG_SPEC, u16, u16, 14, O>;
 #[doc = "Field `WIDTH` reader - The number of horizontal pixels of the original frame (not -1)"]
 pub type WIDTH_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `WIDTH` writer - The number of horizontal pixels of the original frame (not -1)"]
 pub type WIDTH_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PS_0_ORG_SPEC, u16, u16, 14, O>;
+#[doc = "Field `HIGHT` reader - The number of vertical pixels of the original frame (not -1)"]
+pub type HIGHT_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `HIGHT` writer - The number of vertical pixels of the original frame (not -1)"]
+pub type HIGHT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PS_0_ORG_SPEC, u16, u16, 14, O>;
 impl R {
-    #[doc = "Bits 16:29 - The number of vertical pixels of the original frame (not -1)"]
-    #[inline(always)]
-    pub fn hight(&self) -> HIGHT_R {
-        HIGHT_R::new(((self.bits >> 16) & 0x3fff) as u16)
-    }
     #[doc = "Bits 0:13 - The number of horizontal pixels of the original frame (not -1)"]
     #[inline(always)]
     pub fn width(&self) -> WIDTH_R {
         WIDTH_R::new((self.bits & 0x3fff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:29 - The number of vertical pixels of the original frame (not -1)"]
     #[inline(always)]
-    pub fn hight(&mut self) -> HIGHT_W<16> {
-        HIGHT_W::new(self)
+    pub fn hight(&self) -> HIGHT_R {
+        HIGHT_R::new(((self.bits >> 16) & 0x3fff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:13 - The number of horizontal pixels of the original frame (not -1)"]
     #[inline(always)]
+    #[must_use]
     pub fn width(&mut self) -> WIDTH_W<0> {
         WIDTH_W::new(self)
+    }
+    #[doc = "Bits 16:29 - The number of vertical pixels of the original frame (not -1)"]
+    #[inline(always)]
+    #[must_use]
+    pub fn hight(&mut self) -> HIGHT_W<16> {
+        HIGHT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for PS_0_ORG_SPEC {
 #[doc = "`write(|w| ..)` method takes [ps_0_org::W](W) writer structure"]
 impl crate::Writable for PS_0_ORG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PS_0_ORG to value 0"]
 impl crate::Resettable for PS_0_ORG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

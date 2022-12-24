@@ -33,8 +33,5 @@ impl crate::Readable for CQCRDCT_SPEC {
 }
 #[doc = "`reset()` method sets CQCRDCT to value 0"]
 impl crate::Resettable for CQCRDCT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,36 +34,38 @@ impl From<crate::W<CR18_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `CAM_ENABLE` reader - CAM global enable signal. Only when this bit is 1, CAM can start to receive the data and store to memory."]
-pub type CAM_ENABLE_R = crate::BitReader<bool>;
-#[doc = "Field `CAM_ENABLE` writer - CAM global enable signal. Only when this bit is 1, CAM can start to receive the data and store to memory."]
-pub type CAM_ENABLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CR18_SPEC, bool, O>;
 #[doc = "Field `AWQOS` reader - AWQOS for bus fabric arbitration"]
 pub type AWQOS_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `AWQOS` writer - AWQOS for bus fabric arbitration"]
 pub type AWQOS_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CR18_SPEC, u8, u8, 4, O>;
+#[doc = "Field `CAM_ENABLE` reader - CAM global enable signal. Only when this bit is 1, CAM can start to receive the data and store to memory."]
+pub type CAM_ENABLE_R = crate::BitReader<bool>;
+#[doc = "Field `CAM_ENABLE` writer - CAM global enable signal. Only when this bit is 1, CAM can start to receive the data and store to memory."]
+pub type CAM_ENABLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CR18_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 31 - CAM global enable signal. Only when this bit is 1, CAM can start to receive the data and store to memory."]
-    #[inline(always)]
-    pub fn cam_enable(&self) -> CAM_ENABLE_R {
-        CAM_ENABLE_R::new(((self.bits >> 31) & 1) != 0)
-    }
     #[doc = "Bits 7:10 - AWQOS for bus fabric arbitration"]
     #[inline(always)]
     pub fn awqos(&self) -> AWQOS_R {
         AWQOS_R::new(((self.bits >> 7) & 0x0f) as u8)
     }
-}
-impl W {
     #[doc = "Bit 31 - CAM global enable signal. Only when this bit is 1, CAM can start to receive the data and store to memory."]
     #[inline(always)]
-    pub fn cam_enable(&mut self) -> CAM_ENABLE_W<31> {
-        CAM_ENABLE_W::new(self)
+    pub fn cam_enable(&self) -> CAM_ENABLE_R {
+        CAM_ENABLE_R::new(((self.bits >> 31) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bits 7:10 - AWQOS for bus fabric arbitration"]
     #[inline(always)]
+    #[must_use]
     pub fn awqos(&mut self) -> AWQOS_W<7> {
         AWQOS_W::new(self)
+    }
+    #[doc = "Bit 31 - CAM global enable signal. Only when this bit is 1, CAM can start to receive the data and store to memory."]
+    #[inline(always)]
+    #[must_use]
+    pub fn cam_enable(&mut self) -> CAM_ENABLE_W<31> {
+        CAM_ENABLE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for CR18_SPEC {
 #[doc = "`write(|w| ..)` method takes [cr18::W](W) writer structure"]
 impl crate::Writable for CR18_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CR18 to value 0"]
 impl crate::Resettable for CR18_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

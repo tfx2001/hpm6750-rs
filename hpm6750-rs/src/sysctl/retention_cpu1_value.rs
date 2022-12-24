@@ -43,12 +43,13 @@ impl R {
     #[doc = "Bits 0:17 - retention setting while system sleep, each bit represents a resource bit0: soc_pow bit1: soc_rst bit2: cpu0_pow bit3: cpu0_rst bit4: cpu1_pow bit5: cpu1_rst bit6: con_pow bit7: con_rst bit8: vis_pow bit9: vis_rst bit10: xtal bit11: pll0 bit12: pll1 bit13: pll2 bit14: pll3 bit15: pll4"]
     #[inline(always)]
     pub fn link(&self) -> LINK_R {
-        LINK_R::new((self.bits & 0x0003_ffff) as u32)
+        LINK_R::new(self.bits & 0x0003_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:17 - retention setting while system sleep, each bit represents a resource bit0: soc_pow bit1: soc_rst bit2: cpu0_pow bit3: cpu0_rst bit4: cpu1_pow bit5: cpu1_rst bit6: con_pow bit7: con_rst bit8: vis_pow bit9: vis_rst bit10: xtal bit11: pll0 bit12: pll1 bit13: pll2 bit14: pll3 bit15: pll4"]
     #[inline(always)]
+    #[must_use]
     pub fn link(&mut self) -> LINK_W<0> {
         LINK_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for RETENTION_CPU1_VALUE_SPEC {
 #[doc = "`write(|w| ..)` method takes [retention_cpu1_value::W](W) writer structure"]
 impl crate::Writable for RETENTION_CPU1_VALUE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RETENTION_CPU1_VALUE to value 0"]
 impl crate::Resettable for RETENTION_CPU1_VALUE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

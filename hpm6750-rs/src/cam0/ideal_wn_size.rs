@@ -34,11 +34,6 @@ impl From<crate::W<IDEAL_WN_SIZE_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `HEIGHT` reader - Image Height. Indicates how many active pixels in a column of the image from the sensor."]
-pub type HEIGHT_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `HEIGHT` writer - Image Height. Indicates how many active pixels in a column of the image from the sensor."]
-pub type HEIGHT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, IDEAL_WN_SIZE_SPEC, u16, u16, 16, O>;
 #[doc = "Field `WIDTH` reader - Image Width. Indicates how many active pixels in a line of the image from the sensor. The number of bytes to be transfered is re-calculated automatically in hardware based on cr1\\[color_ext\\]
 and cr1\\[store_mode\\]. Default value is 2*pixel number. As the input data from the sensor is 8-bit/pixel format, the IMAGE_WIDTH should be a multiple of 8 pixels."]
 pub type WIDTH_R = crate::FieldReader<u16, u16>;
@@ -46,30 +41,37 @@ pub type WIDTH_R = crate::FieldReader<u16, u16>;
 and cr1\\[store_mode\\]. Default value is 2*pixel number. As the input data from the sensor is 8-bit/pixel format, the IMAGE_WIDTH should be a multiple of 8 pixels."]
 pub type WIDTH_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, IDEAL_WN_SIZE_SPEC, u16, u16, 16, O>;
+#[doc = "Field `HEIGHT` reader - Image Height. Indicates how many active pixels in a column of the image from the sensor."]
+pub type HEIGHT_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `HEIGHT` writer - Image Height. Indicates how many active pixels in a column of the image from the sensor."]
+pub type HEIGHT_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, IDEAL_WN_SIZE_SPEC, u16, u16, 16, O>;
 impl R {
-    #[doc = "Bits 16:31 - Image Height. Indicates how many active pixels in a column of the image from the sensor."]
-    #[inline(always)]
-    pub fn height(&self) -> HEIGHT_R {
-        HEIGHT_R::new(((self.bits >> 16) & 0xffff) as u16)
-    }
     #[doc = "Bits 0:15 - Image Width. Indicates how many active pixels in a line of the image from the sensor. The number of bytes to be transfered is re-calculated automatically in hardware based on cr1\\[color_ext\\]
 and cr1\\[store_mode\\]. Default value is 2*pixel number. As the input data from the sensor is 8-bit/pixel format, the IMAGE_WIDTH should be a multiple of 8 pixels."]
     #[inline(always)]
     pub fn width(&self) -> WIDTH_R {
         WIDTH_R::new((self.bits & 0xffff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:31 - Image Height. Indicates how many active pixels in a column of the image from the sensor."]
     #[inline(always)]
-    pub fn height(&mut self) -> HEIGHT_W<16> {
-        HEIGHT_W::new(self)
+    pub fn height(&self) -> HEIGHT_R {
+        HEIGHT_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:15 - Image Width. Indicates how many active pixels in a line of the image from the sensor. The number of bytes to be transfered is re-calculated automatically in hardware based on cr1\\[color_ext\\]
 and cr1\\[store_mode\\]. Default value is 2*pixel number. As the input data from the sensor is 8-bit/pixel format, the IMAGE_WIDTH should be a multiple of 8 pixels."]
     #[inline(always)]
+    #[must_use]
     pub fn width(&mut self) -> WIDTH_W<0> {
         WIDTH_W::new(self)
+    }
+    #[doc = "Bits 16:31 - Image Height. Indicates how many active pixels in a column of the image from the sensor."]
+    #[inline(always)]
+    #[must_use]
+    pub fn height(&mut self) -> HEIGHT_W<16> {
+        HEIGHT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -90,11 +92,10 @@ impl crate::Readable for IDEAL_WN_SIZE_SPEC {
 #[doc = "`write(|w| ..)` method takes [ideal_wn_size::W](W) writer structure"]
 impl crate::Writable for IDEAL_WN_SIZE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IDEAL_WN_SIZE to value 0"]
 impl crate::Resettable for IDEAL_WN_SIZE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

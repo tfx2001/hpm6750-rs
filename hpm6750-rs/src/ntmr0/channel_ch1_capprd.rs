@@ -33,8 +33,5 @@ impl crate::Readable for CHANNEL_CH1_CAPPRD_SPEC {
 }
 #[doc = "`reset()` method sets CHANNEL_CH1_CAPPRD to value 0"]
 impl crate::Resettable for CHANNEL_CH1_CAPPRD_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

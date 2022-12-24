@@ -56,6 +56,7 @@ impl W {
 is the number if channels supported in TDM mode. When not in TDM mode, it must be set as 2. It must be an even number, so CH_MAX\\[0\\]
 is always 0. 4'h2: 2 channels 4'h4: 4 channels etc"]
     #[inline(always)]
+    #[must_use]
     pub fn ch_max(&mut self) -> CH_MAX_W<6> {
         CH_MAX_W::new(self)
     }
@@ -78,11 +79,10 @@ impl crate::Readable for RX_CFGR_SPEC {
 #[doc = "`write(|w| ..)` method takes [rx_cfgr::W](W) writer structure"]
 impl crate::Writable for RX_CFGR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RX_CFGR to value 0"]
 impl crate::Resettable for RX_CFGR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

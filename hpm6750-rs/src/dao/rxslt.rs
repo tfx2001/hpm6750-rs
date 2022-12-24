@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Slot enable for the channels."]
     #[inline(always)]
+    #[must_use]
     pub fn en(&mut self) -> EN_W<0> {
         EN_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for RXSLT_SPEC {
 #[doc = "`write(|w| ..)` method takes [rxslt::W](W) writer structure"]
 impl crate::Writable for RXSLT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RXSLT to value 0"]
 impl crate::Resettable for RXSLT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

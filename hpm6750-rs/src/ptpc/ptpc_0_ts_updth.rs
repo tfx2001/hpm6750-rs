@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - together with ts_updtl, used to initial or update timestamp"]
     #[inline(always)]
+    #[must_use]
     pub fn sec_update(&mut self) -> SEC_UPDATE_W<0> {
         SEC_UPDATE_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for PTPC_0_TS_UPDTH_SPEC {
 #[doc = "`write(|w| ..)` method takes [ptpc_0_ts_updth::W](W) writer structure"]
 impl crate::Writable for PTPC_0_TS_UPDTH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PTPC_0_TS_UPDTH to value 0"]
 impl crate::Resettable for PTPC_0_TS_UPDTH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

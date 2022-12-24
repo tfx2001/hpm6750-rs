@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - ARGB8888. It is only useful in the last active stage in the pipeline."]
     #[inline(always)]
+    #[must_use]
     pub fn argb(&mut self) -> ARGB_W<0> {
         ARGB_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for LAYER_0_BG_CL_SPEC {
 #[doc = "`write(|w| ..)` method takes [layer_0_bg_cl::W](W) writer structure"]
 impl crate::Writable for LAYER_0_BG_CL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LAYER_0_BG_CL to value 0"]
 impl crate::Resettable for LAYER_0_BG_CL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

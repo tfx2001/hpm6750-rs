@@ -34,50 +34,53 @@ impl From<crate::W<DMA_ST_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `DMA_ERR` reader - plane n axi error. W1C."]
-pub type DMA_ERR_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `DMA_ERR` writer - plane n axi error. W1C."]
-pub type DMA_ERR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DMA_ST_SPEC, u8, u8, 8, O>;
-#[doc = "Field `DMA1_DONE` reader - Plane n frame 1 dma done. W1C."]
-pub type DMA1_DONE_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `DMA1_DONE` writer - Plane n frame 1 dma done. W1C."]
-pub type DMA1_DONE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DMA_ST_SPEC, u8, u8, 8, O>;
 #[doc = "Field `DMA0_DONE` reader - Plane n frame 0 dma done. W1C."]
 pub type DMA0_DONE_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `DMA0_DONE` writer - Plane n frame 0 dma done. W1C."]
 pub type DMA0_DONE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DMA_ST_SPEC, u8, u8, 8, O>;
+#[doc = "Field `DMA1_DONE` reader - Plane n frame 1 dma done. W1C."]
+pub type DMA1_DONE_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `DMA1_DONE` writer - Plane n frame 1 dma done. W1C."]
+pub type DMA1_DONE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DMA_ST_SPEC, u8, u8, 8, O>;
+#[doc = "Field `DMA_ERR` reader - plane n axi error. W1C."]
+pub type DMA_ERR_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `DMA_ERR` writer - plane n axi error. W1C."]
+pub type DMA_ERR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DMA_ST_SPEC, u8, u8, 8, O>;
 impl R {
-    #[doc = "Bits 24:31 - plane n axi error. W1C."]
+    #[doc = "Bits 8:15 - Plane n frame 0 dma done. W1C."]
     #[inline(always)]
-    pub fn dma_err(&self) -> DMA_ERR_R {
-        DMA_ERR_R::new(((self.bits >> 24) & 0xff) as u8)
+    pub fn dma0_done(&self) -> DMA0_DONE_R {
+        DMA0_DONE_R::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:23 - Plane n frame 1 dma done. W1C."]
     #[inline(always)]
     pub fn dma1_done(&self) -> DMA1_DONE_R {
         DMA1_DONE_R::new(((self.bits >> 16) & 0xff) as u8)
     }
-    #[doc = "Bits 8:15 - Plane n frame 0 dma done. W1C."]
+    #[doc = "Bits 24:31 - plane n axi error. W1C."]
     #[inline(always)]
-    pub fn dma0_done(&self) -> DMA0_DONE_R {
-        DMA0_DONE_R::new(((self.bits >> 8) & 0xff) as u8)
+    pub fn dma_err(&self) -> DMA_ERR_R {
+        DMA_ERR_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 24:31 - plane n axi error. W1C."]
+    #[doc = "Bits 8:15 - Plane n frame 0 dma done. W1C."]
     #[inline(always)]
-    pub fn dma_err(&mut self) -> DMA_ERR_W<24> {
-        DMA_ERR_W::new(self)
+    #[must_use]
+    pub fn dma0_done(&mut self) -> DMA0_DONE_W<8> {
+        DMA0_DONE_W::new(self)
     }
     #[doc = "Bits 16:23 - Plane n frame 1 dma done. W1C."]
     #[inline(always)]
+    #[must_use]
     pub fn dma1_done(&mut self) -> DMA1_DONE_W<16> {
         DMA1_DONE_W::new(self)
     }
-    #[doc = "Bits 8:15 - Plane n frame 0 dma done. W1C."]
+    #[doc = "Bits 24:31 - plane n axi error. W1C."]
     #[inline(always)]
-    pub fn dma0_done(&mut self) -> DMA0_DONE_W<8> {
-        DMA0_DONE_W::new(self)
+    #[must_use]
+    pub fn dma_err(&mut self) -> DMA_ERR_W<24> {
+        DMA_ERR_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -98,11 +101,10 @@ impl crate::Readable for DMA_ST_SPEC {
 #[doc = "`write(|w| ..)` method takes [dma_st::W](W) writer structure"]
 impl crate::Writable for DMA_ST_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DMA_ST to value 0"]
 impl crate::Resettable for DMA_ST_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

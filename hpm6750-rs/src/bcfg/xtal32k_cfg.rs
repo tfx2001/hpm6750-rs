@@ -34,64 +34,68 @@ impl From<crate::W<XTAL32K_CFG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `HYST_EN` reader - crystal 32k hysteres enable"]
-pub type HYST_EN_R = crate::BitReader<bool>;
-#[doc = "Field `HYST_EN` writer - crystal 32k hysteres enable"]
-pub type HYST_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, XTAL32K_CFG_SPEC, bool, O>;
-#[doc = "Field `GMSEL` reader - crystal 32k gm selection"]
-pub type GMSEL_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `GMSEL` writer - crystal 32k gm selection"]
-pub type GMSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, XTAL32K_CFG_SPEC, u8, u8, 2, O>;
-#[doc = "Field `CFG` reader - crystal 32k config"]
-pub type CFG_R = crate::BitReader<bool>;
-#[doc = "Field `CFG` writer - crystal 32k config"]
-pub type CFG_W<'a, const O: u8> = crate::BitWriter<'a, u32, XTAL32K_CFG_SPEC, bool, O>;
 #[doc = "Field `AMP` reader - crystal 32k amplifier"]
 pub type AMP_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `AMP` writer - crystal 32k amplifier"]
 pub type AMP_W<'a, const O: u8> = crate::FieldWriter<'a, u32, XTAL32K_CFG_SPEC, u8, u8, 2, O>;
+#[doc = "Field `CFG` reader - crystal 32k config"]
+pub type CFG_R = crate::BitReader<bool>;
+#[doc = "Field `CFG` writer - crystal 32k config"]
+pub type CFG_W<'a, const O: u8> = crate::BitWriter<'a, u32, XTAL32K_CFG_SPEC, bool, O>;
+#[doc = "Field `GMSEL` reader - crystal 32k gm selection"]
+pub type GMSEL_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `GMSEL` writer - crystal 32k gm selection"]
+pub type GMSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, XTAL32K_CFG_SPEC, u8, u8, 2, O>;
+#[doc = "Field `HYST_EN` reader - crystal 32k hysteres enable"]
+pub type HYST_EN_R = crate::BitReader<bool>;
+#[doc = "Field `HYST_EN` writer - crystal 32k hysteres enable"]
+pub type HYST_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, XTAL32K_CFG_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 12 - crystal 32k hysteres enable"]
+    #[doc = "Bits 0:1 - crystal 32k amplifier"]
     #[inline(always)]
-    pub fn hyst_en(&self) -> HYST_EN_R {
-        HYST_EN_R::new(((self.bits >> 12) & 1) != 0)
-    }
-    #[doc = "Bits 8:9 - crystal 32k gm selection"]
-    #[inline(always)]
-    pub fn gmsel(&self) -> GMSEL_R {
-        GMSEL_R::new(((self.bits >> 8) & 3) as u8)
+    pub fn amp(&self) -> AMP_R {
+        AMP_R::new((self.bits & 3) as u8)
     }
     #[doc = "Bit 4 - crystal 32k config"]
     #[inline(always)]
     pub fn cfg(&self) -> CFG_R {
         CFG_R::new(((self.bits >> 4) & 1) != 0)
     }
-    #[doc = "Bits 0:1 - crystal 32k amplifier"]
+    #[doc = "Bits 8:9 - crystal 32k gm selection"]
     #[inline(always)]
-    pub fn amp(&self) -> AMP_R {
-        AMP_R::new((self.bits & 3) as u8)
+    pub fn gmsel(&self) -> GMSEL_R {
+        GMSEL_R::new(((self.bits >> 8) & 3) as u8)
+    }
+    #[doc = "Bit 12 - crystal 32k hysteres enable"]
+    #[inline(always)]
+    pub fn hyst_en(&self) -> HYST_EN_R {
+        HYST_EN_R::new(((self.bits >> 12) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 12 - crystal 32k hysteres enable"]
+    #[doc = "Bits 0:1 - crystal 32k amplifier"]
     #[inline(always)]
-    pub fn hyst_en(&mut self) -> HYST_EN_W<12> {
-        HYST_EN_W::new(self)
-    }
-    #[doc = "Bits 8:9 - crystal 32k gm selection"]
-    #[inline(always)]
-    pub fn gmsel(&mut self) -> GMSEL_W<8> {
-        GMSEL_W::new(self)
+    #[must_use]
+    pub fn amp(&mut self) -> AMP_W<0> {
+        AMP_W::new(self)
     }
     #[doc = "Bit 4 - crystal 32k config"]
     #[inline(always)]
+    #[must_use]
     pub fn cfg(&mut self) -> CFG_W<4> {
         CFG_W::new(self)
     }
-    #[doc = "Bits 0:1 - crystal 32k amplifier"]
+    #[doc = "Bits 8:9 - crystal 32k gm selection"]
     #[inline(always)]
-    pub fn amp(&mut self) -> AMP_W<0> {
-        AMP_W::new(self)
+    #[must_use]
+    pub fn gmsel(&mut self) -> GMSEL_W<8> {
+        GMSEL_W::new(self)
+    }
+    #[doc = "Bit 12 - crystal 32k hysteres enable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn hyst_en(&mut self) -> HYST_EN_W<12> {
+        HYST_EN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -112,11 +116,10 @@ impl crate::Readable for XTAL32K_CFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [xtal32k_cfg::W](W) writer structure"]
 impl crate::Writable for XTAL32K_CFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets XTAL32K_CFG to value 0"]
 impl crate::Resettable for XTAL32K_CFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

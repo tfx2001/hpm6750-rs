@@ -34,64 +34,68 @@ impl From<crate::W<CQISGE_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `TCL_SGE` reader - Task cleared interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCL interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCL interrupt signal generation is disabled"]
-pub type TCL_SGE_R = crate::BitReader<bool>;
-#[doc = "Field `TCL_SGE` writer - Task cleared interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCL interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCL interrupt signal generation is disabled"]
-pub type TCL_SGE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISGE_SPEC, bool, O>;
-#[doc = "Field `RED_SGE` reader - Response error detected interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.RED interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.RED interrupt signal generation is disabled"]
-pub type RED_SGE_R = crate::BitReader<bool>;
-#[doc = "Field `RED_SGE` writer - Response error detected interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.RED interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.RED interrupt signal generation is disabled"]
-pub type RED_SGE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISGE_SPEC, bool, O>;
-#[doc = "Field `TCC_SGE` reader - Task complete interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCC interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCC interrupt signal generation is disabled"]
-pub type TCC_SGE_R = crate::BitReader<bool>;
-#[doc = "Field `TCC_SGE` writer - Task complete interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCC interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCC interrupt signal generation is disabled"]
-pub type TCC_SGE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISGE_SPEC, bool, O>;
 #[doc = "Field `HAC_SGE` reader - Halt complete interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.HAC interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.HAC interrupt signal generation is disabled"]
 pub type HAC_SGE_R = crate::BitReader<bool>;
 #[doc = "Field `HAC_SGE` writer - Halt complete interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.HAC interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.HAC interrupt signal generation is disabled"]
 pub type HAC_SGE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISGE_SPEC, bool, O>;
+#[doc = "Field `TCC_SGE` reader - Task complete interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCC interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCC interrupt signal generation is disabled"]
+pub type TCC_SGE_R = crate::BitReader<bool>;
+#[doc = "Field `TCC_SGE` writer - Task complete interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCC interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCC interrupt signal generation is disabled"]
+pub type TCC_SGE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISGE_SPEC, bool, O>;
+#[doc = "Field `RED_SGE` reader - Response error detected interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.RED interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.RED interrupt signal generation is disabled"]
+pub type RED_SGE_R = crate::BitReader<bool>;
+#[doc = "Field `RED_SGE` writer - Response error detected interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.RED interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.RED interrupt signal generation is disabled"]
+pub type RED_SGE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISGE_SPEC, bool, O>;
+#[doc = "Field `TCL_SGE` reader - Task cleared interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCL interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCL interrupt signal generation is disabled"]
+pub type TCL_SGE_R = crate::BitReader<bool>;
+#[doc = "Field `TCL_SGE` writer - Task cleared interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCL interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCL interrupt signal generation is disabled"]
+pub type TCL_SGE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISGE_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 3 - Task cleared interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCL interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCL interrupt signal generation is disabled"]
+    #[doc = "Bit 0 - Halt complete interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.HAC interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.HAC interrupt signal generation is disabled"]
     #[inline(always)]
-    pub fn tcl_sge(&self) -> TCL_SGE_R {
-        TCL_SGE_R::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bit 2 - Response error detected interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.RED interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.RED interrupt signal generation is disabled"]
-    #[inline(always)]
-    pub fn red_sge(&self) -> RED_SGE_R {
-        RED_SGE_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn hac_sge(&self) -> HAC_SGE_R {
+        HAC_SGE_R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Task complete interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCC interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCC interrupt signal generation is disabled"]
     #[inline(always)]
     pub fn tcc_sge(&self) -> TCC_SGE_R {
         TCC_SGE_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 0 - Halt complete interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.HAC interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.HAC interrupt signal generation is disabled"]
+    #[doc = "Bit 2 - Response error detected interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.RED interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.RED interrupt signal generation is disabled"]
     #[inline(always)]
-    pub fn hac_sge(&self) -> HAC_SGE_R {
-        HAC_SGE_R::new((self.bits & 1) != 0)
+    pub fn red_sge(&self) -> RED_SGE_R {
+        RED_SGE_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 3 - Task cleared interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCL interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCL interrupt signal generation is disabled"]
+    #[inline(always)]
+    pub fn tcl_sge(&self) -> TCL_SGE_R {
+        TCL_SGE_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 3 - Task cleared interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCL interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCL interrupt signal generation is disabled"]
+    #[doc = "Bit 0 - Halt complete interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.HAC interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.HAC interrupt signal generation is disabled"]
     #[inline(always)]
-    pub fn tcl_sge(&mut self) -> TCL_SGE_W<3> {
-        TCL_SGE_W::new(self)
-    }
-    #[doc = "Bit 2 - Response error detected interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.RED interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.RED interrupt signal generation is disabled"]
-    #[inline(always)]
-    pub fn red_sge(&mut self) -> RED_SGE_W<2> {
-        RED_SGE_W::new(self)
+    #[must_use]
+    pub fn hac_sge(&mut self) -> HAC_SGE_W<0> {
+        HAC_SGE_W::new(self)
     }
     #[doc = "Bit 1 - Task complete interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCC interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCC interrupt signal generation is disabled"]
     #[inline(always)]
+    #[must_use]
     pub fn tcc_sge(&mut self) -> TCC_SGE_W<1> {
         TCC_SGE_W::new(self)
     }
-    #[doc = "Bit 0 - Halt complete interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.HAC interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.HAC interrupt signal generation is disabled"]
+    #[doc = "Bit 2 - Response error detected interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.RED interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.RED interrupt signal generation is disabled"]
     #[inline(always)]
-    pub fn hac_sge(&mut self) -> HAC_SGE_W<0> {
-        HAC_SGE_W::new(self)
+    #[must_use]
+    pub fn red_sge(&mut self) -> RED_SGE_W<2> {
+        RED_SGE_W::new(self)
+    }
+    #[doc = "Bit 3 - Task cleared interrupt signal enable Values: 0x1 (INT_SIG_ENABLE): CQIS.TCL interrupt signal generation is active 0x0 (INT_SIG_DISABLE): CQIS.TCL interrupt signal generation is disabled"]
+    #[inline(always)]
+    #[must_use]
+    pub fn tcl_sge(&mut self) -> TCL_SGE_W<3> {
+        TCL_SGE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -112,11 +116,10 @@ impl crate::Readable for CQISGE_SPEC {
 #[doc = "`write(|w| ..)` method takes [cqisge::W](W) writer structure"]
 impl crate::Writable for CQISGE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CQISGE to value 0"]
 impl crate::Resettable for CQISGE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

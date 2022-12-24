@@ -43,12 +43,13 @@ impl R {
     #[doc = "Bits 12:31 - BASEADR Base Address (Low). These bits correspond to memory address signals \\[31:12\\], respectively. Only used by the host controller."]
     #[inline(always)]
     pub fn baseadr(&self) -> BASEADR_R {
-        BASEADR_R::new(((self.bits >> 12) & 0x000f_ffff) as u32)
+        BASEADR_R::new((self.bits >> 12) & 0x000f_ffff)
     }
 }
 impl W {
     #[doc = "Bits 12:31 - BASEADR Base Address (Low). These bits correspond to memory address signals \\[31:12\\], respectively. Only used by the host controller."]
     #[inline(always)]
+    #[must_use]
     pub fn baseadr(&mut self) -> BASEADR_W<12> {
         BASEADR_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for PERIODICLISTBASE_SPEC {
 #[doc = "`write(|w| ..)` method takes [periodiclistbase::W](W) writer structure"]
 impl crate::Writable for PERIODICLISTBASE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PERIODICLISTBASE to value 0"]
 impl crate::Resettable for PERIODICLISTBASE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

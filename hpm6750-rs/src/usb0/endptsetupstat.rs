@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - ENDPTSETUPSTAT Setup Endpoint Status. For every setup transaction that is received, a corresponding bit in this register is set to one. Software must clear or acknowledge the setup transfer by writing a one to a respective bit after it has read the setup data from Queue head. The response to a setup packet as in the order of operations and total response time is crucial to limit bus time outs while the setup lock out mechanism is engaged. This register is only used in device mode."]
     #[inline(always)]
+    #[must_use]
     pub fn endptsetupstat(&mut self) -> ENDPTSETUPSTAT_W<0> {
         ENDPTSETUPSTAT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for ENDPTSETUPSTAT_SPEC {
 #[doc = "`write(|w| ..)` method takes [endptsetupstat::W](W) writer structure"]
 impl crate::Writable for ENDPTSETUPSTAT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ENDPTSETUPSTAT to value 0"]
 impl crate::Resettable for ENDPTSETUPSTAT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

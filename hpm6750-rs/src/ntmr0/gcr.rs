@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - set this bitfield to trigger software coutner sync event"]
     #[inline(always)]
+    #[must_use]
     pub fn swsynct(&mut self) -> SWSYNCT_W<0> {
         SWSYNCT_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for GCR_SPEC {
 #[doc = "`write(|w| ..)` method takes [gcr::W](W) writer structure"]
 impl crate::Writable for GCR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets GCR to value 0"]
 impl crate::Resettable for GCR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

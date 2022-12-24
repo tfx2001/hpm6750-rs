@@ -42,12 +42,13 @@ impl R {
     #[doc = "Bits 0:23 - Low range of color key applied to PS buffer. To disable PS colorkeying, set the low colorkey to 0xFFFFFF and the high colorkey to 0x000000."]
     #[inline(always)]
     pub fn limit(&self) -> LIMIT_R {
-        LIMIT_R::new((self.bits & 0x00ff_ffff) as u32)
+        LIMIT_R::new(self.bits & 0x00ff_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:23 - Low range of color key applied to PS buffer. To disable PS colorkeying, set the low colorkey to 0xFFFFFF and the high colorkey to 0x000000."]
     #[inline(always)]
+    #[must_use]
     pub fn limit(&mut self) -> LIMIT_W<0> {
         LIMIT_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for CLRKEY_LOW_SPEC {
 #[doc = "`write(|w| ..)` method takes [clrkey_low::W](W) writer structure"]
 impl crate::Writable for CLRKEY_LOW_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CLRKEY_LOW to value 0"]
 impl crate::Resettable for CLRKEY_LOW_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

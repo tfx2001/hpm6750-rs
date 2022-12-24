@@ -34,92 +34,98 @@ impl From<crate::W<INTR_MASK_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `LPIIM` reader - LPI Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the LPI Interrupt Status bit in Register 14 (Interrupt Status Register)."]
-pub type LPIIM_R = crate::BitReader<bool>;
-#[doc = "Field `LPIIM` writer - LPI Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the LPI Interrupt Status bit in Register 14 (Interrupt Status Register)."]
-pub type LPIIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_MASK_SPEC, bool, O>;
-#[doc = "Field `TSIM` reader - Timestamp Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of Timestamp Interrupt Status bit in Register 14 (Interrupt Status Register)."]
-pub type TSIM_R = crate::BitReader<bool>;
-#[doc = "Field `TSIM` writer - Timestamp Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of Timestamp Interrupt Status bit in Register 14 (Interrupt Status Register)."]
-pub type TSIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_MASK_SPEC, bool, O>;
-#[doc = "Field `PMTIM` reader - PMT Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PMT Interrupt Status bit in Register 14 (Interrupt Status Register)."]
-pub type PMTIM_R = crate::BitReader<bool>;
-#[doc = "Field `PMTIM` writer - PMT Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PMT Interrupt Status bit in Register 14 (Interrupt Status Register)."]
-pub type PMTIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_MASK_SPEC, bool, O>;
-#[doc = "Field `PCSANCIM` reader - PCS AN Completion Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PCS Auto-negotiation complete bit in Register 14 (Interrupt Status Register)."]
-pub type PCSANCIM_R = crate::BitReader<bool>;
-#[doc = "Field `PCSANCIM` writer - PCS AN Completion Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PCS Auto-negotiation complete bit in Register 14 (Interrupt Status Register)."]
-pub type PCSANCIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_MASK_SPEC, bool, O>;
-#[doc = "Field `PCSLCHGIM` reader - PCS Link Status Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the PCS Link-status changed bit in Register 14 (Interrupt Status Register)."]
-pub type PCSLCHGIM_R = crate::BitReader<bool>;
-#[doc = "Field `PCSLCHGIM` writer - PCS Link Status Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the PCS Link-status changed bit in Register 14 (Interrupt Status Register)."]
-pub type PCSLCHGIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_MASK_SPEC, bool, O>;
 #[doc = "Field `RGSMIIIM` reader - RGMII or SMII Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the RGMII or SMII Interrupt Status bit in Register 14 (Interrupt Status Register)."]
 pub type RGSMIIIM_R = crate::BitReader<bool>;
 #[doc = "Field `RGSMIIIM` writer - RGMII or SMII Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the RGMII or SMII Interrupt Status bit in Register 14 (Interrupt Status Register)."]
 pub type RGSMIIIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_MASK_SPEC, bool, O>;
+#[doc = "Field `PCSLCHGIM` reader - PCS Link Status Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the PCS Link-status changed bit in Register 14 (Interrupt Status Register)."]
+pub type PCSLCHGIM_R = crate::BitReader<bool>;
+#[doc = "Field `PCSLCHGIM` writer - PCS Link Status Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the PCS Link-status changed bit in Register 14 (Interrupt Status Register)."]
+pub type PCSLCHGIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_MASK_SPEC, bool, O>;
+#[doc = "Field `PCSANCIM` reader - PCS AN Completion Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PCS Auto-negotiation complete bit in Register 14 (Interrupt Status Register)."]
+pub type PCSANCIM_R = crate::BitReader<bool>;
+#[doc = "Field `PCSANCIM` writer - PCS AN Completion Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PCS Auto-negotiation complete bit in Register 14 (Interrupt Status Register)."]
+pub type PCSANCIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_MASK_SPEC, bool, O>;
+#[doc = "Field `PMTIM` reader - PMT Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PMT Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+pub type PMTIM_R = crate::BitReader<bool>;
+#[doc = "Field `PMTIM` writer - PMT Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PMT Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+pub type PMTIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_MASK_SPEC, bool, O>;
+#[doc = "Field `TSIM` reader - Timestamp Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of Timestamp Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+pub type TSIM_R = crate::BitReader<bool>;
+#[doc = "Field `TSIM` writer - Timestamp Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of Timestamp Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+pub type TSIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_MASK_SPEC, bool, O>;
+#[doc = "Field `LPIIM` reader - LPI Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the LPI Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+pub type LPIIM_R = crate::BitReader<bool>;
+#[doc = "Field `LPIIM` writer - LPI Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the LPI Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+pub type LPIIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTR_MASK_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 10 - LPI Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the LPI Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+    #[doc = "Bit 0 - RGMII or SMII Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the RGMII or SMII Interrupt Status bit in Register 14 (Interrupt Status Register)."]
     #[inline(always)]
-    pub fn lpiim(&self) -> LPIIM_R {
-        LPIIM_R::new(((self.bits >> 10) & 1) != 0)
-    }
-    #[doc = "Bit 9 - Timestamp Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of Timestamp Interrupt Status bit in Register 14 (Interrupt Status Register)."]
-    #[inline(always)]
-    pub fn tsim(&self) -> TSIM_R {
-        TSIM_R::new(((self.bits >> 9) & 1) != 0)
-    }
-    #[doc = "Bit 3 - PMT Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PMT Interrupt Status bit in Register 14 (Interrupt Status Register)."]
-    #[inline(always)]
-    pub fn pmtim(&self) -> PMTIM_R {
-        PMTIM_R::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bit 2 - PCS AN Completion Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PCS Auto-negotiation complete bit in Register 14 (Interrupt Status Register)."]
-    #[inline(always)]
-    pub fn pcsancim(&self) -> PCSANCIM_R {
-        PCSANCIM_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn rgsmiiim(&self) -> RGSMIIIM_R {
+        RGSMIIIM_R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - PCS Link Status Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the PCS Link-status changed bit in Register 14 (Interrupt Status Register)."]
     #[inline(always)]
     pub fn pcslchgim(&self) -> PCSLCHGIM_R {
         PCSLCHGIM_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 0 - RGMII or SMII Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the RGMII or SMII Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+    #[doc = "Bit 2 - PCS AN Completion Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PCS Auto-negotiation complete bit in Register 14 (Interrupt Status Register)."]
     #[inline(always)]
-    pub fn rgsmiiim(&self) -> RGSMIIIM_R {
-        RGSMIIIM_R::new((self.bits & 1) != 0)
-    }
-}
-impl W {
-    #[doc = "Bit 10 - LPI Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the LPI Interrupt Status bit in Register 14 (Interrupt Status Register)."]
-    #[inline(always)]
-    pub fn lpiim(&mut self) -> LPIIM_W<10> {
-        LPIIM_W::new(self)
-    }
-    #[doc = "Bit 9 - Timestamp Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of Timestamp Interrupt Status bit in Register 14 (Interrupt Status Register)."]
-    #[inline(always)]
-    pub fn tsim(&mut self) -> TSIM_W<9> {
-        TSIM_W::new(self)
+    pub fn pcsancim(&self) -> PCSANCIM_R {
+        PCSANCIM_R::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - PMT Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PMT Interrupt Status bit in Register 14 (Interrupt Status Register)."]
     #[inline(always)]
-    pub fn pmtim(&mut self) -> PMTIM_W<3> {
-        PMTIM_W::new(self)
+    pub fn pmtim(&self) -> PMTIM_R {
+        PMTIM_R::new(((self.bits >> 3) & 1) != 0)
     }
-    #[doc = "Bit 2 - PCS AN Completion Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PCS Auto-negotiation complete bit in Register 14 (Interrupt Status Register)."]
+    #[doc = "Bit 9 - Timestamp Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of Timestamp Interrupt Status bit in Register 14 (Interrupt Status Register)."]
     #[inline(always)]
-    pub fn pcsancim(&mut self) -> PCSANCIM_W<2> {
-        PCSANCIM_W::new(self)
+    pub fn tsim(&self) -> TSIM_R {
+        TSIM_R::new(((self.bits >> 9) & 1) != 0)
+    }
+    #[doc = "Bit 10 - LPI Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the LPI Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+    #[inline(always)]
+    pub fn lpiim(&self) -> LPIIM_R {
+        LPIIM_R::new(((self.bits >> 10) & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bit 0 - RGMII or SMII Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the RGMII or SMII Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+    #[inline(always)]
+    #[must_use]
+    pub fn rgsmiiim(&mut self) -> RGSMIIIM_W<0> {
+        RGSMIIIM_W::new(self)
     }
     #[doc = "Bit 1 - PCS Link Status Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the PCS Link-status changed bit in Register 14 (Interrupt Status Register)."]
     #[inline(always)]
+    #[must_use]
     pub fn pcslchgim(&mut self) -> PCSLCHGIM_W<1> {
         PCSLCHGIM_W::new(self)
     }
-    #[doc = "Bit 0 - RGMII or SMII Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the RGMII or SMII Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+    #[doc = "Bit 2 - PCS AN Completion Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PCS Auto-negotiation complete bit in Register 14 (Interrupt Status Register)."]
     #[inline(always)]
-    pub fn rgsmiiim(&mut self) -> RGSMIIIM_W<0> {
-        RGSMIIIM_W::new(self)
+    #[must_use]
+    pub fn pcsancim(&mut self) -> PCSANCIM_W<2> {
+        PCSANCIM_W::new(self)
+    }
+    #[doc = "Bit 3 - PMT Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of PMT Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+    #[inline(always)]
+    #[must_use]
+    pub fn pmtim(&mut self) -> PMTIM_W<3> {
+        PMTIM_W::new(self)
+    }
+    #[doc = "Bit 9 - Timestamp Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of Timestamp Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+    #[inline(always)]
+    #[must_use]
+    pub fn tsim(&mut self) -> TSIM_W<9> {
+        TSIM_W::new(self)
+    }
+    #[doc = "Bit 10 - LPI Interrupt Mask When set, this bit disables the assertion of the interrupt signal because of the setting of the LPI Interrupt Status bit in Register 14 (Interrupt Status Register)."]
+    #[inline(always)]
+    #[must_use]
+    pub fn lpiim(&mut self) -> LPIIM_W<10> {
+        LPIIM_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -140,11 +146,10 @@ impl crate::Readable for INTR_MASK_SPEC {
 #[doc = "`write(|w| ..)` method takes [intr_mask::W](W) writer structure"]
 impl crate::Writable for INTR_MASK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets INTR_MASK to value 0"]
 impl crate::Resettable for INTR_MASK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

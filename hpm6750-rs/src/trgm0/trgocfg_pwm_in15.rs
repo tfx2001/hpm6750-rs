@@ -34,65 +34,69 @@ impl From<crate::W<TRGOCFG_PWM_IN15_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `OUTINV` reader - 1- Invert the output"]
-pub type OUTINV_R = crate::BitReader<bool>;
-#[doc = "Field `OUTINV` writer - 1- Invert the output"]
-pub type OUTINV_W<'a, const O: u8> = crate::BitWriter<'a, u32, TRGOCFG_PWM_IN15_SPEC, bool, O>;
-#[doc = "Field `FEDG2PEN` reader - 1- The selected input signal falling edge will be convert to an pulse on output."]
-pub type FEDG2PEN_R = crate::BitReader<bool>;
-#[doc = "Field `FEDG2PEN` writer - 1- The selected input signal falling edge will be convert to an pulse on output."]
-pub type FEDG2PEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, TRGOCFG_PWM_IN15_SPEC, bool, O>;
-#[doc = "Field `REDG2PEN` reader - 1- The selected input signal rising edge will be convert to an pulse on output."]
-pub type REDG2PEN_R = crate::BitReader<bool>;
-#[doc = "Field `REDG2PEN` writer - 1- The selected input signal rising edge will be convert to an pulse on output."]
-pub type REDG2PEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, TRGOCFG_PWM_IN15_SPEC, bool, O>;
 #[doc = "Field `TRIGOSEL` reader - This bitfield selects one of the TRGM inputs as output."]
 pub type TRIGOSEL_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `TRIGOSEL` writer - This bitfield selects one of the TRGM inputs as output."]
 pub type TRIGOSEL_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, TRGOCFG_PWM_IN15_SPEC, u8, u8, 6, O>;
+#[doc = "Field `REDG2PEN` reader - 1- The selected input signal rising edge will be convert to an pulse on output."]
+pub type REDG2PEN_R = crate::BitReader<bool>;
+#[doc = "Field `REDG2PEN` writer - 1- The selected input signal rising edge will be convert to an pulse on output."]
+pub type REDG2PEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, TRGOCFG_PWM_IN15_SPEC, bool, O>;
+#[doc = "Field `FEDG2PEN` reader - 1- The selected input signal falling edge will be convert to an pulse on output."]
+pub type FEDG2PEN_R = crate::BitReader<bool>;
+#[doc = "Field `FEDG2PEN` writer - 1- The selected input signal falling edge will be convert to an pulse on output."]
+pub type FEDG2PEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, TRGOCFG_PWM_IN15_SPEC, bool, O>;
+#[doc = "Field `OUTINV` reader - 1- Invert the output"]
+pub type OUTINV_R = crate::BitReader<bool>;
+#[doc = "Field `OUTINV` writer - 1- Invert the output"]
+pub type OUTINV_W<'a, const O: u8> = crate::BitWriter<'a, u32, TRGOCFG_PWM_IN15_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 8 - 1- Invert the output"]
+    #[doc = "Bits 0:5 - This bitfield selects one of the TRGM inputs as output."]
     #[inline(always)]
-    pub fn outinv(&self) -> OUTINV_R {
-        OUTINV_R::new(((self.bits >> 8) & 1) != 0)
-    }
-    #[doc = "Bit 7 - 1- The selected input signal falling edge will be convert to an pulse on output."]
-    #[inline(always)]
-    pub fn fedg2pen(&self) -> FEDG2PEN_R {
-        FEDG2PEN_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn trigosel(&self) -> TRIGOSEL_R {
+        TRIGOSEL_R::new((self.bits & 0x3f) as u8)
     }
     #[doc = "Bit 6 - 1- The selected input signal rising edge will be convert to an pulse on output."]
     #[inline(always)]
     pub fn redg2pen(&self) -> REDG2PEN_R {
         REDG2PEN_R::new(((self.bits >> 6) & 1) != 0)
     }
-    #[doc = "Bits 0:5 - This bitfield selects one of the TRGM inputs as output."]
+    #[doc = "Bit 7 - 1- The selected input signal falling edge will be convert to an pulse on output."]
     #[inline(always)]
-    pub fn trigosel(&self) -> TRIGOSEL_R {
-        TRIGOSEL_R::new((self.bits & 0x3f) as u8)
+    pub fn fedg2pen(&self) -> FEDG2PEN_R {
+        FEDG2PEN_R::new(((self.bits >> 7) & 1) != 0)
+    }
+    #[doc = "Bit 8 - 1- Invert the output"]
+    #[inline(always)]
+    pub fn outinv(&self) -> OUTINV_R {
+        OUTINV_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 8 - 1- Invert the output"]
+    #[doc = "Bits 0:5 - This bitfield selects one of the TRGM inputs as output."]
     #[inline(always)]
-    pub fn outinv(&mut self) -> OUTINV_W<8> {
-        OUTINV_W::new(self)
-    }
-    #[doc = "Bit 7 - 1- The selected input signal falling edge will be convert to an pulse on output."]
-    #[inline(always)]
-    pub fn fedg2pen(&mut self) -> FEDG2PEN_W<7> {
-        FEDG2PEN_W::new(self)
+    #[must_use]
+    pub fn trigosel(&mut self) -> TRIGOSEL_W<0> {
+        TRIGOSEL_W::new(self)
     }
     #[doc = "Bit 6 - 1- The selected input signal rising edge will be convert to an pulse on output."]
     #[inline(always)]
+    #[must_use]
     pub fn redg2pen(&mut self) -> REDG2PEN_W<6> {
         REDG2PEN_W::new(self)
     }
-    #[doc = "Bits 0:5 - This bitfield selects one of the TRGM inputs as output."]
+    #[doc = "Bit 7 - 1- The selected input signal falling edge will be convert to an pulse on output."]
     #[inline(always)]
-    pub fn trigosel(&mut self) -> TRIGOSEL_W<0> {
-        TRIGOSEL_W::new(self)
+    #[must_use]
+    pub fn fedg2pen(&mut self) -> FEDG2PEN_W<7> {
+        FEDG2PEN_W::new(self)
+    }
+    #[doc = "Bit 8 - 1- Invert the output"]
+    #[inline(always)]
+    #[must_use]
+    pub fn outinv(&mut self) -> OUTINV_W<8> {
+        OUTINV_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -113,11 +117,10 @@ impl crate::Readable for TRGOCFG_PWM_IN15_SPEC {
 #[doc = "`write(|w| ..)` method takes [trgocfg_pwm_in15::W](W) writer structure"]
 impl crate::Writable for TRGOCFG_PWM_IN15_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TRGOCFG_PWM_IN15 to value 0"]
 impl crate::Resettable for TRGOCFG_PWM_IN15_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

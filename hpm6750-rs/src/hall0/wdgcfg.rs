@@ -34,36 +34,38 @@ impl From<crate::W<WDGCFG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `WDGEN` reader - 1- enable wdog counter"]
-pub type WDGEN_R = crate::BitReader<bool>;
-#[doc = "Field `WDGEN` writer - 1- enable wdog counter"]
-pub type WDGEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, WDGCFG_SPEC, bool, O>;
 #[doc = "Field `WDGTO` reader - watch dog timeout value"]
 pub type WDGTO_R = crate::FieldReader<u32, u32>;
 #[doc = "Field `WDGTO` writer - watch dog timeout value"]
 pub type WDGTO_W<'a, const O: u8> = crate::FieldWriter<'a, u32, WDGCFG_SPEC, u32, u32, 31, O>;
+#[doc = "Field `WDGEN` reader - 1- enable wdog counter"]
+pub type WDGEN_R = crate::BitReader<bool>;
+#[doc = "Field `WDGEN` writer - 1- enable wdog counter"]
+pub type WDGEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, WDGCFG_SPEC, bool, O>;
 impl R {
+    #[doc = "Bits 0:30 - watch dog timeout value"]
+    #[inline(always)]
+    pub fn wdgto(&self) -> WDGTO_R {
+        WDGTO_R::new(self.bits & 0x7fff_ffff)
+    }
     #[doc = "Bit 31 - 1- enable wdog counter"]
     #[inline(always)]
     pub fn wdgen(&self) -> WDGEN_R {
         WDGEN_R::new(((self.bits >> 31) & 1) != 0)
     }
-    #[doc = "Bits 0:30 - watch dog timeout value"]
-    #[inline(always)]
-    pub fn wdgto(&self) -> WDGTO_R {
-        WDGTO_R::new((self.bits & 0x7fff_ffff) as u32)
-    }
 }
 impl W {
-    #[doc = "Bit 31 - 1- enable wdog counter"]
-    #[inline(always)]
-    pub fn wdgen(&mut self) -> WDGEN_W<31> {
-        WDGEN_W::new(self)
-    }
     #[doc = "Bits 0:30 - watch dog timeout value"]
     #[inline(always)]
+    #[must_use]
     pub fn wdgto(&mut self) -> WDGTO_W<0> {
         WDGTO_W::new(self)
+    }
+    #[doc = "Bit 31 - 1- enable wdog counter"]
+    #[inline(always)]
+    #[must_use]
+    pub fn wdgen(&mut self) -> WDGEN_W<31> {
+        WDGEN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for WDGCFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [wdgcfg::W](W) writer structure"]
 impl crate::Writable for WDGCFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets WDGCFG to value 0"]
 impl crate::Resettable for WDGCFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

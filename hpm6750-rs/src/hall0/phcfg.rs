@@ -34,36 +34,38 @@ impl From<crate::W<PHCFG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `DLYSEL` reader - This bit select delay start time: 1- start counting delay after pre-trigger 0- start counting delay after u,v,w toggle"]
-pub type DLYSEL_R = crate::BitReader<bool>;
-#[doc = "Field `DLYSEL` writer - This bit select delay start time: 1- start counting delay after pre-trigger 0- start counting delay after u,v,w toggle"]
-pub type DLYSEL_W<'a, const O: u8> = crate::BitWriter<'a, u32, PHCFG_SPEC, bool, O>;
 #[doc = "Field `DLYCNT` reader - delay clock cycles number"]
 pub type DLYCNT_R = crate::FieldReader<u32, u32>;
 #[doc = "Field `DLYCNT` writer - delay clock cycles number"]
 pub type DLYCNT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PHCFG_SPEC, u32, u32, 24, O>;
+#[doc = "Field `DLYSEL` reader - This bit select delay start time: 1- start counting delay after pre-trigger 0- start counting delay after u,v,w toggle"]
+pub type DLYSEL_R = crate::BitReader<bool>;
+#[doc = "Field `DLYSEL` writer - This bit select delay start time: 1- start counting delay after pre-trigger 0- start counting delay after u,v,w toggle"]
+pub type DLYSEL_W<'a, const O: u8> = crate::BitWriter<'a, u32, PHCFG_SPEC, bool, O>;
 impl R {
+    #[doc = "Bits 0:23 - delay clock cycles number"]
+    #[inline(always)]
+    pub fn dlycnt(&self) -> DLYCNT_R {
+        DLYCNT_R::new(self.bits & 0x00ff_ffff)
+    }
     #[doc = "Bit 31 - This bit select delay start time: 1- start counting delay after pre-trigger 0- start counting delay after u,v,w toggle"]
     #[inline(always)]
     pub fn dlysel(&self) -> DLYSEL_R {
         DLYSEL_R::new(((self.bits >> 31) & 1) != 0)
     }
-    #[doc = "Bits 0:23 - delay clock cycles number"]
-    #[inline(always)]
-    pub fn dlycnt(&self) -> DLYCNT_R {
-        DLYCNT_R::new((self.bits & 0x00ff_ffff) as u32)
-    }
 }
 impl W {
-    #[doc = "Bit 31 - This bit select delay start time: 1- start counting delay after pre-trigger 0- start counting delay after u,v,w toggle"]
-    #[inline(always)]
-    pub fn dlysel(&mut self) -> DLYSEL_W<31> {
-        DLYSEL_W::new(self)
-    }
     #[doc = "Bits 0:23 - delay clock cycles number"]
     #[inline(always)]
+    #[must_use]
     pub fn dlycnt(&mut self) -> DLYCNT_W<0> {
         DLYCNT_W::new(self)
+    }
+    #[doc = "Bit 31 - This bit select delay start time: 1- start counting delay after pre-trigger 0- start counting delay after u,v,w toggle"]
+    #[inline(always)]
+    #[must_use]
+    pub fn dlysel(&mut self) -> DLYSEL_W<31> {
+        DLYSEL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for PHCFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [phcfg::W](W) writer structure"]
 impl crate::Writable for PHCFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PHCFG to value 0"]
 impl crate::Resettable for PHCFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,36 +34,38 @@ impl From<crate::W<ALARM_EN_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `ENABLE1` reader - alarm1 mask 0: alarm1 disabled 1: alarm1 enabled"]
-pub type ENABLE1_R = crate::BitReader<bool>;
-#[doc = "Field `ENABLE1` writer - alarm1 mask 0: alarm1 disabled 1: alarm1 enabled"]
-pub type ENABLE1_W<'a, const O: u8> = crate::BitWriter<'a, u32, ALARM_EN_SPEC, bool, O>;
 #[doc = "Field `ENABLE0` reader - alarm0 mask 0: alarm0 disabled 1: alarm0 enabled"]
 pub type ENABLE0_R = crate::BitReader<bool>;
 #[doc = "Field `ENABLE0` writer - alarm0 mask 0: alarm0 disabled 1: alarm0 enabled"]
 pub type ENABLE0_W<'a, const O: u8> = crate::BitWriter<'a, u32, ALARM_EN_SPEC, bool, O>;
+#[doc = "Field `ENABLE1` reader - alarm1 mask 0: alarm1 disabled 1: alarm1 enabled"]
+pub type ENABLE1_R = crate::BitReader<bool>;
+#[doc = "Field `ENABLE1` writer - alarm1 mask 0: alarm1 disabled 1: alarm1 enabled"]
+pub type ENABLE1_W<'a, const O: u8> = crate::BitWriter<'a, u32, ALARM_EN_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 1 - alarm1 mask 0: alarm1 disabled 1: alarm1 enabled"]
-    #[inline(always)]
-    pub fn enable1(&self) -> ENABLE1_R {
-        ENABLE1_R::new(((self.bits >> 1) & 1) != 0)
-    }
     #[doc = "Bit 0 - alarm0 mask 0: alarm0 disabled 1: alarm0 enabled"]
     #[inline(always)]
     pub fn enable0(&self) -> ENABLE0_R {
         ENABLE0_R::new((self.bits & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bit 1 - alarm1 mask 0: alarm1 disabled 1: alarm1 enabled"]
     #[inline(always)]
-    pub fn enable1(&mut self) -> ENABLE1_W<1> {
-        ENABLE1_W::new(self)
+    pub fn enable1(&self) -> ENABLE1_R {
+        ENABLE1_R::new(((self.bits >> 1) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bit 0 - alarm0 mask 0: alarm0 disabled 1: alarm0 enabled"]
     #[inline(always)]
+    #[must_use]
     pub fn enable0(&mut self) -> ENABLE0_W<0> {
         ENABLE0_W::new(self)
+    }
+    #[doc = "Bit 1 - alarm1 mask 0: alarm1 disabled 1: alarm1 enabled"]
+    #[inline(always)]
+    #[must_use]
+    pub fn enable1(&mut self) -> ENABLE1_W<1> {
+        ENABLE1_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for ALARM_EN_SPEC {
 #[doc = "`write(|w| ..)` method takes [alarm_en::W](W) writer structure"]
 impl crate::Writable for ALARM_EN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ALARM_EN to value 0"]
 impl crate::Resettable for ALARM_EN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,36 +34,38 @@ impl From<crate::W<OUTDMA_CTRL0_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `TTLEN` reader - Total length (Low 16 bits) in Bytes -1 for transfer when Out_DMA_ID!=Pixel. If Out_DMA_ID=ECS, it can be any value greater than the length of the ECS, for example, the number of encoded bytes."]
-pub type TTLEN_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `TTLEN` writer - Total length (Low 16 bits) in Bytes -1 for transfer when Out_DMA_ID!=Pixel. If Out_DMA_ID=ECS, it can be any value greater than the length of the ECS, for example, the number of encoded bytes."]
-pub type TTLEN_W<'a, const O: u8> = crate::FieldWriter<'a, u32, OUTDMA_CTRL0_SPEC, u16, u16, 16, O>;
 #[doc = "Field `PITCH` reader - Pitch between the starting point of Rows when Out_DMA_ID==Pixel"]
 pub type PITCH_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `PITCH` writer - Pitch between the starting point of Rows when Out_DMA_ID==Pixel"]
 pub type PITCH_W<'a, const O: u8> = crate::FieldWriter<'a, u32, OUTDMA_CTRL0_SPEC, u16, u16, 16, O>;
+#[doc = "Field `TTLEN` reader - Total length (Low 16 bits) in Bytes -1 for transfer when Out_DMA_ID!=Pixel. If Out_DMA_ID=ECS, it can be any value greater than the length of the ECS, for example, the number of encoded bytes."]
+pub type TTLEN_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `TTLEN` writer - Total length (Low 16 bits) in Bytes -1 for transfer when Out_DMA_ID!=Pixel. If Out_DMA_ID=ECS, it can be any value greater than the length of the ECS, for example, the number of encoded bytes."]
+pub type TTLEN_W<'a, const O: u8> = crate::FieldWriter<'a, u32, OUTDMA_CTRL0_SPEC, u16, u16, 16, O>;
 impl R {
-    #[doc = "Bits 16:31 - Total length (Low 16 bits) in Bytes -1 for transfer when Out_DMA_ID!=Pixel. If Out_DMA_ID=ECS, it can be any value greater than the length of the ECS, for example, the number of encoded bytes."]
-    #[inline(always)]
-    pub fn ttlen(&self) -> TTLEN_R {
-        TTLEN_R::new(((self.bits >> 16) & 0xffff) as u16)
-    }
     #[doc = "Bits 0:15 - Pitch between the starting point of Rows when Out_DMA_ID==Pixel"]
     #[inline(always)]
     pub fn pitch(&self) -> PITCH_R {
         PITCH_R::new((self.bits & 0xffff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:31 - Total length (Low 16 bits) in Bytes -1 for transfer when Out_DMA_ID!=Pixel. If Out_DMA_ID=ECS, it can be any value greater than the length of the ECS, for example, the number of encoded bytes."]
     #[inline(always)]
-    pub fn ttlen(&mut self) -> TTLEN_W<16> {
-        TTLEN_W::new(self)
+    pub fn ttlen(&self) -> TTLEN_R {
+        TTLEN_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:15 - Pitch between the starting point of Rows when Out_DMA_ID==Pixel"]
     #[inline(always)]
+    #[must_use]
     pub fn pitch(&mut self) -> PITCH_W<0> {
         PITCH_W::new(self)
+    }
+    #[doc = "Bits 16:31 - Total length (Low 16 bits) in Bytes -1 for transfer when Out_DMA_ID!=Pixel. If Out_DMA_ID=ECS, it can be any value greater than the length of the ECS, for example, the number of encoded bytes."]
+    #[inline(always)]
+    #[must_use]
+    pub fn ttlen(&mut self) -> TTLEN_W<16> {
+        TTLEN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for OUTDMA_CTRL0_SPEC {
 #[doc = "`write(|w| ..)` method takes [outdma_ctrl0::W](W) writer structure"]
 impl crate::Writable for OUTDMA_CTRL0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets OUTDMA_CTRL0 to value 0"]
 impl crate::Resettable for OUTDMA_CTRL0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

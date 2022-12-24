@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - control whether clock being gated during PMIC low power flow, 2 bits for each peripheral 00,01: clock gated according to low power flow 10: clock is always off 11: clock is always on bit0-1: fuse bit2-3: sram bit4-5: vad bit6-7:gpio bit8-9:ioc bit10-11: timer bit12-13:wdog bit14-15:uart bit16-17:debug"]
     #[inline(always)]
+    #[must_use]
     pub fn scg(&mut self) -> SCG_W<0> {
         SCG_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for SCG_CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [scg_ctrl::W](W) writer structure"]
 impl crate::Writable for SCG_CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SCG_CTRL to value 0xffff_ffff"]
 impl crate::Resettable for SCG_CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0xffff_ffff
-    }
+    const RESET_VALUE: Self::Ux = 0xffff_ffff;
 }

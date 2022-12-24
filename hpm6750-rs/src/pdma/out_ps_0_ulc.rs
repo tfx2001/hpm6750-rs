@@ -34,36 +34,38 @@ impl From<crate::W<OUT_PS_0_ULC_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `Y` reader - This field indicates the upper left Y-coordinate (in pixels) of the processed surface in the output frame buffer."]
-pub type Y_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `Y` writer - This field indicates the upper left Y-coordinate (in pixels) of the processed surface in the output frame buffer."]
-pub type Y_W<'a, const O: u8> = crate::FieldWriter<'a, u32, OUT_PS_0_ULC_SPEC, u16, u16, 14, O>;
 #[doc = "Field `X` reader - This field indicates the upper left X-coordinate (in pixels) of the processed surface in the output frame buffer."]
 pub type X_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `X` writer - This field indicates the upper left X-coordinate (in pixels) of the processed surface in the output frame buffer."]
 pub type X_W<'a, const O: u8> = crate::FieldWriter<'a, u32, OUT_PS_0_ULC_SPEC, u16, u16, 14, O>;
+#[doc = "Field `Y` reader - This field indicates the upper left Y-coordinate (in pixels) of the processed surface in the output frame buffer."]
+pub type Y_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `Y` writer - This field indicates the upper left Y-coordinate (in pixels) of the processed surface in the output frame buffer."]
+pub type Y_W<'a, const O: u8> = crate::FieldWriter<'a, u32, OUT_PS_0_ULC_SPEC, u16, u16, 14, O>;
 impl R {
-    #[doc = "Bits 16:29 - This field indicates the upper left Y-coordinate (in pixels) of the processed surface in the output frame buffer."]
-    #[inline(always)]
-    pub fn y(&self) -> Y_R {
-        Y_R::new(((self.bits >> 16) & 0x3fff) as u16)
-    }
     #[doc = "Bits 0:13 - This field indicates the upper left X-coordinate (in pixels) of the processed surface in the output frame buffer."]
     #[inline(always)]
     pub fn x(&self) -> X_R {
         X_R::new((self.bits & 0x3fff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:29 - This field indicates the upper left Y-coordinate (in pixels) of the processed surface in the output frame buffer."]
     #[inline(always)]
-    pub fn y(&mut self) -> Y_W<16> {
-        Y_W::new(self)
+    pub fn y(&self) -> Y_R {
+        Y_R::new(((self.bits >> 16) & 0x3fff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:13 - This field indicates the upper left X-coordinate (in pixels) of the processed surface in the output frame buffer."]
     #[inline(always)]
+    #[must_use]
     pub fn x(&mut self) -> X_W<0> {
         X_W::new(self)
+    }
+    #[doc = "Bits 16:29 - This field indicates the upper left Y-coordinate (in pixels) of the processed surface in the output frame buffer."]
+    #[inline(always)]
+    #[must_use]
+    pub fn y(&mut self) -> Y_W<16> {
+        Y_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for OUT_PS_0_ULC_SPEC {
 #[doc = "`write(|w| ..)` method takes [out_ps_0_ulc::W](W) writer structure"]
 impl crate::Writable for OUT_PS_0_ULC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets OUT_PS_0_ULC to value 0"]
 impl crate::Resettable for OUT_PS_0_ULC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

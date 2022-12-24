@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bit 0 - The status of the watchdog interrupt timer 0: timer is not expired yet 1: timer is expired"]
     #[inline(always)]
+    #[must_use]
     pub fn intexpired(&mut self) -> INTEXPIRED_W<0> {
         INTEXPIRED_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for ST_SPEC {
 #[doc = "`write(|w| ..)` method takes [st::W](W) writer structure"]
 impl crate::Writable for ST_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ST to value 0"]
 impl crate::Resettable for ST_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - ADMA System Address These bits indicate the lower 32 bits of the ADMA system address. SDMA: If Host Version 4 Enable is set to 1, this register stores the system address of the data location ADMA2: This register stores the byte address of the executing command of the descriptor table ADMA3: This register is set by ADMA3. ADMA2 increments the address of this register that points to the next line, every time a Descriptor line is fetched."]
     #[inline(always)]
+    #[must_use]
     pub fn adma_sa(&mut self) -> ADMA_SA_W<0> {
         ADMA_SA_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for ADMA_SYS_ADDR_SPEC {
 #[doc = "`write(|w| ..)` method takes [adma_sys_addr::W](W) writer structure"]
 impl crate::Writable for ADMA_SYS_ADDR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ADMA_SYS_ADDR to value 0"]
 impl crate::Resettable for ADMA_SYS_ADDR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

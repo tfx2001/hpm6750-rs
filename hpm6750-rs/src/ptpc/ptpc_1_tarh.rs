@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - used for generate compare signal if enabled"]
     #[inline(always)]
+    #[must_use]
     pub fn target_time_high(&mut self) -> TARGET_TIME_HIGH_W<0> {
         TARGET_TIME_HIGH_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for PTPC_1_TARH_SPEC {
 #[doc = "`write(|w| ..)` method takes [ptpc_1_tarh::W](W) writer structure"]
 impl crate::Writable for PTPC_1_TARH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PTPC_1_TARH to value 0"]
 impl crate::Resettable for PTPC_1_TARH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

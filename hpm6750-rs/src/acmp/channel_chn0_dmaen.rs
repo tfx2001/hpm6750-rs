@@ -34,36 +34,38 @@ impl From<crate::W<CHANNEL_CHN0_DMAEN_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `FEDGEN` reader - Output falling edge flag DMA request enable bit."]
-pub type FEDGEN_R = crate::BitReader<bool>;
-#[doc = "Field `FEDGEN` writer - Output falling edge flag DMA request enable bit."]
-pub type FEDGEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CHANNEL_CHN0_DMAEN_SPEC, bool, O>;
 #[doc = "Field `REDGEN` reader - Output rising edge flag DMA request enable bit."]
 pub type REDGEN_R = crate::BitReader<bool>;
 #[doc = "Field `REDGEN` writer - Output rising edge flag DMA request enable bit."]
 pub type REDGEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CHANNEL_CHN0_DMAEN_SPEC, bool, O>;
+#[doc = "Field `FEDGEN` reader - Output falling edge flag DMA request enable bit."]
+pub type FEDGEN_R = crate::BitReader<bool>;
+#[doc = "Field `FEDGEN` writer - Output falling edge flag DMA request enable bit."]
+pub type FEDGEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CHANNEL_CHN0_DMAEN_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 1 - Output falling edge flag DMA request enable bit."]
-    #[inline(always)]
-    pub fn fedgen(&self) -> FEDGEN_R {
-        FEDGEN_R::new(((self.bits >> 1) & 1) != 0)
-    }
     #[doc = "Bit 0 - Output rising edge flag DMA request enable bit."]
     #[inline(always)]
     pub fn redgen(&self) -> REDGEN_R {
         REDGEN_R::new((self.bits & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bit 1 - Output falling edge flag DMA request enable bit."]
     #[inline(always)]
-    pub fn fedgen(&mut self) -> FEDGEN_W<1> {
-        FEDGEN_W::new(self)
+    pub fn fedgen(&self) -> FEDGEN_R {
+        FEDGEN_R::new(((self.bits >> 1) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bit 0 - Output rising edge flag DMA request enable bit."]
     #[inline(always)]
+    #[must_use]
     pub fn redgen(&mut self) -> REDGEN_W<0> {
         REDGEN_W::new(self)
+    }
+    #[doc = "Bit 1 - Output falling edge flag DMA request enable bit."]
+    #[inline(always)]
+    #[must_use]
+    pub fn fedgen(&mut self) -> FEDGEN_W<1> {
+        FEDGEN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for CHANNEL_CHN0_DMAEN_SPEC {
 #[doc = "`write(|w| ..)` method takes [channel_chn0_dmaen::W](W) writer structure"]
 impl crate::Writable for CHANNEL_CHN0_DMAEN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CHANNEL_CHN0_DMAEN to value 0"]
 impl crate::Resettable for CHANNEL_CHN0_DMAEN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

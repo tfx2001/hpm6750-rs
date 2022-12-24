@@ -42,12 +42,13 @@ impl R {
     #[doc = "Bits 0:20 - phcnt reset value, phcnt will reset to phidx when phcaliz set to 1"]
     #[inline(always)]
     pub fn phidx(&self) -> PHIDX_R {
-        PHIDX_R::new((self.bits & 0x001f_ffff) as u32)
+        PHIDX_R::new(self.bits & 0x001f_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:20 - phcnt reset value, phcnt will reset to phidx when phcaliz set to 1"]
     #[inline(always)]
+    #[must_use]
     pub fn phidx(&mut self) -> PHIDX_W<0> {
         PHIDX_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for PHIDX_SPEC {
 #[doc = "`write(|w| ..)` method takes [phidx::W](W) writer structure"]
 impl crate::Writable for PHIDX_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PHIDX to value 0"]
 impl crate::Resettable for PHIDX_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

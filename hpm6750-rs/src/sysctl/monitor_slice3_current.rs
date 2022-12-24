@@ -33,8 +33,5 @@ impl crate::Readable for MONITOR_SLICE3_CURRENT_SPEC {
 }
 #[doc = "`reset()` method sets MONITOR_SLICE3_CURRENT to value 0"]
 impl crate::Resettable for MONITOR_SLICE3_CURRENT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

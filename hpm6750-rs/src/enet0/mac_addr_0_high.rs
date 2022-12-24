@@ -34,8 +34,6 @@ impl From<crate::W<MAC_ADDR_0_HIGH_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `AE` reader - Address Enable This bit is always set to 1."]
-pub type AE_R = crate::BitReader<bool>;
 #[doc = "Field `ADDRHI` reader - MAC Address0 \\[47:32\\]
 This field contains the upper 16 bits (47:32) of the first 6-byte MAC address. The MAC uses this field for filtering the received frames and inserting the MAC address in the Transmit Flow Control (Pause) Frames."]
 pub type ADDRHI_R = crate::FieldReader<u16, u16>;
@@ -43,23 +41,26 @@ pub type ADDRHI_R = crate::FieldReader<u16, u16>;
 This field contains the upper 16 bits (47:32) of the first 6-byte MAC address. The MAC uses this field for filtering the received frames and inserting the MAC address in the Transmit Flow Control (Pause) Frames."]
 pub type ADDRHI_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, MAC_ADDR_0_HIGH_SPEC, u16, u16, 16, O>;
+#[doc = "Field `AE` reader - Address Enable This bit is always set to 1."]
+pub type AE_R = crate::BitReader<bool>;
 impl R {
-    #[doc = "Bit 31 - Address Enable This bit is always set to 1."]
-    #[inline(always)]
-    pub fn ae(&self) -> AE_R {
-        AE_R::new(((self.bits >> 31) & 1) != 0)
-    }
     #[doc = "Bits 0:15 - MAC Address0 \\[47:32\\]
 This field contains the upper 16 bits (47:32) of the first 6-byte MAC address. The MAC uses this field for filtering the received frames and inserting the MAC address in the Transmit Flow Control (Pause) Frames."]
     #[inline(always)]
     pub fn addrhi(&self) -> ADDRHI_R {
         ADDRHI_R::new((self.bits & 0xffff) as u16)
     }
+    #[doc = "Bit 31 - Address Enable This bit is always set to 1."]
+    #[inline(always)]
+    pub fn ae(&self) -> AE_R {
+        AE_R::new(((self.bits >> 31) & 1) != 0)
+    }
 }
 impl W {
     #[doc = "Bits 0:15 - MAC Address0 \\[47:32\\]
 This field contains the upper 16 bits (47:32) of the first 6-byte MAC address. The MAC uses this field for filtering the received frames and inserting the MAC address in the Transmit Flow Control (Pause) Frames."]
     #[inline(always)]
+    #[must_use]
     pub fn addrhi(&mut self) -> ADDRHI_W<0> {
         ADDRHI_W::new(self)
     }
@@ -82,11 +83,10 @@ impl crate::Readable for MAC_ADDR_0_HIGH_SPEC {
 #[doc = "`write(|w| ..)` method takes [mac_addr_0_high::W](W) writer structure"]
 impl crate::Writable for MAC_ADDR_0_HIGH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MAC_ADDR_0_HIGH to value 0"]
 impl crate::Resettable for MAC_ADDR_0_HIGH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,22 +34,6 @@ impl From<crate::W<VLAN_TAG_INC_RPL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `CSVL` reader - C-VLAN or S-VLAN When this bit is set, S-VLAN type (0x88A8) is inserted or replaced in the 13th and 14th bytes of transmitted frames. When this bit is reset, C-VLAN type (0x8100) is inserted or replaced in the transmitted frames."]
-pub type CSVL_R = crate::BitReader<bool>;
-#[doc = "Field `CSVL` writer - C-VLAN or S-VLAN When this bit is set, S-VLAN type (0x88A8) is inserted or replaced in the 13th and 14th bytes of transmitted frames. When this bit is reset, C-VLAN type (0x8100) is inserted or replaced in the transmitted frames."]
-pub type CSVL_W<'a, const O: u8> = crate::BitWriter<'a, u32, VLAN_TAG_INC_RPL_SPEC, bool, O>;
-#[doc = "Field `VLP` reader - VLAN Priority Control When this bit is set, the control Bits \\[17:16\\]
-are used for VLAN deletion, insertion, or replacement. When this bit is reset, the mti_vlan_ctrl_i control input is used, and Bits \\[17:16\\]
-are ignored."]
-pub type VLP_R = crate::BitReader<bool>;
-#[doc = "Field `VLP` writer - VLAN Priority Control When this bit is set, the control Bits \\[17:16\\]
-are used for VLAN deletion, insertion, or replacement. When this bit is reset, the mti_vlan_ctrl_i control input is used, and Bits \\[17:16\\]
-are ignored."]
-pub type VLP_W<'a, const O: u8> = crate::BitWriter<'a, u32, VLAN_TAG_INC_RPL_SPEC, bool, O>;
-#[doc = "Field `VLC` reader - VLAN Tag Control in Transmit Frames - 2’b00: No VLAN tag deletion, insertion, or replacement - 2’b01: VLAN tag deletion The MAC removes the VLAN type (bytes 13 and 14) and VLAN tag (bytes 15 and 16) of all transmitted frames with VLAN tags. - 2’b10: VLAN tag insertion The MAC inserts VLT in bytes 15 and 16 of the frame after inserting the Type value (0x8100/0x88a8) in bytes 13 and 14. This operation is performed on all transmitted frames, irrespective of whether they already have a VLAN tag. - 2’b11: VLAN tag replacement The MAC replaces VLT in bytes 15 and 16 of all VLAN-type transmitted frames (Bytes 13 and 14 are 0x8100/0x88a8). Note: Changes to this field take effect only on the start of a frame. If you write this register field when a frame is being transmitted, only the subsequent frame can use the updated value, that is, the current frame does not use the updated value."]
-pub type VLC_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `VLC` writer - VLAN Tag Control in Transmit Frames - 2’b00: No VLAN tag deletion, insertion, or replacement - 2’b01: VLAN tag deletion The MAC removes the VLAN type (bytes 13 and 14) and VLAN tag (bytes 15 and 16) of all transmitted frames with VLAN tags. - 2’b10: VLAN tag insertion The MAC inserts VLT in bytes 15 and 16 of the frame after inserting the Type value (0x8100/0x88a8) in bytes 13 and 14. This operation is performed on all transmitted frames, irrespective of whether they already have a VLAN tag. - 2’b11: VLAN tag replacement The MAC replaces VLT in bytes 15 and 16 of all VLAN-type transmitted frames (Bytes 13 and 14 are 0x8100/0x88a8). Note: Changes to this field take effect only on the start of a frame. If you write this register field when a frame is being transmitted, only the subsequent frame can use the updated value, that is, the current frame does not use the updated value."]
-pub type VLC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, VLAN_TAG_INC_RPL_SPEC, u8, u8, 2, O>;
 #[doc = "Field `VLT` reader - VLAN Tag for Transmit Frames This field contains the value of the VLAN tag to be inserted or replaced. The value must only be changed when the transmit lines are inactive or during the initialization phase. Bits\\[15:13\\]
 are the User Priority, Bit 12 is the CFI/DEI, and Bits\\[11:0\\]
 are the VLAN tag’s VID field."]
@@ -59,11 +43,34 @@ are the User Priority, Bit 12 is the CFI/DEI, and Bits\\[11:0\\]
 are the VLAN tag’s VID field."]
 pub type VLT_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, VLAN_TAG_INC_RPL_SPEC, u16, u16, 16, O>;
+#[doc = "Field `VLC` reader - VLAN Tag Control in Transmit Frames - 2’b00: No VLAN tag deletion, insertion, or replacement - 2’b01: VLAN tag deletion The MAC removes the VLAN type (bytes 13 and 14) and VLAN tag (bytes 15 and 16) of all transmitted frames with VLAN tags. - 2’b10: VLAN tag insertion The MAC inserts VLT in bytes 15 and 16 of the frame after inserting the Type value (0x8100/0x88a8) in bytes 13 and 14. This operation is performed on all transmitted frames, irrespective of whether they already have a VLAN tag. - 2’b11: VLAN tag replacement The MAC replaces VLT in bytes 15 and 16 of all VLAN-type transmitted frames (Bytes 13 and 14 are 0x8100/0x88a8). Note: Changes to this field take effect only on the start of a frame. If you write this register field when a frame is being transmitted, only the subsequent frame can use the updated value, that is, the current frame does not use the updated value."]
+pub type VLC_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `VLC` writer - VLAN Tag Control in Transmit Frames - 2’b00: No VLAN tag deletion, insertion, or replacement - 2’b01: VLAN tag deletion The MAC removes the VLAN type (bytes 13 and 14) and VLAN tag (bytes 15 and 16) of all transmitted frames with VLAN tags. - 2’b10: VLAN tag insertion The MAC inserts VLT in bytes 15 and 16 of the frame after inserting the Type value (0x8100/0x88a8) in bytes 13 and 14. This operation is performed on all transmitted frames, irrespective of whether they already have a VLAN tag. - 2’b11: VLAN tag replacement The MAC replaces VLT in bytes 15 and 16 of all VLAN-type transmitted frames (Bytes 13 and 14 are 0x8100/0x88a8). Note: Changes to this field take effect only on the start of a frame. If you write this register field when a frame is being transmitted, only the subsequent frame can use the updated value, that is, the current frame does not use the updated value."]
+pub type VLC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, VLAN_TAG_INC_RPL_SPEC, u8, u8, 2, O>;
+#[doc = "Field `VLP` reader - VLAN Priority Control When this bit is set, the control Bits \\[17:16\\]
+are used for VLAN deletion, insertion, or replacement. When this bit is reset, the mti_vlan_ctrl_i control input is used, and Bits \\[17:16\\]
+are ignored."]
+pub type VLP_R = crate::BitReader<bool>;
+#[doc = "Field `VLP` writer - VLAN Priority Control When this bit is set, the control Bits \\[17:16\\]
+are used for VLAN deletion, insertion, or replacement. When this bit is reset, the mti_vlan_ctrl_i control input is used, and Bits \\[17:16\\]
+are ignored."]
+pub type VLP_W<'a, const O: u8> = crate::BitWriter<'a, u32, VLAN_TAG_INC_RPL_SPEC, bool, O>;
+#[doc = "Field `CSVL` reader - C-VLAN or S-VLAN When this bit is set, S-VLAN type (0x88A8) is inserted or replaced in the 13th and 14th bytes of transmitted frames. When this bit is reset, C-VLAN type (0x8100) is inserted or replaced in the transmitted frames."]
+pub type CSVL_R = crate::BitReader<bool>;
+#[doc = "Field `CSVL` writer - C-VLAN or S-VLAN When this bit is set, S-VLAN type (0x88A8) is inserted or replaced in the 13th and 14th bytes of transmitted frames. When this bit is reset, C-VLAN type (0x8100) is inserted or replaced in the transmitted frames."]
+pub type CSVL_W<'a, const O: u8> = crate::BitWriter<'a, u32, VLAN_TAG_INC_RPL_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 19 - C-VLAN or S-VLAN When this bit is set, S-VLAN type (0x88A8) is inserted or replaced in the 13th and 14th bytes of transmitted frames. When this bit is reset, C-VLAN type (0x8100) is inserted or replaced in the transmitted frames."]
+    #[doc = "Bits 0:15 - VLAN Tag for Transmit Frames This field contains the value of the VLAN tag to be inserted or replaced. The value must only be changed when the transmit lines are inactive or during the initialization phase. Bits\\[15:13\\]
+are the User Priority, Bit 12 is the CFI/DEI, and Bits\\[11:0\\]
+are the VLAN tag’s VID field."]
     #[inline(always)]
-    pub fn csvl(&self) -> CSVL_R {
-        CSVL_R::new(((self.bits >> 19) & 1) != 0)
+    pub fn vlt(&self) -> VLT_R {
+        VLT_R::new((self.bits & 0xffff) as u16)
+    }
+    #[doc = "Bits 16:17 - VLAN Tag Control in Transmit Frames - 2’b00: No VLAN tag deletion, insertion, or replacement - 2’b01: VLAN tag deletion The MAC removes the VLAN type (bytes 13 and 14) and VLAN tag (bytes 15 and 16) of all transmitted frames with VLAN tags. - 2’b10: VLAN tag insertion The MAC inserts VLT in bytes 15 and 16 of the frame after inserting the Type value (0x8100/0x88a8) in bytes 13 and 14. This operation is performed on all transmitted frames, irrespective of whether they already have a VLAN tag. - 2’b11: VLAN tag replacement The MAC replaces VLT in bytes 15 and 16 of all VLAN-type transmitted frames (Bytes 13 and 14 are 0x8100/0x88a8). Note: Changes to this field take effect only on the start of a frame. If you write this register field when a frame is being transmitted, only the subsequent frame can use the updated value, that is, the current frame does not use the updated value."]
+    #[inline(always)]
+    pub fn vlc(&self) -> VLC_R {
+        VLC_R::new(((self.bits >> 16) & 3) as u8)
     }
     #[doc = "Bit 18 - VLAN Priority Control When this bit is set, the control Bits \\[17:16\\]
 are used for VLAN deletion, insertion, or replacement. When this bit is reset, the mti_vlan_ctrl_i control input is used, and Bits \\[17:16\\]
@@ -72,43 +79,40 @@ are ignored."]
     pub fn vlp(&self) -> VLP_R {
         VLP_R::new(((self.bits >> 18) & 1) != 0)
     }
-    #[doc = "Bits 16:17 - VLAN Tag Control in Transmit Frames - 2’b00: No VLAN tag deletion, insertion, or replacement - 2’b01: VLAN tag deletion The MAC removes the VLAN type (bytes 13 and 14) and VLAN tag (bytes 15 and 16) of all transmitted frames with VLAN tags. - 2’b10: VLAN tag insertion The MAC inserts VLT in bytes 15 and 16 of the frame after inserting the Type value (0x8100/0x88a8) in bytes 13 and 14. This operation is performed on all transmitted frames, irrespective of whether they already have a VLAN tag. - 2’b11: VLAN tag replacement The MAC replaces VLT in bytes 15 and 16 of all VLAN-type transmitted frames (Bytes 13 and 14 are 0x8100/0x88a8). Note: Changes to this field take effect only on the start of a frame. If you write this register field when a frame is being transmitted, only the subsequent frame can use the updated value, that is, the current frame does not use the updated value."]
+    #[doc = "Bit 19 - C-VLAN or S-VLAN When this bit is set, S-VLAN type (0x88A8) is inserted or replaced in the 13th and 14th bytes of transmitted frames. When this bit is reset, C-VLAN type (0x8100) is inserted or replaced in the transmitted frames."]
     #[inline(always)]
-    pub fn vlc(&self) -> VLC_R {
-        VLC_R::new(((self.bits >> 16) & 3) as u8)
+    pub fn csvl(&self) -> CSVL_R {
+        CSVL_R::new(((self.bits >> 19) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bits 0:15 - VLAN Tag for Transmit Frames This field contains the value of the VLAN tag to be inserted or replaced. The value must only be changed when the transmit lines are inactive or during the initialization phase. Bits\\[15:13\\]
 are the User Priority, Bit 12 is the CFI/DEI, and Bits\\[11:0\\]
 are the VLAN tag’s VID field."]
     #[inline(always)]
-    pub fn vlt(&self) -> VLT_R {
-        VLT_R::new((self.bits & 0xffff) as u16)
+    #[must_use]
+    pub fn vlt(&mut self) -> VLT_W<0> {
+        VLT_W::new(self)
     }
-}
-impl W {
-    #[doc = "Bit 19 - C-VLAN or S-VLAN When this bit is set, S-VLAN type (0x88A8) is inserted or replaced in the 13th and 14th bytes of transmitted frames. When this bit is reset, C-VLAN type (0x8100) is inserted or replaced in the transmitted frames."]
+    #[doc = "Bits 16:17 - VLAN Tag Control in Transmit Frames - 2’b00: No VLAN tag deletion, insertion, or replacement - 2’b01: VLAN tag deletion The MAC removes the VLAN type (bytes 13 and 14) and VLAN tag (bytes 15 and 16) of all transmitted frames with VLAN tags. - 2’b10: VLAN tag insertion The MAC inserts VLT in bytes 15 and 16 of the frame after inserting the Type value (0x8100/0x88a8) in bytes 13 and 14. This operation is performed on all transmitted frames, irrespective of whether they already have a VLAN tag. - 2’b11: VLAN tag replacement The MAC replaces VLT in bytes 15 and 16 of all VLAN-type transmitted frames (Bytes 13 and 14 are 0x8100/0x88a8). Note: Changes to this field take effect only on the start of a frame. If you write this register field when a frame is being transmitted, only the subsequent frame can use the updated value, that is, the current frame does not use the updated value."]
     #[inline(always)]
-    pub fn csvl(&mut self) -> CSVL_W<19> {
-        CSVL_W::new(self)
+    #[must_use]
+    pub fn vlc(&mut self) -> VLC_W<16> {
+        VLC_W::new(self)
     }
     #[doc = "Bit 18 - VLAN Priority Control When this bit is set, the control Bits \\[17:16\\]
 are used for VLAN deletion, insertion, or replacement. When this bit is reset, the mti_vlan_ctrl_i control input is used, and Bits \\[17:16\\]
 are ignored."]
     #[inline(always)]
+    #[must_use]
     pub fn vlp(&mut self) -> VLP_W<18> {
         VLP_W::new(self)
     }
-    #[doc = "Bits 16:17 - VLAN Tag Control in Transmit Frames - 2’b00: No VLAN tag deletion, insertion, or replacement - 2’b01: VLAN tag deletion The MAC removes the VLAN type (bytes 13 and 14) and VLAN tag (bytes 15 and 16) of all transmitted frames with VLAN tags. - 2’b10: VLAN tag insertion The MAC inserts VLT in bytes 15 and 16 of the frame after inserting the Type value (0x8100/0x88a8) in bytes 13 and 14. This operation is performed on all transmitted frames, irrespective of whether they already have a VLAN tag. - 2’b11: VLAN tag replacement The MAC replaces VLT in bytes 15 and 16 of all VLAN-type transmitted frames (Bytes 13 and 14 are 0x8100/0x88a8). Note: Changes to this field take effect only on the start of a frame. If you write this register field when a frame is being transmitted, only the subsequent frame can use the updated value, that is, the current frame does not use the updated value."]
+    #[doc = "Bit 19 - C-VLAN or S-VLAN When this bit is set, S-VLAN type (0x88A8) is inserted or replaced in the 13th and 14th bytes of transmitted frames. When this bit is reset, C-VLAN type (0x8100) is inserted or replaced in the transmitted frames."]
     #[inline(always)]
-    pub fn vlc(&mut self) -> VLC_W<16> {
-        VLC_W::new(self)
-    }
-    #[doc = "Bits 0:15 - VLAN Tag for Transmit Frames This field contains the value of the VLAN tag to be inserted or replaced. The value must only be changed when the transmit lines are inactive or during the initialization phase. Bits\\[15:13\\]
-are the User Priority, Bit 12 is the CFI/DEI, and Bits\\[11:0\\]
-are the VLAN tag’s VID field."]
-    #[inline(always)]
-    pub fn vlt(&mut self) -> VLT_W<0> {
-        VLT_W::new(self)
+    #[must_use]
+    pub fn csvl(&mut self) -> CSVL_W<19> {
+        CSVL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -129,11 +133,10 @@ impl crate::Readable for VLAN_TAG_INC_RPL_SPEC {
 #[doc = "`write(|w| ..)` method takes [vlan_tag_inc_rpl::W](W) writer structure"]
 impl crate::Writable for VLAN_TAG_INC_RPL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets VLAN_TAG_INC_RPL to value 0"]
 impl crate::Resettable for VLAN_TAG_INC_RPL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Version of CAN-CTRL, given as decimal value. VER_1 holds the major version and VER_0 the minor version.Example: version 5x16N00S00 is represented by VER_1=5 and VER_0=16"]
     #[inline(always)]
+    #[must_use]
     pub fn version(&mut self) -> VERSION_W<0> {
         VERSION_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for VER_SPEC {
 #[doc = "`write(|w| ..)` method takes [ver::W](W) writer structure"]
 impl crate::Writable for VER_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets VER to value 0"]
 impl crate::Resettable for VER_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

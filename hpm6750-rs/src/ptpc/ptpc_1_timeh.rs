@@ -33,8 +33,5 @@ impl crate::Readable for PTPC_1_TIMEH_SPEC {
 }
 #[doc = "`reset()` method sets PTPC_1_TIMEH to value 0"]
 impl crate::Resettable for PTPC_1_TIMEH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Total transfer size from source. The total number of transferred bytes is (TranSize * SrcWidth). This register is cleared when the DMA transfer is done. If a channel is enabled with zero total transfer size, the error event will be triggered and the transfer will be terminated."]
     #[inline(always)]
+    #[must_use]
     pub fn transize(&mut self) -> TRANSIZE_W<0> {
         TRANSIZE_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for CHCTRL_CH7_TRANSIZE_SPEC {
 #[doc = "`write(|w| ..)` method takes [chctrl_ch7_transize::W](W) writer structure"]
 impl crate::Writable for CHCTRL_CH7_TRANSIZE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CHCTRL_CH7_TRANSIZE to value 0"]
 impl crate::Resettable for CHCTRL_CH7_TRANSIZE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

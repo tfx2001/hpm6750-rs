@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:9 - On reads, indicating the interrupt source that has being claimed. On writes, indicating the interrupt source that has been handled (completed)."]
     #[inline(always)]
+    #[must_use]
     pub fn interrupt_id(&mut self) -> INTERRUPT_ID_W<0> {
         INTERRUPT_ID_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for TARGETCONFIG_TARGET0_CLAIM_SPEC {
 #[doc = "`write(|w| ..)` method takes [targetconfig_target0_claim::W](W) writer structure"]
 impl crate::Writable for TARGETCONFIG_TARGET0_CLAIM_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TARGETCONFIG_TARGET0_CLAIM to value 0"]
 impl crate::Resettable for TARGETCONFIG_TARGET0_CLAIM_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,36 +34,38 @@ impl From<crate::W<PS_0_OFFSET_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `Y` reader - This is a 12 bit fractional representation (0.####_####_####) of the Y scaling offset. This represents a fixed pixel offset which gets added to the scaled address to determine source data for the scaling engine. It is applied after the decimation filter stage, and before the bilinear filter stage."]
-pub type Y_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `Y` writer - This is a 12 bit fractional representation (0.####_####_####) of the Y scaling offset. This represents a fixed pixel offset which gets added to the scaled address to determine source data for the scaling engine. It is applied after the decimation filter stage, and before the bilinear filter stage."]
-pub type Y_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PS_0_OFFSET_SPEC, u16, u16, 12, O>;
 #[doc = "Field `X` reader - This is a 12 bit fractional representation (0.####_####_####) of the X scaling offset. This represents a fixed pixel offset which gets added to the scaled address to determine source data for the scaling engine. It is applied after the decimation filter stage, and before the bilinear filter stage."]
 pub type X_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `X` writer - This is a 12 bit fractional representation (0.####_####_####) of the X scaling offset. This represents a fixed pixel offset which gets added to the scaled address to determine source data for the scaling engine. It is applied after the decimation filter stage, and before the bilinear filter stage."]
 pub type X_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PS_0_OFFSET_SPEC, u16, u16, 12, O>;
+#[doc = "Field `Y` reader - This is a 12 bit fractional representation (0.####_####_####) of the Y scaling offset. This represents a fixed pixel offset which gets added to the scaled address to determine source data for the scaling engine. It is applied after the decimation filter stage, and before the bilinear filter stage."]
+pub type Y_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `Y` writer - This is a 12 bit fractional representation (0.####_####_####) of the Y scaling offset. This represents a fixed pixel offset which gets added to the scaled address to determine source data for the scaling engine. It is applied after the decimation filter stage, and before the bilinear filter stage."]
+pub type Y_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PS_0_OFFSET_SPEC, u16, u16, 12, O>;
 impl R {
-    #[doc = "Bits 16:27 - This is a 12 bit fractional representation (0.####_####_####) of the Y scaling offset. This represents a fixed pixel offset which gets added to the scaled address to determine source data for the scaling engine. It is applied after the decimation filter stage, and before the bilinear filter stage."]
-    #[inline(always)]
-    pub fn y(&self) -> Y_R {
-        Y_R::new(((self.bits >> 16) & 0x0fff) as u16)
-    }
     #[doc = "Bits 0:11 - This is a 12 bit fractional representation (0.####_####_####) of the X scaling offset. This represents a fixed pixel offset which gets added to the scaled address to determine source data for the scaling engine. It is applied after the decimation filter stage, and before the bilinear filter stage."]
     #[inline(always)]
     pub fn x(&self) -> X_R {
         X_R::new((self.bits & 0x0fff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:27 - This is a 12 bit fractional representation (0.####_####_####) of the Y scaling offset. This represents a fixed pixel offset which gets added to the scaled address to determine source data for the scaling engine. It is applied after the decimation filter stage, and before the bilinear filter stage."]
     #[inline(always)]
-    pub fn y(&mut self) -> Y_W<16> {
-        Y_W::new(self)
+    pub fn y(&self) -> Y_R {
+        Y_R::new(((self.bits >> 16) & 0x0fff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:11 - This is a 12 bit fractional representation (0.####_####_####) of the X scaling offset. This represents a fixed pixel offset which gets added to the scaled address to determine source data for the scaling engine. It is applied after the decimation filter stage, and before the bilinear filter stage."]
     #[inline(always)]
+    #[must_use]
     pub fn x(&mut self) -> X_W<0> {
         X_W::new(self)
+    }
+    #[doc = "Bits 16:27 - This is a 12 bit fractional representation (0.####_####_####) of the Y scaling offset. This represents a fixed pixel offset which gets added to the scaled address to determine source data for the scaling engine. It is applied after the decimation filter stage, and before the bilinear filter stage."]
+    #[inline(always)]
+    #[must_use]
+    pub fn y(&mut self) -> Y_W<16> {
+        Y_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for PS_0_OFFSET_SPEC {
 #[doc = "`write(|w| ..)` method takes [ps_0_offset::W](W) writer structure"]
 impl crate::Writable for PS_0_OFFSET_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PS_0_OFFSET to value 0"]
 impl crate::Resettable for PS_0_OFFSET_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

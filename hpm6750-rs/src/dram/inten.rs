@@ -34,64 +34,68 @@ impl From<crate::W<INTEN_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `AXIBUSERR` reader - AXI BUS error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
-pub type AXIBUSERR_R = crate::BitReader<bool>;
-#[doc = "Field `AXIBUSERR` writer - AXI BUS error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
-pub type AXIBUSERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTEN_SPEC, bool, O>;
-#[doc = "Field `AXICMDERR` reader - AXI command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
-pub type AXICMDERR_R = crate::BitReader<bool>;
-#[doc = "Field `AXICMDERR` writer - AXI command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
-pub type AXICMDERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTEN_SPEC, bool, O>;
-#[doc = "Field `IPCMDERR` reader - IP command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
-pub type IPCMDERR_R = crate::BitReader<bool>;
-#[doc = "Field `IPCMDERR` writer - IP command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
-pub type IPCMDERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTEN_SPEC, bool, O>;
 #[doc = "Field `IPCMDDONE` reader - IP command done interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
 pub type IPCMDDONE_R = crate::BitReader<bool>;
 #[doc = "Field `IPCMDDONE` writer - IP command done interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
 pub type IPCMDDONE_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTEN_SPEC, bool, O>;
+#[doc = "Field `IPCMDERR` reader - IP command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
+pub type IPCMDERR_R = crate::BitReader<bool>;
+#[doc = "Field `IPCMDERR` writer - IP command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
+pub type IPCMDERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTEN_SPEC, bool, O>;
+#[doc = "Field `AXICMDERR` reader - AXI command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
+pub type AXICMDERR_R = crate::BitReader<bool>;
+#[doc = "Field `AXICMDERR` writer - AXI command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
+pub type AXICMDERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTEN_SPEC, bool, O>;
+#[doc = "Field `AXIBUSERR` reader - AXI BUS error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
+pub type AXIBUSERR_R = crate::BitReader<bool>;
+#[doc = "Field `AXIBUSERR` writer - AXI BUS error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
+pub type AXIBUSERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, INTEN_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 3 - AXI BUS error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
+    #[doc = "Bit 0 - IP command done interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
     #[inline(always)]
-    pub fn axibuserr(&self) -> AXIBUSERR_R {
-        AXIBUSERR_R::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bit 2 - AXI command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
-    #[inline(always)]
-    pub fn axicmderr(&self) -> AXICMDERR_R {
-        AXICMDERR_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn ipcmddone(&self) -> IPCMDDONE_R {
+        IPCMDDONE_R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - IP command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
     #[inline(always)]
     pub fn ipcmderr(&self) -> IPCMDERR_R {
         IPCMDERR_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 0 - IP command done interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
+    #[doc = "Bit 2 - AXI command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
     #[inline(always)]
-    pub fn ipcmddone(&self) -> IPCMDDONE_R {
-        IPCMDDONE_R::new((self.bits & 1) != 0)
+    pub fn axicmderr(&self) -> AXICMDERR_R {
+        AXICMDERR_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 3 - AXI BUS error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
+    #[inline(always)]
+    pub fn axibuserr(&self) -> AXIBUSERR_R {
+        AXIBUSERR_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 3 - AXI BUS error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
+    #[doc = "Bit 0 - IP command done interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
     #[inline(always)]
-    pub fn axibuserr(&mut self) -> AXIBUSERR_W<3> {
-        AXIBUSERR_W::new(self)
-    }
-    #[doc = "Bit 2 - AXI command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
-    #[inline(always)]
-    pub fn axicmderr(&mut self) -> AXICMDERR_W<2> {
-        AXICMDERR_W::new(self)
+    #[must_use]
+    pub fn ipcmddone(&mut self) -> IPCMDDONE_W<0> {
+        IPCMDDONE_W::new(self)
     }
     #[doc = "Bit 1 - IP command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
     #[inline(always)]
+    #[must_use]
     pub fn ipcmderr(&mut self) -> IPCMDERR_W<1> {
         IPCMDERR_W::new(self)
     }
-    #[doc = "Bit 0 - IP command done interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
+    #[doc = "Bit 2 - AXI command error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
     #[inline(always)]
-    pub fn ipcmddone(&mut self) -> IPCMDDONE_W<0> {
-        IPCMDDONE_W::new(self)
+    #[must_use]
+    pub fn axicmderr(&mut self) -> AXICMDERR_W<2> {
+        AXICMDERR_W::new(self)
+    }
+    #[doc = "Bit 3 - AXI BUS error interrupt enable 0b - Interrupt is disabled 1b - Interrupt is enabled"]
+    #[inline(always)]
+    #[must_use]
+    pub fn axibuserr(&mut self) -> AXIBUSERR_W<3> {
+        AXIBUSERR_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -112,11 +116,10 @@ impl crate::Readable for INTEN_SPEC {
 #[doc = "`write(|w| ..)` method takes [inten::W](W) writer structure"]
 impl crate::Writable for INTEN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets INTEN to value 0"]
 impl crate::Resettable for INTEN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

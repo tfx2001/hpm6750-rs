@@ -34,44 +34,46 @@ impl From<crate::W<ENDPTNAKEN_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `EPTNE` reader - EPTNE TX Endpoint NAK Enable - R/W. Each bit is an enable bit for the corresponding TX Endpoint NAK bit. If this bit is set and the corresponding TX Endpoint NAK bit is set, the NAK Interrupt bit is set. Bit \\[N\\]
-- Endpoint #\\[N\\], N is 0-7"]
-pub type EPTNE_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `EPTNE` writer - EPTNE TX Endpoint NAK Enable - R/W. Each bit is an enable bit for the corresponding TX Endpoint NAK bit. If this bit is set and the corresponding TX Endpoint NAK bit is set, the NAK Interrupt bit is set. Bit \\[N\\]
-- Endpoint #\\[N\\], N is 0-7"]
-pub type EPTNE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ENDPTNAKEN_SPEC, u8, u8, 8, O>;
 #[doc = "Field `EPRNE` reader - EPRNE RX Endpoint NAK Enable - R/W. Each bit is an enable bit for the corresponding RX Endpoint NAK bit. If this bit is set and the corresponding RX Endpoint NAK bit is set, the NAK Interrupt bit is set. Bit \\[N\\]
 - Endpoint #\\[N\\], N is 0-7"]
 pub type EPRNE_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `EPRNE` writer - EPRNE RX Endpoint NAK Enable - R/W. Each bit is an enable bit for the corresponding RX Endpoint NAK bit. If this bit is set and the corresponding RX Endpoint NAK bit is set, the NAK Interrupt bit is set. Bit \\[N\\]
 - Endpoint #\\[N\\], N is 0-7"]
 pub type EPRNE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ENDPTNAKEN_SPEC, u8, u8, 8, O>;
-impl R {
-    #[doc = "Bits 16:23 - EPTNE TX Endpoint NAK Enable - R/W. Each bit is an enable bit for the corresponding TX Endpoint NAK bit. If this bit is set and the corresponding TX Endpoint NAK bit is set, the NAK Interrupt bit is set. Bit \\[N\\]
+#[doc = "Field `EPTNE` reader - EPTNE TX Endpoint NAK Enable - R/W. Each bit is an enable bit for the corresponding TX Endpoint NAK bit. If this bit is set and the corresponding TX Endpoint NAK bit is set, the NAK Interrupt bit is set. Bit \\[N\\]
 - Endpoint #\\[N\\], N is 0-7"]
-    #[inline(always)]
-    pub fn eptne(&self) -> EPTNE_R {
-        EPTNE_R::new(((self.bits >> 16) & 0xff) as u8)
-    }
+pub type EPTNE_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `EPTNE` writer - EPTNE TX Endpoint NAK Enable - R/W. Each bit is an enable bit for the corresponding TX Endpoint NAK bit. If this bit is set and the corresponding TX Endpoint NAK bit is set, the NAK Interrupt bit is set. Bit \\[N\\]
+- Endpoint #\\[N\\], N is 0-7"]
+pub type EPTNE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ENDPTNAKEN_SPEC, u8, u8, 8, O>;
+impl R {
     #[doc = "Bits 0:7 - EPRNE RX Endpoint NAK Enable - R/W. Each bit is an enable bit for the corresponding RX Endpoint NAK bit. If this bit is set and the corresponding RX Endpoint NAK bit is set, the NAK Interrupt bit is set. Bit \\[N\\]
 - Endpoint #\\[N\\], N is 0-7"]
     #[inline(always)]
     pub fn eprne(&self) -> EPRNE_R {
         EPRNE_R::new((self.bits & 0xff) as u8)
     }
-}
-impl W {
     #[doc = "Bits 16:23 - EPTNE TX Endpoint NAK Enable - R/W. Each bit is an enable bit for the corresponding TX Endpoint NAK bit. If this bit is set and the corresponding TX Endpoint NAK bit is set, the NAK Interrupt bit is set. Bit \\[N\\]
 - Endpoint #\\[N\\], N is 0-7"]
     #[inline(always)]
-    pub fn eptne(&mut self) -> EPTNE_W<16> {
-        EPTNE_W::new(self)
+    pub fn eptne(&self) -> EPTNE_R {
+        EPTNE_R::new(((self.bits >> 16) & 0xff) as u8)
     }
+}
+impl W {
     #[doc = "Bits 0:7 - EPRNE RX Endpoint NAK Enable - R/W. Each bit is an enable bit for the corresponding RX Endpoint NAK bit. If this bit is set and the corresponding RX Endpoint NAK bit is set, the NAK Interrupt bit is set. Bit \\[N\\]
 - Endpoint #\\[N\\], N is 0-7"]
     #[inline(always)]
+    #[must_use]
     pub fn eprne(&mut self) -> EPRNE_W<0> {
         EPRNE_W::new(self)
+    }
+    #[doc = "Bits 16:23 - EPTNE TX Endpoint NAK Enable - R/W. Each bit is an enable bit for the corresponding TX Endpoint NAK bit. If this bit is set and the corresponding TX Endpoint NAK bit is set, the NAK Interrupt bit is set. Bit \\[N\\]
+- Endpoint #\\[N\\], N is 0-7"]
+    #[inline(always)]
+    #[must_use]
+    pub fn eptne(&mut self) -> EPTNE_W<16> {
+        EPTNE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -92,11 +94,10 @@ impl crate::Readable for ENDPTNAKEN_SPEC {
 #[doc = "`write(|w| ..)` method takes [endptnaken::W](W) writer structure"]
 impl crate::Writable for ENDPTNAKEN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ENDPTNAKEN to value 0"]
 impl crate::Resettable for ENDPTNAKEN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

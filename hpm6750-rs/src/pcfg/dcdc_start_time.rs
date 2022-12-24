@@ -43,12 +43,13 @@ impl R {
     #[doc = "Bits 0:19 - Start delay for DCDC to turn on, in 24M clock cycles, default value is 3mS"]
     #[inline(always)]
     pub fn start_time(&self) -> START_TIME_R {
-        START_TIME_R::new((self.bits & 0x000f_ffff) as u32)
+        START_TIME_R::new(self.bits & 0x000f_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:19 - Start delay for DCDC to turn on, in 24M clock cycles, default value is 3mS"]
     #[inline(always)]
+    #[must_use]
     pub fn start_time(&mut self) -> START_TIME_W<0> {
         START_TIME_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for DCDC_START_TIME_SPEC {
 #[doc = "`write(|w| ..)` method takes [dcdc_start_time::W](W) writer structure"]
 impl crate::Writable for DCDC_START_TIME_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DCDC_START_TIME to value 0x0001_193f"]
 impl crate::Resettable for DCDC_START_TIME_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0001_193f
-    }
+    const RESET_VALUE: Self::Ux = 0x0001_193f;
 }

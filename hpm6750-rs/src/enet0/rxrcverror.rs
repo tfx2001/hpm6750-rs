@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Number of frames received with Receive error or Frame Extension error on the GMII or MII interface."]
     #[inline(always)]
+    #[must_use]
     pub fn frmcnt(&mut self) -> FRMCNT_W<0> {
         FRMCNT_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for RXRCVERROR_SPEC {
 #[doc = "`write(|w| ..)` method takes [rxrcverror::W](W) writer structure"]
 impl crate::Writable for RXRCVERROR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RXRCVERROR to value 0"]
 impl crate::Resettable for RXRCVERROR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

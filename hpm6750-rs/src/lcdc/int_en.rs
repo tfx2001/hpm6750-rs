@@ -34,85 +34,90 @@ impl From<crate::W<INT_EN_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `DMA_ERR` reader - Interrupt enable for DMA error"]
-pub type DMA_ERR_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `DMA_ERR` writer - Interrupt enable for DMA error"]
-pub type DMA_ERR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, INT_EN_SPEC, u8, u8, 8, O>;
-#[doc = "Field `DMA_DONE` reader - Interrupt enable for DMA done"]
-pub type DMA_DONE_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `DMA_DONE` writer - Interrupt enable for DMA done"]
-pub type DMA_DONE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, INT_EN_SPEC, u8, u8, 8, O>;
-#[doc = "Field `URGENT_UNDERRUN` reader - Asserted when the output buffer urgent underrun condition encountered"]
-pub type URGENT_UNDERRUN_R = crate::BitReader<bool>;
-#[doc = "Field `VS_BLANK` reader - Interrupt enable for start of sof"]
-pub type VS_BLANK_R = crate::BitReader<bool>;
-#[doc = "Field `VS_BLANK` writer - Interrupt enable for start of sof"]
-pub type VS_BLANK_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_EN_SPEC, bool, O>;
-#[doc = "Field `UNDERRUN` reader - Interrupt enable for underrun"]
-pub type UNDERRUN_R = crate::BitReader<bool>;
-#[doc = "Field `UNDERRUN` writer - Interrupt enable for underrun"]
-pub type UNDERRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_EN_SPEC, bool, O>;
 #[doc = "Field `VSYNC` reader - Interrupt enable for end of sof"]
 pub type VSYNC_R = crate::BitReader<bool>;
 #[doc = "Field `VSYNC` writer - Interrupt enable for end of sof"]
 pub type VSYNC_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_EN_SPEC, bool, O>;
+#[doc = "Field `UNDERRUN` reader - Interrupt enable for underrun"]
+pub type UNDERRUN_R = crate::BitReader<bool>;
+#[doc = "Field `UNDERRUN` writer - Interrupt enable for underrun"]
+pub type UNDERRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_EN_SPEC, bool, O>;
+#[doc = "Field `VS_BLANK` reader - Interrupt enable for start of sof"]
+pub type VS_BLANK_R = crate::BitReader<bool>;
+#[doc = "Field `VS_BLANK` writer - Interrupt enable for start of sof"]
+pub type VS_BLANK_W<'a, const O: u8> = crate::BitWriter<'a, u32, INT_EN_SPEC, bool, O>;
+#[doc = "Field `URGENT_UNDERRUN` reader - Asserted when the output buffer urgent underrun condition encountered"]
+pub type URGENT_UNDERRUN_R = crate::BitReader<bool>;
+#[doc = "Field `DMA_DONE` reader - Interrupt enable for DMA done"]
+pub type DMA_DONE_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `DMA_DONE` writer - Interrupt enable for DMA done"]
+pub type DMA_DONE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, INT_EN_SPEC, u8, u8, 8, O>;
+#[doc = "Field `DMA_ERR` reader - Interrupt enable for DMA error"]
+pub type DMA_ERR_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `DMA_ERR` writer - Interrupt enable for DMA error"]
+pub type DMA_ERR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, INT_EN_SPEC, u8, u8, 8, O>;
 impl R {
-    #[doc = "Bits 24:31 - Interrupt enable for DMA error"]
+    #[doc = "Bit 0 - Interrupt enable for end of sof"]
     #[inline(always)]
-    pub fn dma_err(&self) -> DMA_ERR_R {
-        DMA_ERR_R::new(((self.bits >> 24) & 0xff) as u8)
-    }
-    #[doc = "Bits 16:23 - Interrupt enable for DMA done"]
-    #[inline(always)]
-    pub fn dma_done(&self) -> DMA_DONE_R {
-        DMA_DONE_R::new(((self.bits >> 16) & 0xff) as u8)
-    }
-    #[doc = "Bit 3 - Asserted when the output buffer urgent underrun condition encountered"]
-    #[inline(always)]
-    pub fn urgent_underrun(&self) -> URGENT_UNDERRUN_R {
-        URGENT_UNDERRUN_R::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bit 2 - Interrupt enable for start of sof"]
-    #[inline(always)]
-    pub fn vs_blank(&self) -> VS_BLANK_R {
-        VS_BLANK_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn vsync(&self) -> VSYNC_R {
+        VSYNC_R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Interrupt enable for underrun"]
     #[inline(always)]
     pub fn underrun(&self) -> UNDERRUN_R {
         UNDERRUN_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 0 - Interrupt enable for end of sof"]
+    #[doc = "Bit 2 - Interrupt enable for start of sof"]
     #[inline(always)]
-    pub fn vsync(&self) -> VSYNC_R {
-        VSYNC_R::new((self.bits & 1) != 0)
+    pub fn vs_blank(&self) -> VS_BLANK_R {
+        VS_BLANK_R::new(((self.bits >> 2) & 1) != 0)
     }
-}
-impl W {
-    #[doc = "Bits 24:31 - Interrupt enable for DMA error"]
+    #[doc = "Bit 3 - Asserted when the output buffer urgent underrun condition encountered"]
     #[inline(always)]
-    pub fn dma_err(&mut self) -> DMA_ERR_W<24> {
-        DMA_ERR_W::new(self)
+    pub fn urgent_underrun(&self) -> URGENT_UNDERRUN_R {
+        URGENT_UNDERRUN_R::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bits 16:23 - Interrupt enable for DMA done"]
     #[inline(always)]
-    pub fn dma_done(&mut self) -> DMA_DONE_W<16> {
-        DMA_DONE_W::new(self)
+    pub fn dma_done(&self) -> DMA_DONE_R {
+        DMA_DONE_R::new(((self.bits >> 16) & 0xff) as u8)
     }
-    #[doc = "Bit 2 - Interrupt enable for start of sof"]
+    #[doc = "Bits 24:31 - Interrupt enable for DMA error"]
     #[inline(always)]
-    pub fn vs_blank(&mut self) -> VS_BLANK_W<2> {
-        VS_BLANK_W::new(self)
+    pub fn dma_err(&self) -> DMA_ERR_R {
+        DMA_ERR_R::new(((self.bits >> 24) & 0xff) as u8)
+    }
+}
+impl W {
+    #[doc = "Bit 0 - Interrupt enable for end of sof"]
+    #[inline(always)]
+    #[must_use]
+    pub fn vsync(&mut self) -> VSYNC_W<0> {
+        VSYNC_W::new(self)
     }
     #[doc = "Bit 1 - Interrupt enable for underrun"]
     #[inline(always)]
+    #[must_use]
     pub fn underrun(&mut self) -> UNDERRUN_W<1> {
         UNDERRUN_W::new(self)
     }
-    #[doc = "Bit 0 - Interrupt enable for end of sof"]
+    #[doc = "Bit 2 - Interrupt enable for start of sof"]
     #[inline(always)]
-    pub fn vsync(&mut self) -> VSYNC_W<0> {
-        VSYNC_W::new(self)
+    #[must_use]
+    pub fn vs_blank(&mut self) -> VS_BLANK_W<2> {
+        VS_BLANK_W::new(self)
+    }
+    #[doc = "Bits 16:23 - Interrupt enable for DMA done"]
+    #[inline(always)]
+    #[must_use]
+    pub fn dma_done(&mut self) -> DMA_DONE_W<16> {
+        DMA_DONE_W::new(self)
+    }
+    #[doc = "Bits 24:31 - Interrupt enable for DMA error"]
+    #[inline(always)]
+    #[must_use]
+    pub fn dma_err(&mut self) -> DMA_ERR_W<24> {
+        DMA_ERR_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -133,11 +138,10 @@ impl crate::Readable for INT_EN_SPEC {
 #[doc = "`write(|w| ..)` method takes [int_en::W](W) writer structure"]
 impl crate::Writable for INT_EN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets INT_EN to value 0"]
 impl crate::Resettable for INT_EN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

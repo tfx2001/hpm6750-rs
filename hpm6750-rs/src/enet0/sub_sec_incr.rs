@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - Sub-second Increment Value The value programmed in this field is accumulated every clock cycle (of clk_ptp_i) with the contents of the sub-second register. For example, when PTP clock is 50 MHz (period is 20 ns), you should program 20 (0x14) when the System Time- Nanoseconds register has an accuracy of 1 ns \\[Bit 9 (TSCTRLSSR) is set in Register 448 (Timestamp Control Register)\\]. When TSCTRLSSR is clear, the Nanoseconds register has a resolution of ~0.465ns. In this case, you should program a value of 43 (0x2B) that is derived by 20ns/0.465."]
     #[inline(always)]
+    #[must_use]
     pub fn ssinc(&mut self) -> SSINC_W<0> {
         SSINC_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for SUB_SEC_INCR_SPEC {
 #[doc = "`write(|w| ..)` method takes [sub_sec_incr::W](W) writer structure"]
 impl crate::Writable for SUB_SEC_INCR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SUB_SEC_INCR to value 0"]
 impl crate::Resettable for SUB_SEC_INCR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -53,6 +53,7 @@ impl W {
     #[doc = "Bits 0:31 - MAC Address0 \\[31:0\\]
 This field contains the lower 32 bits of the first 6-byte MAC address. This is used by the MAC for filtering the received frames and inserting the MAC address in the Transmit Flow Control (Pause) Frames."]
     #[inline(always)]
+    #[must_use]
     pub fn addrlo(&mut self) -> ADDRLO_W<0> {
         ADDRLO_W::new(self)
     }
@@ -75,11 +76,10 @@ impl crate::Readable for MAC_ADDR_0_LOW_SPEC {
 #[doc = "`write(|w| ..)` method takes [mac_addr_0_low::W](W) writer structure"]
 impl crate::Writable for MAC_ADDR_0_LOW_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MAC_ADDR_0_LOW to value 0"]
 impl crate::Resettable for MAC_ADDR_0_LOW_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

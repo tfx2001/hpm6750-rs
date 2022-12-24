@@ -34,52 +34,54 @@ impl From<crate::W<CLOCK_CLK_TOP_CAN0_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `GLB_BUSY` reader - global busy 0: no changes pending to any clock 1: any of nodes is changing status"]
-pub type GLB_BUSY_R = crate::BitReader<bool>;
-#[doc = "Field `LOC_BUSY` reader - local busy 0: a change is pending for current node 1: current node is changing status"]
-pub type LOC_BUSY_R = crate::BitReader<bool>;
-#[doc = "Field `MUX` reader - clock source selection 0:osc0_clk0 1:pll0_clk0 2:pll1_clk0 3:pll1_clk1 4:pll2_clk0 5:pll2_clk1 6:pll3_clk0 7:pll4_clk0"]
-pub type MUX_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `MUX` writer - clock source selection 0:osc0_clk0 1:pll0_clk0 2:pll1_clk0 3:pll1_clk1 4:pll2_clk0 5:pll2_clk1 6:pll3_clk0 7:pll4_clk0"]
-pub type MUX_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CLOCK_CLK_TOP_CAN0_SPEC, u8, u8, 4, O>;
 #[doc = "Field `DIV` reader - clock divider 0: divider by1 1: divider by 2 2 divider by 3 . . . 255: divider by 256"]
 pub type DIV_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `DIV` writer - clock divider 0: divider by1 1: divider by 2 2 divider by 3 . . . 255: divider by 256"]
 pub type DIV_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, CLOCK_CLK_TOP_CAN0_SPEC, u8, u8, 8, O>;
+#[doc = "Field `MUX` reader - clock source selection 0:osc0_clk0 1:pll0_clk0 2:pll1_clk0 3:pll1_clk1 4:pll2_clk0 5:pll2_clk1 6:pll3_clk0 7:pll4_clk0"]
+pub type MUX_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `MUX` writer - clock source selection 0:osc0_clk0 1:pll0_clk0 2:pll1_clk0 3:pll1_clk1 4:pll2_clk0 5:pll2_clk1 6:pll3_clk0 7:pll4_clk0"]
+pub type MUX_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, CLOCK_CLK_TOP_CAN0_SPEC, u8, u8, 4, O>;
+#[doc = "Field `LOC_BUSY` reader - local busy 0: a change is pending for current node 1: current node is changing status"]
+pub type LOC_BUSY_R = crate::BitReader<bool>;
+#[doc = "Field `GLB_BUSY` reader - global busy 0: no changes pending to any clock 1: any of nodes is changing status"]
+pub type GLB_BUSY_R = crate::BitReader<bool>;
 impl R {
-    #[doc = "Bit 31 - global busy 0: no changes pending to any clock 1: any of nodes is changing status"]
+    #[doc = "Bits 0:7 - clock divider 0: divider by1 1: divider by 2 2 divider by 3 . . . 255: divider by 256"]
     #[inline(always)]
-    pub fn glb_busy(&self) -> GLB_BUSY_R {
-        GLB_BUSY_R::new(((self.bits >> 31) & 1) != 0)
-    }
-    #[doc = "Bit 30 - local busy 0: a change is pending for current node 1: current node is changing status"]
-    #[inline(always)]
-    pub fn loc_busy(&self) -> LOC_BUSY_R {
-        LOC_BUSY_R::new(((self.bits >> 30) & 1) != 0)
+    pub fn div(&self) -> DIV_R {
+        DIV_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:11 - clock source selection 0:osc0_clk0 1:pll0_clk0 2:pll1_clk0 3:pll1_clk1 4:pll2_clk0 5:pll2_clk1 6:pll3_clk0 7:pll4_clk0"]
     #[inline(always)]
     pub fn mux(&self) -> MUX_R {
         MUX_R::new(((self.bits >> 8) & 0x0f) as u8)
     }
-    #[doc = "Bits 0:7 - clock divider 0: divider by1 1: divider by 2 2 divider by 3 . . . 255: divider by 256"]
+    #[doc = "Bit 30 - local busy 0: a change is pending for current node 1: current node is changing status"]
     #[inline(always)]
-    pub fn div(&self) -> DIV_R {
-        DIV_R::new((self.bits & 0xff) as u8)
+    pub fn loc_busy(&self) -> LOC_BUSY_R {
+        LOC_BUSY_R::new(((self.bits >> 30) & 1) != 0)
+    }
+    #[doc = "Bit 31 - global busy 0: no changes pending to any clock 1: any of nodes is changing status"]
+    #[inline(always)]
+    pub fn glb_busy(&self) -> GLB_BUSY_R {
+        GLB_BUSY_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bits 8:11 - clock source selection 0:osc0_clk0 1:pll0_clk0 2:pll1_clk0 3:pll1_clk1 4:pll2_clk0 5:pll2_clk1 6:pll3_clk0 7:pll4_clk0"]
-    #[inline(always)]
-    pub fn mux(&mut self) -> MUX_W<8> {
-        MUX_W::new(self)
-    }
     #[doc = "Bits 0:7 - clock divider 0: divider by1 1: divider by 2 2 divider by 3 . . . 255: divider by 256"]
     #[inline(always)]
+    #[must_use]
     pub fn div(&mut self) -> DIV_W<0> {
         DIV_W::new(self)
+    }
+    #[doc = "Bits 8:11 - clock source selection 0:osc0_clk0 1:pll0_clk0 2:pll1_clk0 3:pll1_clk1 4:pll2_clk0 5:pll2_clk1 6:pll3_clk0 7:pll4_clk0"]
+    #[inline(always)]
+    #[must_use]
+    pub fn mux(&mut self) -> MUX_W<8> {
+        MUX_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -100,11 +102,10 @@ impl crate::Readable for CLOCK_CLK_TOP_CAN0_SPEC {
 #[doc = "`write(|w| ..)` method takes [clock_clk_top_can0::W](W) writer structure"]
 impl crate::Writable for CLOCK_CLK_TOP_CAN0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CLOCK_CLK_TOP_CAN0 to value 0"]
 impl crate::Resettable for CLOCK_CLK_TOP_CAN0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

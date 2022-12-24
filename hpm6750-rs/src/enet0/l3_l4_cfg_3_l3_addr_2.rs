@@ -57,6 +57,7 @@ impl W {
 of the IP Source Address field in the IPv6 frames. When Bit 0 (L3PEN0) and Bit 4 (L3DAM0) are set in Register 256 (Layer 3 and Layer 4 Control Register 0), this field contains value to be matched with Bits \\[95:64\\]
 of the IP Destination Address field in the IPv6 frames. When Bit 0 (L3PEN0) is reset in Register 256 (Layer 3 and Layer 4 Control Register 0), this register is not used."]
     #[inline(always)]
+    #[must_use]
     pub fn l3a20(&mut self) -> L3A20_W<0> {
         L3A20_W::new(self)
     }
@@ -79,11 +80,10 @@ impl crate::Readable for L3_L4_CFG_3_L3_ADDR_2_SPEC {
 #[doc = "`write(|w| ..)` method takes [l3_l4_cfg_3_l3_addr_2::W](W) writer structure"]
 impl crate::Writable for L3_L4_CFG_3_L3_ADDR_2_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets L3_L4_CFG_3_L3_ADDR_2 to value 0"]
 impl crate::Resettable for L3_L4_CFG_3_L3_ADDR_2_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

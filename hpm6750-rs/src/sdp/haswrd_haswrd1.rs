@@ -53,6 +53,7 @@ impl W {
     #[doc = "Bits 0:31 - Hash Data Word x - HASH result bit; will store the expected hash result bit if hash check enabled; when hash check is not enabled, the hash engine will store the final hash result\\[31:0\\]
 here. If CRC mode enabled, this work store the CRC expected result if the check enabled, or store the final calcuated CRC result."]
     #[inline(always)]
+    #[must_use]
     pub fn haswrd(&mut self) -> HASWRD_W<0> {
         HASWRD_W::new(self)
     }
@@ -75,11 +76,10 @@ impl crate::Readable for HASWRD_HASWRD1_SPEC {
 #[doc = "`write(|w| ..)` method takes [haswrd_haswrd1::W](W) writer structure"]
 impl crate::Writable for HASWRD_HASWRD1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets HASWRD_HASWRD1 to value 0x30"]
 impl crate::Resettable for HASWRD_HASWRD1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x30
-    }
+    const RESET_VALUE: Self::Ux = 0x30;
 }

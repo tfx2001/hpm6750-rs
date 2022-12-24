@@ -34,36 +34,38 @@ impl From<crate::W<RGB2YUV_COEF2_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `C2` reader - CSC parameters C2"]
-pub type C2_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `C2` writer - CSC parameters C2"]
-pub type C2_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RGB2YUV_COEF2_SPEC, u16, u16, 11, O>;
 #[doc = "Field `C3` reader - CSC parameters C3"]
 pub type C3_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `C3` writer - CSC parameters C3"]
 pub type C3_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RGB2YUV_COEF2_SPEC, u16, u16, 11, O>;
+#[doc = "Field `C2` reader - CSC parameters C2"]
+pub type C2_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `C2` writer - CSC parameters C2"]
+pub type C2_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RGB2YUV_COEF2_SPEC, u16, u16, 11, O>;
 impl R {
-    #[doc = "Bits 16:26 - CSC parameters C2"]
-    #[inline(always)]
-    pub fn c2(&self) -> C2_R {
-        C2_R::new(((self.bits >> 16) & 0x07ff) as u16)
-    }
     #[doc = "Bits 0:10 - CSC parameters C3"]
     #[inline(always)]
     pub fn c3(&self) -> C3_R {
         C3_R::new((self.bits & 0x07ff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:26 - CSC parameters C2"]
     #[inline(always)]
-    pub fn c2(&mut self) -> C2_W<16> {
-        C2_W::new(self)
+    pub fn c2(&self) -> C2_R {
+        C2_R::new(((self.bits >> 16) & 0x07ff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:10 - CSC parameters C3"]
     #[inline(always)]
+    #[must_use]
     pub fn c3(&mut self) -> C3_W<0> {
         C3_W::new(self)
+    }
+    #[doc = "Bits 16:26 - CSC parameters C2"]
+    #[inline(always)]
+    #[must_use]
+    pub fn c2(&mut self) -> C2_W<16> {
+        C2_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for RGB2YUV_COEF2_SPEC {
 #[doc = "`write(|w| ..)` method takes [rgb2yuv_coef2::W](W) writer structure"]
 impl crate::Writable for RGB2YUV_COEF2_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RGB2YUV_COEF2 to value 0"]
 impl crate::Resettable for RGB2YUV_COEF2_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

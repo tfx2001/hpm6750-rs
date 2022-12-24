@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - PPS1 Target Time Seconds Register This register stores the time in seconds. When the timestamp value matches or exceeds both Target Timestamp registers, then based on Bits \\[14:13\\], TRGTMODSEL1, of Register 459 (PPS Control Register), the MAC starts or stops the PPS signal output and generates an interrupt (if enabled)."]
     #[inline(always)]
+    #[must_use]
     pub fn tstrh1(&mut self) -> TSTRH1_W<0> {
         TSTRH1_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for PPS_3_TGTTM_SEC_SPEC {
 #[doc = "`write(|w| ..)` method takes [pps_3_tgttm_sec::W](W) writer structure"]
 impl crate::Writable for PPS_3_TGTTM_SEC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PPS_3_TGTTM_SEC to value 0"]
 impl crate::Resettable for PPS_3_TGTTM_SEC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

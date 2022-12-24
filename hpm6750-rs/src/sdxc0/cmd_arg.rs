@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Command Argument These bits specify the SD/eMMC command argument that is specified in bits 39-8 of the Command format."]
     #[inline(always)]
+    #[must_use]
     pub fn argumnet(&mut self) -> ARGUMNET_W<0> {
         ARGUMNET_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for CMD_ARG_SPEC {
 #[doc = "`write(|w| ..)` method takes [cmd_arg::W](W) writer structure"]
 impl crate::Writable for CMD_ARG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CMD_ARG to value 0"]
 impl crate::Resettable for CMD_ARG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

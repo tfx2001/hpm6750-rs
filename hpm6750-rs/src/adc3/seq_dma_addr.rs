@@ -43,12 +43,13 @@ impl R {
     #[doc = "Bits 2:31 - dma target address, should be 4-byte aligned"]
     #[inline(always)]
     pub fn tar_addr(&self) -> TAR_ADDR_R {
-        TAR_ADDR_R::new(((self.bits >> 2) & 0x3fff_ffff) as u32)
+        TAR_ADDR_R::new((self.bits >> 2) & 0x3fff_ffff)
     }
 }
 impl W {
     #[doc = "Bits 2:31 - dma target address, should be 4-byte aligned"]
     #[inline(always)]
+    #[must_use]
     pub fn tar_addr(&mut self) -> TAR_ADDR_W<2> {
         TAR_ADDR_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for SEQ_DMA_ADDR_SPEC {
 #[doc = "`write(|w| ..)` method takes [seq_dma_addr::W](W) writer structure"]
 impl crate::Writable for SEQ_DMA_ADDR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SEQ_DMA_ADDR to value 0"]
 impl crate::Resettable for SEQ_DMA_ADDR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

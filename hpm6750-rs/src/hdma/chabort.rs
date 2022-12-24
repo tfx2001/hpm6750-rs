@@ -24,6 +24,7 @@ pub type CHABORT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CHABORT_SPEC, 
 impl W {
     #[doc = "Bits 0:31 - Write 1 to bit n to abort channel n. The bits should only be set when the corresponding channels are enabled. Otherwise, the writes will be ignored for channels that are not enabled. (N: Number of channels)"]
     #[inline(always)]
+    #[must_use]
     pub fn chabort(&mut self) -> CHABORT_W<0> {
         CHABORT_W::new(self)
     }
@@ -42,11 +43,10 @@ impl crate::RegisterSpec for CHABORT_SPEC {
 #[doc = "`write(|w| ..)` method takes [chabort::W](W) writer structure"]
 impl crate::Writable for CHABORT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CHABORT to value 0"]
 impl crate::Resettable for CHABORT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

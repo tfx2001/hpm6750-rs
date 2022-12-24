@@ -34,38 +34,40 @@ impl From<crate::W<LAYER_4_LAYSIZE_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `HEIGHT` reader - Height of the layer in pixels"]
-pub type HEIGHT_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `HEIGHT` writer - Height of the layer in pixels"]
-pub type HEIGHT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, LAYER_4_LAYSIZE_SPEC, u16, u16, 12, O>;
 #[doc = "Field `WIDTH` reader - Width of the layer in pixels (Note: not actual width-1) The layer width must be in multiples of the number of pixels that can be stored in 32 bits, and therefore differs depending on color encoding. For example, if 2 bits per pixel format is used, then the layer width must be configured in multiples of 16."]
 pub type WIDTH_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `WIDTH` writer - Width of the layer in pixels (Note: not actual width-1) The layer width must be in multiples of the number of pixels that can be stored in 32 bits, and therefore differs depending on color encoding. For example, if 2 bits per pixel format is used, then the layer width must be configured in multiples of 16."]
 pub type WIDTH_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, LAYER_4_LAYSIZE_SPEC, u16, u16, 12, O>;
+#[doc = "Field `HEIGHT` reader - Height of the layer in pixels"]
+pub type HEIGHT_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `HEIGHT` writer - Height of the layer in pixels"]
+pub type HEIGHT_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, LAYER_4_LAYSIZE_SPEC, u16, u16, 12, O>;
 impl R {
-    #[doc = "Bits 16:27 - Height of the layer in pixels"]
-    #[inline(always)]
-    pub fn height(&self) -> HEIGHT_R {
-        HEIGHT_R::new(((self.bits >> 16) & 0x0fff) as u16)
-    }
     #[doc = "Bits 0:11 - Width of the layer in pixels (Note: not actual width-1) The layer width must be in multiples of the number of pixels that can be stored in 32 bits, and therefore differs depending on color encoding. For example, if 2 bits per pixel format is used, then the layer width must be configured in multiples of 16."]
     #[inline(always)]
     pub fn width(&self) -> WIDTH_R {
         WIDTH_R::new((self.bits & 0x0fff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:27 - Height of the layer in pixels"]
     #[inline(always)]
-    pub fn height(&mut self) -> HEIGHT_W<16> {
-        HEIGHT_W::new(self)
+    pub fn height(&self) -> HEIGHT_R {
+        HEIGHT_R::new(((self.bits >> 16) & 0x0fff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:11 - Width of the layer in pixels (Note: not actual width-1) The layer width must be in multiples of the number of pixels that can be stored in 32 bits, and therefore differs depending on color encoding. For example, if 2 bits per pixel format is used, then the layer width must be configured in multiples of 16."]
     #[inline(always)]
+    #[must_use]
     pub fn width(&mut self) -> WIDTH_W<0> {
         WIDTH_W::new(self)
+    }
+    #[doc = "Bits 16:27 - Height of the layer in pixels"]
+    #[inline(always)]
+    #[must_use]
+    pub fn height(&mut self) -> HEIGHT_W<16> {
+        HEIGHT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -86,11 +88,10 @@ impl crate::Readable for LAYER_4_LAYSIZE_SPEC {
 #[doc = "`write(|w| ..)` method takes [layer_4_laysize::W](W) writer structure"]
 impl crate::Writable for LAYER_4_LAYSIZE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LAYER_4_LAYSIZE to value 0"]
 impl crate::Resettable for LAYER_4_LAYSIZE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

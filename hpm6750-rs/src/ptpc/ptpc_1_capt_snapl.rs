@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - No description avaiable"]
     #[inline(always)]
+    #[must_use]
     pub fn capt_snap_low(&mut self) -> CAPT_SNAP_LOW_W<0> {
         CAPT_SNAP_LOW_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for PTPC_1_CAPT_SNAPL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ptpc_1_capt_snapl::W](W) writer structure"]
 impl crate::Writable for PTPC_1_CAPT_SNAPL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PTPC_1_CAPT_SNAPL to value 0"]
 impl crate::Resettable for PTPC_1_CAPT_SNAPL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

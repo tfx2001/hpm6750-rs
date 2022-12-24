@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Transmit Poll Demand When these bits are written with any value, the DMA reads the current descriptor to which the Register 18 (Current Host Transmit Descriptor Register) is pointing. If that descriptor is not available (owned by the Host), the transmission returns to the Suspend state and Bit 2 (TU) of Register 5 (Status Register) is asserted. If the descriptor is available, the transmission resumes."]
     #[inline(always)]
+    #[must_use]
     pub fn tpd(&mut self) -> TPD_W<0> {
         TPD_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for DMA_TX_POLL_DEMAND_SPEC {
 #[doc = "`write(|w| ..)` method takes [dma_tx_poll_demand::W](W) writer structure"]
 impl crate::Writable for DMA_TX_POLL_DEMAND_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DMA_TX_POLL_DEMAND to value 0"]
 impl crate::Resettable for DMA_TX_POLL_DEMAND_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

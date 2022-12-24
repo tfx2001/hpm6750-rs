@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Timestamp Second The value in this field indicates the current value in seconds of the System Time maintained by the MAC."]
     #[inline(always)]
+    #[must_use]
     pub fn tss(&mut self) -> TSS_W<0> {
         TSS_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for SYST_SEC_SPEC {
 #[doc = "`write(|w| ..)` method takes [syst_sec::W](W) writer structure"]
 impl crate::Writable for SYST_SEC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SYST_SEC to value 0"]
 impl crate::Resettable for SYST_SEC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

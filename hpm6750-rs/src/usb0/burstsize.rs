@@ -34,36 +34,38 @@ impl From<crate::W<BURSTSIZE_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `TXPBURST` reader - TXPBURST Programmable TX Burst Size. Default value is determined by TXBURST bits in n_HWTXBUF. This register represents the maximum length of a the burst in 32-bit words while moving data from system memory to the USB bus."]
-pub type TXPBURST_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `TXPBURST` writer - TXPBURST Programmable TX Burst Size. Default value is determined by TXBURST bits in n_HWTXBUF. This register represents the maximum length of a the burst in 32-bit words while moving data from system memory to the USB bus."]
-pub type TXPBURST_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BURSTSIZE_SPEC, u8, u8, 8, O>;
 #[doc = "Field `RXPBURST` reader - RXPBURST Programmable RX Burst Size. Default value is determined by TXBURST bits in n_HWRXBUF. This register represents the maximum length of a the burst in 32-bit words while moving data from the USB bus to system memory."]
 pub type RXPBURST_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `RXPBURST` writer - RXPBURST Programmable RX Burst Size. Default value is determined by TXBURST bits in n_HWRXBUF. This register represents the maximum length of a the burst in 32-bit words while moving data from the USB bus to system memory."]
 pub type RXPBURST_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BURSTSIZE_SPEC, u8, u8, 8, O>;
+#[doc = "Field `TXPBURST` reader - TXPBURST Programmable TX Burst Size. Default value is determined by TXBURST bits in n_HWTXBUF. This register represents the maximum length of a the burst in 32-bit words while moving data from system memory to the USB bus."]
+pub type TXPBURST_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `TXPBURST` writer - TXPBURST Programmable TX Burst Size. Default value is determined by TXBURST bits in n_HWTXBUF. This register represents the maximum length of a the burst in 32-bit words while moving data from system memory to the USB bus."]
+pub type TXPBURST_W<'a, const O: u8> = crate::FieldWriter<'a, u32, BURSTSIZE_SPEC, u8, u8, 8, O>;
 impl R {
-    #[doc = "Bits 8:15 - TXPBURST Programmable TX Burst Size. Default value is determined by TXBURST bits in n_HWTXBUF. This register represents the maximum length of a the burst in 32-bit words while moving data from system memory to the USB bus."]
-    #[inline(always)]
-    pub fn txpburst(&self) -> TXPBURST_R {
-        TXPBURST_R::new(((self.bits >> 8) & 0xff) as u8)
-    }
     #[doc = "Bits 0:7 - RXPBURST Programmable RX Burst Size. Default value is determined by TXBURST bits in n_HWRXBUF. This register represents the maximum length of a the burst in 32-bit words while moving data from the USB bus to system memory."]
     #[inline(always)]
     pub fn rxpburst(&self) -> RXPBURST_R {
         RXPBURST_R::new((self.bits & 0xff) as u8)
     }
-}
-impl W {
     #[doc = "Bits 8:15 - TXPBURST Programmable TX Burst Size. Default value is determined by TXBURST bits in n_HWTXBUF. This register represents the maximum length of a the burst in 32-bit words while moving data from system memory to the USB bus."]
     #[inline(always)]
-    pub fn txpburst(&mut self) -> TXPBURST_W<8> {
-        TXPBURST_W::new(self)
+    pub fn txpburst(&self) -> TXPBURST_R {
+        TXPBURST_R::new(((self.bits >> 8) & 0xff) as u8)
     }
+}
+impl W {
     #[doc = "Bits 0:7 - RXPBURST Programmable RX Burst Size. Default value is determined by TXBURST bits in n_HWRXBUF. This register represents the maximum length of a the burst in 32-bit words while moving data from the USB bus to system memory."]
     #[inline(always)]
+    #[must_use]
     pub fn rxpburst(&mut self) -> RXPBURST_W<0> {
         RXPBURST_W::new(self)
+    }
+    #[doc = "Bits 8:15 - TXPBURST Programmable TX Burst Size. Default value is determined by TXBURST bits in n_HWTXBUF. This register represents the maximum length of a the burst in 32-bit words while moving data from system memory to the USB bus."]
+    #[inline(always)]
+    #[must_use]
+    pub fn txpburst(&mut self) -> TXPBURST_W<8> {
+        TXPBURST_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for BURSTSIZE_SPEC {
 #[doc = "`write(|w| ..)` method takes [burstsize::W](W) writer structure"]
 impl crate::Writable for BURSTSIZE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets BURSTSIZE to value 0"]
 impl crate::Resettable for BURSTSIZE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

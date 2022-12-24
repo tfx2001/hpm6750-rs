@@ -34,36 +34,38 @@ impl From<crate::W<RNG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `BLOCK_RNG_XOR` reader - block RNG_XOR bit from changing, if this bit is written to 1, it will hold 1 until next reset 0: RNG_XOR can be changed by software 1: RNG_XOR ignore software change from software"]
-pub type BLOCK_RNG_XOR_R = crate::BitReader<bool>;
-#[doc = "Field `BLOCK_RNG_XOR` writer - block RNG_XOR bit from changing, if this bit is written to 1, it will hold 1 until next reset 0: RNG_XOR can be changed by software 1: RNG_XOR ignore software change from software"]
-pub type BLOCK_RNG_XOR_W<'a, const O: u8> = crate::BitWriter<'a, u32, RNG_SPEC, bool, O>;
 #[doc = "Field `RNG_XOR` reader - control how SFK is accepted from random number generator 0: SFK value replaced by random number input 1: SFK value exclusive or with random number input,this help generate random number using 2 rings inside RNG"]
 pub type RNG_XOR_R = crate::BitReader<bool>;
 #[doc = "Field `RNG_XOR` writer - control how SFK is accepted from random number generator 0: SFK value replaced by random number input 1: SFK value exclusive or with random number input,this help generate random number using 2 rings inside RNG"]
 pub type RNG_XOR_W<'a, const O: u8> = crate::BitWriter<'a, u32, RNG_SPEC, bool, O>;
+#[doc = "Field `BLOCK_RNG_XOR` reader - block RNG_XOR bit from changing, if this bit is written to 1, it will hold 1 until next reset 0: RNG_XOR can be changed by software 1: RNG_XOR ignore software change from software"]
+pub type BLOCK_RNG_XOR_R = crate::BitReader<bool>;
+#[doc = "Field `BLOCK_RNG_XOR` writer - block RNG_XOR bit from changing, if this bit is written to 1, it will hold 1 until next reset 0: RNG_XOR can be changed by software 1: RNG_XOR ignore software change from software"]
+pub type BLOCK_RNG_XOR_W<'a, const O: u8> = crate::BitWriter<'a, u32, RNG_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 16 - block RNG_XOR bit from changing, if this bit is written to 1, it will hold 1 until next reset 0: RNG_XOR can be changed by software 1: RNG_XOR ignore software change from software"]
-    #[inline(always)]
-    pub fn block_rng_xor(&self) -> BLOCK_RNG_XOR_R {
-        BLOCK_RNG_XOR_R::new(((self.bits >> 16) & 1) != 0)
-    }
     #[doc = "Bit 0 - control how SFK is accepted from random number generator 0: SFK value replaced by random number input 1: SFK value exclusive or with random number input,this help generate random number using 2 rings inside RNG"]
     #[inline(always)]
     pub fn rng_xor(&self) -> RNG_XOR_R {
         RNG_XOR_R::new((self.bits & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bit 16 - block RNG_XOR bit from changing, if this bit is written to 1, it will hold 1 until next reset 0: RNG_XOR can be changed by software 1: RNG_XOR ignore software change from software"]
     #[inline(always)]
-    pub fn block_rng_xor(&mut self) -> BLOCK_RNG_XOR_W<16> {
-        BLOCK_RNG_XOR_W::new(self)
+    pub fn block_rng_xor(&self) -> BLOCK_RNG_XOR_R {
+        BLOCK_RNG_XOR_R::new(((self.bits >> 16) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bit 0 - control how SFK is accepted from random number generator 0: SFK value replaced by random number input 1: SFK value exclusive or with random number input,this help generate random number using 2 rings inside RNG"]
     #[inline(always)]
+    #[must_use]
     pub fn rng_xor(&mut self) -> RNG_XOR_W<0> {
         RNG_XOR_W::new(self)
+    }
+    #[doc = "Bit 16 - block RNG_XOR bit from changing, if this bit is written to 1, it will hold 1 until next reset 0: RNG_XOR can be changed by software 1: RNG_XOR ignore software change from software"]
+    #[inline(always)]
+    #[must_use]
+    pub fn block_rng_xor(&mut self) -> BLOCK_RNG_XOR_W<16> {
+        BLOCK_RNG_XOR_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for RNG_SPEC {
 #[doc = "`write(|w| ..)` method takes [rng::W](W) writer structure"]
 impl crate::Writable for RNG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RNG to value 0"]
 impl crate::Resettable for RNG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

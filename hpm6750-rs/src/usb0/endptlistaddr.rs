@@ -43,12 +43,13 @@ impl R {
     #[doc = "Bits 11:31 - EPBASE Endpoint List Pointer(Low). These bits correspond to memory address signals \\[31:11\\], respectively. This field will reference a list of up to 32 Queue Head (QH) (that is, one queue head per endpoint & direction)."]
     #[inline(always)]
     pub fn epbase(&self) -> EPBASE_R {
-        EPBASE_R::new(((self.bits >> 11) & 0x001f_ffff) as u32)
+        EPBASE_R::new((self.bits >> 11) & 0x001f_ffff)
     }
 }
 impl W {
     #[doc = "Bits 11:31 - EPBASE Endpoint List Pointer(Low). These bits correspond to memory address signals \\[31:11\\], respectively. This field will reference a list of up to 32 Queue Head (QH) (that is, one queue head per endpoint & direction)."]
     #[inline(always)]
+    #[must_use]
     pub fn epbase(&mut self) -> EPBASE_W<11> {
         EPBASE_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for ENDPTLISTADDR_SPEC {
 #[doc = "`write(|w| ..)` method takes [endptlistaddr::W](W) writer structure"]
 impl crate::Writable for ENDPTLISTADDR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ENDPTLISTADDR to value 0"]
 impl crate::Resettable for ENDPTLISTADDR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

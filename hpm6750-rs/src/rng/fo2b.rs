@@ -33,8 +33,5 @@ impl crate::Readable for FO2B_SPEC {
 }
 #[doc = "`reset()` method sets FO2B to value 0"]
 impl crate::Resettable for FO2B_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

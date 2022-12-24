@@ -34,38 +34,40 @@ impl From<crate::W<CHCTRL_CH3_LLPOINTER_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `LLPOINTERL` reader - Low part of the pointer to the next descriptor. The pointer must be double word aligned."]
-pub type LLPOINTERL_R = crate::FieldReader<u32, u32>;
-#[doc = "Field `LLPOINTERL` writer - Low part of the pointer to the next descriptor. The pointer must be double word aligned."]
-pub type LLPOINTERL_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CHCTRL_CH3_LLPOINTER_SPEC, u32, u32, 29, O>;
 #[doc = "Field `LLDBUSINFIDX` reader - Bus interface index that the next descriptor is read from 0x0: The next descriptor is read from bus interface 0"]
 pub type LLDBUSINFIDX_R = crate::BitReader<bool>;
 #[doc = "Field `LLDBUSINFIDX` writer - Bus interface index that the next descriptor is read from 0x0: The next descriptor is read from bus interface 0"]
 pub type LLDBUSINFIDX_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, CHCTRL_CH3_LLPOINTER_SPEC, bool, O>;
+#[doc = "Field `LLPOINTERL` reader - Low part of the pointer to the next descriptor. The pointer must be double word aligned."]
+pub type LLPOINTERL_R = crate::FieldReader<u32, u32>;
+#[doc = "Field `LLPOINTERL` writer - Low part of the pointer to the next descriptor. The pointer must be double word aligned."]
+pub type LLPOINTERL_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, CHCTRL_CH3_LLPOINTER_SPEC, u32, u32, 29, O>;
 impl R {
-    #[doc = "Bits 3:31 - Low part of the pointer to the next descriptor. The pointer must be double word aligned."]
-    #[inline(always)]
-    pub fn llpointerl(&self) -> LLPOINTERL_R {
-        LLPOINTERL_R::new(((self.bits >> 3) & 0x1fff_ffff) as u32)
-    }
     #[doc = "Bit 0 - Bus interface index that the next descriptor is read from 0x0: The next descriptor is read from bus interface 0"]
     #[inline(always)]
     pub fn lldbusinfidx(&self) -> LLDBUSINFIDX_R {
         LLDBUSINFIDX_R::new((self.bits & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bits 3:31 - Low part of the pointer to the next descriptor. The pointer must be double word aligned."]
     #[inline(always)]
-    pub fn llpointerl(&mut self) -> LLPOINTERL_W<3> {
-        LLPOINTERL_W::new(self)
+    pub fn llpointerl(&self) -> LLPOINTERL_R {
+        LLPOINTERL_R::new((self.bits >> 3) & 0x1fff_ffff)
     }
+}
+impl W {
     #[doc = "Bit 0 - Bus interface index that the next descriptor is read from 0x0: The next descriptor is read from bus interface 0"]
     #[inline(always)]
+    #[must_use]
     pub fn lldbusinfidx(&mut self) -> LLDBUSINFIDX_W<0> {
         LLDBUSINFIDX_W::new(self)
+    }
+    #[doc = "Bits 3:31 - Low part of the pointer to the next descriptor. The pointer must be double word aligned."]
+    #[inline(always)]
+    #[must_use]
+    pub fn llpointerl(&mut self) -> LLPOINTERL_W<3> {
+        LLPOINTERL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -86,11 +88,10 @@ impl crate::Readable for CHCTRL_CH3_LLPOINTER_SPEC {
 #[doc = "`write(|w| ..)` method takes [chctrl_ch3_llpointer::W](W) writer structure"]
 impl crate::Writable for CHCTRL_CH3_LLPOINTER_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CHCTRL_CH3_LLPOINTER to value 0"]
 impl crate::Resettable for CHCTRL_CH3_LLPOINTER_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

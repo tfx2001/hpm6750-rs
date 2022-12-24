@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - data register for non-blocking access this register hold dat read from fuse array or data to by programmed to fuse array"]
     #[inline(always)]
+    #[must_use]
     pub fn data(&mut self) -> DATA_W<0> {
         DATA_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for DATA_SPEC {
 #[doc = "`write(|w| ..)` method takes [data::W](W) writer structure"]
 impl crate::Writable for DATA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DATA to value 0"]
 impl crate::Resettable for DATA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

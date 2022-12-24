@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Number of frames received with error because of watchdog timeout error (frames with a data load larger than 2,048 bytes or the value programmed in Register 55 (Watchdog Timeout Register))."]
     #[inline(always)]
+    #[must_use]
     pub fn frmcnt(&mut self) -> FRMCNT_W<0> {
         FRMCNT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for RXWATCHDOGERROR_SPEC {
 #[doc = "`write(|w| ..)` method takes [rxwatchdogerror::W](W) writer structure"]
 impl crate::Writable for RXWATCHDOGERROR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RXWATCHDOGERROR to value 0"]
 impl crate::Resettable for RXWATCHDOGERROR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - This register stores the LSB bits (31:0) of the byte address of the head of the Task Descriptor List in system memory. The size of the task descriptor list is 32 * (Task Descriptor size + Transfer Descriptor size) as configured by the host driver. This address is set on 1 KB boundary. The lower 10 bits of this register are set to 0 by the software and are ignored by CQE"]
     #[inline(always)]
+    #[must_use]
     pub fn tdlba(&mut self) -> TDLBA_W<0> {
         TDLBA_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for CQTDLBA_SPEC {
 #[doc = "`write(|w| ..)` method takes [cqtdlba::W](W) writer structure"]
 impl crate::Writable for CQTDLBA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CQTDLBA to value 0"]
 impl crate::Resettable for CQTDLBA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

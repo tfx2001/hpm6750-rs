@@ -34,36 +34,38 @@ impl From<crate::W<GCR_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `CRST` reader - 1- Reset counter"]
-pub type CRST_R = crate::BitReader<bool>;
-#[doc = "Field `CRST` writer - 1- Reset counter"]
-pub type CRST_W<'a, const O: u8> = crate::BitWriter<'a, u32, GCR_SPEC, bool, O>;
 #[doc = "Field `CEN` reader - 1- Enable counter"]
 pub type CEN_R = crate::BitReader<bool>;
 #[doc = "Field `CEN` writer - 1- Enable counter"]
 pub type CEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, GCR_SPEC, bool, O>;
+#[doc = "Field `CRST` reader - 1- Reset counter"]
+pub type CRST_R = crate::BitReader<bool>;
+#[doc = "Field `CRST` writer - 1- Reset counter"]
+pub type CRST_W<'a, const O: u8> = crate::BitWriter<'a, u32, GCR_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 1 - 1- Reset counter"]
-    #[inline(always)]
-    pub fn crst(&self) -> CRST_R {
-        CRST_R::new(((self.bits >> 1) & 1) != 0)
-    }
     #[doc = "Bit 0 - 1- Enable counter"]
     #[inline(always)]
     pub fn cen(&self) -> CEN_R {
         CEN_R::new((self.bits & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bit 1 - 1- Reset counter"]
     #[inline(always)]
-    pub fn crst(&mut self) -> CRST_W<1> {
-        CRST_W::new(self)
+    pub fn crst(&self) -> CRST_R {
+        CRST_R::new(((self.bits >> 1) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bit 0 - 1- Enable counter"]
     #[inline(always)]
+    #[must_use]
     pub fn cen(&mut self) -> CEN_W<0> {
         CEN_W::new(self)
+    }
+    #[doc = "Bit 1 - 1- Reset counter"]
+    #[inline(always)]
+    #[must_use]
+    pub fn crst(&mut self) -> CRST_W<1> {
+        CRST_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for GCR_SPEC {
 #[doc = "`write(|w| ..)` method takes [gcr::W](W) writer structure"]
 impl crate::Writable for GCR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets GCR to value 0"]
 impl crate::Resettable for GCR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

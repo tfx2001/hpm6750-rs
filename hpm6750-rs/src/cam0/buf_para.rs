@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Line Blank Space Stride. Indicates the space between the end of line image storage and the start of a new line storage in the frame buffer. The width of the line storage in frame buffer(in double words) minus the width of the image(in double words) is the stride. The stride should be double words aligned. The embedded DMA controller will skip the stride before starting to write the next row of the image."]
     #[inline(always)]
+    #[must_use]
     pub fn linebsp_stride(&mut self) -> LINEBSP_STRIDE_W<0> {
         LINEBSP_STRIDE_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for BUF_PARA_SPEC {
 #[doc = "`write(|w| ..)` method takes [buf_para::W](W) writer structure"]
 impl crate::Writable for BUF_PARA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets BUF_PARA to value 0"]
 impl crate::Resettable for BUF_PARA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

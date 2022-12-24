@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - No description avaiable"]
     #[inline(always)]
+    #[must_use]
     pub fn param_val(&mut self) -> PARAM_VAL_W<0> {
         PARAM_VAL_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for ADC16_PARAMS_ADC16_PARA09_SPEC {
 #[doc = "`write(|w| ..)` method takes [adc16_params_adc16_para09::W](W) writer structure"]
 impl crate::Writable for ADC16_PARAMS_ADC16_PARA09_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets ADC16_PARAMS_ADC16_PARA09 to value 0"]
 impl crate::Resettable for ADC16_PARAMS_ADC16_PARA09_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

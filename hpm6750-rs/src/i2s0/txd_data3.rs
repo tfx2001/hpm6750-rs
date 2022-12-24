@@ -24,6 +24,7 @@ pub type D_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TXD_DATA3_SPEC, u32,
 impl W {
     #[doc = "Bits 0:31 - No description avaiable"]
     #[inline(always)]
+    #[must_use]
     pub fn d(&mut self) -> D_W<0> {
         D_W::new(self)
     }
@@ -42,11 +43,10 @@ impl crate::RegisterSpec for TXD_DATA3_SPEC {
 #[doc = "`write(|w| ..)` method takes [txd_data3::W](W) writer structure"]
 impl crate::Writable for TXD_DATA3_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TXD_DATA3 to value 0"]
 impl crate::Resettable for TXD_DATA3_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

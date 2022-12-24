@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Packet Memory Source Address"]
     #[inline(always)]
+    #[must_use]
     pub fn pktsrc(&mut self) -> PKTSRC_W<0> {
         PKTSRC_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for PKTSRC_SPEC {
 #[doc = "`write(|w| ..)` method takes [pktsrc::W](W) writer structure"]
 impl crate::Writable for PKTSRC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PKTSRC to value 0"]
 impl crate::Resettable for PKTSRC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

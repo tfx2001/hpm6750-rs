@@ -34,52 +34,55 @@ impl From<crate::W<DEC_CTRL0_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `NOISE_TOL` reader - the value of amplitude for noise determination when calculationg ZCR"]
-pub type NOISE_TOL_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `NOISE_TOL` writer - the value of amplitude for noise determination when calculationg ZCR"]
-pub type NOISE_TOL_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, DEC_CTRL0_SPEC, u16, u16, 16, O>;
-#[doc = "Field `BLK_CFG` reader - asserted to have 3 sub-blocks, otherwise to have 2 sub-blocks"]
-pub type BLK_CFG_R = crate::BitReader<bool>;
-#[doc = "Field `BLK_CFG` writer - asserted to have 3 sub-blocks, otherwise to have 2 sub-blocks"]
-pub type BLK_CFG_W<'a, const O: u8> = crate::BitWriter<'a, u32, DEC_CTRL0_SPEC, bool, O>;
 #[doc = "Field `SUBBLK_LEN` reader - length of sub-block"]
 pub type SUBBLK_LEN_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `SUBBLK_LEN` writer - length of sub-block"]
 pub type SUBBLK_LEN_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, DEC_CTRL0_SPEC, u16, u16, 9, O>;
+#[doc = "Field `BLK_CFG` reader - asserted to have 3 sub-blocks, otherwise to have 2 sub-blocks"]
+pub type BLK_CFG_R = crate::BitReader<bool>;
+#[doc = "Field `BLK_CFG` writer - asserted to have 3 sub-blocks, otherwise to have 2 sub-blocks"]
+pub type BLK_CFG_W<'a, const O: u8> = crate::BitWriter<'a, u32, DEC_CTRL0_SPEC, bool, O>;
+#[doc = "Field `NOISE_TOL` reader - the value of amplitude for noise determination when calculationg ZCR"]
+pub type NOISE_TOL_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `NOISE_TOL` writer - the value of amplitude for noise determination when calculationg ZCR"]
+pub type NOISE_TOL_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, DEC_CTRL0_SPEC, u16, u16, 16, O>;
 impl R {
-    #[doc = "Bits 16:31 - the value of amplitude for noise determination when calculationg ZCR"]
+    #[doc = "Bits 0:8 - length of sub-block"]
     #[inline(always)]
-    pub fn noise_tol(&self) -> NOISE_TOL_R {
-        NOISE_TOL_R::new(((self.bits >> 16) & 0xffff) as u16)
+    pub fn subblk_len(&self) -> SUBBLK_LEN_R {
+        SUBBLK_LEN_R::new((self.bits & 0x01ff) as u16)
     }
     #[doc = "Bit 9 - asserted to have 3 sub-blocks, otherwise to have 2 sub-blocks"]
     #[inline(always)]
     pub fn blk_cfg(&self) -> BLK_CFG_R {
         BLK_CFG_R::new(((self.bits >> 9) & 1) != 0)
     }
-    #[doc = "Bits 0:8 - length of sub-block"]
+    #[doc = "Bits 16:31 - the value of amplitude for noise determination when calculationg ZCR"]
     #[inline(always)]
-    pub fn subblk_len(&self) -> SUBBLK_LEN_R {
-        SUBBLK_LEN_R::new((self.bits & 0x01ff) as u16)
+    pub fn noise_tol(&self) -> NOISE_TOL_R {
+        NOISE_TOL_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
 impl W {
-    #[doc = "Bits 16:31 - the value of amplitude for noise determination when calculationg ZCR"]
+    #[doc = "Bits 0:8 - length of sub-block"]
     #[inline(always)]
-    pub fn noise_tol(&mut self) -> NOISE_TOL_W<16> {
-        NOISE_TOL_W::new(self)
+    #[must_use]
+    pub fn subblk_len(&mut self) -> SUBBLK_LEN_W<0> {
+        SUBBLK_LEN_W::new(self)
     }
     #[doc = "Bit 9 - asserted to have 3 sub-blocks, otherwise to have 2 sub-blocks"]
     #[inline(always)]
+    #[must_use]
     pub fn blk_cfg(&mut self) -> BLK_CFG_W<9> {
         BLK_CFG_W::new(self)
     }
-    #[doc = "Bits 0:8 - length of sub-block"]
+    #[doc = "Bits 16:31 - the value of amplitude for noise determination when calculationg ZCR"]
     #[inline(always)]
-    pub fn subblk_len(&mut self) -> SUBBLK_LEN_W<0> {
-        SUBBLK_LEN_W::new(self)
+    #[must_use]
+    pub fn noise_tol(&mut self) -> NOISE_TOL_W<16> {
+        NOISE_TOL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -100,11 +103,10 @@ impl crate::Readable for DEC_CTRL0_SPEC {
 #[doc = "`write(|w| ..)` method takes [dec_ctrl0::W](W) writer structure"]
 impl crate::Writable for DEC_CTRL0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DEC_CTRL0 to value 0"]
 impl crate::Resettable for DEC_CTRL0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

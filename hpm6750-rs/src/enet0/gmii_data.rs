@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - GMII Data This field contains the 16-bit data value read from the PHY or RevMII after a Management Read operation or the 16-bit data value to be written to the PHY or RevMII before a Management Write operation."]
     #[inline(always)]
+    #[must_use]
     pub fn gd(&mut self) -> GD_W<0> {
         GD_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for GMII_DATA_SPEC {
 #[doc = "`write(|w| ..)` method takes [gmii_data::W](W) writer structure"]
 impl crate::Writable for GMII_DATA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets GMII_DATA to value 0"]
 impl crate::Resettable for GMII_DATA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

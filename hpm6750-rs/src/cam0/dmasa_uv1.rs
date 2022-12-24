@@ -42,12 +42,13 @@ impl R {
     #[doc = "Bits 2:31 - Two Plane UV Buffer Start Address 1"]
     #[inline(always)]
     pub fn ptr(&self) -> PTR_R {
-        PTR_R::new(((self.bits >> 2) & 0x3fff_ffff) as u32)
+        PTR_R::new((self.bits >> 2) & 0x3fff_ffff)
     }
 }
 impl W {
     #[doc = "Bits 2:31 - Two Plane UV Buffer Start Address 1"]
     #[inline(always)]
+    #[must_use]
     pub fn ptr(&mut self) -> PTR_W<2> {
         PTR_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for DMASA_UV1_SPEC {
 #[doc = "`write(|w| ..)` method takes [dmasa_uv1::W](W) writer structure"]
 impl crate::Writable for DMASA_UV1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DMASA_UV1 to value 0"]
 impl crate::Resettable for DMASA_UV1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

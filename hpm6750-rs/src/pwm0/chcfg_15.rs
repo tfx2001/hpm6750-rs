@@ -34,50 +34,53 @@ impl From<crate::W<CHCFG_15_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `CMPSELEND` reader - assign the last comparator for this output channel"]
-pub type CMPSELEND_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `CMPSELEND` writer - assign the last comparator for this output channel"]
-pub type CMPSELEND_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CHCFG_15_SPEC, u8, u8, 5, O>;
-#[doc = "Field `CMPSELBEG` reader - assign the first comparator for this output channel"]
-pub type CMPSELBEG_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `CMPSELBEG` writer - assign the first comparator for this output channel"]
-pub type CMPSELBEG_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CHCFG_15_SPEC, u8, u8, 5, O>;
 #[doc = "Field `OUTPOL` reader - output polarity, set to 1 will invert the output"]
 pub type OUTPOL_R = crate::BitReader<bool>;
 #[doc = "Field `OUTPOL` writer - output polarity, set to 1 will invert the output"]
 pub type OUTPOL_W<'a, const O: u8> = crate::BitWriter<'a, u32, CHCFG_15_SPEC, bool, O>;
+#[doc = "Field `CMPSELBEG` reader - assign the first comparator for this output channel"]
+pub type CMPSELBEG_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `CMPSELBEG` writer - assign the first comparator for this output channel"]
+pub type CMPSELBEG_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CHCFG_15_SPEC, u8, u8, 5, O>;
+#[doc = "Field `CMPSELEND` reader - assign the last comparator for this output channel"]
+pub type CMPSELEND_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `CMPSELEND` writer - assign the last comparator for this output channel"]
+pub type CMPSELEND_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CHCFG_15_SPEC, u8, u8, 5, O>;
 impl R {
-    #[doc = "Bits 24:28 - assign the last comparator for this output channel"]
+    #[doc = "Bit 1 - output polarity, set to 1 will invert the output"]
     #[inline(always)]
-    pub fn cmpselend(&self) -> CMPSELEND_R {
-        CMPSELEND_R::new(((self.bits >> 24) & 0x1f) as u8)
+    pub fn outpol(&self) -> OUTPOL_R {
+        OUTPOL_R::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bits 16:20 - assign the first comparator for this output channel"]
     #[inline(always)]
     pub fn cmpselbeg(&self) -> CMPSELBEG_R {
         CMPSELBEG_R::new(((self.bits >> 16) & 0x1f) as u8)
     }
-    #[doc = "Bit 1 - output polarity, set to 1 will invert the output"]
+    #[doc = "Bits 24:28 - assign the last comparator for this output channel"]
     #[inline(always)]
-    pub fn outpol(&self) -> OUTPOL_R {
-        OUTPOL_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn cmpselend(&self) -> CMPSELEND_R {
+        CMPSELEND_R::new(((self.bits >> 24) & 0x1f) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 24:28 - assign the last comparator for this output channel"]
+    #[doc = "Bit 1 - output polarity, set to 1 will invert the output"]
     #[inline(always)]
-    pub fn cmpselend(&mut self) -> CMPSELEND_W<24> {
-        CMPSELEND_W::new(self)
+    #[must_use]
+    pub fn outpol(&mut self) -> OUTPOL_W<1> {
+        OUTPOL_W::new(self)
     }
     #[doc = "Bits 16:20 - assign the first comparator for this output channel"]
     #[inline(always)]
+    #[must_use]
     pub fn cmpselbeg(&mut self) -> CMPSELBEG_W<16> {
         CMPSELBEG_W::new(self)
     }
-    #[doc = "Bit 1 - output polarity, set to 1 will invert the output"]
+    #[doc = "Bits 24:28 - assign the last comparator for this output channel"]
     #[inline(always)]
-    pub fn outpol(&mut self) -> OUTPOL_W<1> {
-        OUTPOL_W::new(self)
+    #[must_use]
+    pub fn cmpselend(&mut self) -> CMPSELEND_W<24> {
+        CMPSELEND_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -98,11 +101,10 @@ impl crate::Readable for CHCFG_15_SPEC {
 #[doc = "`write(|w| ..)` method takes [chcfg_15::W](W) writer structure"]
 impl crate::Writable for CHCFG_15_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CHCFG_15 to value 0"]
 impl crate::Resettable for CHCFG_15_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:4 - Power on cause, each bit represnts one cause, write 1 to clear each bit bit0: wakeup button bit1: security violation bit2: RTC alarm 0 bit3: RTC alarm 1 bit4: GPIO"]
     #[inline(always)]
+    #[must_use]
     pub fn cause(&mut self) -> CAUSE_W<0> {
         CAUSE_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for POR_CAUSE_SPEC {
 #[doc = "`write(|w| ..)` method takes [por_cause::W](W) writer structure"]
 impl crate::Writable for POR_CAUSE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets POR_CAUSE to value 0"]
 impl crate::Resettable for POR_CAUSE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

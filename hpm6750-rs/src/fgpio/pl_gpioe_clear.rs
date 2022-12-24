@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - GPIO interrupt polarity, each bit represents a bus bit 0: irq is high level or rising edge 1: irq is low level or falling edge"]
     #[inline(always)]
+    #[must_use]
     pub fn irq_pol(&mut self) -> IRQ_POL_W<0> {
         IRQ_POL_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for PL_GPIOE_CLEAR_SPEC {
 #[doc = "`write(|w| ..)` method takes [pl_gpioe_clear::W](W) writer structure"]
 impl crate::Writable for PL_GPIOE_CLEAR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PL_GPIOE_CLEAR to value 0"]
 impl crate::Resettable for PL_GPIOE_CLEAR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

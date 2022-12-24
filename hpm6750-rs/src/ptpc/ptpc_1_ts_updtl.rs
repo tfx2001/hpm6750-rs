@@ -34,37 +34,39 @@ impl From<crate::W<PTPC_1_TS_UPDTL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `ADD_SUB` reader - 1 for sub; 0 for add, used only at update"]
-pub type ADD_SUB_R = crate::BitReader<bool>;
-#[doc = "Field `ADD_SUB` writer - 1 for sub; 0 for add, used only at update"]
-pub type ADD_SUB_W<'a, const O: u8> = crate::BitWriter<'a, u32, PTPC_1_TS_UPDTL_SPEC, bool, O>;
 #[doc = "Field `NS_UPDATE` reader - No description avaiable"]
 pub type NS_UPDATE_R = crate::FieldReader<u32, u32>;
 #[doc = "Field `NS_UPDATE` writer - No description avaiable"]
 pub type NS_UPDATE_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, PTPC_1_TS_UPDTL_SPEC, u32, u32, 31, O>;
+#[doc = "Field `ADD_SUB` reader - 1 for sub; 0 for add, used only at update"]
+pub type ADD_SUB_R = crate::BitReader<bool>;
+#[doc = "Field `ADD_SUB` writer - 1 for sub; 0 for add, used only at update"]
+pub type ADD_SUB_W<'a, const O: u8> = crate::BitWriter<'a, u32, PTPC_1_TS_UPDTL_SPEC, bool, O>;
 impl R {
+    #[doc = "Bits 0:30 - No description avaiable"]
+    #[inline(always)]
+    pub fn ns_update(&self) -> NS_UPDATE_R {
+        NS_UPDATE_R::new(self.bits & 0x7fff_ffff)
+    }
     #[doc = "Bit 31 - 1 for sub; 0 for add, used only at update"]
     #[inline(always)]
     pub fn add_sub(&self) -> ADD_SUB_R {
         ADD_SUB_R::new(((self.bits >> 31) & 1) != 0)
     }
-    #[doc = "Bits 0:30 - No description avaiable"]
-    #[inline(always)]
-    pub fn ns_update(&self) -> NS_UPDATE_R {
-        NS_UPDATE_R::new((self.bits & 0x7fff_ffff) as u32)
-    }
 }
 impl W {
-    #[doc = "Bit 31 - 1 for sub; 0 for add, used only at update"]
-    #[inline(always)]
-    pub fn add_sub(&mut self) -> ADD_SUB_W<31> {
-        ADD_SUB_W::new(self)
-    }
     #[doc = "Bits 0:30 - No description avaiable"]
     #[inline(always)]
+    #[must_use]
     pub fn ns_update(&mut self) -> NS_UPDATE_W<0> {
         NS_UPDATE_W::new(self)
+    }
+    #[doc = "Bit 31 - 1 for sub; 0 for add, used only at update"]
+    #[inline(always)]
+    #[must_use]
+    pub fn add_sub(&mut self) -> ADD_SUB_W<31> {
+        ADD_SUB_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -85,11 +87,10 @@ impl crate::Readable for PTPC_1_TS_UPDTL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ptpc_1_ts_updtl::W](W) writer structure"]
 impl crate::Writable for PTPC_1_TS_UPDTL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PTPC_1_TS_UPDTL to value 0"]
 impl crate::Resettable for PTPC_1_TS_UPDTL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

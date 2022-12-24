@@ -43,12 +43,13 @@ impl R {
     #[doc = "Bits 0:19 - wait time for low fan out power switch turn on, default value is 255 0: 0 clock cycle 1: 1 clock cycles . . . clock cycles count on 24MHz"]
     #[inline(always)]
     pub fn wait(&self) -> WAIT_R {
-        WAIT_R::new((self.bits & 0x000f_ffff) as u32)
+        WAIT_R::new(self.bits & 0x000f_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:19 - wait time for low fan out power switch turn on, default value is 255 0: 0 clock cycle 1: 1 clock cycles . . . clock cycles count on 24MHz"]
     #[inline(always)]
+    #[must_use]
     pub fn wait(&mut self) -> WAIT_W<0> {
         WAIT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for POWER_VIS_LF_WAIT_SPEC {
 #[doc = "`write(|w| ..)` method takes [power_vis_lf_wait::W](W) writer structure"]
 impl crate::Writable for POWER_VIS_LF_WAIT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets POWER_VIS_LF_WAIT to value 0x0255"]
 impl crate::Resettable for POWER_VIS_LF_WAIT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0255
-    }
+    const RESET_VALUE: Self::Ux = 0x0255;
 }

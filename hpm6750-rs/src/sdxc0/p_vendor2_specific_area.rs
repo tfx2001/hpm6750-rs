@@ -33,8 +33,5 @@ impl crate::Readable for P_VENDOR2_SPECIFIC_AREA_SPEC {
 }
 #[doc = "`reset()` method sets P_VENDOR2_SPECIFIC_AREA to value 0"]
 impl crate::Resettable for P_VENDOR2_SPECIFIC_AREA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

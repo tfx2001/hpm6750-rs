@@ -34,92 +34,96 @@ impl From<crate::W<STAT_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `BLOCKY` reader - Y block that is processing"]
-pub type BLOCKY_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `BLOCKX` reader - X block that is processing"]
-pub type BLOCKX_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `PDMA_DONE` reader - PDMA one image done"]
-pub type PDMA_DONE_R = crate::BitReader<bool>;
-#[doc = "Field `AXI_ERR_ID` reader - AXI error ID"]
-pub type AXI_ERR_ID_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `AXI_0_WRITE_ERR` reader - AXI0 write err"]
-pub type AXI_0_WRITE_ERR_R = crate::BitReader<bool>;
-#[doc = "Field `AXI_0_WRITE_ERR` writer - AXI0 write err"]
-pub type AXI_0_WRITE_ERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT_SPEC, bool, O>;
-#[doc = "Field `AXI_1_READ_ERR` reader - AXI1 read err"]
-pub type AXI_1_READ_ERR_R = crate::BitReader<bool>;
-#[doc = "Field `AXI_1_READ_ERR` writer - AXI1 read err"]
-pub type AXI_1_READ_ERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT_SPEC, bool, O>;
-#[doc = "Field `AXI_0_READ_ERR` reader - AXI0 read err"]
-pub type AXI_0_READ_ERR_R = crate::BitReader<bool>;
-#[doc = "Field `AXI_0_READ_ERR` writer - AXI0 read err"]
-pub type AXI_0_READ_ERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT_SPEC, bool, O>;
 #[doc = "Field `IRQ` reader - Asserted to indicate a IRQ event"]
 pub type IRQ_R = crate::BitReader<bool>;
 #[doc = "Field `IRQ` writer - Asserted to indicate a IRQ event"]
 pub type IRQ_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT_SPEC, bool, O>;
+#[doc = "Field `AXI_0_READ_ERR` reader - AXI0 read err"]
+pub type AXI_0_READ_ERR_R = crate::BitReader<bool>;
+#[doc = "Field `AXI_0_READ_ERR` writer - AXI0 read err"]
+pub type AXI_0_READ_ERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT_SPEC, bool, O>;
+#[doc = "Field `AXI_1_READ_ERR` reader - AXI1 read err"]
+pub type AXI_1_READ_ERR_R = crate::BitReader<bool>;
+#[doc = "Field `AXI_1_READ_ERR` writer - AXI1 read err"]
+pub type AXI_1_READ_ERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT_SPEC, bool, O>;
+#[doc = "Field `AXI_0_WRITE_ERR` reader - AXI0 write err"]
+pub type AXI_0_WRITE_ERR_R = crate::BitReader<bool>;
+#[doc = "Field `AXI_0_WRITE_ERR` writer - AXI0 write err"]
+pub type AXI_0_WRITE_ERR_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT_SPEC, bool, O>;
+#[doc = "Field `AXI_ERR_ID` reader - AXI error ID"]
+pub type AXI_ERR_ID_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `PDMA_DONE` reader - PDMA one image done"]
+pub type PDMA_DONE_R = crate::BitReader<bool>;
+#[doc = "Field `BLOCKX` reader - X block that is processing"]
+pub type BLOCKX_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `BLOCKY` reader - Y block that is processing"]
+pub type BLOCKY_R = crate::FieldReader<u8, u8>;
 impl R {
-    #[doc = "Bits 24:31 - Y block that is processing"]
+    #[doc = "Bit 0 - Asserted to indicate a IRQ event"]
     #[inline(always)]
-    pub fn blocky(&self) -> BLOCKY_R {
-        BLOCKY_R::new(((self.bits >> 24) & 0xff) as u8)
-    }
-    #[doc = "Bits 16:23 - X block that is processing"]
-    #[inline(always)]
-    pub fn blockx(&self) -> BLOCKX_R {
-        BLOCKX_R::new(((self.bits >> 16) & 0xff) as u8)
-    }
-    #[doc = "Bit 9 - PDMA one image done"]
-    #[inline(always)]
-    pub fn pdma_done(&self) -> PDMA_DONE_R {
-        PDMA_DONE_R::new(((self.bits >> 9) & 1) != 0)
-    }
-    #[doc = "Bits 5:8 - AXI error ID"]
-    #[inline(always)]
-    pub fn axi_err_id(&self) -> AXI_ERR_ID_R {
-        AXI_ERR_ID_R::new(((self.bits >> 5) & 0x0f) as u8)
-    }
-    #[doc = "Bit 4 - AXI0 write err"]
-    #[inline(always)]
-    pub fn axi_0_write_err(&self) -> AXI_0_WRITE_ERR_R {
-        AXI_0_WRITE_ERR_R::new(((self.bits >> 4) & 1) != 0)
-    }
-    #[doc = "Bit 3 - AXI1 read err"]
-    #[inline(always)]
-    pub fn axi_1_read_err(&self) -> AXI_1_READ_ERR_R {
-        AXI_1_READ_ERR_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn irq(&self) -> IRQ_R {
+        IRQ_R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 2 - AXI0 read err"]
     #[inline(always)]
     pub fn axi_0_read_err(&self) -> AXI_0_READ_ERR_R {
         AXI_0_READ_ERR_R::new(((self.bits >> 2) & 1) != 0)
     }
-    #[doc = "Bit 0 - Asserted to indicate a IRQ event"]
+    #[doc = "Bit 3 - AXI1 read err"]
     #[inline(always)]
-    pub fn irq(&self) -> IRQ_R {
-        IRQ_R::new((self.bits & 1) != 0)
+    pub fn axi_1_read_err(&self) -> AXI_1_READ_ERR_R {
+        AXI_1_READ_ERR_R::new(((self.bits >> 3) & 1) != 0)
+    }
+    #[doc = "Bit 4 - AXI0 write err"]
+    #[inline(always)]
+    pub fn axi_0_write_err(&self) -> AXI_0_WRITE_ERR_R {
+        AXI_0_WRITE_ERR_R::new(((self.bits >> 4) & 1) != 0)
+    }
+    #[doc = "Bits 5:8 - AXI error ID"]
+    #[inline(always)]
+    pub fn axi_err_id(&self) -> AXI_ERR_ID_R {
+        AXI_ERR_ID_R::new(((self.bits >> 5) & 0x0f) as u8)
+    }
+    #[doc = "Bit 9 - PDMA one image done"]
+    #[inline(always)]
+    pub fn pdma_done(&self) -> PDMA_DONE_R {
+        PDMA_DONE_R::new(((self.bits >> 9) & 1) != 0)
+    }
+    #[doc = "Bits 16:23 - X block that is processing"]
+    #[inline(always)]
+    pub fn blockx(&self) -> BLOCKX_R {
+        BLOCKX_R::new(((self.bits >> 16) & 0xff) as u8)
+    }
+    #[doc = "Bits 24:31 - Y block that is processing"]
+    #[inline(always)]
+    pub fn blocky(&self) -> BLOCKY_R {
+        BLOCKY_R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = "Bit 4 - AXI0 write err"]
+    #[doc = "Bit 0 - Asserted to indicate a IRQ event"]
     #[inline(always)]
-    pub fn axi_0_write_err(&mut self) -> AXI_0_WRITE_ERR_W<4> {
-        AXI_0_WRITE_ERR_W::new(self)
-    }
-    #[doc = "Bit 3 - AXI1 read err"]
-    #[inline(always)]
-    pub fn axi_1_read_err(&mut self) -> AXI_1_READ_ERR_W<3> {
-        AXI_1_READ_ERR_W::new(self)
+    #[must_use]
+    pub fn irq(&mut self) -> IRQ_W<0> {
+        IRQ_W::new(self)
     }
     #[doc = "Bit 2 - AXI0 read err"]
     #[inline(always)]
+    #[must_use]
     pub fn axi_0_read_err(&mut self) -> AXI_0_READ_ERR_W<2> {
         AXI_0_READ_ERR_W::new(self)
     }
-    #[doc = "Bit 0 - Asserted to indicate a IRQ event"]
+    #[doc = "Bit 3 - AXI1 read err"]
     #[inline(always)]
-    pub fn irq(&mut self) -> IRQ_W<0> {
-        IRQ_W::new(self)
+    #[must_use]
+    pub fn axi_1_read_err(&mut self) -> AXI_1_READ_ERR_W<3> {
+        AXI_1_READ_ERR_W::new(self)
+    }
+    #[doc = "Bit 4 - AXI0 write err"]
+    #[inline(always)]
+    #[must_use]
+    pub fn axi_0_write_err(&mut self) -> AXI_0_WRITE_ERR_W<4> {
+        AXI_0_WRITE_ERR_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -140,11 +144,10 @@ impl crate::Readable for STAT_SPEC {
 #[doc = "`write(|w| ..)` method takes [stat::W](W) writer structure"]
 impl crate::Writable for STAT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets STAT to value 0"]
 impl crate::Resettable for STAT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

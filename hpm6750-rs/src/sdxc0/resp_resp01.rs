@@ -33,8 +33,5 @@ impl crate::Readable for RESP_RESP01_SPEC {
 }
 #[doc = "`reset()` method sets RESP_RESP01 to value 0"]
 impl crate::Resettable for RESP_RESP01_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

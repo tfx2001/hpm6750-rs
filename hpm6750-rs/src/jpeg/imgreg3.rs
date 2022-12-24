@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Encoder use only. It is the number of MCUs between two Restart Markers (if enabled) minus 1. The content of this register is ignored if the Re bit inregister 1 is not set."]
     #[inline(always)]
+    #[must_use]
     pub fn nrst(&mut self) -> NRST_W<0> {
         NRST_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for IMGREG3_SPEC {
 #[doc = "`write(|w| ..)` method takes [imgreg3::W](W) writer structure"]
 impl crate::Writable for IMGREG3_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IMGREG3 to value 0"]
 impl crate::Resettable for IMGREG3_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

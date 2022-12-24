@@ -43,12 +43,13 @@ impl R {
     #[doc = "Bits 0:17 - retention setting while system sleep"]
     #[inline(always)]
     pub fn link(&self) -> LINK_R {
-        LINK_R::new((self.bits & 0x0003_ffff) as u32)
+        LINK_R::new(self.bits & 0x0003_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:17 - retention setting while system sleep"]
     #[inline(always)]
+    #[must_use]
     pub fn link(&mut self) -> LINK_W<0> {
         LINK_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for RETENTION_CPU0_TOGGLE_SPEC {
 #[doc = "`write(|w| ..)` method takes [retention_cpu0_toggle::W](W) writer structure"]
 impl crate::Writable for RETENTION_CPU0_TOGGLE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RETENTION_CPU0_TOGGLE to value 0x0f"]
 impl crate::Resettable for RETENTION_CPU0_TOGGLE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0f
-    }
+    const RESET_VALUE: Self::Ux = 0x0f;
 }

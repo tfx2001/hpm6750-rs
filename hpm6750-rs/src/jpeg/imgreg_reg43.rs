@@ -34,64 +34,68 @@ impl From<crate::W<IMGREG_REG43_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `NBLOCK` reader - Encoder use only. The number of data units (8x8 blocks of data) of the color componet contained in the MCU minus 1."]
-pub type NBLOCK_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `NBLOCK` writer - Encoder use only. The number of data units (8x8 blocks of data) of the color componet contained in the MCU minus 1."]
-pub type NBLOCK_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IMGREG_REG43_SPEC, u8, u8, 4, O>;
-#[doc = "Field `QT` reader - Encoder use only. The selection of the quantization table."]
-pub type QT_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `QT` writer - Encoder use only. The selection of the quantization table."]
-pub type QT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IMGREG_REG43_SPEC, u8, u8, 2, O>;
-#[doc = "Field `HA` reader - Encoder use only. The selection of the Huffman table for the encoding of the AC coefficients in the data units belonging to the color component."]
-pub type HA_R = crate::BitReader<bool>;
-#[doc = "Field `HA` writer - Encoder use only. The selection of the Huffman table for the encoding of the AC coefficients in the data units belonging to the color component."]
-pub type HA_W<'a, const O: u8> = crate::BitWriter<'a, u32, IMGREG_REG43_SPEC, bool, O>;
 #[doc = "Field `HD` reader - Encoder use only. The selection of the Huffman table for the encoding of the DC coefficients in the data units belonging to the color component."]
 pub type HD_R = crate::BitReader<bool>;
 #[doc = "Field `HD` writer - Encoder use only. The selection of the Huffman table for the encoding of the DC coefficients in the data units belonging to the color component."]
 pub type HD_W<'a, const O: u8> = crate::BitWriter<'a, u32, IMGREG_REG43_SPEC, bool, O>;
+#[doc = "Field `HA` reader - Encoder use only. The selection of the Huffman table for the encoding of the AC coefficients in the data units belonging to the color component."]
+pub type HA_R = crate::BitReader<bool>;
+#[doc = "Field `HA` writer - Encoder use only. The selection of the Huffman table for the encoding of the AC coefficients in the data units belonging to the color component."]
+pub type HA_W<'a, const O: u8> = crate::BitWriter<'a, u32, IMGREG_REG43_SPEC, bool, O>;
+#[doc = "Field `QT` reader - Encoder use only. The selection of the quantization table."]
+pub type QT_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `QT` writer - Encoder use only. The selection of the quantization table."]
+pub type QT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IMGREG_REG43_SPEC, u8, u8, 2, O>;
+#[doc = "Field `NBLOCK` reader - Encoder use only. The number of data units (8x8 blocks of data) of the color componet contained in the MCU minus 1."]
+pub type NBLOCK_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `NBLOCK` writer - Encoder use only. The number of data units (8x8 blocks of data) of the color componet contained in the MCU minus 1."]
+pub type NBLOCK_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IMGREG_REG43_SPEC, u8, u8, 4, O>;
 impl R {
-    #[doc = "Bits 4:7 - Encoder use only. The number of data units (8x8 blocks of data) of the color componet contained in the MCU minus 1."]
+    #[doc = "Bit 0 - Encoder use only. The selection of the Huffman table for the encoding of the DC coefficients in the data units belonging to the color component."]
     #[inline(always)]
-    pub fn nblock(&self) -> NBLOCK_R {
-        NBLOCK_R::new(((self.bits >> 4) & 0x0f) as u8)
-    }
-    #[doc = "Bits 2:3 - Encoder use only. The selection of the quantization table."]
-    #[inline(always)]
-    pub fn qt(&self) -> QT_R {
-        QT_R::new(((self.bits >> 2) & 3) as u8)
+    pub fn hd(&self) -> HD_R {
+        HD_R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Encoder use only. The selection of the Huffman table for the encoding of the AC coefficients in the data units belonging to the color component."]
     #[inline(always)]
     pub fn ha(&self) -> HA_R {
         HA_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 0 - Encoder use only. The selection of the Huffman table for the encoding of the DC coefficients in the data units belonging to the color component."]
+    #[doc = "Bits 2:3 - Encoder use only. The selection of the quantization table."]
     #[inline(always)]
-    pub fn hd(&self) -> HD_R {
-        HD_R::new((self.bits & 1) != 0)
+    pub fn qt(&self) -> QT_R {
+        QT_R::new(((self.bits >> 2) & 3) as u8)
+    }
+    #[doc = "Bits 4:7 - Encoder use only. The number of data units (8x8 blocks of data) of the color componet contained in the MCU minus 1."]
+    #[inline(always)]
+    pub fn nblock(&self) -> NBLOCK_R {
+        NBLOCK_R::new(((self.bits >> 4) & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 4:7 - Encoder use only. The number of data units (8x8 blocks of data) of the color componet contained in the MCU minus 1."]
+    #[doc = "Bit 0 - Encoder use only. The selection of the Huffman table for the encoding of the DC coefficients in the data units belonging to the color component."]
     #[inline(always)]
-    pub fn nblock(&mut self) -> NBLOCK_W<4> {
-        NBLOCK_W::new(self)
-    }
-    #[doc = "Bits 2:3 - Encoder use only. The selection of the quantization table."]
-    #[inline(always)]
-    pub fn qt(&mut self) -> QT_W<2> {
-        QT_W::new(self)
+    #[must_use]
+    pub fn hd(&mut self) -> HD_W<0> {
+        HD_W::new(self)
     }
     #[doc = "Bit 1 - Encoder use only. The selection of the Huffman table for the encoding of the AC coefficients in the data units belonging to the color component."]
     #[inline(always)]
+    #[must_use]
     pub fn ha(&mut self) -> HA_W<1> {
         HA_W::new(self)
     }
-    #[doc = "Bit 0 - Encoder use only. The selection of the Huffman table for the encoding of the DC coefficients in the data units belonging to the color component."]
+    #[doc = "Bits 2:3 - Encoder use only. The selection of the quantization table."]
     #[inline(always)]
-    pub fn hd(&mut self) -> HD_W<0> {
-        HD_W::new(self)
+    #[must_use]
+    pub fn qt(&mut self) -> QT_W<2> {
+        QT_W::new(self)
+    }
+    #[doc = "Bits 4:7 - Encoder use only. The number of data units (8x8 blocks of data) of the color componet contained in the MCU minus 1."]
+    #[inline(always)]
+    #[must_use]
+    pub fn nblock(&mut self) -> NBLOCK_W<4> {
+        NBLOCK_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -112,11 +116,10 @@ impl crate::Readable for IMGREG_REG43_SPEC {
 #[doc = "`write(|w| ..)` method takes [imgreg_reg43::W](W) writer structure"]
 impl crate::Writable for IMGREG_REG43_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IMGREG_REG43 to value 0"]
 impl crate::Resettable for IMGREG_REG43_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

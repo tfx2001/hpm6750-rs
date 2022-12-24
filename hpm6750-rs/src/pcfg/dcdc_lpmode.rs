@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:11 - DCDC voltage in mV in standby mode, , value valid through 600-1375, , step 25mV. Hardware select voltage no less than target if not on valid steps, with maximum 1375mV. 600: 600mV 625: 625mV . . . 1375:1375mV"]
     #[inline(always)]
+    #[must_use]
     pub fn stby_volt(&mut self) -> STBY_VOLT_W<0> {
         STBY_VOLT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for DCDC_LPMODE_SPEC {
 #[doc = "`write(|w| ..)` method takes [dcdc_lpmode::W](W) writer structure"]
 impl crate::Writable for DCDC_LPMODE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DCDC_LPMODE to value 0x00b0_10b0"]
 impl crate::Resettable for DCDC_LPMODE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x00b0_10b0
-    }
+    const RESET_VALUE: Self::Ux = 0x00b0_10b0;
 }

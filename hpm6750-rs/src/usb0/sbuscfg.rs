@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:2 - AHBBRST AHB master interface Burst configuration These bits control AHB master transfer type sequence (or priority). NOTE: This register overrides n_BURSTSIZE register when its value is not zero. 000 - Incremental burst of unspecified length only 001 - INCR4 burst, then single transfer 010 - INCR8 burst, INCR4 burst, then single transfer 011 - INCR16 burst, INCR8 burst, INCR4 burst, then single transfer 100 - Reserved, don't use 101 - INCR4 burst, then incremental burst of unspecified length 110 - INCR8 burst, INCR4 burst, then incremental burst of unspecified length 111 - INCR16 burst, INCR8 burst, INCR4 burst, then incremental burst of unspecified length"]
     #[inline(always)]
+    #[must_use]
     pub fn ahbbrst(&mut self) -> AHBBRST_W<0> {
         AHBBRST_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for SBUSCFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [sbuscfg::W](W) writer structure"]
 impl crate::Writable for SBUSCFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SBUSCFG to value 0"]
 impl crate::Resettable for SBUSCFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - First 32 bits of Hash Table This field contains the first 32 Bits (31:0) of the Hash table."]
     #[inline(always)]
+    #[must_use]
     pub fn ht31t0(&mut self) -> HT31T0_W<0> {
         HT31T0_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for HASH_TABLE_REGISTER0_SPEC {
 #[doc = "`write(|w| ..)` method takes [hash_table_register0::W](W) writer structure"]
 impl crate::Writable for HASH_TABLE_REGISTER0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets HASH_TABLE_REGISTER0 to value 0"]
 impl crate::Resettable for HASH_TABLE_REGISTER0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

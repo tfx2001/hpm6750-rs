@@ -19,7 +19,7 @@ impl R {
     #[doc = "Bits 0:27 - wcnt counter"]
     #[inline(always)]
     pub fn wcnt(&self) -> WCNT_R {
-        WCNT_R::new((self.bits & 0x0fff_ffff) as u32)
+        WCNT_R::new(self.bits & 0x0fff_ffff)
     }
 }
 #[doc = "W read register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [count_read_w](index.html) module"]
@@ -33,8 +33,5 @@ impl crate::Readable for COUNT_READ_W_SPEC {
 }
 #[doc = "`reset()` method sets COUNT_READ_W to value 0"]
 impl crate::Resettable for COUNT_READ_W_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Buffer Data These bits enable access to the Host Controller packet buffer."]
     #[inline(always)]
+    #[must_use]
     pub fn buf_data(&mut self) -> BUF_DATA_W<0> {
         BUF_DATA_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for BUF_DATA_SPEC {
 #[doc = "`write(|w| ..)` method takes [buf_data::W](W) writer structure"]
 impl crate::Writable for BUF_DATA_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets BUF_DATA to value 0"]
 impl crate::Resettable for BUF_DATA_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

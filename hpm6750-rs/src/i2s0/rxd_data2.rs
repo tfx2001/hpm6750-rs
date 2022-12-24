@@ -33,8 +33,5 @@ impl crate::Readable for RXD_DATA2_SPEC {
 }
 #[doc = "`reset()` method sets RXD_DATA2 to value 0"]
 impl crate::Resettable for RXD_DATA2_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

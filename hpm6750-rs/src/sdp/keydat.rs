@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - This register provides the write access to the key/key subword specified by the key index register. Writing this location updates the selected subword for the key located at the index specified by the key index register. The write also triggers the SUBWORD field of the KEY register to increment to the next higher word in the key"]
     #[inline(always)]
+    #[must_use]
     pub fn keydat(&mut self) -> KEYDAT_W<0> {
         KEYDAT_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for KEYDAT_SPEC {
 #[doc = "`write(|w| ..)` method takes [keydat::W](W) writer structure"]
 impl crate::Writable for KEYDAT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets KEYDAT to value 0x30"]
 impl crate::Resettable for KEYDAT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x30
-    }
+    const RESET_VALUE: Self::Ux = 0x30;
 }

@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - second counter"]
     #[inline(always)]
+    #[must_use]
     pub fn second(&mut self) -> SECOND_W<0> {
         SECOND_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for SECOND_SPEC {
 #[doc = "`write(|w| ..)` method takes [second::W](W) writer structure"]
 impl crate::Writable for SECOND_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SECOND to value 0"]
 impl crate::Resettable for SECOND_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

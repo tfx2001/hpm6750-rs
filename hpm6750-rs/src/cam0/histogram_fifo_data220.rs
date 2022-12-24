@@ -19,7 +19,7 @@ impl R {
     #[doc = "Bits 0:23 - the appearance of bin x (x=(address-DATA0)/4)"]
     #[inline(always)]
     pub fn hist_y(&self) -> HIST_Y_R {
-        HIST_Y_R::new((self.bits & 0x00ff_ffff) as u32)
+        HIST_Y_R::new(self.bits & 0x00ff_ffff)
     }
 }
 #[doc = "Histogram Registers\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [histogram_fifo_data220](index.html) module"]
@@ -33,8 +33,5 @@ impl crate::Readable for HISTOGRAM_FIFO_DATA220_SPEC {
 }
 #[doc = "`reset()` method sets HISTOGRAM_FIFO_DATA220 to value 0"]
 impl crate::Resettable for HISTOGRAM_FIFO_DATA220_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

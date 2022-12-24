@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Current address pointer for the output frame buffer. The address can have any byte alignment. 64B alignment is recommended for optimal performance."]
     #[inline(always)]
+    #[must_use]
     pub fn addr(&mut self) -> ADDR_W<0> {
         ADDR_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for OUT_BUF_SPEC {
 #[doc = "`write(|w| ..)` method takes [out_buf::W](W) writer structure"]
 impl crate::Writable for OUT_BUF_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets OUT_BUF to value 0"]
 impl crate::Resettable for OUT_BUF_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

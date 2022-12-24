@@ -52,6 +52,7 @@ impl W {
     #[doc = "Bits 0:7 - RI Watchdog Timer Count This bit indicates the number of system clock cycles multiplied by 256 for which the watchdog timer is set. The watchdog timer gets triggered with the programmed value after the Rx DMA completes the transfer of a frame for which the RI status bit is not set because of the setting in the corresponding descriptor RDES1\\[31\\]. When the watchdog timer runs out, the RI bit is set and the timer is stopped. The watchdog timer is reset when the RI bit is set high because of automatic setting of RI as per RDES1\\[31\\]
 of any received frame."]
     #[inline(always)]
+    #[must_use]
     pub fn riwt(&mut self) -> RIWT_W<0> {
         RIWT_W::new(self)
     }
@@ -74,11 +75,10 @@ impl crate::Readable for DMA_RX_INTR_WDOG_SPEC {
 #[doc = "`write(|w| ..)` method takes [dma_rx_intr_wdog::W](W) writer structure"]
 impl crate::Writable for DMA_RX_INTR_WDOG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DMA_RX_INTR_WDOG to value 0"]
 impl crate::Resettable for DMA_RX_INTR_WDOG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

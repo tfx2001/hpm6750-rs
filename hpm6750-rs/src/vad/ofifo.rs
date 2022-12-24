@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - The PCM data. When there is only one channel, the samples are from Ch0, and the 2 samples in the 32-bits are: bit \\[31:16\\]: the samples earlier in time (\\[T-1\\]). Bit \\[15:0\\]: the samples later in time (\\[T\\]). When there is two channels, the samples in the 32-bits are: bit \\[31:16\\]: the samples belong to Ch 1 (when ch_pol\\[1:0\\]==2, the data is captured at the positive part of the pdm clk). bit \\[15:0\\]: the samples belong to Ch 0 (when ch_pol\\[1:0\\]==2, the data is captured at the negtive part of the pdm clk)."]
     #[inline(always)]
+    #[must_use]
     pub fn d(&mut self) -> D_W<0> {
         D_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for OFIFO_SPEC {
 #[doc = "`write(|w| ..)` method takes [ofifo::W](W) writer structure"]
 impl crate::Writable for OFIFO_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets OFIFO to value 0"]
 impl crate::Resettable for OFIFO_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

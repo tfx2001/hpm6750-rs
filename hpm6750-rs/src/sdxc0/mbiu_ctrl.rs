@@ -34,64 +34,68 @@ impl From<crate::W<MBIU_CTRL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `BURST_INCR16_EN` reader - No description avaiable"]
-pub type BURST_INCR16_EN_R = crate::BitReader<bool>;
-#[doc = "Field `BURST_INCR16_EN` writer - No description avaiable"]
-pub type BURST_INCR16_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, MBIU_CTRL_SPEC, bool, O>;
-#[doc = "Field `BURST_INCR8_EN` reader - No description avaiable"]
-pub type BURST_INCR8_EN_R = crate::BitReader<bool>;
-#[doc = "Field `BURST_INCR8_EN` writer - No description avaiable"]
-pub type BURST_INCR8_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, MBIU_CTRL_SPEC, bool, O>;
-#[doc = "Field `BUSRT_INCR4_EN` reader - No description avaiable"]
-pub type BUSRT_INCR4_EN_R = crate::BitReader<bool>;
-#[doc = "Field `BUSRT_INCR4_EN` writer - No description avaiable"]
-pub type BUSRT_INCR4_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, MBIU_CTRL_SPEC, bool, O>;
 #[doc = "Field `UNDEFL_INCR_EN` reader - No description avaiable"]
 pub type UNDEFL_INCR_EN_R = crate::BitReader<bool>;
 #[doc = "Field `UNDEFL_INCR_EN` writer - No description avaiable"]
 pub type UNDEFL_INCR_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, MBIU_CTRL_SPEC, bool, O>;
+#[doc = "Field `BUSRT_INCR4_EN` reader - No description avaiable"]
+pub type BUSRT_INCR4_EN_R = crate::BitReader<bool>;
+#[doc = "Field `BUSRT_INCR4_EN` writer - No description avaiable"]
+pub type BUSRT_INCR4_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, MBIU_CTRL_SPEC, bool, O>;
+#[doc = "Field `BURST_INCR8_EN` reader - No description avaiable"]
+pub type BURST_INCR8_EN_R = crate::BitReader<bool>;
+#[doc = "Field `BURST_INCR8_EN` writer - No description avaiable"]
+pub type BURST_INCR8_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, MBIU_CTRL_SPEC, bool, O>;
+#[doc = "Field `BURST_INCR16_EN` reader - No description avaiable"]
+pub type BURST_INCR16_EN_R = crate::BitReader<bool>;
+#[doc = "Field `BURST_INCR16_EN` writer - No description avaiable"]
+pub type BURST_INCR16_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, MBIU_CTRL_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 3 - No description avaiable"]
+    #[doc = "Bit 0 - No description avaiable"]
     #[inline(always)]
-    pub fn burst_incr16_en(&self) -> BURST_INCR16_EN_R {
-        BURST_INCR16_EN_R::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bit 2 - No description avaiable"]
-    #[inline(always)]
-    pub fn burst_incr8_en(&self) -> BURST_INCR8_EN_R {
-        BURST_INCR8_EN_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn undefl_incr_en(&self) -> UNDEFL_INCR_EN_R {
+        UNDEFL_INCR_EN_R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - No description avaiable"]
     #[inline(always)]
     pub fn busrt_incr4_en(&self) -> BUSRT_INCR4_EN_R {
         BUSRT_INCR4_EN_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 0 - No description avaiable"]
+    #[doc = "Bit 2 - No description avaiable"]
     #[inline(always)]
-    pub fn undefl_incr_en(&self) -> UNDEFL_INCR_EN_R {
-        UNDEFL_INCR_EN_R::new((self.bits & 1) != 0)
+    pub fn burst_incr8_en(&self) -> BURST_INCR8_EN_R {
+        BURST_INCR8_EN_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 3 - No description avaiable"]
+    #[inline(always)]
+    pub fn burst_incr16_en(&self) -> BURST_INCR16_EN_R {
+        BURST_INCR16_EN_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 3 - No description avaiable"]
+    #[doc = "Bit 0 - No description avaiable"]
     #[inline(always)]
-    pub fn burst_incr16_en(&mut self) -> BURST_INCR16_EN_W<3> {
-        BURST_INCR16_EN_W::new(self)
-    }
-    #[doc = "Bit 2 - No description avaiable"]
-    #[inline(always)]
-    pub fn burst_incr8_en(&mut self) -> BURST_INCR8_EN_W<2> {
-        BURST_INCR8_EN_W::new(self)
+    #[must_use]
+    pub fn undefl_incr_en(&mut self) -> UNDEFL_INCR_EN_W<0> {
+        UNDEFL_INCR_EN_W::new(self)
     }
     #[doc = "Bit 1 - No description avaiable"]
     #[inline(always)]
+    #[must_use]
     pub fn busrt_incr4_en(&mut self) -> BUSRT_INCR4_EN_W<1> {
         BUSRT_INCR4_EN_W::new(self)
     }
-    #[doc = "Bit 0 - No description avaiable"]
+    #[doc = "Bit 2 - No description avaiable"]
     #[inline(always)]
-    pub fn undefl_incr_en(&mut self) -> UNDEFL_INCR_EN_W<0> {
-        UNDEFL_INCR_EN_W::new(self)
+    #[must_use]
+    pub fn burst_incr8_en(&mut self) -> BURST_INCR8_EN_W<2> {
+        BURST_INCR8_EN_W::new(self)
+    }
+    #[doc = "Bit 3 - No description avaiable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn burst_incr16_en(&mut self) -> BURST_INCR16_EN_W<3> {
+        BURST_INCR16_EN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -112,11 +116,10 @@ impl crate::Readable for MBIU_CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [mbiu_ctrl::W](W) writer structure"]
 impl crate::Writable for MBIU_CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MBIU_CTRL to value 0"]
 impl crate::Resettable for MBIU_CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

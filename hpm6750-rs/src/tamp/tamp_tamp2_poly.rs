@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - tamper LFSR polyminal, this is a write once register, once write content is locked, and readout value is \"1\""]
     #[inline(always)]
+    #[must_use]
     pub fn poly(&mut self) -> POLY_W<0> {
         POLY_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for TAMP_TAMP2_POLY_SPEC {
 #[doc = "`write(|w| ..)` method takes [tamp_tamp2_poly::W](W) writer structure"]
 impl crate::Writable for TAMP_TAMP2_POLY_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TAMP_TAMP2_POLY to value 0"]
 impl crate::Resettable for TAMP_TAMP2_POLY_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

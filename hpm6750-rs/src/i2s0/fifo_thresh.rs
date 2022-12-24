@@ -34,36 +34,38 @@ impl From<crate::W<FIFO_THRESH_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `TX` reader - TX fifo threshold to trigger STA\\[tx_dn\\]. When tx fifo filling is smaller than or equal to the threshold, assert the tx_dn flag."]
-pub type TX_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `TX` writer - TX fifo threshold to trigger STA\\[tx_dn\\]. When tx fifo filling is smaller than or equal to the threshold, assert the tx_dn flag."]
-pub type TX_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FIFO_THRESH_SPEC, u8, u8, 8, O>;
 #[doc = "Field `RX` reader - RX fifo threshold to trigger STA\\[rx_da\\]. When rx fifo filling is greater than or equal to the threshold, assert the rx_da flag."]
 pub type RX_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `RX` writer - RX fifo threshold to trigger STA\\[rx_da\\]. When rx fifo filling is greater than or equal to the threshold, assert the rx_da flag."]
 pub type RX_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FIFO_THRESH_SPEC, u8, u8, 8, O>;
+#[doc = "Field `TX` reader - TX fifo threshold to trigger STA\\[tx_dn\\]. When tx fifo filling is smaller than or equal to the threshold, assert the tx_dn flag."]
+pub type TX_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `TX` writer - TX fifo threshold to trigger STA\\[tx_dn\\]. When tx fifo filling is smaller than or equal to the threshold, assert the tx_dn flag."]
+pub type TX_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FIFO_THRESH_SPEC, u8, u8, 8, O>;
 impl R {
-    #[doc = "Bits 8:15 - TX fifo threshold to trigger STA\\[tx_dn\\]. When tx fifo filling is smaller than or equal to the threshold, assert the tx_dn flag."]
-    #[inline(always)]
-    pub fn tx(&self) -> TX_R {
-        TX_R::new(((self.bits >> 8) & 0xff) as u8)
-    }
     #[doc = "Bits 0:7 - RX fifo threshold to trigger STA\\[rx_da\\]. When rx fifo filling is greater than or equal to the threshold, assert the rx_da flag."]
     #[inline(always)]
     pub fn rx(&self) -> RX_R {
         RX_R::new((self.bits & 0xff) as u8)
     }
-}
-impl W {
     #[doc = "Bits 8:15 - TX fifo threshold to trigger STA\\[tx_dn\\]. When tx fifo filling is smaller than or equal to the threshold, assert the tx_dn flag."]
     #[inline(always)]
-    pub fn tx(&mut self) -> TX_W<8> {
-        TX_W::new(self)
+    pub fn tx(&self) -> TX_R {
+        TX_R::new(((self.bits >> 8) & 0xff) as u8)
     }
+}
+impl W {
     #[doc = "Bits 0:7 - RX fifo threshold to trigger STA\\[rx_da\\]. When rx fifo filling is greater than or equal to the threshold, assert the rx_da flag."]
     #[inline(always)]
+    #[must_use]
     pub fn rx(&mut self) -> RX_W<0> {
         RX_W::new(self)
+    }
+    #[doc = "Bits 8:15 - TX fifo threshold to trigger STA\\[tx_dn\\]. When tx fifo filling is smaller than or equal to the threshold, assert the tx_dn flag."]
+    #[inline(always)]
+    #[must_use]
+    pub fn tx(&mut self) -> TX_W<8> {
+        TX_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for FIFO_THRESH_SPEC {
 #[doc = "`write(|w| ..)` method takes [fifo_thresh::W](W) writer structure"]
 impl crate::Writable for FIFO_THRESH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets FIFO_THRESH to value 0"]
 impl crate::Resettable for FIFO_THRESH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

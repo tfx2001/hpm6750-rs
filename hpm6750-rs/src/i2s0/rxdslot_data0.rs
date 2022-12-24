@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - No description avaiable"]
     #[inline(always)]
+    #[must_use]
     pub fn en(&mut self) -> EN_W<0> {
         EN_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for RXDSLOT_DATA0_SPEC {
 #[doc = "`write(|w| ..)` method takes [rxdslot_data0::W](W) writer structure"]
 impl crate::Writable for RXDSLOT_DATA0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RXDSLOT_DATA0 to value 0xffff"]
 impl crate::Resettable for RXDSLOT_DATA0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0xffff
-    }
+    const RESET_VALUE: Self::Ux = 0xffff;
 }

@@ -34,95 +34,101 @@ impl From<crate::W<CTRL5_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `SDXC1_SYS_IRQ_EN` reader - system irq enable"]
-pub type SDXC1_SYS_IRQ_EN_R = crate::BitReader<bool>;
-#[doc = "Field `SDXC1_SYS_IRQ_EN` writer - system irq enable"]
-pub type SDXC1_SYS_IRQ_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL5_SPEC, bool, O>;
-#[doc = "Field `SDXC1_WKP_IRQ_EN` reader - wakeup irq enable"]
-pub type SDXC1_WKP_IRQ_EN_R = crate::BitReader<bool>;
-#[doc = "Field `SDXC1_WKP_IRQ_EN` writer - wakeup irq enable"]
-pub type SDXC1_WKP_IRQ_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL5_SPEC, bool, O>;
-#[doc = "Field `SDXC1_CARDCLK_INV_EN` reader - card clock inverter enable"]
-pub type SDXC1_CARDCLK_INV_EN_R = crate::BitReader<bool>;
-#[doc = "Field `SDXC1_CARDCLK_INV_EN` writer - card clock inverter enable"]
-pub type SDXC1_CARDCLK_INV_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL5_SPEC, bool, O>;
-#[doc = "Field `SDXC1_GPR_TUNING_CARD_CLK_SEL` reader - No description avaiable"]
-pub type SDXC1_GPR_TUNING_CARD_CLK_SEL_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `SDXC1_GPR_TUNING_CARD_CLK_SEL` writer - No description avaiable"]
-pub type SDXC1_GPR_TUNING_CARD_CLK_SEL_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CTRL5_SPEC, u8, u8, 5, O>;
-#[doc = "Field `SDXC1_GPR_TUNING_STROBE_SEL` reader - No description avaiable"]
-pub type SDXC1_GPR_TUNING_STROBE_SEL_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `SDXC1_GPR_TUNING_STROBE_SEL` writer - No description avaiable"]
-pub type SDXC1_GPR_TUNING_STROBE_SEL_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CTRL5_SPEC, u8, u8, 5, O>;
 #[doc = "Field `SDXC1_GPR_STROBE_IN_ENABLE` reader - No description avaiable"]
 pub type SDXC1_GPR_STROBE_IN_ENABLE_R = crate::BitReader<bool>;
 #[doc = "Field `SDXC1_GPR_STROBE_IN_ENABLE` writer - No description avaiable"]
 pub type SDXC1_GPR_STROBE_IN_ENABLE_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, CTRL5_SPEC, bool, O>;
+#[doc = "Field `SDXC1_GPR_TUNING_STROBE_SEL` reader - No description avaiable"]
+pub type SDXC1_GPR_TUNING_STROBE_SEL_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `SDXC1_GPR_TUNING_STROBE_SEL` writer - No description avaiable"]
+pub type SDXC1_GPR_TUNING_STROBE_SEL_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, CTRL5_SPEC, u8, u8, 5, O>;
+#[doc = "Field `SDXC1_GPR_TUNING_CARD_CLK_SEL` reader - No description avaiable"]
+pub type SDXC1_GPR_TUNING_CARD_CLK_SEL_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `SDXC1_GPR_TUNING_CARD_CLK_SEL` writer - No description avaiable"]
+pub type SDXC1_GPR_TUNING_CARD_CLK_SEL_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, CTRL5_SPEC, u8, u8, 5, O>;
+#[doc = "Field `SDXC1_CARDCLK_INV_EN` reader - card clock inverter enable"]
+pub type SDXC1_CARDCLK_INV_EN_R = crate::BitReader<bool>;
+#[doc = "Field `SDXC1_CARDCLK_INV_EN` writer - card clock inverter enable"]
+pub type SDXC1_CARDCLK_INV_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL5_SPEC, bool, O>;
+#[doc = "Field `SDXC1_WKP_IRQ_EN` reader - wakeup irq enable"]
+pub type SDXC1_WKP_IRQ_EN_R = crate::BitReader<bool>;
+#[doc = "Field `SDXC1_WKP_IRQ_EN` writer - wakeup irq enable"]
+pub type SDXC1_WKP_IRQ_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL5_SPEC, bool, O>;
+#[doc = "Field `SDXC1_SYS_IRQ_EN` reader - system irq enable"]
+pub type SDXC1_SYS_IRQ_EN_R = crate::BitReader<bool>;
+#[doc = "Field `SDXC1_SYS_IRQ_EN` writer - system irq enable"]
+pub type SDXC1_SYS_IRQ_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTRL5_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 31 - system irq enable"]
+    #[doc = "Bit 17 - No description avaiable"]
     #[inline(always)]
-    pub fn sdxc1_sys_irq_en(&self) -> SDXC1_SYS_IRQ_EN_R {
-        SDXC1_SYS_IRQ_EN_R::new(((self.bits >> 31) & 1) != 0)
-    }
-    #[doc = "Bit 30 - wakeup irq enable"]
-    #[inline(always)]
-    pub fn sdxc1_wkp_irq_en(&self) -> SDXC1_WKP_IRQ_EN_R {
-        SDXC1_WKP_IRQ_EN_R::new(((self.bits >> 30) & 1) != 0)
-    }
-    #[doc = "Bit 28 - card clock inverter enable"]
-    #[inline(always)]
-    pub fn sdxc1_cardclk_inv_en(&self) -> SDXC1_CARDCLK_INV_EN_R {
-        SDXC1_CARDCLK_INV_EN_R::new(((self.bits >> 28) & 1) != 0)
-    }
-    #[doc = "Bits 23:27 - No description avaiable"]
-    #[inline(always)]
-    pub fn sdxc1_gpr_tuning_card_clk_sel(&self) -> SDXC1_GPR_TUNING_CARD_CLK_SEL_R {
-        SDXC1_GPR_TUNING_CARD_CLK_SEL_R::new(((self.bits >> 23) & 0x1f) as u8)
+    pub fn sdxc1_gpr_strobe_in_enable(&self) -> SDXC1_GPR_STROBE_IN_ENABLE_R {
+        SDXC1_GPR_STROBE_IN_ENABLE_R::new(((self.bits >> 17) & 1) != 0)
     }
     #[doc = "Bits 18:22 - No description avaiable"]
     #[inline(always)]
     pub fn sdxc1_gpr_tuning_strobe_sel(&self) -> SDXC1_GPR_TUNING_STROBE_SEL_R {
         SDXC1_GPR_TUNING_STROBE_SEL_R::new(((self.bits >> 18) & 0x1f) as u8)
     }
-    #[doc = "Bit 17 - No description avaiable"]
+    #[doc = "Bits 23:27 - No description avaiable"]
     #[inline(always)]
-    pub fn sdxc1_gpr_strobe_in_enable(&self) -> SDXC1_GPR_STROBE_IN_ENABLE_R {
-        SDXC1_GPR_STROBE_IN_ENABLE_R::new(((self.bits >> 17) & 1) != 0)
-    }
-}
-impl W {
-    #[doc = "Bit 31 - system irq enable"]
-    #[inline(always)]
-    pub fn sdxc1_sys_irq_en(&mut self) -> SDXC1_SYS_IRQ_EN_W<31> {
-        SDXC1_SYS_IRQ_EN_W::new(self)
-    }
-    #[doc = "Bit 30 - wakeup irq enable"]
-    #[inline(always)]
-    pub fn sdxc1_wkp_irq_en(&mut self) -> SDXC1_WKP_IRQ_EN_W<30> {
-        SDXC1_WKP_IRQ_EN_W::new(self)
+    pub fn sdxc1_gpr_tuning_card_clk_sel(&self) -> SDXC1_GPR_TUNING_CARD_CLK_SEL_R {
+        SDXC1_GPR_TUNING_CARD_CLK_SEL_R::new(((self.bits >> 23) & 0x1f) as u8)
     }
     #[doc = "Bit 28 - card clock inverter enable"]
     #[inline(always)]
-    pub fn sdxc1_cardclk_inv_en(&mut self) -> SDXC1_CARDCLK_INV_EN_W<28> {
-        SDXC1_CARDCLK_INV_EN_W::new(self)
+    pub fn sdxc1_cardclk_inv_en(&self) -> SDXC1_CARDCLK_INV_EN_R {
+        SDXC1_CARDCLK_INV_EN_R::new(((self.bits >> 28) & 1) != 0)
     }
-    #[doc = "Bits 23:27 - No description avaiable"]
+    #[doc = "Bit 30 - wakeup irq enable"]
     #[inline(always)]
-    pub fn sdxc1_gpr_tuning_card_clk_sel(&mut self) -> SDXC1_GPR_TUNING_CARD_CLK_SEL_W<23> {
-        SDXC1_GPR_TUNING_CARD_CLK_SEL_W::new(self)
+    pub fn sdxc1_wkp_irq_en(&self) -> SDXC1_WKP_IRQ_EN_R {
+        SDXC1_WKP_IRQ_EN_R::new(((self.bits >> 30) & 1) != 0)
+    }
+    #[doc = "Bit 31 - system irq enable"]
+    #[inline(always)]
+    pub fn sdxc1_sys_irq_en(&self) -> SDXC1_SYS_IRQ_EN_R {
+        SDXC1_SYS_IRQ_EN_R::new(((self.bits >> 31) & 1) != 0)
+    }
+}
+impl W {
+    #[doc = "Bit 17 - No description avaiable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn sdxc1_gpr_strobe_in_enable(&mut self) -> SDXC1_GPR_STROBE_IN_ENABLE_W<17> {
+        SDXC1_GPR_STROBE_IN_ENABLE_W::new(self)
     }
     #[doc = "Bits 18:22 - No description avaiable"]
     #[inline(always)]
+    #[must_use]
     pub fn sdxc1_gpr_tuning_strobe_sel(&mut self) -> SDXC1_GPR_TUNING_STROBE_SEL_W<18> {
         SDXC1_GPR_TUNING_STROBE_SEL_W::new(self)
     }
-    #[doc = "Bit 17 - No description avaiable"]
+    #[doc = "Bits 23:27 - No description avaiable"]
     #[inline(always)]
-    pub fn sdxc1_gpr_strobe_in_enable(&mut self) -> SDXC1_GPR_STROBE_IN_ENABLE_W<17> {
-        SDXC1_GPR_STROBE_IN_ENABLE_W::new(self)
+    #[must_use]
+    pub fn sdxc1_gpr_tuning_card_clk_sel(&mut self) -> SDXC1_GPR_TUNING_CARD_CLK_SEL_W<23> {
+        SDXC1_GPR_TUNING_CARD_CLK_SEL_W::new(self)
+    }
+    #[doc = "Bit 28 - card clock inverter enable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn sdxc1_cardclk_inv_en(&mut self) -> SDXC1_CARDCLK_INV_EN_W<28> {
+        SDXC1_CARDCLK_INV_EN_W::new(self)
+    }
+    #[doc = "Bit 30 - wakeup irq enable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn sdxc1_wkp_irq_en(&mut self) -> SDXC1_WKP_IRQ_EN_W<30> {
+        SDXC1_WKP_IRQ_EN_W::new(self)
+    }
+    #[doc = "Bit 31 - system irq enable"]
+    #[inline(always)]
+    #[must_use]
+    pub fn sdxc1_sys_irq_en(&mut self) -> SDXC1_SYS_IRQ_EN_W<31> {
+        SDXC1_SYS_IRQ_EN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -143,11 +149,10 @@ impl crate::Readable for CTRL5_SPEC {
 #[doc = "`write(|w| ..)` method takes [ctrl5::W](W) writer structure"]
 impl crate::Writable for CTRL5_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CTRL5 to value 0"]
 impl crate::Resettable for CTRL5_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

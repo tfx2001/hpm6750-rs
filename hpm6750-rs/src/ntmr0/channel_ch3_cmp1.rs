@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - compare value 0"]
     #[inline(always)]
+    #[must_use]
     pub fn cmp(&mut self) -> CMP_W<0> {
         CMP_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for CHANNEL_CH3_CMP1_SPEC {
 #[doc = "`write(|w| ..)` method takes [channel_ch3_cmp1::W](W) writer structure"]
 impl crate::Writable for CHANNEL_CH3_CMP1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CHANNEL_CH3_CMP1 to value 0xffff_ffff"]
 impl crate::Resettable for CHANNEL_CH3_CMP1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0xffff_ffff
-    }
+    const RESET_VALUE: Self::Ux = 0xffff_ffff;
 }

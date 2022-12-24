@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - software symmetric key key will be scambled to 4 variants for software to use, and replicable on same chip. scramble keys are chip different, and not replicable on different chip must be write sequencely from 0 - 7, otherwise key value will be treated as all 0"]
     #[inline(always)]
+    #[must_use]
     pub fn key(&mut self) -> KEY_W<0> {
         KEY_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for SOFTMKEY_SFK0_SPEC {
 #[doc = "`write(|w| ..)` method takes [softmkey_sfk0::W](W) writer structure"]
 impl crate::Writable for SOFTMKEY_SFK0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SOFTMKEY_SFK0 to value 0"]
 impl crate::Resettable for SOFTMKEY_SFK0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

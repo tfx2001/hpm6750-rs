@@ -34,64 +34,68 @@ impl From<crate::W<CQISE_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `TCL_STE` reader - Task cleared interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCL is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCL is disabled"]
-pub type TCL_STE_R = crate::BitReader<bool>;
-#[doc = "Field `TCL_STE` writer - Task cleared interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCL is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCL is disabled"]
-pub type TCL_STE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISE_SPEC, bool, O>;
-#[doc = "Field `RED_STE` reader - Response error detected interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.RED is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.RED is disabled"]
-pub type RED_STE_R = crate::BitReader<bool>;
-#[doc = "Field `RED_STE` writer - Response error detected interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.RED is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.RED is disabled"]
-pub type RED_STE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISE_SPEC, bool, O>;
-#[doc = "Field `TCC_STE` reader - Task complete interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCC is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCC is disabled"]
-pub type TCC_STE_R = crate::BitReader<bool>;
-#[doc = "Field `TCC_STE` writer - Task complete interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCC is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCC is disabled"]
-pub type TCC_STE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISE_SPEC, bool, O>;
 #[doc = "Field `HAC_STE` reader - Halt complete interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.HAC is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.HAC is disabled"]
 pub type HAC_STE_R = crate::BitReader<bool>;
 #[doc = "Field `HAC_STE` writer - Halt complete interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.HAC is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.HAC is disabled"]
 pub type HAC_STE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISE_SPEC, bool, O>;
+#[doc = "Field `TCC_STE` reader - Task complete interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCC is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCC is disabled"]
+pub type TCC_STE_R = crate::BitReader<bool>;
+#[doc = "Field `TCC_STE` writer - Task complete interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCC is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCC is disabled"]
+pub type TCC_STE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISE_SPEC, bool, O>;
+#[doc = "Field `RED_STE` reader - Response error detected interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.RED is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.RED is disabled"]
+pub type RED_STE_R = crate::BitReader<bool>;
+#[doc = "Field `RED_STE` writer - Response error detected interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.RED is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.RED is disabled"]
+pub type RED_STE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISE_SPEC, bool, O>;
+#[doc = "Field `TCL_STE` reader - Task cleared interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCL is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCL is disabled"]
+pub type TCL_STE_R = crate::BitReader<bool>;
+#[doc = "Field `TCL_STE` writer - Task cleared interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCL is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCL is disabled"]
+pub type TCL_STE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CQISE_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 3 - Task cleared interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCL is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCL is disabled"]
+    #[doc = "Bit 0 - Halt complete interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.HAC is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.HAC is disabled"]
     #[inline(always)]
-    pub fn tcl_ste(&self) -> TCL_STE_R {
-        TCL_STE_R::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bit 2 - Response error detected interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.RED is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.RED is disabled"]
-    #[inline(always)]
-    pub fn red_ste(&self) -> RED_STE_R {
-        RED_STE_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn hac_ste(&self) -> HAC_STE_R {
+        HAC_STE_R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - Task complete interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCC is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCC is disabled"]
     #[inline(always)]
     pub fn tcc_ste(&self) -> TCC_STE_R {
         TCC_STE_R::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 0 - Halt complete interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.HAC is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.HAC is disabled"]
+    #[doc = "Bit 2 - Response error detected interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.RED is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.RED is disabled"]
     #[inline(always)]
-    pub fn hac_ste(&self) -> HAC_STE_R {
-        HAC_STE_R::new((self.bits & 1) != 0)
+    pub fn red_ste(&self) -> RED_STE_R {
+        RED_STE_R::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 3 - Task cleared interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCL is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCL is disabled"]
+    #[inline(always)]
+    pub fn tcl_ste(&self) -> TCL_STE_R {
+        TCL_STE_R::new(((self.bits >> 3) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 3 - Task cleared interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCL is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCL is disabled"]
+    #[doc = "Bit 0 - Halt complete interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.HAC is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.HAC is disabled"]
     #[inline(always)]
-    pub fn tcl_ste(&mut self) -> TCL_STE_W<3> {
-        TCL_STE_W::new(self)
-    }
-    #[doc = "Bit 2 - Response error detected interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.RED is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.RED is disabled"]
-    #[inline(always)]
-    pub fn red_ste(&mut self) -> RED_STE_W<2> {
-        RED_STE_W::new(self)
+    #[must_use]
+    pub fn hac_ste(&mut self) -> HAC_STE_W<0> {
+        HAC_STE_W::new(self)
     }
     #[doc = "Bit 1 - Task complete interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCC is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCC is disabled"]
     #[inline(always)]
+    #[must_use]
     pub fn tcc_ste(&mut self) -> TCC_STE_W<1> {
         TCC_STE_W::new(self)
     }
-    #[doc = "Bit 0 - Halt complete interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.HAC is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.HAC is disabled"]
+    #[doc = "Bit 2 - Response error detected interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.RED is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.RED is disabled"]
     #[inline(always)]
-    pub fn hac_ste(&mut self) -> HAC_STE_W<0> {
-        HAC_STE_W::new(self)
+    #[must_use]
+    pub fn red_ste(&mut self) -> RED_STE_W<2> {
+        RED_STE_W::new(self)
+    }
+    #[doc = "Bit 3 - Task cleared interrupt status enable Values: 0x1 (INT_STS_ENABLE): CQIS.TCL is set when its interrupt condition is active 0x0 (INT_STS_DISABLE): CQIS.TCL is disabled"]
+    #[inline(always)]
+    #[must_use]
+    pub fn tcl_ste(&mut self) -> TCL_STE_W<3> {
+        TCL_STE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -112,11 +116,10 @@ impl crate::Readable for CQISE_SPEC {
 #[doc = "`write(|w| ..)` method takes [cqise::W](W) writer structure"]
 impl crate::Writable for CQISE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CQISE to value 0"]
 impl crate::Resettable for CQISE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

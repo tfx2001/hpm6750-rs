@@ -43,12 +43,13 @@ impl R {
     #[doc = "Bits 0:19 - self clear trigger counter, reset triggered when counter value is 1, write 0 will cancel reset 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
     #[inline(always)]
     pub fn counter(&self) -> COUNTER_R {
-        COUNTER_R::new((self.bits & 0x000f_ffff) as u32)
+        COUNTER_R::new(self.bits & 0x000f_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:19 - self clear trigger counter, reset triggered when counter value is 1, write 0 will cancel reset 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
     #[inline(always)]
+    #[must_use]
     pub fn counter(&mut self) -> COUNTER_W<0> {
         COUNTER_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for RESET_CPU0_COUNTER_SPEC {
 #[doc = "`write(|w| ..)` method takes [reset_cpu0_counter::W](W) writer structure"]
 impl crate::Writable for RESET_CPU0_COUNTER_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RESET_CPU0_COUNTER to value 0x03"]
 impl crate::Resettable for RESET_CPU0_COUNTER_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x03
-    }
+    const RESET_VALUE: Self::Ux = 0x03;
 }

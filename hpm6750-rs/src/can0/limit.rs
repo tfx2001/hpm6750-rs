@@ -34,36 +34,38 @@ impl From<crate::W<LIMIT_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `AFWL` reader - receive buffer Almost Full Warning Limit AFWL defines the internal warning limit AFWL_i with being the number of availableRB slots. AFWL_i is compared to the number of filled RB slots and triggers RAFIF if equal. Thevalid range of . AFWL = 0 is meaningless and automatically treated as 0x1. (Note that AFWL is meant in this rule and not AFWL_i.) AFWL_i > nRB is meaningless and automatically treated as nRB. AFWL_i = nRB is a valid value, but note that RFIF also exists."]
-pub type AFWL_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `AFWL` writer - receive buffer Almost Full Warning Limit AFWL defines the internal warning limit AFWL_i with being the number of availableRB slots. AFWL_i is compared to the number of filled RB slots and triggers RAFIF if equal. Thevalid range of . AFWL = 0 is meaningless and automatically treated as 0x1. (Note that AFWL is meant in this rule and not AFWL_i.) AFWL_i > nRB is meaningless and automatically treated as nRB. AFWL_i = nRB is a valid value, but note that RFIF also exists."]
-pub type AFWL_W<'a, const O: u8> = crate::FieldWriter<'a, u8, LIMIT_SPEC, u8, u8, 4, O>;
 #[doc = "Field `EWL` reader - Programmable Error Warning Limit = (EWL+1)*8. Possible Limit values: 8, 16, … 128. The value of EWL controls EIF."]
 pub type EWL_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `EWL` writer - Programmable Error Warning Limit = (EWL+1)*8. Possible Limit values: 8, 16, … 128. The value of EWL controls EIF."]
 pub type EWL_W<'a, const O: u8> = crate::FieldWriter<'a, u8, LIMIT_SPEC, u8, u8, 4, O>;
+#[doc = "Field `AFWL` reader - receive buffer Almost Full Warning Limit AFWL defines the internal warning limit AFWL_i with being the number of availableRB slots. AFWL_i is compared to the number of filled RB slots and triggers RAFIF if equal. Thevalid range of . AFWL = 0 is meaningless and automatically treated as 0x1. (Note that AFWL is meant in this rule and not AFWL_i.) AFWL_i > nRB is meaningless and automatically treated as nRB. AFWL_i = nRB is a valid value, but note that RFIF also exists."]
+pub type AFWL_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `AFWL` writer - receive buffer Almost Full Warning Limit AFWL defines the internal warning limit AFWL_i with being the number of availableRB slots. AFWL_i is compared to the number of filled RB slots and triggers RAFIF if equal. Thevalid range of . AFWL = 0 is meaningless and automatically treated as 0x1. (Note that AFWL is meant in this rule and not AFWL_i.) AFWL_i > nRB is meaningless and automatically treated as nRB. AFWL_i = nRB is a valid value, but note that RFIF also exists."]
+pub type AFWL_W<'a, const O: u8> = crate::FieldWriter<'a, u8, LIMIT_SPEC, u8, u8, 4, O>;
 impl R {
-    #[doc = "Bits 4:7 - receive buffer Almost Full Warning Limit AFWL defines the internal warning limit AFWL_i with being the number of availableRB slots. AFWL_i is compared to the number of filled RB slots and triggers RAFIF if equal. Thevalid range of . AFWL = 0 is meaningless and automatically treated as 0x1. (Note that AFWL is meant in this rule and not AFWL_i.) AFWL_i > nRB is meaningless and automatically treated as nRB. AFWL_i = nRB is a valid value, but note that RFIF also exists."]
-    #[inline(always)]
-    pub fn afwl(&self) -> AFWL_R {
-        AFWL_R::new(((self.bits >> 4) & 0x0f) as u8)
-    }
     #[doc = "Bits 0:3 - Programmable Error Warning Limit = (EWL+1)*8. Possible Limit values: 8, 16, … 128. The value of EWL controls EIF."]
     #[inline(always)]
     pub fn ewl(&self) -> EWL_R {
-        EWL_R::new((self.bits & 0x0f) as u8)
+        EWL_R::new(self.bits & 0x0f)
+    }
+    #[doc = "Bits 4:7 - receive buffer Almost Full Warning Limit AFWL defines the internal warning limit AFWL_i with being the number of availableRB slots. AFWL_i is compared to the number of filled RB slots and triggers RAFIF if equal. Thevalid range of . AFWL = 0 is meaningless and automatically treated as 0x1. (Note that AFWL is meant in this rule and not AFWL_i.) AFWL_i > nRB is meaningless and automatically treated as nRB. AFWL_i = nRB is a valid value, but note that RFIF also exists."]
+    #[inline(always)]
+    pub fn afwl(&self) -> AFWL_R {
+        AFWL_R::new((self.bits >> 4) & 0x0f)
     }
 }
 impl W {
-    #[doc = "Bits 4:7 - receive buffer Almost Full Warning Limit AFWL defines the internal warning limit AFWL_i with being the number of availableRB slots. AFWL_i is compared to the number of filled RB slots and triggers RAFIF if equal. Thevalid range of . AFWL = 0 is meaningless and automatically treated as 0x1. (Note that AFWL is meant in this rule and not AFWL_i.) AFWL_i > nRB is meaningless and automatically treated as nRB. AFWL_i = nRB is a valid value, but note that RFIF also exists."]
-    #[inline(always)]
-    pub fn afwl(&mut self) -> AFWL_W<4> {
-        AFWL_W::new(self)
-    }
     #[doc = "Bits 0:3 - Programmable Error Warning Limit = (EWL+1)*8. Possible Limit values: 8, 16, … 128. The value of EWL controls EIF."]
     #[inline(always)]
+    #[must_use]
     pub fn ewl(&mut self) -> EWL_W<0> {
         EWL_W::new(self)
+    }
+    #[doc = "Bits 4:7 - receive buffer Almost Full Warning Limit AFWL defines the internal warning limit AFWL_i with being the number of availableRB slots. AFWL_i is compared to the number of filled RB slots and triggers RAFIF if equal. Thevalid range of . AFWL = 0 is meaningless and automatically treated as 0x1. (Note that AFWL is meant in this rule and not AFWL_i.) AFWL_i > nRB is meaningless and automatically treated as nRB. AFWL_i = nRB is a valid value, but note that RFIF also exists."]
+    #[inline(always)]
+    #[must_use]
+    pub fn afwl(&mut self) -> AFWL_W<4> {
+        AFWL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for LIMIT_SPEC {
 #[doc = "`write(|w| ..)` method takes [limit::W](W) writer structure"]
 impl crate::Writable for LIMIT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LIMIT to value 0x1b"]
 impl crate::Resettable for LIMIT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x1b
-    }
+    const RESET_VALUE: Self::Ux = 0x1b;
 }

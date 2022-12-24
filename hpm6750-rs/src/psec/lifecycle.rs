@@ -33,8 +33,5 @@ impl crate::Readable for LIFECYCLE_SPEC {
 }
 #[doc = "`reset()` method sets LIFECYCLE to value 0"]
 impl crate::Resettable for LIFECYCLE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

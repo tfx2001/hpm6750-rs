@@ -34,34 +34,35 @@ impl From<crate::W<DCDC_CURRENT_SPEC>> for W {
         W(writer)
     }
 }
+#[doc = "Field `LEVEL` reader - DCDC current level, current level is num * 50mA"]
+pub type LEVEL_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `VALID` reader - Current level valid 0: data is invalid 1: data is valid"]
+pub type VALID_R = crate::BitReader<bool>;
 #[doc = "Field `ESTI_EN` reader - enable current measure"]
 pub type ESTI_EN_R = crate::BitReader<bool>;
 #[doc = "Field `ESTI_EN` writer - enable current measure"]
 pub type ESTI_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, DCDC_CURRENT_SPEC, bool, O>;
-#[doc = "Field `VALID` reader - Current level valid 0: data is invalid 1: data is valid"]
-pub type VALID_R = crate::BitReader<bool>;
-#[doc = "Field `LEVEL` reader - DCDC current level, current level is num * 50mA"]
-pub type LEVEL_R = crate::FieldReader<u8, u8>;
 impl R {
-    #[doc = "Bit 15 - enable current measure"]
+    #[doc = "Bits 0:4 - DCDC current level, current level is num * 50mA"]
     #[inline(always)]
-    pub fn esti_en(&self) -> ESTI_EN_R {
-        ESTI_EN_R::new(((self.bits >> 15) & 1) != 0)
+    pub fn level(&self) -> LEVEL_R {
+        LEVEL_R::new((self.bits & 0x1f) as u8)
     }
     #[doc = "Bit 8 - Current level valid 0: data is invalid 1: data is valid"]
     #[inline(always)]
     pub fn valid(&self) -> VALID_R {
         VALID_R::new(((self.bits >> 8) & 1) != 0)
     }
-    #[doc = "Bits 0:4 - DCDC current level, current level is num * 50mA"]
+    #[doc = "Bit 15 - enable current measure"]
     #[inline(always)]
-    pub fn level(&self) -> LEVEL_R {
-        LEVEL_R::new((self.bits & 0x1f) as u8)
+    pub fn esti_en(&self) -> ESTI_EN_R {
+        ESTI_EN_R::new(((self.bits >> 15) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bit 15 - enable current measure"]
     #[inline(always)]
+    #[must_use]
     pub fn esti_en(&mut self) -> ESTI_EN_W<15> {
         ESTI_EN_W::new(self)
     }
@@ -84,11 +85,10 @@ impl crate::Readable for DCDC_CURRENT_SPEC {
 #[doc = "`write(|w| ..)` method takes [dcdc_current::W](W) writer structure"]
 impl crate::Writable for DCDC_CURRENT_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DCDC_CURRENT to value 0"]
 impl crate::Resettable for DCDC_CURRENT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

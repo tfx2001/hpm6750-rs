@@ -25,6 +25,7 @@ pub type LFSR_W<'a, const O: u8> =
 impl W {
     #[doc = "Bits 0:31 - LFSR for active tamper, write only register, always read 0"]
     #[inline(always)]
+    #[must_use]
     pub fn lfsr(&mut self) -> LFSR_W<0> {
         LFSR_W::new(self)
     }
@@ -43,11 +44,10 @@ impl crate::RegisterSpec for TAMP_TAMP4_LFSR_SPEC {
 #[doc = "`write(|w| ..)` method takes [tamp_tamp4_lfsr::W](W) writer structure"]
 impl crate::Writable for TAMP_TAMP4_LFSR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TAMP_TAMP4_LFSR to value 0"]
 impl crate::Resettable for TAMP_TAMP4_LFSR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

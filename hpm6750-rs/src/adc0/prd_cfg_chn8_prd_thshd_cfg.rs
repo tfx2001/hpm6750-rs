@@ -34,38 +34,40 @@ impl From<crate::W<PRD_CFG_CHN8_PRD_THSHD_CFG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `THSHDH` reader - threshold high, assert interrupt(if enabled) if result exceed high or low."]
-pub type THSHDH_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `THSHDH` writer - threshold high, assert interrupt(if enabled) if result exceed high or low."]
-pub type THSHDH_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, PRD_CFG_CHN8_PRD_THSHD_CFG_SPEC, u16, u16, 16, O>;
 #[doc = "Field `THSHDL` reader - threshold low"]
 pub type THSHDL_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `THSHDL` writer - threshold low"]
 pub type THSHDL_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, PRD_CFG_CHN8_PRD_THSHD_CFG_SPEC, u16, u16, 16, O>;
+#[doc = "Field `THSHDH` reader - threshold high, assert interrupt(if enabled) if result exceed high or low."]
+pub type THSHDH_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `THSHDH` writer - threshold high, assert interrupt(if enabled) if result exceed high or low."]
+pub type THSHDH_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, PRD_CFG_CHN8_PRD_THSHD_CFG_SPEC, u16, u16, 16, O>;
 impl R {
-    #[doc = "Bits 16:31 - threshold high, assert interrupt(if enabled) if result exceed high or low."]
-    #[inline(always)]
-    pub fn thshdh(&self) -> THSHDH_R {
-        THSHDH_R::new(((self.bits >> 16) & 0xffff) as u16)
-    }
     #[doc = "Bits 0:15 - threshold low"]
     #[inline(always)]
     pub fn thshdl(&self) -> THSHDL_R {
         THSHDL_R::new((self.bits & 0xffff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:31 - threshold high, assert interrupt(if enabled) if result exceed high or low."]
     #[inline(always)]
-    pub fn thshdh(&mut self) -> THSHDH_W<16> {
-        THSHDH_W::new(self)
+    pub fn thshdh(&self) -> THSHDH_R {
+        THSHDH_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:15 - threshold low"]
     #[inline(always)]
+    #[must_use]
     pub fn thshdl(&mut self) -> THSHDL_W<0> {
         THSHDL_W::new(self)
+    }
+    #[doc = "Bits 16:31 - threshold high, assert interrupt(if enabled) if result exceed high or low."]
+    #[inline(always)]
+    #[must_use]
+    pub fn thshdh(&mut self) -> THSHDH_W<16> {
+        THSHDH_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -86,11 +88,10 @@ impl crate::Readable for PRD_CFG_CHN8_PRD_THSHD_CFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [prd_cfg_chn8_prd_thshd_cfg::W](W) writer structure"]
 impl crate::Writable for PRD_CFG_CHN8_PRD_THSHD_CFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PRD_CFG_CHN8_PRD_THSHD_CFG to value 0"]
 impl crate::Resettable for PRD_CFG_CHN8_PRD_THSHD_CFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,36 +34,38 @@ impl From<crate::W<CH_CTRL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `CH_POL` reader - Asserted to select PDM_CLK high level captured, otherwise to select PDM_CLK low level captured."]
-pub type CH_POL_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `CH_POL` writer - Asserted to select PDM_CLK high level captured, otherwise to select PDM_CLK low level captured."]
-pub type CH_POL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CH_CTRL_SPEC, u8, u8, 8, O>;
 #[doc = "Field `CH_EN` reader - Asserted to enable the channel. Ch8 & 9 are refs. Ch0-7 are pdm mics."]
 pub type CH_EN_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `CH_EN` writer - Asserted to enable the channel. Ch8 & 9 are refs. Ch0-7 are pdm mics."]
 pub type CH_EN_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CH_CTRL_SPEC, u16, u16, 10, O>;
+#[doc = "Field `CH_POL` reader - Asserted to select PDM_CLK high level captured, otherwise to select PDM_CLK low level captured."]
+pub type CH_POL_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `CH_POL` writer - Asserted to select PDM_CLK high level captured, otherwise to select PDM_CLK low level captured."]
+pub type CH_POL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CH_CTRL_SPEC, u8, u8, 8, O>;
 impl R {
-    #[doc = "Bits 16:23 - Asserted to select PDM_CLK high level captured, otherwise to select PDM_CLK low level captured."]
-    #[inline(always)]
-    pub fn ch_pol(&self) -> CH_POL_R {
-        CH_POL_R::new(((self.bits >> 16) & 0xff) as u8)
-    }
     #[doc = "Bits 0:9 - Asserted to enable the channel. Ch8 & 9 are refs. Ch0-7 are pdm mics."]
     #[inline(always)]
     pub fn ch_en(&self) -> CH_EN_R {
         CH_EN_R::new((self.bits & 0x03ff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:23 - Asserted to select PDM_CLK high level captured, otherwise to select PDM_CLK low level captured."]
     #[inline(always)]
-    pub fn ch_pol(&mut self) -> CH_POL_W<16> {
-        CH_POL_W::new(self)
+    pub fn ch_pol(&self) -> CH_POL_R {
+        CH_POL_R::new(((self.bits >> 16) & 0xff) as u8)
     }
+}
+impl W {
     #[doc = "Bits 0:9 - Asserted to enable the channel. Ch8 & 9 are refs. Ch0-7 are pdm mics."]
     #[inline(always)]
+    #[must_use]
     pub fn ch_en(&mut self) -> CH_EN_W<0> {
         CH_EN_W::new(self)
+    }
+    #[doc = "Bits 16:23 - Asserted to select PDM_CLK high level captured, otherwise to select PDM_CLK low level captured."]
+    #[inline(always)]
+    #[must_use]
+    pub fn ch_pol(&mut self) -> CH_POL_W<16> {
+        CH_POL_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for CH_CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [ch_ctrl::W](W) writer structure"]
 impl crate::Writable for CH_CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CH_CTRL to value 0"]
 impl crate::Resettable for CH_CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

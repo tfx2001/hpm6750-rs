@@ -34,34 +34,35 @@ impl From<crate::W<RESOURCE_WDG0_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `GLB_BUSY` reader - global busy 0: no changes pending to any nodes 1: any of nodes is changing status"]
-pub type GLB_BUSY_R = crate::BitReader<bool>;
-#[doc = "Field `LOC_BUSY` reader - local busy 0: no change is pending for current node 1: current node is changing status"]
-pub type LOC_BUSY_R = crate::BitReader<bool>;
 #[doc = "Field `MODE` reader - resource work mode 0:auto turn on and off as system required(recommended) 1:always on 2:always off 3:reserved"]
 pub type MODE_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `MODE` writer - resource work mode 0:auto turn on and off as system required(recommended) 1:always on 2:always off 3:reserved"]
 pub type MODE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RESOURCE_WDG0_SPEC, u8, u8, 2, O>;
+#[doc = "Field `LOC_BUSY` reader - local busy 0: no change is pending for current node 1: current node is changing status"]
+pub type LOC_BUSY_R = crate::BitReader<bool>;
+#[doc = "Field `GLB_BUSY` reader - global busy 0: no changes pending to any nodes 1: any of nodes is changing status"]
+pub type GLB_BUSY_R = crate::BitReader<bool>;
 impl R {
-    #[doc = "Bit 31 - global busy 0: no changes pending to any nodes 1: any of nodes is changing status"]
+    #[doc = "Bits 0:1 - resource work mode 0:auto turn on and off as system required(recommended) 1:always on 2:always off 3:reserved"]
     #[inline(always)]
-    pub fn glb_busy(&self) -> GLB_BUSY_R {
-        GLB_BUSY_R::new(((self.bits >> 31) & 1) != 0)
+    pub fn mode(&self) -> MODE_R {
+        MODE_R::new((self.bits & 3) as u8)
     }
     #[doc = "Bit 30 - local busy 0: no change is pending for current node 1: current node is changing status"]
     #[inline(always)]
     pub fn loc_busy(&self) -> LOC_BUSY_R {
         LOC_BUSY_R::new(((self.bits >> 30) & 1) != 0)
     }
-    #[doc = "Bits 0:1 - resource work mode 0:auto turn on and off as system required(recommended) 1:always on 2:always off 3:reserved"]
+    #[doc = "Bit 31 - global busy 0: no changes pending to any nodes 1: any of nodes is changing status"]
     #[inline(always)]
-    pub fn mode(&self) -> MODE_R {
-        MODE_R::new((self.bits & 3) as u8)
+    pub fn glb_busy(&self) -> GLB_BUSY_R {
+        GLB_BUSY_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
     #[doc = "Bits 0:1 - resource work mode 0:auto turn on and off as system required(recommended) 1:always on 2:always off 3:reserved"]
     #[inline(always)]
+    #[must_use]
     pub fn mode(&mut self) -> MODE_W<0> {
         MODE_W::new(self)
     }
@@ -84,11 +85,10 @@ impl crate::Readable for RESOURCE_WDG0_SPEC {
 #[doc = "`write(|w| ..)` method takes [resource_wdg0::W](W) writer structure"]
 impl crate::Writable for RESOURCE_WDG0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RESOURCE_WDG0 to value 0"]
 impl crate::Resettable for RESOURCE_WDG0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

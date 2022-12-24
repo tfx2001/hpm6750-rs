@@ -33,8 +33,5 @@ impl crate::Readable for PRD_CFG_CHN16_PRD_RESULT_SPEC {
 }
 #[doc = "`reset()` method sets PRD_CFG_CHN16_PRD_RESULT to value 0"]
 impl crate::Resettable for PRD_CFG_CHN16_PRD_RESULT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

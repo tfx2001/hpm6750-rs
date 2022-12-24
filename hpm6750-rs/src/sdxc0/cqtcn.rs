@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Task Completion Notification Each of the 32 bits are bit mapped to the 32 tasks. Bit-N(1): Task-N has completed execution (with success or errors) Bit-N(0): Task-N has not completed, could be pending or not submitted. On task completion, software may read this register to know tasks that have completed. After reading this register, software may clear the relevant bit fields by writing 1 to the corresponding bits."]
     #[inline(always)]
+    #[must_use]
     pub fn tcn(&mut self) -> TCN_W<0> {
         TCN_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for CQTCN_SPEC {
 #[doc = "`write(|w| ..)` method takes [cqtcn::W](W) writer structure"]
 impl crate::Writable for CQTCN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CQTCN to value 0"]
 impl crate::Resettable for CQTCN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

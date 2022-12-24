@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Receive Poll Demand When these bits are written with any value, the DMA reads the current descriptor to which the Register 19 (Current Host Receive Descriptor Register) is pointing. If that descriptor is not available (owned by the Host), the reception returns to the Suspended state and Bit 7 (RU) of Register 5 (Status Register) is asserted. If the descriptor is available, the Rx DMA returns to the active state."]
     #[inline(always)]
+    #[must_use]
     pub fn rpd(&mut self) -> RPD_W<0> {
         RPD_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for DMA_RX_POLL_DEMAND_SPEC {
 #[doc = "`write(|w| ..)` method takes [dma_rx_poll_demand::W](W) writer structure"]
 impl crate::Writable for DMA_RX_POLL_DEMAND_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DMA_RX_POLL_DEMAND to value 0"]
 impl crate::Resettable for DMA_RX_POLL_DEMAND_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

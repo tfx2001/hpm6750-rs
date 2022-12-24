@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - enable of reset sources 0: brownout 1: temperature(not available) 2: resetpin(not available) 4: debug reset 5: jtag reset 8: cpu0 lockup(not available) 9: cpu1 lockup(not available) 10: cpu0 request(not available) 11: cpu1 request(not available) 16: watch dog 0 17: watch dog 1 18: watch dog 2 19: watch dog 3 20: pmic watch dog 31: software"]
     #[inline(always)]
+    #[must_use]
     pub fn enable(&mut self) -> ENABLE_W<0> {
         ENABLE_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for RESET_ENABLE_SPEC {
 #[doc = "`write(|w| ..)` method takes [reset_enable::W](W) writer structure"]
 impl crate::Writable for RESET_ENABLE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RESET_ENABLE to value 0"]
 impl crate::Resettable for RESET_ENABLE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

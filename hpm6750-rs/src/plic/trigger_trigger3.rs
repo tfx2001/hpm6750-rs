@@ -33,8 +33,5 @@ impl crate::Readable for TRIGGER_TRIGGER3_SPEC {
 }
 #[doc = "`reset()` method sets TRIGGER_TRIGGER3 to value 0"]
 impl crate::Resettable for TRIGGER_TRIGGER3_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

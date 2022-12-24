@@ -33,8 +33,5 @@ impl crate::Readable for OUTDMACNT_SPEC {
 }
 #[doc = "`reset()` method sets OUTDMACNT to value 0"]
 impl crate::Resettable for OUTDMACNT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

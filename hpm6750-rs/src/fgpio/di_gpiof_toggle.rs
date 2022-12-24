@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - GPIO input bus value, each bit represents a bus bit 0: low level presents on chip pin 1: high level presents on chip pin"]
     #[inline(always)]
+    #[must_use]
     pub fn input(&mut self) -> INPUT_W<0> {
         INPUT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for DI_GPIOF_TOGGLE_SPEC {
 #[doc = "`write(|w| ..)` method takes [di_gpiof_toggle::W](W) writer structure"]
 impl crate::Writable for DI_GPIOF_TOGGLE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DI_GPIOF_TOGGLE to value 0"]
 impl crate::Resettable for DI_GPIOF_TOGGLE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

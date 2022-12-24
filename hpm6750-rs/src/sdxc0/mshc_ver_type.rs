@@ -33,8 +33,5 @@ impl crate::Readable for MSHC_VER_TYPE_SPEC {
 }
 #[doc = "`reset()` method sets MSHC_VER_TYPE to value 0"]
 impl crate::Resettable for MSHC_VER_TYPE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

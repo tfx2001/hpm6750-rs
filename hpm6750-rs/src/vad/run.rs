@@ -34,36 +34,38 @@ impl From<crate::W<RUN_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `SFTRST` reader - software reset. Self-clear"]
-pub type SFTRST_R = crate::BitReader<bool>;
-#[doc = "Field `SFTRST` writer - software reset. Self-clear"]
-pub type SFTRST_W<'a, const O: u8> = crate::BitWriter<'a, u32, RUN_SPEC, bool, O>;
 #[doc = "Field `VAD_EN` reader - module enable"]
 pub type VAD_EN_R = crate::BitReader<bool>;
 #[doc = "Field `VAD_EN` writer - module enable"]
 pub type VAD_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, RUN_SPEC, bool, O>;
+#[doc = "Field `SFTRST` reader - software reset. Self-clear"]
+pub type SFTRST_R = crate::BitReader<bool>;
+#[doc = "Field `SFTRST` writer - software reset. Self-clear"]
+pub type SFTRST_W<'a, const O: u8> = crate::BitWriter<'a, u32, RUN_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 1 - software reset. Self-clear"]
-    #[inline(always)]
-    pub fn sftrst(&self) -> SFTRST_R {
-        SFTRST_R::new(((self.bits >> 1) & 1) != 0)
-    }
     #[doc = "Bit 0 - module enable"]
     #[inline(always)]
     pub fn vad_en(&self) -> VAD_EN_R {
         VAD_EN_R::new((self.bits & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bit 1 - software reset. Self-clear"]
     #[inline(always)]
-    pub fn sftrst(&mut self) -> SFTRST_W<1> {
-        SFTRST_W::new(self)
+    pub fn sftrst(&self) -> SFTRST_R {
+        SFTRST_R::new(((self.bits >> 1) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bit 0 - module enable"]
     #[inline(always)]
+    #[must_use]
     pub fn vad_en(&mut self) -> VAD_EN_W<0> {
         VAD_EN_W::new(self)
+    }
+    #[doc = "Bit 1 - software reset. Self-clear"]
+    #[inline(always)]
+    #[must_use]
+    pub fn sftrst(&mut self) -> SFTRST_W<1> {
+        SFTRST_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for RUN_SPEC {
 #[doc = "`write(|w| ..)` method takes [run::W](W) writer structure"]
 impl crate::Writable for RUN_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RUN to value 0"]
 impl crate::Resettable for RUN_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

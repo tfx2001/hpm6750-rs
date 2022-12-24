@@ -34,12 +34,12 @@ impl From<crate::W<IPCMD_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `KEY` writer - This field should be written with 0x5AA5 when trigging an IP command for all device types. The memory device is selected by BRx settings and IPCR0 registers."]
-pub type KEY_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IPCMD_SPEC, u16, u16, 16, O>;
 #[doc = "Field `CMD` reader - SDRAM Commands: • 0x8: READ • 0x9: WRITE • 0xA: MODESET • 0xB: ACTIVE • 0xC: AUTO REFRESH • 0xD: SELF REFRESH • 0xE: PRECHARGE • 0xF: PRECHARGE ALL • Others: RSVD NOTE: SELF REFRESH is sent to all SDRAM devices because they shared same CLK pin."]
 pub type CMD_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `CMD` writer - SDRAM Commands: • 0x8: READ • 0x9: WRITE • 0xA: MODESET • 0xB: ACTIVE • 0xC: AUTO REFRESH • 0xD: SELF REFRESH • 0xE: PRECHARGE • 0xF: PRECHARGE ALL • Others: RSVD NOTE: SELF REFRESH is sent to all SDRAM devices because they shared same CLK pin."]
 pub type CMD_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IPCMD_SPEC, u16, u16, 16, O>;
+#[doc = "Field `KEY` writer - This field should be written with 0x5AA5 when trigging an IP command for all device types. The memory device is selected by BRx settings and IPCR0 registers."]
+pub type KEY_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IPCMD_SPEC, u16, u16, 16, O>;
 impl R {
     #[doc = "Bits 0:15 - SDRAM Commands: • 0x8: READ • 0x9: WRITE • 0xA: MODESET • 0xB: ACTIVE • 0xC: AUTO REFRESH • 0xD: SELF REFRESH • 0xE: PRECHARGE • 0xF: PRECHARGE ALL • Others: RSVD NOTE: SELF REFRESH is sent to all SDRAM devices because they shared same CLK pin."]
     #[inline(always)]
@@ -48,15 +48,17 @@ impl R {
     }
 }
 impl W {
-    #[doc = "Bits 16:31 - This field should be written with 0x5AA5 when trigging an IP command for all device types. The memory device is selected by BRx settings and IPCR0 registers."]
-    #[inline(always)]
-    pub fn key(&mut self) -> KEY_W<16> {
-        KEY_W::new(self)
-    }
     #[doc = "Bits 0:15 - SDRAM Commands: • 0x8: READ • 0x9: WRITE • 0xA: MODESET • 0xB: ACTIVE • 0xC: AUTO REFRESH • 0xD: SELF REFRESH • 0xE: PRECHARGE • 0xF: PRECHARGE ALL • Others: RSVD NOTE: SELF REFRESH is sent to all SDRAM devices because they shared same CLK pin."]
     #[inline(always)]
+    #[must_use]
     pub fn cmd(&mut self) -> CMD_W<0> {
         CMD_W::new(self)
+    }
+    #[doc = "Bits 16:31 - This field should be written with 0x5AA5 when trigging an IP command for all device types. The memory device is selected by BRx settings and IPCR0 registers."]
+    #[inline(always)]
+    #[must_use]
+    pub fn key(&mut self) -> KEY_W<16> {
+        KEY_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -77,11 +79,10 @@ impl crate::Readable for IPCMD_SPEC {
 #[doc = "`write(|w| ..)` method takes [ipcmd::W](W) writer structure"]
 impl crate::Writable for IPCMD_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets IPCMD to value 0"]
 impl crate::Resettable for IPCMD_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

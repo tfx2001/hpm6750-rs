@@ -34,53 +34,56 @@ impl From<crate::W<LAYER_6_LINECFG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `MPT_SIZE` reader - Maximal Per Transfer Data Size: 0: 64 bytes 1: 128 bytes 2: 256 bytes 3: 512 bytes 4: 1024 bytes"]
-pub type MPT_SIZE_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `MPT_SIZE` writer - Maximal Per Transfer Data Size: 0: 64 bytes 1: 128 bytes 2: 256 bytes 3: 512 bytes 4: 1024 bytes"]
-pub type MPT_SIZE_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, LAYER_6_LINECFG_SPEC, u8, u8, 3, O>;
-#[doc = "Field `MAX_OT` reader - the number of outstanding axi read transactions. If zero, it means max 8."]
-pub type MAX_OT_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `MAX_OT` writer - the number of outstanding axi read transactions. If zero, it means max 8."]
-pub type MAX_OT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, LAYER_6_LINECFG_SPEC, u8, u8, 3, O>;
 #[doc = "Field `PITCH` reader - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry."]
 pub type PITCH_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `PITCH` writer - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry."]
 pub type PITCH_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, LAYER_6_LINECFG_SPEC, u16, u16, 16, O>;
+#[doc = "Field `MAX_OT` reader - the number of outstanding axi read transactions. If zero, it means max 8."]
+pub type MAX_OT_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `MAX_OT` writer - the number of outstanding axi read transactions. If zero, it means max 8."]
+pub type MAX_OT_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, LAYER_6_LINECFG_SPEC, u8, u8, 3, O>;
+#[doc = "Field `MPT_SIZE` reader - Maximal Per Transfer Data Size: 0: 64 bytes 1: 128 bytes 2: 256 bytes 3: 512 bytes 4: 1024 bytes"]
+pub type MPT_SIZE_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `MPT_SIZE` writer - Maximal Per Transfer Data Size: 0: 64 bytes 1: 128 bytes 2: 256 bytes 3: 512 bytes 4: 1024 bytes"]
+pub type MPT_SIZE_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, LAYER_6_LINECFG_SPEC, u8, u8, 3, O>;
 impl R {
-    #[doc = "Bits 29:31 - Maximal Per Transfer Data Size: 0: 64 bytes 1: 128 bytes 2: 256 bytes 3: 512 bytes 4: 1024 bytes"]
+    #[doc = "Bits 0:15 - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry."]
     #[inline(always)]
-    pub fn mpt_size(&self) -> MPT_SIZE_R {
-        MPT_SIZE_R::new(((self.bits >> 29) & 7) as u8)
+    pub fn pitch(&self) -> PITCH_R {
+        PITCH_R::new((self.bits & 0xffff) as u16)
     }
     #[doc = "Bits 21:23 - the number of outstanding axi read transactions. If zero, it means max 8."]
     #[inline(always)]
     pub fn max_ot(&self) -> MAX_OT_R {
         MAX_OT_R::new(((self.bits >> 21) & 7) as u8)
     }
-    #[doc = "Bits 0:15 - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry."]
+    #[doc = "Bits 29:31 - Maximal Per Transfer Data Size: 0: 64 bytes 1: 128 bytes 2: 256 bytes 3: 512 bytes 4: 1024 bytes"]
     #[inline(always)]
-    pub fn pitch(&self) -> PITCH_R {
-        PITCH_R::new((self.bits & 0xffff) as u16)
+    pub fn mpt_size(&self) -> MPT_SIZE_R {
+        MPT_SIZE_R::new(((self.bits >> 29) & 7) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 29:31 - Maximal Per Transfer Data Size: 0: 64 bytes 1: 128 bytes 2: 256 bytes 3: 512 bytes 4: 1024 bytes"]
+    #[doc = "Bits 0:15 - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry."]
     #[inline(always)]
-    pub fn mpt_size(&mut self) -> MPT_SIZE_W<29> {
-        MPT_SIZE_W::new(self)
+    #[must_use]
+    pub fn pitch(&mut self) -> PITCH_W<0> {
+        PITCH_W::new(self)
     }
     #[doc = "Bits 21:23 - the number of outstanding axi read transactions. If zero, it means max 8."]
     #[inline(always)]
+    #[must_use]
     pub fn max_ot(&mut self) -> MAX_OT_W<21> {
         MAX_OT_W::new(self)
     }
-    #[doc = "Bits 0:15 - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry."]
+    #[doc = "Bits 29:31 - Maximal Per Transfer Data Size: 0: 64 bytes 1: 128 bytes 2: 256 bytes 3: 512 bytes 4: 1024 bytes"]
     #[inline(always)]
-    pub fn pitch(&mut self) -> PITCH_W<0> {
-        PITCH_W::new(self)
+    #[must_use]
+    pub fn mpt_size(&mut self) -> MPT_SIZE_W<29> {
+        MPT_SIZE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -101,11 +104,10 @@ impl crate::Readable for LAYER_6_LINECFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [layer_6_linecfg::W](W) writer structure"]
 impl crate::Writable for LAYER_6_LINECFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LAYER_6_LINECFG to value 0"]
 impl crate::Resettable for LAYER_6_LINECFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

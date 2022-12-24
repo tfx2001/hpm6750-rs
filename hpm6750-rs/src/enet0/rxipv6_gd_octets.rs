@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Number of bytes received in good IPv6 datagrams encapsulating TCP, UDP or ICMPv6 data"]
     #[inline(always)]
+    #[must_use]
     pub fn bytecnt(&mut self) -> BYTECNT_W<0> {
         BYTECNT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for RXIPV6_GD_OCTETS_SPEC {
 #[doc = "`write(|w| ..)` method takes [rxipv6_gd_octets::W](W) writer structure"]
 impl crate::Writable for RXIPV6_GD_OCTETS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RXIPV6_GD_OCTETS to value 0"]
 impl crate::Resettable for RXIPV6_GD_OCTETS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

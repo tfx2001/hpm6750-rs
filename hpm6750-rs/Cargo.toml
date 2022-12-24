@@ -5,13 +5,10 @@ name = "hpm6750-rs"
 version = "0.1.0"
 
 [dependencies]
-bare-metal = "1"
-riscv = "0.8.0"
+critical-section = { version = "1.1", optional = true }
+riscv = { version = "0.10" }
+riscv-rt = { git = "https://github.com/tfx2001/riscv-rt", branch = "master",  optional = true }
 vcell = "0.1.0"
 
-[dependencies.riscv-rt]
-optional = true
-version = "0.9.0"
-
 [features]
-rt = ["riscv-rt"]
+rt = ["riscv-rt", "riscv/critical-section-single-hart"]

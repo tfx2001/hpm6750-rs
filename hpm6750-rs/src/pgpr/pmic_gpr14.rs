@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Generic control"]
     #[inline(always)]
+    #[must_use]
     pub fn gpr(&mut self) -> GPR_W<0> {
         GPR_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for PMIC_GPR14_SPEC {
 #[doc = "`write(|w| ..)` method takes [pmic_gpr14::W](W) writer structure"]
 impl crate::Writable for PMIC_GPR14_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PMIC_GPR14 to value 0"]
 impl crate::Resettable for PMIC_GPR14_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

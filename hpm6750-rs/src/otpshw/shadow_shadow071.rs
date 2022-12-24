@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - shadow register of fuse for pmic area for PMIC, index valid for 0-15, for SOC index valid for 16-128"]
     #[inline(always)]
+    #[must_use]
     pub fn shadow(&mut self) -> SHADOW_W<0> {
         SHADOW_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for SHADOW_SHADOW071_SPEC {
 #[doc = "`write(|w| ..)` method takes [shadow_shadow071::W](W) writer structure"]
 impl crate::Writable for SHADOW_SHADOW071_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SHADOW_SHADOW071 to value 0"]
 impl crate::Resettable for SHADOW_SHADOW071_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - GPIO interrupt type, each bit represents a bus bit 0: irq is triggered by level 1: irq is triggered by edge"]
     #[inline(always)]
+    #[must_use]
     pub fn irq_type(&mut self) -> IRQ_TYPE_W<0> {
         IRQ_TYPE_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for TP_GPIOZ_CLEAR_SPEC {
 #[doc = "`write(|w| ..)` method takes [tp_gpioz_clear::W](W) writer structure"]
 impl crate::Writable for TP_GPIOZ_CLEAR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TP_GPIOZ_CLEAR to value 0"]
 impl crate::Resettable for TP_GPIOZ_CLEAR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

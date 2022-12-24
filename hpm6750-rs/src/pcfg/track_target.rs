@@ -34,38 +34,40 @@ impl From<crate::W<TRACK_TARGET_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `PRE_DIV` reader - Divider for reference source"]
-pub type PRE_DIV_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `PRE_DIV` writer - Divider for reference source"]
-pub type PRE_DIV_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, TRACK_TARGET_SPEC, u16, u16, 16, O>;
 #[doc = "Field `TARGET` reader - Target frequency multiplier of divided source"]
 pub type TARGET_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `TARGET` writer - Target frequency multiplier of divided source"]
 pub type TARGET_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, TRACK_TARGET_SPEC, u16, u16, 16, O>;
+#[doc = "Field `PRE_DIV` reader - Divider for reference source"]
+pub type PRE_DIV_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `PRE_DIV` writer - Divider for reference source"]
+pub type PRE_DIV_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, TRACK_TARGET_SPEC, u16, u16, 16, O>;
 impl R {
-    #[doc = "Bits 16:31 - Divider for reference source"]
-    #[inline(always)]
-    pub fn pre_div(&self) -> PRE_DIV_R {
-        PRE_DIV_R::new(((self.bits >> 16) & 0xffff) as u16)
-    }
     #[doc = "Bits 0:15 - Target frequency multiplier of divided source"]
     #[inline(always)]
     pub fn target(&self) -> TARGET_R {
         TARGET_R::new((self.bits & 0xffff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:31 - Divider for reference source"]
     #[inline(always)]
-    pub fn pre_div(&mut self) -> PRE_DIV_W<16> {
-        PRE_DIV_W::new(self)
+    pub fn pre_div(&self) -> PRE_DIV_R {
+        PRE_DIV_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:15 - Target frequency multiplier of divided source"]
     #[inline(always)]
+    #[must_use]
     pub fn target(&mut self) -> TARGET_W<0> {
         TARGET_W::new(self)
+    }
+    #[doc = "Bits 16:31 - Divider for reference source"]
+    #[inline(always)]
+    #[must_use]
+    pub fn pre_div(&mut self) -> PRE_DIV_W<16> {
+        PRE_DIV_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -86,11 +88,10 @@ impl crate::Readable for TRACK_TARGET_SPEC {
 #[doc = "`write(|w| ..)` method takes [track_target::W](W) writer structure"]
 impl crate::Writable for TRACK_TARGET_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TRACK_TARGET to value 0"]
 impl crate::Resettable for TRACK_TARGET_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

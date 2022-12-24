@@ -34,36 +34,38 @@ impl From<crate::W<FILTCTRL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `DECRATIO` reader - the decimation ratio of iir after CIC -1 2: means dec-by-3"]
-pub type DECRATIO_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `DECRATIO` writer - the decimation ratio of iir after CIC -1 2: means dec-by-3"]
-pub type DECRATIO_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FILTCTRL_SPEC, u8, u8, 3, O>;
 #[doc = "Field `IIR_SLOT_EN` reader - IIR slot enable"]
 pub type IIR_SLOT_EN_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `IIR_SLOT_EN` writer - IIR slot enable"]
 pub type IIR_SLOT_EN_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FILTCTRL_SPEC, u8, u8, 8, O>;
+#[doc = "Field `DECRATIO` reader - the decimation ratio of iir after CIC -1 2: means dec-by-3"]
+pub type DECRATIO_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `DECRATIO` writer - the decimation ratio of iir after CIC -1 2: means dec-by-3"]
+pub type DECRATIO_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FILTCTRL_SPEC, u8, u8, 3, O>;
 impl R {
-    #[doc = "Bits 8:10 - the decimation ratio of iir after CIC -1 2: means dec-by-3"]
-    #[inline(always)]
-    pub fn decratio(&self) -> DECRATIO_R {
-        DECRATIO_R::new(((self.bits >> 8) & 7) as u8)
-    }
     #[doc = "Bits 0:7 - IIR slot enable"]
     #[inline(always)]
     pub fn iir_slot_en(&self) -> IIR_SLOT_EN_R {
         IIR_SLOT_EN_R::new((self.bits & 0xff) as u8)
     }
-}
-impl W {
     #[doc = "Bits 8:10 - the decimation ratio of iir after CIC -1 2: means dec-by-3"]
     #[inline(always)]
-    pub fn decratio(&mut self) -> DECRATIO_W<8> {
-        DECRATIO_W::new(self)
+    pub fn decratio(&self) -> DECRATIO_R {
+        DECRATIO_R::new(((self.bits >> 8) & 7) as u8)
     }
+}
+impl W {
     #[doc = "Bits 0:7 - IIR slot enable"]
     #[inline(always)]
+    #[must_use]
     pub fn iir_slot_en(&mut self) -> IIR_SLOT_EN_W<0> {
         IIR_SLOT_EN_W::new(self)
+    }
+    #[doc = "Bits 8:10 - the decimation ratio of iir after CIC -1 2: means dec-by-3"]
+    #[inline(always)]
+    #[must_use]
+    pub fn decratio(&mut self) -> DECRATIO_W<8> {
+        DECRATIO_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for FILTCTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [filtctrl::W](W) writer structure"]
 impl crate::Writable for FILTCTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets FILTCTRL to value 0"]
 impl crate::Resettable for FILTCTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

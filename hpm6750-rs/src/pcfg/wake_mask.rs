@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - mask for wake up sources, each bit represents one wakeup source 0: allow source to wake up system 1: disallow source to wakeup system bit 0: pmic_enable bit 1: debug wakeup bit 4: fuse interrupt bit 7: UART interrupt bit 8: TMR interrupt bit 9: WDG interrupt bit10: GPIO in PMIC interrupt bit11: Security monitor interrupt bit12: Security in PMIC event bit16: Security violation in BATT bit17: GPIO in BATT interrupt bit18: BATT Button interrupt bit19: RTC alarm interrupt"]
     #[inline(always)]
+    #[must_use]
     pub fn mask(&mut self) -> MASK_W<0> {
         MASK_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for WAKE_MASK_SPEC {
 #[doc = "`write(|w| ..)` method takes [wake_mask::W](W) writer structure"]
 impl crate::Writable for WAKE_MASK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets WAKE_MASK to value 0"]
 impl crate::Resettable for WAKE_MASK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - The interrupt pending status of inpterrupt sources. Every interrupt source occupies 1 bit."]
     #[inline(always)]
+    #[must_use]
     pub fn interrupt(&mut self) -> INTERRUPT_W<0> {
         INTERRUPT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for PENDING_PENDING2_SPEC {
 #[doc = "`write(|w| ..)` method takes [pending_pending2::W](W) writer structure"]
 impl crate::Writable for PENDING_PENDING2_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PENDING_PENDING2 to value 0"]
 impl crate::Resettable for PENDING_PENDING2_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

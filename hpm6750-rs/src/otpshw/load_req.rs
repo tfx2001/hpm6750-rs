@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:3 - reload request for 4 regions bit0: region0 bit1: region1 bit2: region2 bit3: region3"]
     #[inline(always)]
+    #[must_use]
     pub fn request(&mut self) -> REQUEST_W<0> {
         REQUEST_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for LOAD_REQ_SPEC {
 #[doc = "`write(|w| ..)` method takes [load_req::W](W) writer structure"]
 impl crate::Writable for LOAD_REQ_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LOAD_REQ to value 0x07"]
 impl crate::Resettable for LOAD_REQ_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x07
-    }
+    const RESET_VALUE: Self::Ux = 0x07;
 }

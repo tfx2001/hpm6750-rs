@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:63 - Machine time"]
     #[inline(always)]
+    #[must_use]
     pub fn mtime(&mut self) -> MTIME_W<0> {
         MTIME_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for MTIME_SPEC {
 #[doc = "`write(|w| ..)` method takes [mtime::W](W) writer structure"]
 impl crate::Writable for MTIME_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MTIME to value 0x0002_0210"]
 impl crate::Resettable for MTIME_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x0002_0210
-    }
+    const RESET_VALUE: Self::Ux = 0x0002_0210;
 }

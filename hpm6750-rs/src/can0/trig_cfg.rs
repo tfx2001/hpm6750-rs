@@ -34,50 +34,53 @@ impl From<crate::W<TRIG_CFG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `TEW` reader - Transmit Enable Window For a single shot transmit trigger there is a time of up to 16 ticks of the cycle time where the frame is allowed to start. TWE+1 defines the number of ticks. TEW=0 is a valid setting and shortens the transmit enable window to 1 tick"]
-pub type TEW_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `TEW` writer - Transmit Enable Window For a single shot transmit trigger there is a time of up to 16 ticks of the cycle time where the frame is allowed to start. TWE+1 defines the number of ticks. TEW=0 is a valid setting and shortens the transmit enable window to 1 tick"]
-pub type TEW_W<'a, const O: u8> = crate::FieldWriter<'a, u16, TRIG_CFG_SPEC, u8, u8, 4, O>;
-#[doc = "Field `TTYPE` reader - Trigger Type 000b - Immediate Trigger for immediate transmission 001b - Time Trigger for receive triggers 010b - Single Shot Transmit Trigger for exclusive time windows 011b - Transmit Start Trigger for merged arbitrating time windows 100b - Transmit Stop Trigger for merged arbitrating time windows others - no action The time of the trigger is defined by TT_TRIG. TTPTR selects the TB slot for the transmit triggers. See Chapter 6.4 for more details."]
-pub type TTYPE_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `TTYPE` writer - Trigger Type 000b - Immediate Trigger for immediate transmission 001b - Time Trigger for receive triggers 010b - Single Shot Transmit Trigger for exclusive time windows 011b - Transmit Start Trigger for merged arbitrating time windows 100b - Transmit Stop Trigger for merged arbitrating time windows others - no action The time of the trigger is defined by TT_TRIG. TTPTR selects the TB slot for the transmit triggers. See Chapter 6.4 for more details."]
-pub type TTYPE_W<'a, const O: u8> = crate::FieldWriter<'a, u16, TRIG_CFG_SPEC, u8, u8, 3, O>;
 #[doc = "Field `TTPTR` reader - Transmit Trigger TB slot Pointer If TTPTR is too big and points to a slot that is not available, then TEIF is set and no new trigger can be activated after a write access to TT_TRIG_1. If TTPTR points to an empty slot, then TEIF will be set at the moment, when the trigger time is reached."]
 pub type TTPTR_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `TTPTR` writer - Transmit Trigger TB slot Pointer If TTPTR is too big and points to a slot that is not available, then TEIF is set and no new trigger can be activated after a write access to TT_TRIG_1. If TTPTR points to an empty slot, then TEIF will be set at the moment, when the trigger time is reached."]
 pub type TTPTR_W<'a, const O: u8> = crate::FieldWriter<'a, u16, TRIG_CFG_SPEC, u8, u8, 6, O>;
+#[doc = "Field `TTYPE` reader - Trigger Type 000b - Immediate Trigger for immediate transmission 001b - Time Trigger for receive triggers 010b - Single Shot Transmit Trigger for exclusive time windows 011b - Transmit Start Trigger for merged arbitrating time windows 100b - Transmit Stop Trigger for merged arbitrating time windows others - no action The time of the trigger is defined by TT_TRIG. TTPTR selects the TB slot for the transmit triggers. See Chapter 6.4 for more details."]
+pub type TTYPE_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `TTYPE` writer - Trigger Type 000b - Immediate Trigger for immediate transmission 001b - Time Trigger for receive triggers 010b - Single Shot Transmit Trigger for exclusive time windows 011b - Transmit Start Trigger for merged arbitrating time windows 100b - Transmit Stop Trigger for merged arbitrating time windows others - no action The time of the trigger is defined by TT_TRIG. TTPTR selects the TB slot for the transmit triggers. See Chapter 6.4 for more details."]
+pub type TTYPE_W<'a, const O: u8> = crate::FieldWriter<'a, u16, TRIG_CFG_SPEC, u8, u8, 3, O>;
+#[doc = "Field `TEW` reader - Transmit Enable Window For a single shot transmit trigger there is a time of up to 16 ticks of the cycle time where the frame is allowed to start. TWE+1 defines the number of ticks. TEW=0 is a valid setting and shortens the transmit enable window to 1 tick"]
+pub type TEW_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `TEW` writer - Transmit Enable Window For a single shot transmit trigger there is a time of up to 16 ticks of the cycle time where the frame is allowed to start. TWE+1 defines the number of ticks. TEW=0 is a valid setting and shortens the transmit enable window to 1 tick"]
+pub type TEW_W<'a, const O: u8> = crate::FieldWriter<'a, u16, TRIG_CFG_SPEC, u8, u8, 4, O>;
 impl R {
-    #[doc = "Bits 12:15 - Transmit Enable Window For a single shot transmit trigger there is a time of up to 16 ticks of the cycle time where the frame is allowed to start. TWE+1 defines the number of ticks. TEW=0 is a valid setting and shortens the transmit enable window to 1 tick"]
+    #[doc = "Bits 0:5 - Transmit Trigger TB slot Pointer If TTPTR is too big and points to a slot that is not available, then TEIF is set and no new trigger can be activated after a write access to TT_TRIG_1. If TTPTR points to an empty slot, then TEIF will be set at the moment, when the trigger time is reached."]
     #[inline(always)]
-    pub fn tew(&self) -> TEW_R {
-        TEW_R::new(((self.bits >> 12) & 0x0f) as u8)
+    pub fn ttptr(&self) -> TTPTR_R {
+        TTPTR_R::new((self.bits & 0x3f) as u8)
     }
     #[doc = "Bits 8:10 - Trigger Type 000b - Immediate Trigger for immediate transmission 001b - Time Trigger for receive triggers 010b - Single Shot Transmit Trigger for exclusive time windows 011b - Transmit Start Trigger for merged arbitrating time windows 100b - Transmit Stop Trigger for merged arbitrating time windows others - no action The time of the trigger is defined by TT_TRIG. TTPTR selects the TB slot for the transmit triggers. See Chapter 6.4 for more details."]
     #[inline(always)]
     pub fn ttype(&self) -> TTYPE_R {
         TTYPE_R::new(((self.bits >> 8) & 7) as u8)
     }
-    #[doc = "Bits 0:5 - Transmit Trigger TB slot Pointer If TTPTR is too big and points to a slot that is not available, then TEIF is set and no new trigger can be activated after a write access to TT_TRIG_1. If TTPTR points to an empty slot, then TEIF will be set at the moment, when the trigger time is reached."]
+    #[doc = "Bits 12:15 - Transmit Enable Window For a single shot transmit trigger there is a time of up to 16 ticks of the cycle time where the frame is allowed to start. TWE+1 defines the number of ticks. TEW=0 is a valid setting and shortens the transmit enable window to 1 tick"]
     #[inline(always)]
-    pub fn ttptr(&self) -> TTPTR_R {
-        TTPTR_R::new((self.bits & 0x3f) as u8)
+    pub fn tew(&self) -> TEW_R {
+        TEW_R::new(((self.bits >> 12) & 0x0f) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 12:15 - Transmit Enable Window For a single shot transmit trigger there is a time of up to 16 ticks of the cycle time where the frame is allowed to start. TWE+1 defines the number of ticks. TEW=0 is a valid setting and shortens the transmit enable window to 1 tick"]
+    #[doc = "Bits 0:5 - Transmit Trigger TB slot Pointer If TTPTR is too big and points to a slot that is not available, then TEIF is set and no new trigger can be activated after a write access to TT_TRIG_1. If TTPTR points to an empty slot, then TEIF will be set at the moment, when the trigger time is reached."]
     #[inline(always)]
-    pub fn tew(&mut self) -> TEW_W<12> {
-        TEW_W::new(self)
+    #[must_use]
+    pub fn ttptr(&mut self) -> TTPTR_W<0> {
+        TTPTR_W::new(self)
     }
     #[doc = "Bits 8:10 - Trigger Type 000b - Immediate Trigger for immediate transmission 001b - Time Trigger for receive triggers 010b - Single Shot Transmit Trigger for exclusive time windows 011b - Transmit Start Trigger for merged arbitrating time windows 100b - Transmit Stop Trigger for merged arbitrating time windows others - no action The time of the trigger is defined by TT_TRIG. TTPTR selects the TB slot for the transmit triggers. See Chapter 6.4 for more details."]
     #[inline(always)]
+    #[must_use]
     pub fn ttype(&mut self) -> TTYPE_W<8> {
         TTYPE_W::new(self)
     }
-    #[doc = "Bits 0:5 - Transmit Trigger TB slot Pointer If TTPTR is too big and points to a slot that is not available, then TEIF is set and no new trigger can be activated after a write access to TT_TRIG_1. If TTPTR points to an empty slot, then TEIF will be set at the moment, when the trigger time is reached."]
+    #[doc = "Bits 12:15 - Transmit Enable Window For a single shot transmit trigger there is a time of up to 16 ticks of the cycle time where the frame is allowed to start. TWE+1 defines the number of ticks. TEW=0 is a valid setting and shortens the transmit enable window to 1 tick"]
     #[inline(always)]
-    pub fn ttptr(&mut self) -> TTPTR_W<0> {
-        TTPTR_W::new(self)
+    #[must_use]
+    pub fn tew(&mut self) -> TEW_W<12> {
+        TEW_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -98,11 +101,10 @@ impl crate::Readable for TRIG_CFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [trig_cfg::W](W) writer structure"]
 impl crate::Writable for TRIG_CFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TRIG_CFG to value 0"]
 impl crate::Resettable for TRIG_CFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

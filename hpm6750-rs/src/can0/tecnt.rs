@@ -33,8 +33,5 @@ impl crate::Readable for TECNT_SPEC {
 }
 #[doc = "`reset()` method sets TECNT to value 0"]
 impl crate::Resettable for TECNT_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

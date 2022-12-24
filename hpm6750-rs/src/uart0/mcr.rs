@@ -34,50 +34,53 @@ impl From<crate::W<MCR_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `AFE` reader - Auto flow control enable 0: Disable 1: The auto-CTS and auto-RTS setting is based on the RTS bit setting: When RTS = 0, auto-CTS only When RTS = 1, auto-CTS and auto-RTS"]
-pub type AFE_R = crate::BitReader<bool>;
-#[doc = "Field `AFE` writer - Auto flow control enable 0: Disable 1: The auto-CTS and auto-RTS setting is based on the RTS bit setting: When RTS = 0, auto-CTS only When RTS = 1, auto-CTS and auto-RTS"]
-pub type AFE_W<'a, const O: u8> = crate::BitWriter<'a, u32, MCR_SPEC, bool, O>;
-#[doc = "Field `LOOP` reader - Enable loopback mode 0: Disable 1: Enable"]
-pub type LOOP_R = crate::BitReader<bool>;
-#[doc = "Field `LOOP` writer - Enable loopback mode 0: Disable 1: Enable"]
-pub type LOOP_W<'a, const O: u8> = crate::BitWriter<'a, u32, MCR_SPEC, bool, O>;
 #[doc = "Field `RTS` reader - Request to send This bit controls the modem_rtsn output. 0: The modem_rtsn output signal will be driven HIGH 1: The modem_rtsn output signal will be driven LOW"]
 pub type RTS_R = crate::BitReader<bool>;
 #[doc = "Field `RTS` writer - Request to send This bit controls the modem_rtsn output. 0: The modem_rtsn output signal will be driven HIGH 1: The modem_rtsn output signal will be driven LOW"]
 pub type RTS_W<'a, const O: u8> = crate::BitWriter<'a, u32, MCR_SPEC, bool, O>;
+#[doc = "Field `LOOP` reader - Enable loopback mode 0: Disable 1: Enable"]
+pub type LOOP_R = crate::BitReader<bool>;
+#[doc = "Field `LOOP` writer - Enable loopback mode 0: Disable 1: Enable"]
+pub type LOOP_W<'a, const O: u8> = crate::BitWriter<'a, u32, MCR_SPEC, bool, O>;
+#[doc = "Field `AFE` reader - Auto flow control enable 0: Disable 1: The auto-CTS and auto-RTS setting is based on the RTS bit setting: When RTS = 0, auto-CTS only When RTS = 1, auto-CTS and auto-RTS"]
+pub type AFE_R = crate::BitReader<bool>;
+#[doc = "Field `AFE` writer - Auto flow control enable 0: Disable 1: The auto-CTS and auto-RTS setting is based on the RTS bit setting: When RTS = 0, auto-CTS only When RTS = 1, auto-CTS and auto-RTS"]
+pub type AFE_W<'a, const O: u8> = crate::BitWriter<'a, u32, MCR_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 5 - Auto flow control enable 0: Disable 1: The auto-CTS and auto-RTS setting is based on the RTS bit setting: When RTS = 0, auto-CTS only When RTS = 1, auto-CTS and auto-RTS"]
+    #[doc = "Bit 1 - Request to send This bit controls the modem_rtsn output. 0: The modem_rtsn output signal will be driven HIGH 1: The modem_rtsn output signal will be driven LOW"]
     #[inline(always)]
-    pub fn afe(&self) -> AFE_R {
-        AFE_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn rts(&self) -> RTS_R {
+        RTS_R::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 4 - Enable loopback mode 0: Disable 1: Enable"]
     #[inline(always)]
     pub fn loop_(&self) -> LOOP_R {
         LOOP_R::new(((self.bits >> 4) & 1) != 0)
     }
-    #[doc = "Bit 1 - Request to send This bit controls the modem_rtsn output. 0: The modem_rtsn output signal will be driven HIGH 1: The modem_rtsn output signal will be driven LOW"]
+    #[doc = "Bit 5 - Auto flow control enable 0: Disable 1: The auto-CTS and auto-RTS setting is based on the RTS bit setting: When RTS = 0, auto-CTS only When RTS = 1, auto-CTS and auto-RTS"]
     #[inline(always)]
-    pub fn rts(&self) -> RTS_R {
-        RTS_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn afe(&self) -> AFE_R {
+        AFE_R::new(((self.bits >> 5) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 5 - Auto flow control enable 0: Disable 1: The auto-CTS and auto-RTS setting is based on the RTS bit setting: When RTS = 0, auto-CTS only When RTS = 1, auto-CTS and auto-RTS"]
+    #[doc = "Bit 1 - Request to send This bit controls the modem_rtsn output. 0: The modem_rtsn output signal will be driven HIGH 1: The modem_rtsn output signal will be driven LOW"]
     #[inline(always)]
-    pub fn afe(&mut self) -> AFE_W<5> {
-        AFE_W::new(self)
+    #[must_use]
+    pub fn rts(&mut self) -> RTS_W<1> {
+        RTS_W::new(self)
     }
     #[doc = "Bit 4 - Enable loopback mode 0: Disable 1: Enable"]
     #[inline(always)]
+    #[must_use]
     pub fn loop_(&mut self) -> LOOP_W<4> {
         LOOP_W::new(self)
     }
-    #[doc = "Bit 1 - Request to send This bit controls the modem_rtsn output. 0: The modem_rtsn output signal will be driven HIGH 1: The modem_rtsn output signal will be driven LOW"]
+    #[doc = "Bit 5 - Auto flow control enable 0: Disable 1: The auto-CTS and auto-RTS setting is based on the RTS bit setting: When RTS = 0, auto-CTS only When RTS = 1, auto-CTS and auto-RTS"]
     #[inline(always)]
-    pub fn rts(&mut self) -> RTS_W<1> {
-        RTS_W::new(self)
+    #[must_use]
+    pub fn afe(&mut self) -> AFE_W<5> {
+        AFE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -98,11 +101,10 @@ impl crate::Readable for MCR_SPEC {
 #[doc = "`write(|w| ..)` method takes [mcr::W](W) writer structure"]
 impl crate::Writable for MCR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MCR to value 0"]
 impl crate::Resettable for MCR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

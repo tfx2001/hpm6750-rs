@@ -19,7 +19,7 @@ impl R {
     #[doc = "Bits 0:11 - Offset Address of Embedded Control register."]
     #[inline(always)]
     pub fn reg_offset_addr(&self) -> REG_OFFSET_ADDR_R {
-        REG_OFFSET_ADDR_R::new((self.bits & 0x0fff) as u16)
+        REG_OFFSET_ADDR_R::new(self.bits & 0x0fff)
     }
 }
 #[doc = "No description avaiable\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [p_embedded_cntrl](index.html) module"]
@@ -33,8 +33,5 @@ impl crate::Readable for P_EMBEDDED_CNTRL_SPEC {
 }
 #[doc = "`reset()` method sets P_EMBEDDED_CNTRL to value 0"]
 impl crate::Resettable for P_EMBEDDED_CNTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

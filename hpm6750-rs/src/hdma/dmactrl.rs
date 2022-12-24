@@ -24,6 +24,7 @@ pub type RESET_W<'a, const O: u8> = crate::BitWriter<'a, u32, DMACTRL_SPEC, bool
 impl W {
     #[doc = "Bit 0 - Software reset control. Write 1 to this bit to reset the DMA core and disable all channels. Note: The software reset may cause the in-completion of AXI transaction."]
     #[inline(always)]
+    #[must_use]
     pub fn reset(&mut self) -> RESET_W<0> {
         RESET_W::new(self)
     }
@@ -42,11 +43,10 @@ impl crate::RegisterSpec for DMACTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [dmactrl::W](W) writer structure"]
 impl crate::Writable for DMACTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DMACTRL to value 0"]
 impl crate::Resettable for DMACTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

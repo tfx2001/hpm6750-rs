@@ -24,6 +24,7 @@ pub type TXREG_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TXREG_SPEC, u32,
 impl W {
     #[doc = "Bits 0:31 - Transmit word message to other core."]
     #[inline(always)]
+    #[must_use]
     pub fn txreg(&mut self) -> TXREG_W<0> {
         TXREG_W::new(self)
     }
@@ -42,11 +43,10 @@ impl crate::RegisterSpec for TXREG_SPEC {
 #[doc = "`write(|w| ..)` method takes [txreg::W](W) writer structure"]
 impl crate::Writable for TXREG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TXREG to value 0"]
 impl crate::Resettable for TXREG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

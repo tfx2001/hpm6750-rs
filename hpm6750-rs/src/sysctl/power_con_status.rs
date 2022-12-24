@@ -34,50 +34,52 @@ impl From<crate::W<POWER_CON_STATUS_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `FLAG` reader - flag represents power cycle happened from last clear of this bit 0: power domain did not edurance power cycle since last clear of this bit 1: power domain enduranced power cycle since last clear of this bit"]
-pub type FLAG_R = crate::BitReader<bool>;
-#[doc = "Field `FLAG` writer - flag represents power cycle happened from last clear of this bit 0: power domain did not edurance power cycle since last clear of this bit 1: power domain enduranced power cycle since last clear of this bit"]
-pub type FLAG_W<'a, const O: u8> = crate::BitWriter<'a, u32, POWER_CON_STATUS_SPEC, bool, O>;
+#[doc = "Field `LF_ACK` reader - low fanout power switch feedback 0: low fanout power switches are turned on 1: low fanout power switches are truned off"]
+pub type LF_ACK_R = crate::BitReader<bool>;
+#[doc = "Field `LF_DISABLE` reader - low fanout power switch disable 0: low fanout power switches are turned on 1: low fanout power switches are truned off"]
+pub type LF_DISABLE_R = crate::BitReader<bool>;
 #[doc = "Field `FLAG_WAKE` reader - flag represents wakeup power cycle happened from last clear of this bit 0: power domain did not edurance wakeup power cycle since last clear of this bit 1: power domain enduranced wakeup power cycle since last clear of this bit"]
 pub type FLAG_WAKE_R = crate::BitReader<bool>;
 #[doc = "Field `FLAG_WAKE` writer - flag represents wakeup power cycle happened from last clear of this bit 0: power domain did not edurance wakeup power cycle since last clear of this bit 1: power domain enduranced wakeup power cycle since last clear of this bit"]
 pub type FLAG_WAKE_W<'a, const O: u8> = crate::BitWriter<'a, u32, POWER_CON_STATUS_SPEC, bool, O>;
-#[doc = "Field `LF_DISABLE` reader - low fanout power switch disable 0: low fanout power switches are turned on 1: low fanout power switches are truned off"]
-pub type LF_DISABLE_R = crate::BitReader<bool>;
-#[doc = "Field `LF_ACK` reader - low fanout power switch feedback 0: low fanout power switches are turned on 1: low fanout power switches are truned off"]
-pub type LF_ACK_R = crate::BitReader<bool>;
+#[doc = "Field `FLAG` reader - flag represents power cycle happened from last clear of this bit 0: power domain did not edurance power cycle since last clear of this bit 1: power domain enduranced power cycle since last clear of this bit"]
+pub type FLAG_R = crate::BitReader<bool>;
+#[doc = "Field `FLAG` writer - flag represents power cycle happened from last clear of this bit 0: power domain did not edurance power cycle since last clear of this bit 1: power domain enduranced power cycle since last clear of this bit"]
+pub type FLAG_W<'a, const O: u8> = crate::BitWriter<'a, u32, POWER_CON_STATUS_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 31 - flag represents power cycle happened from last clear of this bit 0: power domain did not edurance power cycle since last clear of this bit 1: power domain enduranced power cycle since last clear of this bit"]
+    #[doc = "Bit 8 - low fanout power switch feedback 0: low fanout power switches are turned on 1: low fanout power switches are truned off"]
     #[inline(always)]
-    pub fn flag(&self) -> FLAG_R {
-        FLAG_R::new(((self.bits >> 31) & 1) != 0)
-    }
-    #[doc = "Bit 30 - flag represents wakeup power cycle happened from last clear of this bit 0: power domain did not edurance wakeup power cycle since last clear of this bit 1: power domain enduranced wakeup power cycle since last clear of this bit"]
-    #[inline(always)]
-    pub fn flag_wake(&self) -> FLAG_WAKE_R {
-        FLAG_WAKE_R::new(((self.bits >> 30) & 1) != 0)
+    pub fn lf_ack(&self) -> LF_ACK_R {
+        LF_ACK_R::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 12 - low fanout power switch disable 0: low fanout power switches are turned on 1: low fanout power switches are truned off"]
     #[inline(always)]
     pub fn lf_disable(&self) -> LF_DISABLE_R {
         LF_DISABLE_R::new(((self.bits >> 12) & 1) != 0)
     }
-    #[doc = "Bit 8 - low fanout power switch feedback 0: low fanout power switches are turned on 1: low fanout power switches are truned off"]
+    #[doc = "Bit 30 - flag represents wakeup power cycle happened from last clear of this bit 0: power domain did not edurance wakeup power cycle since last clear of this bit 1: power domain enduranced wakeup power cycle since last clear of this bit"]
     #[inline(always)]
-    pub fn lf_ack(&self) -> LF_ACK_R {
-        LF_ACK_R::new(((self.bits >> 8) & 1) != 0)
+    pub fn flag_wake(&self) -> FLAG_WAKE_R {
+        FLAG_WAKE_R::new(((self.bits >> 30) & 1) != 0)
+    }
+    #[doc = "Bit 31 - flag represents power cycle happened from last clear of this bit 0: power domain did not edurance power cycle since last clear of this bit 1: power domain enduranced power cycle since last clear of this bit"]
+    #[inline(always)]
+    pub fn flag(&self) -> FLAG_R {
+        FLAG_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 31 - flag represents power cycle happened from last clear of this bit 0: power domain did not edurance power cycle since last clear of this bit 1: power domain enduranced power cycle since last clear of this bit"]
-    #[inline(always)]
-    pub fn flag(&mut self) -> FLAG_W<31> {
-        FLAG_W::new(self)
-    }
     #[doc = "Bit 30 - flag represents wakeup power cycle happened from last clear of this bit 0: power domain did not edurance wakeup power cycle since last clear of this bit 1: power domain enduranced wakeup power cycle since last clear of this bit"]
     #[inline(always)]
+    #[must_use]
     pub fn flag_wake(&mut self) -> FLAG_WAKE_W<30> {
         FLAG_WAKE_W::new(self)
+    }
+    #[doc = "Bit 31 - flag represents power cycle happened from last clear of this bit 0: power domain did not edurance power cycle since last clear of this bit 1: power domain enduranced power cycle since last clear of this bit"]
+    #[inline(always)]
+    #[must_use]
+    pub fn flag(&mut self) -> FLAG_W<31> {
+        FLAG_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -98,11 +100,10 @@ impl crate::Readable for POWER_CON_STATUS_SPEC {
 #[doc = "`write(|w| ..)` method takes [power_con_status::W](W) writer structure"]
 impl crate::Writable for POWER_CON_STATUS_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets POWER_CON_STATUS to value 0x8000_0000"]
 impl crate::Resettable for POWER_CON_STATUS_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x8000_0000
-    }
+    const RESET_VALUE: Self::Ux = 0x8000_0000;
 }

@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - Trigger Time TT_TRIG(15:0) defines the cycle time for a trigger. For a transmission trigger theearliest point of transmission of the SOF of the appropriate frame will be TT_TRIG+1."]
     #[inline(always)]
+    #[must_use]
     pub fn tt_trig(&mut self) -> TT_TRIG_W<0> {
         TT_TRIG_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for TT_TRIG_SPEC {
 #[doc = "`write(|w| ..)` method takes [tt_trig::W](W) writer structure"]
 impl crate::Writable for TT_TRIG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TT_TRIG to value 0"]
 impl crate::Resettable for TT_TRIG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

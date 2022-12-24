@@ -34,36 +34,38 @@ impl From<crate::W<MONOH_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `EPOCH` reader - Fuse value for high part of monotonica"]
-pub type EPOCH_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `EPOCH` writer - Fuse value for high part of monotonica"]
-pub type EPOCH_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MONOH_SPEC, u16, u16, 16, O>;
 #[doc = "Field `COUNTER` reader - high part of monotonica counter, write to this counter will cause counter increase by 1 if low part overflow"]
 pub type COUNTER_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `COUNTER` writer - high part of monotonica counter, write to this counter will cause counter increase by 1 if low part overflow"]
 pub type COUNTER_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MONOH_SPEC, u16, u16, 16, O>;
+#[doc = "Field `EPOCH` reader - Fuse value for high part of monotonica"]
+pub type EPOCH_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `EPOCH` writer - Fuse value for high part of monotonica"]
+pub type EPOCH_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MONOH_SPEC, u16, u16, 16, O>;
 impl R {
-    #[doc = "Bits 16:31 - Fuse value for high part of monotonica"]
-    #[inline(always)]
-    pub fn epoch(&self) -> EPOCH_R {
-        EPOCH_R::new(((self.bits >> 16) & 0xffff) as u16)
-    }
     #[doc = "Bits 0:15 - high part of monotonica counter, write to this counter will cause counter increase by 1 if low part overflow"]
     #[inline(always)]
     pub fn counter(&self) -> COUNTER_R {
         COUNTER_R::new((self.bits & 0xffff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:31 - Fuse value for high part of monotonica"]
     #[inline(always)]
-    pub fn epoch(&mut self) -> EPOCH_W<16> {
-        EPOCH_W::new(self)
+    pub fn epoch(&self) -> EPOCH_R {
+        EPOCH_R::new(((self.bits >> 16) & 0xffff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:15 - high part of monotonica counter, write to this counter will cause counter increase by 1 if low part overflow"]
     #[inline(always)]
+    #[must_use]
     pub fn counter(&mut self) -> COUNTER_W<0> {
         COUNTER_W::new(self)
+    }
+    #[doc = "Bits 16:31 - Fuse value for high part of monotonica"]
+    #[inline(always)]
+    #[must_use]
+    pub fn epoch(&mut self) -> EPOCH_W<16> {
+        EPOCH_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for MONOH_SPEC {
 #[doc = "`write(|w| ..)` method takes [monoh::W](W) writer structure"]
 impl crate::Writable for MONOH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MONOH to value 0"]
 impl crate::Resettable for MONOH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

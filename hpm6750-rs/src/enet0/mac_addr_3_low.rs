@@ -53,6 +53,7 @@ impl W {
     #[doc = "Bits 0:31 - MAC Address1 \\[31:0\\]
 This field contains the lower 32 bits of the second 6-byte MAC address. The content of this field is undefined until loaded by the Application after the initialization process."]
     #[inline(always)]
+    #[must_use]
     pub fn addrlo(&mut self) -> ADDRLO_W<0> {
         ADDRLO_W::new(self)
     }
@@ -75,11 +76,10 @@ impl crate::Readable for MAC_ADDR_3_LOW_SPEC {
 #[doc = "`write(|w| ..)` method takes [mac_addr_3_low::W](W) writer structure"]
 impl crate::Writable for MAC_ADDR_3_LOW_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MAC_ADDR_3_LOW to value 0"]
 impl crate::Resettable for MAC_ADDR_3_LOW_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

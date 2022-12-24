@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bit 31 - write 1 to lock all shawdow register, wirte access is not permitted"]
     #[inline(always)]
+    #[must_use]
     pub fn shlk(&mut self) -> SHLK_W<31> {
         SHLK_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for SHLK_SPEC {
 #[doc = "`write(|w| ..)` method takes [shlk::W](W) writer structure"]
 impl crate::Writable for SHLK_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SHLK to value 0"]
 impl crate::Resettable for SHLK_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

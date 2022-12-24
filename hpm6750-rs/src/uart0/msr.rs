@@ -34,27 +34,28 @@ impl From<crate::W<MSR_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `CTS` reader - Clear to send 0: The modem_ctsn input signal is HIGH. 1: The modem_ctsn input signal is LOW."]
-pub type CTS_R = crate::BitReader<bool>;
 #[doc = "Field `DCTS` reader - Delta clear to send This bit is set when the state of the modem_ctsn input signal has been changed since the last time this register is read."]
 pub type DCTS_R = crate::BitReader<bool>;
 #[doc = "Field `DCTS` writer - Delta clear to send This bit is set when the state of the modem_ctsn input signal has been changed since the last time this register is read."]
 pub type DCTS_W<'a, const O: u8> = crate::BitWriter<'a, u32, MSR_SPEC, bool, O>;
+#[doc = "Field `CTS` reader - Clear to send 0: The modem_ctsn input signal is HIGH. 1: The modem_ctsn input signal is LOW."]
+pub type CTS_R = crate::BitReader<bool>;
 impl R {
-    #[doc = "Bit 4 - Clear to send 0: The modem_ctsn input signal is HIGH. 1: The modem_ctsn input signal is LOW."]
-    #[inline(always)]
-    pub fn cts(&self) -> CTS_R {
-        CTS_R::new(((self.bits >> 4) & 1) != 0)
-    }
     #[doc = "Bit 0 - Delta clear to send This bit is set when the state of the modem_ctsn input signal has been changed since the last time this register is read."]
     #[inline(always)]
     pub fn dcts(&self) -> DCTS_R {
         DCTS_R::new((self.bits & 1) != 0)
     }
+    #[doc = "Bit 4 - Clear to send 0: The modem_ctsn input signal is HIGH. 1: The modem_ctsn input signal is LOW."]
+    #[inline(always)]
+    pub fn cts(&self) -> CTS_R {
+        CTS_R::new(((self.bits >> 4) & 1) != 0)
+    }
 }
 impl W {
     #[doc = "Bit 0 - Delta clear to send This bit is set when the state of the modem_ctsn input signal has been changed since the last time this register is read."]
     #[inline(always)]
+    #[must_use]
     pub fn dcts(&mut self) -> DCTS_W<0> {
         DCTS_W::new(self)
     }
@@ -77,11 +78,10 @@ impl crate::Readable for MSR_SPEC {
 #[doc = "`write(|w| ..)` method takes [msr::W](W) writer structure"]
 impl crate::Writable for MSR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets MSR to value 0"]
 impl crate::Resettable for MSR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

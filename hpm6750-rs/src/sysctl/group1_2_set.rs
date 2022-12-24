@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - denpendency on peripherals, index count from resource ahbp(0x400),each bit represents a peripheral 0: peripheral is not needed 1: periphera is needed"]
     #[inline(always)]
+    #[must_use]
     pub fn link(&mut self) -> LINK_W<0> {
         LINK_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for GROUP1_2_SET_SPEC {
 #[doc = "`write(|w| ..)` method takes [group1_2_set::W](W) writer structure"]
 impl crate::Writable for GROUP1_2_SET_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets GROUP1_2_SET to value 0"]
 impl crate::Resettable for GROUP1_2_SET_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

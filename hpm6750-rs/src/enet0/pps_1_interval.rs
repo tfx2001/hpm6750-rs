@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - PPS1 Output Signal Interval These bits store the interval between the rising edges of PPS1 signal output in terms of units of sub-second increment value. You need to program one value less than the required interval. For example, if the PTP reference clock is 50 MHz (period of 20ns), and desired interval between rising edges of PPS1 signal output is 100ns (that is, five units of sub-second increment value), then you should program value 4 (5 – 1) in this register."]
     #[inline(always)]
+    #[must_use]
     pub fn ppsint(&mut self) -> PPSINT_W<0> {
         PPSINT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for PPS_1_INTERVAL_SPEC {
 #[doc = "`write(|w| ..)` method takes [pps_1_interval::W](W) writer structure"]
 impl crate::Writable for PPS_1_INTERVAL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PPS_1_INTERVAL to value 0"]
 impl crate::Resettable for PPS_1_INTERVAL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

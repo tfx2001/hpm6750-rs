@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - register for software to handle resume, can save resume address or status"]
     #[inline(always)]
+    #[must_use]
     pub fn gpr(&mut self) -> GPR_W<0> {
         GPR_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for CPU_CPU1_GPR4_SPEC {
 #[doc = "`write(|w| ..)` method takes [cpu_cpu1_gpr4::W](W) writer structure"]
 impl crate::Writable for CPU_CPU1_GPR4_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CPU_CPU1_GPR4 to value 0"]
 impl crate::Resettable for CPU_CPU1_GPR4_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

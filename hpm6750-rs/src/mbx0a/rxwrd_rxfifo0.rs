@@ -33,8 +33,5 @@ impl crate::Readable for RXWRD_RXFIFO0_SPEC {
 }
 #[doc = "`reset()` method sets RXWRD_RXFIFO0 to value 0"]
 impl crate::Resettable for RXWRD_RXFIFO0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,53 +34,56 @@ impl From<crate::W<RESET_CPU1_CONFIG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `PRE_WAIT` reader - wait cycle numbers before assert reset 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
-pub type PRE_WAIT_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `PRE_WAIT` writer - wait cycle numbers before assert reset 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
-pub type PRE_WAIT_W<'a, const O: u8> =
+#[doc = "Field `POST_WAIT` reader - time guard band for reset release 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
+pub type POST_WAIT_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `POST_WAIT` writer - time guard band for reset release 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
+pub type POST_WAIT_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, RESET_CPU1_CONFIG_SPEC, u8, u8, 8, O>;
 #[doc = "Field `RSTCLK_NUM` reader - reset clock number(must be even number) 0: 0 cycle 1: 0 cycles 2: 2 cycles 3: 2 cycles . . . Note, clock cycle is base on 24M"]
 pub type RSTCLK_NUM_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `RSTCLK_NUM` writer - reset clock number(must be even number) 0: 0 cycle 1: 0 cycles 2: 2 cycles 3: 2 cycles . . . Note, clock cycle is base on 24M"]
 pub type RSTCLK_NUM_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, RESET_CPU1_CONFIG_SPEC, u8, u8, 8, O>;
-#[doc = "Field `POST_WAIT` reader - time guard band for reset release 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
-pub type POST_WAIT_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `POST_WAIT` writer - time guard band for reset release 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
-pub type POST_WAIT_W<'a, const O: u8> =
+#[doc = "Field `PRE_WAIT` reader - wait cycle numbers before assert reset 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
+pub type PRE_WAIT_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `PRE_WAIT` writer - wait cycle numbers before assert reset 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
+pub type PRE_WAIT_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, RESET_CPU1_CONFIG_SPEC, u8, u8, 8, O>;
 impl R {
-    #[doc = "Bits 16:23 - wait cycle numbers before assert reset 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
+    #[doc = "Bits 0:7 - time guard band for reset release 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
     #[inline(always)]
-    pub fn pre_wait(&self) -> PRE_WAIT_R {
-        PRE_WAIT_R::new(((self.bits >> 16) & 0xff) as u8)
+    pub fn post_wait(&self) -> POST_WAIT_R {
+        POST_WAIT_R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - reset clock number(must be even number) 0: 0 cycle 1: 0 cycles 2: 2 cycles 3: 2 cycles . . . Note, clock cycle is base on 24M"]
     #[inline(always)]
     pub fn rstclk_num(&self) -> RSTCLK_NUM_R {
         RSTCLK_NUM_R::new(((self.bits >> 8) & 0xff) as u8)
     }
-    #[doc = "Bits 0:7 - time guard band for reset release 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
+    #[doc = "Bits 16:23 - wait cycle numbers before assert reset 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
     #[inline(always)]
-    pub fn post_wait(&self) -> POST_WAIT_R {
-        POST_WAIT_R::new((self.bits & 0xff) as u8)
+    pub fn pre_wait(&self) -> PRE_WAIT_R {
+        PRE_WAIT_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
 impl W {
-    #[doc = "Bits 16:23 - wait cycle numbers before assert reset 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
+    #[doc = "Bits 0:7 - time guard band for reset release 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
     #[inline(always)]
-    pub fn pre_wait(&mut self) -> PRE_WAIT_W<16> {
-        PRE_WAIT_W::new(self)
+    #[must_use]
+    pub fn post_wait(&mut self) -> POST_WAIT_W<0> {
+        POST_WAIT_W::new(self)
     }
     #[doc = "Bits 8:15 - reset clock number(must be even number) 0: 0 cycle 1: 0 cycles 2: 2 cycles 3: 2 cycles . . . Note, clock cycle is base on 24M"]
     #[inline(always)]
+    #[must_use]
     pub fn rstclk_num(&mut self) -> RSTCLK_NUM_W<8> {
         RSTCLK_NUM_W::new(self)
     }
-    #[doc = "Bits 0:7 - time guard band for reset release 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
+    #[doc = "Bits 16:23 - wait cycle numbers before assert reset 0: wait 0 cycle 1: wait 1 cycles . . . Note, clock cycle is base on 24M"]
     #[inline(always)]
-    pub fn post_wait(&mut self) -> POST_WAIT_W<0> {
-        POST_WAIT_W::new(self)
+    #[must_use]
+    pub fn pre_wait(&mut self) -> PRE_WAIT_W<16> {
+        PRE_WAIT_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -101,11 +104,10 @@ impl crate::Readable for RESET_CPU1_CONFIG_SPEC {
 #[doc = "`write(|w| ..)` method takes [reset_cpu1_config::W](W) writer structure"]
 impl crate::Writable for RESET_CPU1_CONFIG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RESET_CPU1_CONFIG to value 0x64"]
 impl crate::Resettable for RESET_CPU1_CONFIG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x64
-    }
+    const RESET_VALUE: Self::Ux = 0x64;
 }

@@ -3,4 +3,3 @@ Remove-Item -Path "src" -Recurse
 form -i lib.rs -o src/ 
 Remove-Item lib.rs
 cargo fmt
-Footer

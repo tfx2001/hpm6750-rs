@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - counter will be set to this value when software write cntupt bit in CR"]
     #[inline(always)]
+    #[must_use]
     pub fn cntuptval(&mut self) -> CNTUPTVAL_W<0> {
         CNTUPTVAL_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for CHANNEL_CH3_CNTUPTVAL_SPEC {
 #[doc = "`write(|w| ..)` method takes [channel_ch3_cntuptval::W](W) writer structure"]
 impl crate::Writable for CHANNEL_CH3_CNTUPTVAL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CHANNEL_CH3_CNTUPTVAL to value 0"]
 impl crate::Resettable for CHANNEL_CH3_CNTUPTVAL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

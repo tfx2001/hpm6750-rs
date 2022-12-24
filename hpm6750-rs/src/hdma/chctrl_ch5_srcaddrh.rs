@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - High part of the source starting address. When the transfer completes, the value of {SrcAddrH,SrcAddrL} is updated to the ending address. This register exists only when the address bus width is wider than 32 bits."]
     #[inline(always)]
+    #[must_use]
     pub fn srcaddrh(&mut self) -> SRCADDRH_W<0> {
         SRCADDRH_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for CHCTRL_CH5_SRCADDRH_SPEC {
 #[doc = "`write(|w| ..)` method takes [chctrl_ch5_srcaddrh::W](W) writer structure"]
 impl crate::Writable for CHCTRL_CH5_SRCADDRH_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CHCTRL_CH5_SRCADDRH to value 0x01"]
 impl crate::Resettable for CHCTRL_CH5_SRCADDRH_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x01
-    }
+    const RESET_VALUE: Self::Ux = 0x01;
 }

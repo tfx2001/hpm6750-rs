@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - fuse array, valid in PMIC part only read operation will read out value in fuse array write operation will update fuse array value(please make sure fuse is unlocked and 2.5V power is ready)"]
     #[inline(always)]
+    #[must_use]
     pub fn fuse(&mut self) -> FUSE_W<0> {
         FUSE_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for FUSE_FUSE066_SPEC {
 #[doc = "`write(|w| ..)` method takes [fuse_fuse066::W](W) writer structure"]
 impl crate::Writable for FUSE_FUSE066_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets FUSE_FUSE066 to value 0"]
 impl crate::Resettable for FUSE_FUSE066_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,36 +34,38 @@ impl From<crate::W<DISP_WN_SIZE_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `Y` reader - Sets the display size vertical resolution in pixels."]
-pub type Y_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `Y` writer - Sets the display size vertical resolution in pixels."]
-pub type Y_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DISP_WN_SIZE_SPEC, u16, u16, 12, O>;
 #[doc = "Field `X` reader - Sets the display size horizontal resolution in pixels."]
 pub type X_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `X` writer - Sets the display size horizontal resolution in pixels."]
 pub type X_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DISP_WN_SIZE_SPEC, u16, u16, 12, O>;
+#[doc = "Field `Y` reader - Sets the display size vertical resolution in pixels."]
+pub type Y_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `Y` writer - Sets the display size vertical resolution in pixels."]
+pub type Y_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DISP_WN_SIZE_SPEC, u16, u16, 12, O>;
 impl R {
-    #[doc = "Bits 16:27 - Sets the display size vertical resolution in pixels."]
-    #[inline(always)]
-    pub fn y(&self) -> Y_R {
-        Y_R::new(((self.bits >> 16) & 0x0fff) as u16)
-    }
     #[doc = "Bits 0:11 - Sets the display size horizontal resolution in pixels."]
     #[inline(always)]
     pub fn x(&self) -> X_R {
         X_R::new((self.bits & 0x0fff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:27 - Sets the display size vertical resolution in pixels."]
     #[inline(always)]
-    pub fn y(&mut self) -> Y_W<16> {
-        Y_W::new(self)
+    pub fn y(&self) -> Y_R {
+        Y_R::new(((self.bits >> 16) & 0x0fff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:11 - Sets the display size horizontal resolution in pixels."]
     #[inline(always)]
+    #[must_use]
     pub fn x(&mut self) -> X_W<0> {
         X_W::new(self)
+    }
+    #[doc = "Bits 16:27 - Sets the display size vertical resolution in pixels."]
+    #[inline(always)]
+    #[must_use]
+    pub fn y(&mut self) -> Y_W<16> {
+        Y_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for DISP_WN_SIZE_SPEC {
 #[doc = "`write(|w| ..)` method takes [disp_wn_size::W](W) writer structure"]
 impl crate::Writable for DISP_WN_SIZE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DISP_WN_SIZE to value 0"]
 impl crate::Resettable for DISP_WN_SIZE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

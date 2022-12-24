@@ -33,8 +33,5 @@ impl crate::Readable for COUNT_READ_TMR_SPEC {
 }
 #[doc = "`reset()` method sets COUNT_READ_TMR to value 0"]
 impl crate::Resettable for COUNT_READ_TMR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

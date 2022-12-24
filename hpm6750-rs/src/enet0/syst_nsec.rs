@@ -42,12 +42,13 @@ impl R {
     #[doc = "Bits 0:30 - Timestamp Sub Seconds The value in this field has the sub second representation of time, with an accuracy of 0.46 ns. When Bit 9 (TSCTRLSSR) is set in Register 448 (Timestamp Control Register), each bit represents 1 ns and the maximum value is 0x3B9A_C9FF, after which it rolls-over to zero."]
     #[inline(always)]
     pub fn tsss(&self) -> TSSS_R {
-        TSSS_R::new((self.bits & 0x7fff_ffff) as u32)
+        TSSS_R::new(self.bits & 0x7fff_ffff)
     }
 }
 impl W {
     #[doc = "Bits 0:30 - Timestamp Sub Seconds The value in this field has the sub second representation of time, with an accuracy of 0.46 ns. When Bit 9 (TSCTRLSSR) is set in Register 448 (Timestamp Control Register), each bit represents 1 ns and the maximum value is 0x3B9A_C9FF, after which it rolls-over to zero."]
     #[inline(always)]
+    #[must_use]
     pub fn tsss(&mut self) -> TSSS_W<0> {
         TSSS_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for SYST_NSEC_SPEC {
 #[doc = "`write(|w| ..)` method takes [syst_nsec::W](W) writer structure"]
 impl crate::Writable for SYST_NSEC_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SYST_NSEC to value 0"]
 impl crate::Resettable for SYST_NSEC_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

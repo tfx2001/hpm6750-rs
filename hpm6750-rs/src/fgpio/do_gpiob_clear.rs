@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - GPIO output register value, each bit represents a bus bit 0: chip pin output low level when direction is output 1: chip pin output high level when direction is output"]
     #[inline(always)]
+    #[must_use]
     pub fn output(&mut self) -> OUTPUT_W<0> {
         OUTPUT_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for DO_GPIOB_CLEAR_SPEC {
 #[doc = "`write(|w| ..)` method takes [do_gpiob_clear::W](W) writer structure"]
 impl crate::Writable for DO_GPIOB_CLEAR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DO_GPIOB_CLEAR to value 0"]
 impl crate::Resettable for DO_GPIOB_CLEAR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

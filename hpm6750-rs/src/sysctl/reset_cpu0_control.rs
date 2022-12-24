@@ -34,64 +34,68 @@ impl From<crate::W<RESET_CPU0_CONTROL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `FLAG` reader - flag represents reset happened from last clear of this bit 0: domain did not edurance reset cycle since last clear of this bit 1: domain enduranced reset cycle since last clear of this bit"]
-pub type FLAG_R = crate::BitReader<bool>;
-#[doc = "Field `FLAG` writer - flag represents reset happened from last clear of this bit 0: domain did not edurance reset cycle since last clear of this bit 1: domain enduranced reset cycle since last clear of this bit"]
-pub type FLAG_W<'a, const O: u8> = crate::BitWriter<'a, u32, RESET_CPU0_CONTROL_SPEC, bool, O>;
-#[doc = "Field `FLAG_WAKE` reader - flag represents wakeup reset happened from last clear of this bit 0: domain did not edurance wakeup reset cycle since last clear of this bit 1: domain enduranced wakeup reset cycle since last clear of this bit"]
-pub type FLAG_WAKE_R = crate::BitReader<bool>;
-#[doc = "Field `FLAG_WAKE` writer - flag represents wakeup reset happened from last clear of this bit 0: domain did not edurance wakeup reset cycle since last clear of this bit 1: domain enduranced wakeup reset cycle since last clear of this bit"]
-pub type FLAG_WAKE_W<'a, const O: u8> = crate::BitWriter<'a, u32, RESET_CPU0_CONTROL_SPEC, bool, O>;
-#[doc = "Field `HOLD` reader - perform reset and hold in reset, until ths bit cleared by software 0: reset is released for function 1: reset is assert and hold"]
-pub type HOLD_R = crate::BitReader<bool>;
-#[doc = "Field `HOLD` writer - perform reset and hold in reset, until ths bit cleared by software 0: reset is released for function 1: reset is assert and hold"]
-pub type HOLD_W<'a, const O: u8> = crate::BitWriter<'a, u32, RESET_CPU0_CONTROL_SPEC, bool, O>;
 #[doc = "Field `RESET` reader - perform reset and release imediately 0: reset is released 1 reset is asserted and will release automaticly"]
 pub type RESET_R = crate::BitReader<bool>;
 #[doc = "Field `RESET` writer - perform reset and release imediately 0: reset is released 1 reset is asserted and will release automaticly"]
 pub type RESET_W<'a, const O: u8> = crate::BitWriter<'a, u32, RESET_CPU0_CONTROL_SPEC, bool, O>;
+#[doc = "Field `HOLD` reader - perform reset and hold in reset, until ths bit cleared by software 0: reset is released for function 1: reset is assert and hold"]
+pub type HOLD_R = crate::BitReader<bool>;
+#[doc = "Field `HOLD` writer - perform reset and hold in reset, until ths bit cleared by software 0: reset is released for function 1: reset is assert and hold"]
+pub type HOLD_W<'a, const O: u8> = crate::BitWriter<'a, u32, RESET_CPU0_CONTROL_SPEC, bool, O>;
+#[doc = "Field `FLAG_WAKE` reader - flag represents wakeup reset happened from last clear of this bit 0: domain did not edurance wakeup reset cycle since last clear of this bit 1: domain enduranced wakeup reset cycle since last clear of this bit"]
+pub type FLAG_WAKE_R = crate::BitReader<bool>;
+#[doc = "Field `FLAG_WAKE` writer - flag represents wakeup reset happened from last clear of this bit 0: domain did not edurance wakeup reset cycle since last clear of this bit 1: domain enduranced wakeup reset cycle since last clear of this bit"]
+pub type FLAG_WAKE_W<'a, const O: u8> = crate::BitWriter<'a, u32, RESET_CPU0_CONTROL_SPEC, bool, O>;
+#[doc = "Field `FLAG` reader - flag represents reset happened from last clear of this bit 0: domain did not edurance reset cycle since last clear of this bit 1: domain enduranced reset cycle since last clear of this bit"]
+pub type FLAG_R = crate::BitReader<bool>;
+#[doc = "Field `FLAG` writer - flag represents reset happened from last clear of this bit 0: domain did not edurance reset cycle since last clear of this bit 1: domain enduranced reset cycle since last clear of this bit"]
+pub type FLAG_W<'a, const O: u8> = crate::BitWriter<'a, u32, RESET_CPU0_CONTROL_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 31 - flag represents reset happened from last clear of this bit 0: domain did not edurance reset cycle since last clear of this bit 1: domain enduranced reset cycle since last clear of this bit"]
+    #[doc = "Bit 0 - perform reset and release imediately 0: reset is released 1 reset is asserted and will release automaticly"]
     #[inline(always)]
-    pub fn flag(&self) -> FLAG_R {
-        FLAG_R::new(((self.bits >> 31) & 1) != 0)
-    }
-    #[doc = "Bit 30 - flag represents wakeup reset happened from last clear of this bit 0: domain did not edurance wakeup reset cycle since last clear of this bit 1: domain enduranced wakeup reset cycle since last clear of this bit"]
-    #[inline(always)]
-    pub fn flag_wake(&self) -> FLAG_WAKE_R {
-        FLAG_WAKE_R::new(((self.bits >> 30) & 1) != 0)
+    pub fn reset(&self) -> RESET_R {
+        RESET_R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 4 - perform reset and hold in reset, until ths bit cleared by software 0: reset is released for function 1: reset is assert and hold"]
     #[inline(always)]
     pub fn hold(&self) -> HOLD_R {
         HOLD_R::new(((self.bits >> 4) & 1) != 0)
     }
-    #[doc = "Bit 0 - perform reset and release imediately 0: reset is released 1 reset is asserted and will release automaticly"]
+    #[doc = "Bit 30 - flag represents wakeup reset happened from last clear of this bit 0: domain did not edurance wakeup reset cycle since last clear of this bit 1: domain enduranced wakeup reset cycle since last clear of this bit"]
     #[inline(always)]
-    pub fn reset(&self) -> RESET_R {
-        RESET_R::new((self.bits & 1) != 0)
+    pub fn flag_wake(&self) -> FLAG_WAKE_R {
+        FLAG_WAKE_R::new(((self.bits >> 30) & 1) != 0)
+    }
+    #[doc = "Bit 31 - flag represents reset happened from last clear of this bit 0: domain did not edurance reset cycle since last clear of this bit 1: domain enduranced reset cycle since last clear of this bit"]
+    #[inline(always)]
+    pub fn flag(&self) -> FLAG_R {
+        FLAG_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 31 - flag represents reset happened from last clear of this bit 0: domain did not edurance reset cycle since last clear of this bit 1: domain enduranced reset cycle since last clear of this bit"]
+    #[doc = "Bit 0 - perform reset and release imediately 0: reset is released 1 reset is asserted and will release automaticly"]
     #[inline(always)]
-    pub fn flag(&mut self) -> FLAG_W<31> {
-        FLAG_W::new(self)
-    }
-    #[doc = "Bit 30 - flag represents wakeup reset happened from last clear of this bit 0: domain did not edurance wakeup reset cycle since last clear of this bit 1: domain enduranced wakeup reset cycle since last clear of this bit"]
-    #[inline(always)]
-    pub fn flag_wake(&mut self) -> FLAG_WAKE_W<30> {
-        FLAG_WAKE_W::new(self)
+    #[must_use]
+    pub fn reset(&mut self) -> RESET_W<0> {
+        RESET_W::new(self)
     }
     #[doc = "Bit 4 - perform reset and hold in reset, until ths bit cleared by software 0: reset is released for function 1: reset is assert and hold"]
     #[inline(always)]
+    #[must_use]
     pub fn hold(&mut self) -> HOLD_W<4> {
         HOLD_W::new(self)
     }
-    #[doc = "Bit 0 - perform reset and release imediately 0: reset is released 1 reset is asserted and will release automaticly"]
+    #[doc = "Bit 30 - flag represents wakeup reset happened from last clear of this bit 0: domain did not edurance wakeup reset cycle since last clear of this bit 1: domain enduranced wakeup reset cycle since last clear of this bit"]
     #[inline(always)]
-    pub fn reset(&mut self) -> RESET_W<0> {
-        RESET_W::new(self)
+    #[must_use]
+    pub fn flag_wake(&mut self) -> FLAG_WAKE_W<30> {
+        FLAG_WAKE_W::new(self)
+    }
+    #[doc = "Bit 31 - flag represents reset happened from last clear of this bit 0: domain did not edurance reset cycle since last clear of this bit 1: domain enduranced reset cycle since last clear of this bit"]
+    #[inline(always)]
+    #[must_use]
+    pub fn flag(&mut self) -> FLAG_W<31> {
+        FLAG_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -112,11 +116,10 @@ impl crate::Readable for RESET_CPU0_CONTROL_SPEC {
 #[doc = "`write(|w| ..)` method takes [reset_cpu0_control::W](W) writer structure"]
 impl crate::Writable for RESET_CPU0_CONTROL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets RESET_CPU0_CONTROL to value 0x8000_0000"]
 impl crate::Resettable for RESET_CPU0_CONTROL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x8000_0000
-    }
+    const RESET_VALUE: Self::Ux = 0x8000_0000;
 }

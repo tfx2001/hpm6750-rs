@@ -25,6 +25,7 @@ pub type TXFIFO_W<'a, const O: u8> =
 impl W {
     #[doc = "Bits 0:31 - TXFIFO for sending message to other core, FIFO size, 4x32 can write one of the word address to push data to the FIFO; can also use 4x32 burst write from 0x010 to push 4 words to the FIFO."]
     #[inline(always)]
+    #[must_use]
     pub fn txfifo(&mut self) -> TXFIFO_W<0> {
         TXFIFO_W::new(self)
     }
@@ -43,11 +44,10 @@ impl crate::RegisterSpec for TXWRD_TXFIFO0_SPEC {
 #[doc = "`write(|w| ..)` method takes [txwrd_txfifo0::W](W) writer structure"]
 impl crate::Writable for TXWRD_TXFIFO0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TXWRD_TXFIFO0 to value 0"]
 impl crate::Resettable for TXWRD_TXFIFO0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

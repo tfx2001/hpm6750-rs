@@ -34,50 +34,53 @@ impl From<crate::W<GPTIMER0CTRL_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `GPTRUN` reader - GPTRUN General Purpose Timer Run GPTCNT bits are not effected when setting or clearing this bit. 0 - Stop counting 1 - Run"]
-pub type GPTRUN_R = crate::BitReader<bool>;
-#[doc = "Field `GPTRUN` writer - GPTRUN General Purpose Timer Run GPTCNT bits are not effected when setting or clearing this bit. 0 - Stop counting 1 - Run"]
-pub type GPTRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, GPTIMER0CTRL_SPEC, bool, O>;
-#[doc = "Field `GPTRST` writer - GPTRST General Purpose Timer Reset 0 - No action 1 - Load counter value from GPTLD bits in n_GPTIMER0LD"]
-pub type GPTRST_W<'a, const O: u8> = crate::BitWriter<'a, u32, GPTIMER0CTRL_SPEC, bool, O>;
+#[doc = "Field `GPTCNT` reader - GPTCNT General Purpose Timer Counter. This field is the count value of the countdown timer."]
+pub type GPTCNT_R = crate::FieldReader<u32, u32>;
 #[doc = "Field `GPTMODE` reader - GPTMODE General Purpose Timer Mode In one shot mode, the timer will count down to zero, generate an interrupt, and stop until the counter is reset by software; In repeat mode, the timer will count down to zero, generate an interrupt and automatically reload the counter value from GPTLD bits to start again. 0 - One Shot Mode 1 - Repeat Mode"]
 pub type GPTMODE_R = crate::BitReader<bool>;
 #[doc = "Field `GPTMODE` writer - GPTMODE General Purpose Timer Mode In one shot mode, the timer will count down to zero, generate an interrupt, and stop until the counter is reset by software; In repeat mode, the timer will count down to zero, generate an interrupt and automatically reload the counter value from GPTLD bits to start again. 0 - One Shot Mode 1 - Repeat Mode"]
 pub type GPTMODE_W<'a, const O: u8> = crate::BitWriter<'a, u32, GPTIMER0CTRL_SPEC, bool, O>;
-#[doc = "Field `GPTCNT` reader - GPTCNT General Purpose Timer Counter. This field is the count value of the countdown timer."]
-pub type GPTCNT_R = crate::FieldReader<u32, u32>;
+#[doc = "Field `GPTRST` writer - GPTRST General Purpose Timer Reset 0 - No action 1 - Load counter value from GPTLD bits in n_GPTIMER0LD"]
+pub type GPTRST_W<'a, const O: u8> = crate::BitWriter<'a, u32, GPTIMER0CTRL_SPEC, bool, O>;
+#[doc = "Field `GPTRUN` reader - GPTRUN General Purpose Timer Run GPTCNT bits are not effected when setting or clearing this bit. 0 - Stop counting 1 - Run"]
+pub type GPTRUN_R = crate::BitReader<bool>;
+#[doc = "Field `GPTRUN` writer - GPTRUN General Purpose Timer Run GPTCNT bits are not effected when setting or clearing this bit. 0 - Stop counting 1 - Run"]
+pub type GPTRUN_W<'a, const O: u8> = crate::BitWriter<'a, u32, GPTIMER0CTRL_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 31 - GPTRUN General Purpose Timer Run GPTCNT bits are not effected when setting or clearing this bit. 0 - Stop counting 1 - Run"]
+    #[doc = "Bits 0:23 - GPTCNT General Purpose Timer Counter. This field is the count value of the countdown timer."]
     #[inline(always)]
-    pub fn gptrun(&self) -> GPTRUN_R {
-        GPTRUN_R::new(((self.bits >> 31) & 1) != 0)
+    pub fn gptcnt(&self) -> GPTCNT_R {
+        GPTCNT_R::new(self.bits & 0x00ff_ffff)
     }
     #[doc = "Bit 24 - GPTMODE General Purpose Timer Mode In one shot mode, the timer will count down to zero, generate an interrupt, and stop until the counter is reset by software; In repeat mode, the timer will count down to zero, generate an interrupt and automatically reload the counter value from GPTLD bits to start again. 0 - One Shot Mode 1 - Repeat Mode"]
     #[inline(always)]
     pub fn gptmode(&self) -> GPTMODE_R {
         GPTMODE_R::new(((self.bits >> 24) & 1) != 0)
     }
-    #[doc = "Bits 0:23 - GPTCNT General Purpose Timer Counter. This field is the count value of the countdown timer."]
+    #[doc = "Bit 31 - GPTRUN General Purpose Timer Run GPTCNT bits are not effected when setting or clearing this bit. 0 - Stop counting 1 - Run"]
     #[inline(always)]
-    pub fn gptcnt(&self) -> GPTCNT_R {
-        GPTCNT_R::new((self.bits & 0x00ff_ffff) as u32)
+    pub fn gptrun(&self) -> GPTRUN_R {
+        GPTRUN_R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 31 - GPTRUN General Purpose Timer Run GPTCNT bits are not effected when setting or clearing this bit. 0 - Stop counting 1 - Run"]
+    #[doc = "Bit 24 - GPTMODE General Purpose Timer Mode In one shot mode, the timer will count down to zero, generate an interrupt, and stop until the counter is reset by software; In repeat mode, the timer will count down to zero, generate an interrupt and automatically reload the counter value from GPTLD bits to start again. 0 - One Shot Mode 1 - Repeat Mode"]
     #[inline(always)]
-    pub fn gptrun(&mut self) -> GPTRUN_W<31> {
-        GPTRUN_W::new(self)
+    #[must_use]
+    pub fn gptmode(&mut self) -> GPTMODE_W<24> {
+        GPTMODE_W::new(self)
     }
     #[doc = "Bit 30 - GPTRST General Purpose Timer Reset 0 - No action 1 - Load counter value from GPTLD bits in n_GPTIMER0LD"]
     #[inline(always)]
+    #[must_use]
     pub fn gptrst(&mut self) -> GPTRST_W<30> {
         GPTRST_W::new(self)
     }
-    #[doc = "Bit 24 - GPTMODE General Purpose Timer Mode In one shot mode, the timer will count down to zero, generate an interrupt, and stop until the counter is reset by software; In repeat mode, the timer will count down to zero, generate an interrupt and automatically reload the counter value from GPTLD bits to start again. 0 - One Shot Mode 1 - Repeat Mode"]
+    #[doc = "Bit 31 - GPTRUN General Purpose Timer Run GPTCNT bits are not effected when setting or clearing this bit. 0 - Stop counting 1 - Run"]
     #[inline(always)]
-    pub fn gptmode(&mut self) -> GPTMODE_W<24> {
-        GPTMODE_W::new(self)
+    #[must_use]
+    pub fn gptrun(&mut self) -> GPTRUN_W<31> {
+        GPTRUN_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -98,11 +101,10 @@ impl crate::Readable for GPTIMER0CTRL_SPEC {
 #[doc = "`write(|w| ..)` method takes [gptimer0ctrl::W](W) writer structure"]
 impl crate::Writable for GPTIMER0CTRL_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets GPTIMER0CTRL to value 0"]
 impl crate::Resettable for GPTIMER0CTRL_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,36 +34,38 @@ impl From<crate::W<FEATURE_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `VECTORED` reader - Vector mode enable 0: Disabled 1: Enabled"]
-pub type VECTORED_R = crate::BitReader<bool>;
-#[doc = "Field `VECTORED` writer - Vector mode enable 0: Disabled 1: Enabled"]
-pub type VECTORED_W<'a, const O: u8> = crate::BitWriter<'a, u32, FEATURE_SPEC, bool, O>;
 #[doc = "Field `PREEMPT` reader - Preemptive priority interrupt enable 0: Disabled 1: Enabled"]
 pub type PREEMPT_R = crate::BitReader<bool>;
 #[doc = "Field `PREEMPT` writer - Preemptive priority interrupt enable 0: Disabled 1: Enabled"]
 pub type PREEMPT_W<'a, const O: u8> = crate::BitWriter<'a, u32, FEATURE_SPEC, bool, O>;
+#[doc = "Field `VECTORED` reader - Vector mode enable 0: Disabled 1: Enabled"]
+pub type VECTORED_R = crate::BitReader<bool>;
+#[doc = "Field `VECTORED` writer - Vector mode enable 0: Disabled 1: Enabled"]
+pub type VECTORED_W<'a, const O: u8> = crate::BitWriter<'a, u32, FEATURE_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 1 - Vector mode enable 0: Disabled 1: Enabled"]
-    #[inline(always)]
-    pub fn vectored(&self) -> VECTORED_R {
-        VECTORED_R::new(((self.bits >> 1) & 1) != 0)
-    }
     #[doc = "Bit 0 - Preemptive priority interrupt enable 0: Disabled 1: Enabled"]
     #[inline(always)]
     pub fn preempt(&self) -> PREEMPT_R {
         PREEMPT_R::new((self.bits & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bit 1 - Vector mode enable 0: Disabled 1: Enabled"]
     #[inline(always)]
-    pub fn vectored(&mut self) -> VECTORED_W<1> {
-        VECTORED_W::new(self)
+    pub fn vectored(&self) -> VECTORED_R {
+        VECTORED_R::new(((self.bits >> 1) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bit 0 - Preemptive priority interrupt enable 0: Disabled 1: Enabled"]
     #[inline(always)]
+    #[must_use]
     pub fn preempt(&mut self) -> PREEMPT_W<0> {
         PREEMPT_W::new(self)
+    }
+    #[doc = "Bit 1 - Vector mode enable 0: Disabled 1: Enabled"]
+    #[inline(always)]
+    #[must_use]
+    pub fn vectored(&mut self) -> VECTORED_W<1> {
+        VECTORED_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for FEATURE_SPEC {
 #[doc = "`write(|w| ..)` method takes [feature::W](W) writer structure"]
 impl crate::Writable for FEATURE_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets FEATURE to value 0"]
 impl crate::Resettable for FEATURE_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

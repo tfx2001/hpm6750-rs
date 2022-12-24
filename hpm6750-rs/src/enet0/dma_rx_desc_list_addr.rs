@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Start of Receive List This field contains the base address of the first descriptor in the Receive Descriptor list. The LSB bits (1:0, 2:0, or 3:0) for 32-bit, 64-bit, or 128-bit bus width are ignored and internally taken as all-zero by the DMA. Therefore, these LSB bits are read-only (RO)."]
     #[inline(always)]
+    #[must_use]
     pub fn rdesla(&mut self) -> RDESLA_W<0> {
         RDESLA_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for DMA_RX_DESC_LIST_ADDR_SPEC {
 #[doc = "`write(|w| ..)` method takes [dma_rx_desc_list_addr::W](W) writer structure"]
 impl crate::Writable for DMA_RX_DESC_LIST_ADDR_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets DMA_RX_DESC_LIST_ADDR to value 0"]
 impl crate::Resettable for DMA_RX_DESC_LIST_ADDR_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

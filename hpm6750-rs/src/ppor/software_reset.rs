@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - counter decrease in 24MHz and stop at 0, trigger reset when value reach 2, software can write 0 to cancel reset"]
     #[inline(always)]
+    #[must_use]
     pub fn counter(&mut self) -> COUNTER_W<0> {
         COUNTER_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for SOFTWARE_RESET_SPEC {
 #[doc = "`write(|w| ..)` method takes [software_reset::W](W) writer structure"]
 impl crate::Writable for SOFTWARE_RESET_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SOFTWARE_RESET to value 0"]
 impl crate::Resettable for SOFTWARE_RESET_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

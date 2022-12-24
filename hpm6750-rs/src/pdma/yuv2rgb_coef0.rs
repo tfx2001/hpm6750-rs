@@ -34,52 +34,55 @@ impl From<crate::W<YUV2RGB_COEF0_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `C0` reader - Two's compliment Y multiplier coefficient C0. YUV=0x100 (1.000) YCbCr=0x12A (1.164)"]
-pub type C0_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `C0` writer - Two's compliment Y multiplier coefficient C0. YUV=0x100 (1.000) YCbCr=0x12A (1.164)"]
-pub type C0_W<'a, const O: u8> = crate::FieldWriter<'a, u32, YUV2RGB_COEF0_SPEC, u16, u16, 11, O>;
-#[doc = "Field `UV_OFFSET` reader - Two's compliment phase offset implicit for CbCr data UV_OFFSET. Generally used for YCbCr to RGB conversion. YCbCr=0x180, YUV=0x000 (typically -128 or 0x180 to indicate normalized -0.5 to 0.5 range)."]
-pub type UV_OFFSET_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `UV_OFFSET` writer - Two's compliment phase offset implicit for CbCr data UV_OFFSET. Generally used for YCbCr to RGB conversion. YCbCr=0x180, YUV=0x000 (typically -128 or 0x180 to indicate normalized -0.5 to 0.5 range)."]
-pub type UV_OFFSET_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, YUV2RGB_COEF0_SPEC, u16, u16, 9, O>;
 #[doc = "Field `Y_OFFSET` reader - Two's compliment amplitude offset implicit in the Y data Y_OFFSET. For YUV, this is typically 0 and for YCbCr, this is typically -16 (0x1F0)."]
 pub type Y_OFFSET_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `Y_OFFSET` writer - Two's compliment amplitude offset implicit in the Y data Y_OFFSET. For YUV, this is typically 0 and for YCbCr, this is typically -16 (0x1F0)."]
 pub type Y_OFFSET_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, YUV2RGB_COEF0_SPEC, u16, u16, 9, O>;
+#[doc = "Field `UV_OFFSET` reader - Two's compliment phase offset implicit for CbCr data UV_OFFSET. Generally used for YCbCr to RGB conversion. YCbCr=0x180, YUV=0x000 (typically -128 or 0x180 to indicate normalized -0.5 to 0.5 range)."]
+pub type UV_OFFSET_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `UV_OFFSET` writer - Two's compliment phase offset implicit for CbCr data UV_OFFSET. Generally used for YCbCr to RGB conversion. YCbCr=0x180, YUV=0x000 (typically -128 or 0x180 to indicate normalized -0.5 to 0.5 range)."]
+pub type UV_OFFSET_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, YUV2RGB_COEF0_SPEC, u16, u16, 9, O>;
+#[doc = "Field `C0` reader - Two's compliment Y multiplier coefficient C0. YUV=0x100 (1.000) YCbCr=0x12A (1.164)"]
+pub type C0_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `C0` writer - Two's compliment Y multiplier coefficient C0. YUV=0x100 (1.000) YCbCr=0x12A (1.164)"]
+pub type C0_W<'a, const O: u8> = crate::FieldWriter<'a, u32, YUV2RGB_COEF0_SPEC, u16, u16, 11, O>;
 impl R {
-    #[doc = "Bits 18:28 - Two's compliment Y multiplier coefficient C0. YUV=0x100 (1.000) YCbCr=0x12A (1.164)"]
+    #[doc = "Bits 0:8 - Two's compliment amplitude offset implicit in the Y data Y_OFFSET. For YUV, this is typically 0 and for YCbCr, this is typically -16 (0x1F0)."]
     #[inline(always)]
-    pub fn c0(&self) -> C0_R {
-        C0_R::new(((self.bits >> 18) & 0x07ff) as u16)
+    pub fn y_offset(&self) -> Y_OFFSET_R {
+        Y_OFFSET_R::new((self.bits & 0x01ff) as u16)
     }
     #[doc = "Bits 9:17 - Two's compliment phase offset implicit for CbCr data UV_OFFSET. Generally used for YCbCr to RGB conversion. YCbCr=0x180, YUV=0x000 (typically -128 or 0x180 to indicate normalized -0.5 to 0.5 range)."]
     #[inline(always)]
     pub fn uv_offset(&self) -> UV_OFFSET_R {
         UV_OFFSET_R::new(((self.bits >> 9) & 0x01ff) as u16)
     }
-    #[doc = "Bits 0:8 - Two's compliment amplitude offset implicit in the Y data Y_OFFSET. For YUV, this is typically 0 and for YCbCr, this is typically -16 (0x1F0)."]
+    #[doc = "Bits 18:28 - Two's compliment Y multiplier coefficient C0. YUV=0x100 (1.000) YCbCr=0x12A (1.164)"]
     #[inline(always)]
-    pub fn y_offset(&self) -> Y_OFFSET_R {
-        Y_OFFSET_R::new((self.bits & 0x01ff) as u16)
+    pub fn c0(&self) -> C0_R {
+        C0_R::new(((self.bits >> 18) & 0x07ff) as u16)
     }
 }
 impl W {
-    #[doc = "Bits 18:28 - Two's compliment Y multiplier coefficient C0. YUV=0x100 (1.000) YCbCr=0x12A (1.164)"]
+    #[doc = "Bits 0:8 - Two's compliment amplitude offset implicit in the Y data Y_OFFSET. For YUV, this is typically 0 and for YCbCr, this is typically -16 (0x1F0)."]
     #[inline(always)]
-    pub fn c0(&mut self) -> C0_W<18> {
-        C0_W::new(self)
+    #[must_use]
+    pub fn y_offset(&mut self) -> Y_OFFSET_W<0> {
+        Y_OFFSET_W::new(self)
     }
     #[doc = "Bits 9:17 - Two's compliment phase offset implicit for CbCr data UV_OFFSET. Generally used for YCbCr to RGB conversion. YCbCr=0x180, YUV=0x000 (typically -128 or 0x180 to indicate normalized -0.5 to 0.5 range)."]
     #[inline(always)]
+    #[must_use]
     pub fn uv_offset(&mut self) -> UV_OFFSET_W<9> {
         UV_OFFSET_W::new(self)
     }
-    #[doc = "Bits 0:8 - Two's compliment amplitude offset implicit in the Y data Y_OFFSET. For YUV, this is typically 0 and for YCbCr, this is typically -16 (0x1F0)."]
+    #[doc = "Bits 18:28 - Two's compliment Y multiplier coefficient C0. YUV=0x100 (1.000) YCbCr=0x12A (1.164)"]
     #[inline(always)]
-    pub fn y_offset(&mut self) -> Y_OFFSET_W<0> {
-        Y_OFFSET_W::new(self)
+    #[must_use]
+    pub fn c0(&mut self) -> C0_W<18> {
+        C0_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -100,11 +103,10 @@ impl crate::Readable for YUV2RGB_COEF0_SPEC {
 #[doc = "`write(|w| ..)` method takes [yuv2rgb_coef0::W](W) writer structure"]
 impl crate::Writable for YUV2RGB_COEF0_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets YUV2RGB_COEF0 to value 0"]
 impl crate::Resettable for YUV2RGB_COEF0_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

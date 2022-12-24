@@ -49,6 +49,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - cipher initialization vector."]
     #[inline(always)]
+    #[must_use]
     pub fn ciphiv(&mut self) -> CIPHIV_W<0> {
         CIPHIV_W::new(self)
     }
@@ -71,11 +72,10 @@ impl crate::Readable for CIPHIV_CIPHIV3_SPEC {
 #[doc = "`write(|w| ..)` method takes [ciphiv_ciphiv3::W](W) writer structure"]
 impl crate::Writable for CIPHIV_CIPHIV3_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CIPHIV_CIPHIV3 to value 0x3200_0000"]
 impl crate::Resettable for CIPHIV_CIPHIV3_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0x3200_0000
-    }
+    const RESET_VALUE: Self::Ux = 0x3200_0000;
 }

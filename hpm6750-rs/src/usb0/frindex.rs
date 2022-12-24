@@ -56,6 +56,7 @@ impl W {
 are used for the Frame List current index. This means that each location of the frame list is accessed 8 times (frames or micro-frames) before moving to the next index. The following illustrates values of N based on the value of the Frame List Size field in the USBCMD register, when used in host mode. USBCMD \\[Frame List Size\\]
 Number Elements N In device mode the value is the current frame number of the last frame transmitted. It is not used as an index. In either mode bits 2:0 indicate the current microframe. The bit field values description below is represented as (Frame List Size) Number Elements N. 00000000000000 - (1024) 12 00000000000001 - (512) 11 00000000000010 - (256) 10 00000000000011 - (128) 9 00000000000100 - (64) 8 00000000000101 - (32) 7 00000000000110 - (16) 6 00000000000111 - (8) 5"]
     #[inline(always)]
+    #[must_use]
     pub fn frindex(&mut self) -> FRINDEX_W<0> {
         FRINDEX_W::new(self)
     }
@@ -78,11 +79,10 @@ impl crate::Readable for FRINDEX_SPEC {
 #[doc = "`write(|w| ..)` method takes [frindex::W](W) writer structure"]
 impl crate::Writable for FRINDEX_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets FRINDEX to value 0"]
 impl crate::Resettable for FRINDEX_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,38 +34,40 @@ impl From<crate::W<LAYER_3_CSC_COEF1_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `C1` reader - Two's compliment Red V/Cr multiplier coefficient C1. YUV=0x123 (1.140) YCbCr=0x198 (1.596)."]
-pub type C1_R = crate::FieldReader<u16, u16>;
-#[doc = "Field `C1` writer - Two's compliment Red V/Cr multiplier coefficient C1. YUV=0x123 (1.140) YCbCr=0x198 (1.596)."]
-pub type C1_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, LAYER_3_CSC_COEF1_SPEC, u16, u16, 11, O>;
 #[doc = "Field `C4` reader - Two's compliment Blue U/Cb multiplier coefficient C4. YUV=0x208 (2.032) YCbCr=0x204 (2.017)."]
 pub type C4_R = crate::FieldReader<u16, u16>;
 #[doc = "Field `C4` writer - Two's compliment Blue U/Cb multiplier coefficient C4. YUV=0x208 (2.032) YCbCr=0x204 (2.017)."]
 pub type C4_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, LAYER_3_CSC_COEF1_SPEC, u16, u16, 11, O>;
+#[doc = "Field `C1` reader - Two's compliment Red V/Cr multiplier coefficient C1. YUV=0x123 (1.140) YCbCr=0x198 (1.596)."]
+pub type C1_R = crate::FieldReader<u16, u16>;
+#[doc = "Field `C1` writer - Two's compliment Red V/Cr multiplier coefficient C1. YUV=0x123 (1.140) YCbCr=0x198 (1.596)."]
+pub type C1_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, LAYER_3_CSC_COEF1_SPEC, u16, u16, 11, O>;
 impl R {
-    #[doc = "Bits 16:26 - Two's compliment Red V/Cr multiplier coefficient C1. YUV=0x123 (1.140) YCbCr=0x198 (1.596)."]
-    #[inline(always)]
-    pub fn c1(&self) -> C1_R {
-        C1_R::new(((self.bits >> 16) & 0x07ff) as u16)
-    }
     #[doc = "Bits 0:10 - Two's compliment Blue U/Cb multiplier coefficient C4. YUV=0x208 (2.032) YCbCr=0x204 (2.017)."]
     #[inline(always)]
     pub fn c4(&self) -> C4_R {
         C4_R::new((self.bits & 0x07ff) as u16)
     }
-}
-impl W {
     #[doc = "Bits 16:26 - Two's compliment Red V/Cr multiplier coefficient C1. YUV=0x123 (1.140) YCbCr=0x198 (1.596)."]
     #[inline(always)]
-    pub fn c1(&mut self) -> C1_W<16> {
-        C1_W::new(self)
+    pub fn c1(&self) -> C1_R {
+        C1_R::new(((self.bits >> 16) & 0x07ff) as u16)
     }
+}
+impl W {
     #[doc = "Bits 0:10 - Two's compliment Blue U/Cb multiplier coefficient C4. YUV=0x208 (2.032) YCbCr=0x204 (2.017)."]
     #[inline(always)]
+    #[must_use]
     pub fn c4(&mut self) -> C4_W<0> {
         C4_W::new(self)
+    }
+    #[doc = "Bits 16:26 - Two's compliment Red V/Cr multiplier coefficient C1. YUV=0x123 (1.140) YCbCr=0x198 (1.596)."]
+    #[inline(always)]
+    #[must_use]
+    pub fn c1(&mut self) -> C1_W<16> {
+        C1_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -86,11 +88,10 @@ impl crate::Readable for LAYER_3_CSC_COEF1_SPEC {
 #[doc = "`write(|w| ..)` method takes [layer_3_csc_coef1::W](W) writer structure"]
 impl crate::Writable for LAYER_3_CSC_COEF1_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets LAYER_3_CSC_COEF1 to value 0"]
 impl crate::Resettable for LAYER_3_CSC_COEF1_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

@@ -34,36 +34,38 @@ impl From<crate::W<TIMECFG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `TIMEPOS` reader - TIME-stamping POSition 0 – SOF1 – EOF (see Chapter 7)TIMEPOS can only be changed if TIMEEN=0, but it is possible to modify TIMPOS withthe same write access that sets TIMEEN=1."]
-pub type TIMEPOS_R = crate::BitReader<bool>;
-#[doc = "Field `TIMEPOS` writer - TIME-stamping POSition 0 – SOF1 – EOF (see Chapter 7)TIMEPOS can only be changed if TIMEEN=0, but it is possible to modify TIMPOS withthe same write access that sets TIMEEN=1."]
-pub type TIMEPOS_W<'a, const O: u8> = crate::BitWriter<'a, u8, TIMECFG_SPEC, bool, O>;
 #[doc = "Field `TIMEEN` reader - TIME-stamping ENable 0 – disabled 1 – enabled"]
 pub type TIMEEN_R = crate::BitReader<bool>;
 #[doc = "Field `TIMEEN` writer - TIME-stamping ENable 0 – disabled 1 – enabled"]
 pub type TIMEEN_W<'a, const O: u8> = crate::BitWriter<'a, u8, TIMECFG_SPEC, bool, O>;
+#[doc = "Field `TIMEPOS` reader - TIME-stamping POSition 0 – SOF1 – EOF (see Chapter 7)TIMEPOS can only be changed if TIMEEN=0, but it is possible to modify TIMPOS withthe same write access that sets TIMEEN=1."]
+pub type TIMEPOS_R = crate::BitReader<bool>;
+#[doc = "Field `TIMEPOS` writer - TIME-stamping POSition 0 – SOF1 – EOF (see Chapter 7)TIMEPOS can only be changed if TIMEEN=0, but it is possible to modify TIMPOS withthe same write access that sets TIMEEN=1."]
+pub type TIMEPOS_W<'a, const O: u8> = crate::BitWriter<'a, u8, TIMECFG_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 1 - TIME-stamping POSition 0 – SOF1 – EOF (see Chapter 7)TIMEPOS can only be changed if TIMEEN=0, but it is possible to modify TIMPOS withthe same write access that sets TIMEEN=1."]
-    #[inline(always)]
-    pub fn timepos(&self) -> TIMEPOS_R {
-        TIMEPOS_R::new(((self.bits >> 1) & 1) != 0)
-    }
     #[doc = "Bit 0 - TIME-stamping ENable 0 – disabled 1 – enabled"]
     #[inline(always)]
     pub fn timeen(&self) -> TIMEEN_R {
         TIMEEN_R::new((self.bits & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bit 1 - TIME-stamping POSition 0 – SOF1 – EOF (see Chapter 7)TIMEPOS can only be changed if TIMEEN=0, but it is possible to modify TIMPOS withthe same write access that sets TIMEEN=1."]
     #[inline(always)]
-    pub fn timepos(&mut self) -> TIMEPOS_W<1> {
-        TIMEPOS_W::new(self)
+    pub fn timepos(&self) -> TIMEPOS_R {
+        TIMEPOS_R::new(((self.bits >> 1) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bit 0 - TIME-stamping ENable 0 – disabled 1 – enabled"]
     #[inline(always)]
+    #[must_use]
     pub fn timeen(&mut self) -> TIMEEN_W<0> {
         TIMEEN_W::new(self)
+    }
+    #[doc = "Bit 1 - TIME-stamping POSition 0 – SOF1 – EOF (see Chapter 7)TIMEPOS can only be changed if TIMEEN=0, but it is possible to modify TIMPOS withthe same write access that sets TIMEEN=1."]
+    #[inline(always)]
+    #[must_use]
+    pub fn timepos(&mut self) -> TIMEPOS_W<1> {
+        TIMEPOS_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -84,11 +86,10 @@ impl crate::Readable for TIMECFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [timecfg::W](W) writer structure"]
 impl crate::Writable for TIMECFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TIMECFG to value 0"]
 impl crate::Resettable for TIMECFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

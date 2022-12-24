@@ -34,37 +34,39 @@ impl From<crate::W<SECURE_STATE_CONFIG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `LOCK` reader - Lock bit of allow restart setting, once locked, lock bit itself and configuration register will keep value until next reset 0: not locked, register can be modified 1: register locked, write access to the register is ignored"]
-pub type LOCK_R = crate::BitReader<bool>;
-#[doc = "Field `LOCK` writer - Lock bit of allow restart setting, once locked, lock bit itself and configuration register will keep value until next reset 0: not locked, register can be modified 1: register locked, write access to the register is ignored"]
-pub type LOCK_W<'a, const O: u8> = crate::BitWriter<'a, u32, SECURE_STATE_CONFIG_SPEC, bool, O>;
 #[doc = "Field `ALLOW_RESTART` reader - allow secure state restart from fail state 0: restart is not allowed, only hardware reset can recover secure state 1: software is allowed to switch to inspect state from fail state"]
 pub type ALLOW_RESTART_R = crate::BitReader<bool>;
 #[doc = "Field `ALLOW_RESTART` writer - allow secure state restart from fail state 0: restart is not allowed, only hardware reset can recover secure state 1: software is allowed to switch to inspect state from fail state"]
 pub type ALLOW_RESTART_W<'a, const O: u8> =
     crate::BitWriter<'a, u32, SECURE_STATE_CONFIG_SPEC, bool, O>;
+#[doc = "Field `LOCK` reader - Lock bit of allow restart setting, once locked, lock bit itself and configuration register will keep value until next reset 0: not locked, register can be modified 1: register locked, write access to the register is ignored"]
+pub type LOCK_R = crate::BitReader<bool>;
+#[doc = "Field `LOCK` writer - Lock bit of allow restart setting, once locked, lock bit itself and configuration register will keep value until next reset 0: not locked, register can be modified 1: register locked, write access to the register is ignored"]
+pub type LOCK_W<'a, const O: u8> = crate::BitWriter<'a, u32, SECURE_STATE_CONFIG_SPEC, bool, O>;
 impl R {
-    #[doc = "Bit 3 - Lock bit of allow restart setting, once locked, lock bit itself and configuration register will keep value until next reset 0: not locked, register can be modified 1: register locked, write access to the register is ignored"]
-    #[inline(always)]
-    pub fn lock(&self) -> LOCK_R {
-        LOCK_R::new(((self.bits >> 3) & 1) != 0)
-    }
     #[doc = "Bit 0 - allow secure state restart from fail state 0: restart is not allowed, only hardware reset can recover secure state 1: software is allowed to switch to inspect state from fail state"]
     #[inline(always)]
     pub fn allow_restart(&self) -> ALLOW_RESTART_R {
         ALLOW_RESTART_R::new((self.bits & 1) != 0)
     }
-}
-impl W {
     #[doc = "Bit 3 - Lock bit of allow restart setting, once locked, lock bit itself and configuration register will keep value until next reset 0: not locked, register can be modified 1: register locked, write access to the register is ignored"]
     #[inline(always)]
-    pub fn lock(&mut self) -> LOCK_W<3> {
-        LOCK_W::new(self)
+    pub fn lock(&self) -> LOCK_R {
+        LOCK_R::new(((self.bits >> 3) & 1) != 0)
     }
+}
+impl W {
     #[doc = "Bit 0 - allow secure state restart from fail state 0: restart is not allowed, only hardware reset can recover secure state 1: software is allowed to switch to inspect state from fail state"]
     #[inline(always)]
+    #[must_use]
     pub fn allow_restart(&mut self) -> ALLOW_RESTART_W<0> {
         ALLOW_RESTART_W::new(self)
+    }
+    #[doc = "Bit 3 - Lock bit of allow restart setting, once locked, lock bit itself and configuration register will keep value until next reset 0: not locked, register can be modified 1: register locked, write access to the register is ignored"]
+    #[inline(always)]
+    #[must_use]
+    pub fn lock(&mut self) -> LOCK_W<3> {
+        LOCK_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -85,11 +87,10 @@ impl crate::Readable for SECURE_STATE_CONFIG_SPEC {
 #[doc = "`write(|w| ..)` method takes [secure_state_config::W](W) writer structure"]
 impl crate::Writable for SECURE_STATE_CONFIG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets SECURE_STATE_CONFIG to value 0"]
 impl crate::Resettable for SECURE_STATE_CONFIG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

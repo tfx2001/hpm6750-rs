@@ -34,38 +34,40 @@ impl From<crate::W<PRD_CFG_CHN5_PRD_CFG_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `PRESCALE` reader - 0: 1xclock, 1: 2x, 2: 4x, 3: 8x,…,15: 32768x,…,31: 2Gx"]
-pub type PRESCALE_R = crate::FieldReader<u8, u8>;
-#[doc = "Field `PRESCALE` writer - 0: 1xclock, 1: 2x, 2: 4x, 3: 8x,…,15: 32768x,…,31: 2Gx"]
-pub type PRESCALE_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, PRD_CFG_CHN5_PRD_CFG_SPEC, u8, u8, 5, O>;
 #[doc = "Field `PRD` reader - conver period, with prescale. Set to 0 means disable current channel"]
 pub type PRD_R = crate::FieldReader<u8, u8>;
 #[doc = "Field `PRD` writer - conver period, with prescale. Set to 0 means disable current channel"]
 pub type PRD_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, PRD_CFG_CHN5_PRD_CFG_SPEC, u8, u8, 8, O>;
+#[doc = "Field `PRESCALE` reader - 0: 1xclock, 1: 2x, 2: 4x, 3: 8x,…,15: 32768x,…,31: 2Gx"]
+pub type PRESCALE_R = crate::FieldReader<u8, u8>;
+#[doc = "Field `PRESCALE` writer - 0: 1xclock, 1: 2x, 2: 4x, 3: 8x,…,15: 32768x,…,31: 2Gx"]
+pub type PRESCALE_W<'a, const O: u8> =
+    crate::FieldWriter<'a, u32, PRD_CFG_CHN5_PRD_CFG_SPEC, u8, u8, 5, O>;
 impl R {
-    #[doc = "Bits 8:12 - 0: 1xclock, 1: 2x, 2: 4x, 3: 8x,…,15: 32768x,…,31: 2Gx"]
-    #[inline(always)]
-    pub fn prescale(&self) -> PRESCALE_R {
-        PRESCALE_R::new(((self.bits >> 8) & 0x1f) as u8)
-    }
     #[doc = "Bits 0:7 - conver period, with prescale. Set to 0 means disable current channel"]
     #[inline(always)]
     pub fn prd(&self) -> PRD_R {
         PRD_R::new((self.bits & 0xff) as u8)
     }
-}
-impl W {
     #[doc = "Bits 8:12 - 0: 1xclock, 1: 2x, 2: 4x, 3: 8x,…,15: 32768x,…,31: 2Gx"]
     #[inline(always)]
-    pub fn prescale(&mut self) -> PRESCALE_W<8> {
-        PRESCALE_W::new(self)
+    pub fn prescale(&self) -> PRESCALE_R {
+        PRESCALE_R::new(((self.bits >> 8) & 0x1f) as u8)
     }
+}
+impl W {
     #[doc = "Bits 0:7 - conver period, with prescale. Set to 0 means disable current channel"]
     #[inline(always)]
+    #[must_use]
     pub fn prd(&mut self) -> PRD_W<0> {
         PRD_W::new(self)
+    }
+    #[doc = "Bits 8:12 - 0: 1xclock, 1: 2x, 2: 4x, 3: 8x,…,15: 32768x,…,31: 2Gx"]
+    #[inline(always)]
+    #[must_use]
+    pub fn prescale(&mut self) -> PRESCALE_W<8> {
+        PRESCALE_W::new(self)
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]
@@ -86,11 +88,10 @@ impl crate::Readable for PRD_CFG_CHN5_PRD_CFG_SPEC {
 #[doc = "`write(|w| ..)` method takes [prd_cfg_chn5_prd_cfg::W](W) writer structure"]
 impl crate::Writable for PRD_CFG_CHN5_PRD_CFG_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets PRD_CFG_CHN5_PRD_CFG to value 0"]
 impl crate::Resettable for PRD_CFG_CHN5_PRD_CFG_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

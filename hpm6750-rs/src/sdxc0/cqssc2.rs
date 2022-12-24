@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:15 - This field provides CQE with the contents of the 16-bit RCA field in SEND_QUEUE_STATUS (CMD13) command argument. CQE copies this field to bits 31:16 of the argument when transmitting SEND_ QUEUE_STATUS (CMD13) command."]
     #[inline(always)]
+    #[must_use]
     pub fn sqscmd_rca(&mut self) -> SQSCMD_RCA_W<0> {
         SQSCMD_RCA_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for CQSSC2_SPEC {
 #[doc = "`write(|w| ..)` method takes [cqssc2::W](W) writer structure"]
 impl crate::Writable for CQSSC2_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets CQSSC2 to value 0"]
 impl crate::Resettable for CQSSC2_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }

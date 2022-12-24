@@ -48,6 +48,7 @@ impl R {
 impl W {
     #[doc = "Bits 0:31 - Timestamp Addend Register This field indicates the 32-bit time value to be added to the Accumulator register to achieve time synchronization."]
     #[inline(always)]
+    #[must_use]
     pub fn tsar(&mut self) -> TSAR_W<0> {
         TSAR_W::new(self)
     }
@@ -70,11 +71,10 @@ impl crate::Readable for TS_ADDEND_SPEC {
 #[doc = "`write(|w| ..)` method takes [ts_addend::W](W) writer structure"]
 impl crate::Writable for TS_ADDEND_SPEC {
     type Writer = W;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
 }
 #[doc = "`reset()` method sets TS_ADDEND to value 0"]
 impl crate::Resettable for TS_ADDEND_SPEC {
-    #[inline(always)]
-    fn reset_value() -> Self::Ux {
-        0
-    }
+    const RESET_VALUE: Self::Ux = 0;
 }
