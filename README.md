@@ -1,3 +1,7 @@
+# Note
+
+**Move to https://github.com/tfx2001/hpm-ral**.
+
 # Build
 
 ```shell
